@@ -1,0 +1,648 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { useTranslations, localePath } from "@i18n/index";
+import type { Locale } from "@i18n/index";
+import Maps from "@components/sections/Maps.astro";
+import "@styles/components/itinerario/tourDetailPage.css";
+import { toursData } from "src/data/tours";
+import {
+  getItinerarioByTourId,
+  groupDaysByLocation,
+} from "src/data/itinerarios";
+
+interface Props {
+  lang: Locale;
+  tourId: string;
+}
+
+const { lang, tourId } = Astro.props;
+const t = useTranslations(lang);
+const r = t.recorridos;
+
+const tour = toursData.find((t) => t.id === tourId);
+const itinerario = getItinerarioByTourId(tourId);
+
+if (!tour || !itinerario) {
+  return Astro.redirect(`/${lang}/itinerarios`);
+}
+
+const tag = r.tagTranslations[tour.tagKey] || tour.tagKey;
+const description = r.tourDescriptions[tour.descriptionKey] || "";
+const durationDays = itinerario.days.length;
+const durationNigth = itinerario.days.length - 1;
+const durationText = `${durationDays} ${durationDays === 1 ? "día" : "días"}`;
+const durationNightText = `${durationNigth} ${durationNigth === 1 ? "noche" : "noches"}`;
+
+// Agrupar días por ciudad
+const groupedDays = groupDaysByLocation(itinerario.days);
+
+// Waypoints para el mapa
+const locationColors = ["#3e4b3c", "#478a3d", "#5a9e4f", "#6bae5f"];
+
+type Waypoint = {
+  id: string;
+  name: string;
+  lat: number;
+  lng: number;
+  zoom: number;
+  color: string;
+  image: string;
+  desc: string;
+};
+
+const mapWaypoints: Waypoint[] = itinerario.locations
+  .map((loc, idx) => {
+    const key = loc.name.toLowerCase().replace(/\s+/g, "-");
+    const locationDays = groupedDays[key] ?? [];
+    const dayWithCoords = locationDays.find(
+      (d) => d.lat !== undefined && d.lng !== undefined,
+    );
+    if (!dayWithCoords) return null;
+    const dayWithImage = locationDays.find((d) => d.itinerarioImage);
+    return {
+      id: key,
+      name: loc.name,
+      lat: dayWithCoords.lat!,
+      lng: dayWithCoords.lng!,
+      zoom: 12,
+      color: locationColors[idx % locationColors.length] ?? "#3e4b3c",
+      image: dayWithImage?.itinerarioImage ?? tour.image ?? "",
+      desc: `${loc.icon} ${loc.name}`,
+    };
+  })
+  .filter((wp): wp is Waypoint => wp !== null);
+---
+
+<BaseLayout fullscreen={true} title={tour.title} description={description} image={tour.image}>
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- HERO                                                                    -->
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="tour-hero-wrapper">
+    <section class="tour-hero">
+      <div class="tour-hero__media">
+        <img
+          src={tour.image}
+          alt={tour.title}
+          class="tour-hero__img"
+          fetchpriority="high"
+        />
+        <div class="tour-hero__overlay"></div>
+        <div class="tour-hero__overlay-dark"></div>
+        <div class="tour-hero__gradient-edge"></div>
+      </div>
+
+      <div class="tour-hero__container">
+        <a
+          href={localePath(lang, "/itinerarios")}
+          class="back-link"
+          data-reveal="fade-up"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M19 12H5M5 12L12 19M5 12L12 5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"></path>
+          </svg>
+          Todos los tours
+        </a>
+
+        <div class="tour-hero__badge" data-reveal="fade-up" data-delay="80">
+          <span class="tour-hero__badge-dot"></span>
+          <span class="tour-hero__badge-text">{tag}</span>
+        </div>
+
+        <h1 class="tour-hero__title" data-reveal="fade-up" data-delay="160">
+          {tour.title}
+        </h1>
+
+        <div class="tour-hero__divider" data-reveal="scale" data-delay="240">
+          <span class="tour-hero__divider-line"></span>
+          <span class="tour-hero__divider-icon">●</span>
+          <span class="tour-hero__divider-line"></span>
+        </div>
+
+        <p class="tour-hero__subtitle" data-reveal="fade-up" data-delay="320">
+          {description}
+        </p>
+
+        <div class="tour-hero__meta" data-reveal="fade-up" data-delay="400">
+          <div class="tour-hero__meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>{durationText}</span>
+          </div>
+          <div class="tour-hero__meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>{durationNightText}</span>
+          </div>
+          <div class="tour-hero__meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>{itinerario.bestSeason}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- ITINERARIO                                                              -->
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="itinerary-section">
+    <div class="itinerary-container">
+      <div class="itinerary-header" data-reveal="fade-up">
+        <span class="itinerary-kicker">Ruta del Viaje</span>
+        <h2 class="itinerary-title">{tour.title}</h2>
+        <div class="itinerary-divider"></div>
+        <p class="itinerary-subtitle">
+          <svg width="24" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          {itinerario.duration}
+        </p>
+      </div>
+
+      <div class="itinerary-grid">
+        <!-- COLUMNA IZQUIERDA: DÍAS -->
+        <div class="itinerary-days">
+          {
+            itinerario.locations.map((loc) => {
+              const key = loc.name.toLowerCase().replace(/\s+/g, "-");
+              const locationDays = groupedDays[key] ?? [];
+
+              return (
+                <div class="location-group">
+                  <div class="location-pin js-location-label">
+                    <div class="location-pin__icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      </svg>
+                    </div>
+                    <span class="location-pin__text">
+                      {loc.icon} {loc.name}
+                    </span>
+                  </div>
+
+                  <div class="days-timeline">
+                    {locationDays.map((day, idx) => (
+                      <div class="day-card" data-reveal="fade-up" data-delay={String(idx * 80)}>
+                        <div class="day-card__header">
+                          <div class="day-card__number">
+                            <span>Día {day.day}</span>
+                          </div>
+                          <h3 class="day-card__title">{day.title}</h3>
+                        </div>
+
+                        {/* ── DESCRIPCIÓN COMO PÁRRAFOS ── */}
+                        <div class="day-card__description">
+                          {day.description.map((paragraph) => (
+                            <p>{paragraph}</p>
+                          ))}
+                        </div>
+
+                        {day.activities && day.activities.length > 0 && (
+                          <div class="day-card__activities">
+                            <div class="activities-header">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L15 8H22L16 13L18 20L12 16L6 20L8 13L2 8H9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                              </svg>
+                              <span>Actividades destacadas</span>
+                            </div>
+                            <ul class="activities-list">
+                              {day.activities.map((act) => (<li>{act}</li>))}
+                            </ul>
+                          </div>
+                        )}
+
+                        <div class="day-card__info">
+                          {day.accommodation && (
+                            <div class="day-card__info-item">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 9L12 3L21 9L12 15L3 9Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                <path d="M5 12V18L12 22L19 18V12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                              </svg>
+                              <span>{day.accommodation}</span>
+                            </div>
+                          )}
+                          {day.meals && day.meals.length > 0 && (
+                            <div class="day-card__info-item">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C13.5 4 15 6 15 9C15 11 13.5 13 12 13C10.5 13 9 11 9 9C9 6 10.5 4 12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                <path d="M5 20H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M12 13V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                              </svg>
+                              <span>{day.meals.join(" · ")}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+
+        <!-- COLUMNA DERECHA: MAPA -->
+        <div class="itinerary-map-wrap" transition:persist>
+          <Maps waypoints={mapWaypoints} />
+        </div>
+      </div>
+
+      <!-- ACORDEÓN MOBILE -->
+      <div class="mobile-accordion" id="mobileAccordion">
+        {
+          itinerario.locations.map((loc, locIdx) => {
+            const key = loc.name.toLowerCase().replace(/\s+/g, "-");
+            const locationDays = groupedDays[key] ?? [];
+            const firstDay = locationDays[0]?.day ?? 1;
+            const lastDay = locationDays[locationDays.length - 1]?.day ?? 1;
+            const imgDay = locationDays.find((d) => d.itinerarioImage);
+            const img = imgDay?.itinerarioImage ?? tour.image ?? "";
+            const isFirst = locIdx === 0;
+
+            return (
+              <div class="mobile-location">
+                <button class={`mobile-location__trigger ${isFirst ? "is-open" : ""}`} data-mobile-idx={locIdx} type="button">
+                  <div class="mobile-location__left">
+                    <span class="mobile-location__dot" />
+                    <span class="mobile-location__name">{loc.icon} {loc.name}</span>
+                  </div>
+                  <div class="mobile-location__right">
+                    <span class="mobile-location__badge">
+                      {firstDay === lastDay ? `Día ${firstDay}` : `Días ${firstDay}–${lastDay}`}
+                    </span>
+                    <svg class="mobile-location__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </button>
+                <div class={`mobile-location__content ${isFirst ? "is-open" : ""}`}>
+                  {img && (
+                    <div class="mobile-location__image">
+                      <img src={img} alt={loc.name} loading="lazy" />
+                    </div>
+                  )}
+                  <div class="mobile-days">
+                    {locationDays.map((day) => (
+                      <div class="mobile-day">
+                        <div class="mobile-day__header">
+                          <span class="mobile-day__number">Día {day.day}</span>
+                          <h4 class="mobile-day__title">{day.title}</h4>
+                        </div>
+
+                        {/* ── DESCRIPCIÓN COMO PÁRRAFOS (MOBILE) ── */}
+                        <div class="mobile-day__description">
+                          {day.description.map((paragraph) => (
+                            <p>{paragraph}</p>
+                          ))}
+                        </div>
+
+                        {day.activities && day.activities.length > 0 && (
+                          <div class="mobile-day__activities">
+                            <strong>Actividades:</strong>
+                            <ul>
+                              {day.activities.map((act) => (<li>{act}</li>))}
+                            </ul>
+                          </div>
+                        )}
+                        <div class="mobile-day__info">
+                          {day.accommodation && (<span>🏨 {day.accommodation}</span>)}
+                          {day.meals && day.meals.length > 0 && (<span>🍽️ {day.meals.join(" · ")}</span>)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      {/* ACTIVIDADES OPCIONALES */}
+      {itinerario.optionalActivities && itinerario.optionalActivities.length > 0 && (
+        <section class="optional-section" data-reveal="fade-up">
+          <div class="optional-section__header">
+            <div class="optional-section__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <span class="optional-section__kicker">Mejora tu experiencia</span>
+              <h2 class="optional-section__title">Actividades Opcionales</h2>
+            </div>
+          </div>
+          <p class="optional-section__subtitle">Complementa tu viaje con estas experiencias únicas disponibles durante tu estadía</p>
+
+          <div class="optional-grid">
+            {itinerario.optionalActivities.map((opt) => {
+              const isMealOptions = opt.mealOptions && opt.mealOptions.length > 0;
+              
+              return (
+                <div class={`optional-card ${isMealOptions ? 'optional-card--meal-options' : ''}`}>
+                  {isMealOptions ? (
+                    <div class="optional-card__content meal-options-layout">
+                      {opt.image && opt.image !== "" && (
+                        <div class="optional-card__image">
+                          <img src={opt.image} alt={opt.title} loading="lazy" />
+                        </div>
+                      )}
+                      <div class="optional-card__text-wrapper">
+                        <h3 class="optional-card__title">{opt.title}</h3>
+                        <div class="meal-options-container">
+                          <p class="meal-options-description">{opt.description}</p>
+                          <ul class="meal-options-list">
+                            {opt.mealOptions!.map((meal: any) => (
+                              <li class="meal-option-item">
+                                <span class="meal-option-name">{typeof meal === 'string' ? meal : meal.name}</span>
+                                {typeof meal !== 'string' && meal.type && (<span class="meal-option-badge">{meal.type}</span>)}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      {opt.image && opt.image !== "" && (
+                        <div class="optional-card__image">
+                          <img src={opt.image} alt={opt.title} loading="lazy" />
+                        </div>
+                      )}
+                      <div class="optional-card__content">
+                        <h3 class="optional-card__title">{opt.title}</h3>
+                        <div class="optional-card__text-wrapper">
+                          <p class="optional-card__description" data-description-id={opt.id}>{opt.description}</p>
+                          <button class="optional-card__read-more" data-read-more-id={opt.id} type="button">
+                            <span class="read-more-text">Leer más</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+    </div>
+  </section>
+
+  <!-- INCLUYE / NO INCLUYE -->
+  <section class="includes-section">
+    <div class="includes-container">
+      <div class="includes-header" data-reveal="fade-up">
+        <span class="includes-kicker">Detalles del viaje</span>
+        <h2 class="includes-title">Qué incluye tu experiencia</h2>
+        <div class="includes-divider"></div>
+        <p class="includes-subtitle">Todo lo que necesitas saber para planificar tu aventura</p>
+      </div>
+
+      <div class="includes-grid">
+        <div class="include-card include-card--included" data-reveal="fade-right">
+          <div class="include-card__header">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="include-card__title-wrapper">
+              <h3 class="include-card__title">Incluye</h3>
+              <span class="include-card__count">{itinerario.included?.length ?? 0} servicios</span>
+            </div>
+          </div>
+          <div class="include-card__divider"></div>
+          <ul class="include-card__list">
+            {(itinerario.included ?? []).map((item, idx) => (
+              <li style={`--i:${idx}`}>
+                <span class="list-icon">✓</span>
+                <span class="list-text">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="include-card__footer">
+            <span class="include-card__note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Todos los servicios están garantizados
+            </span>
+          </div>
+        </div>
+
+        <div class="include-card include-card--excluded" data-reveal="fade-left">
+          <div class="include-card__header">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="include-card__title-wrapper">
+              <h3 class="include-card__title">No incluye</h3>
+              <span class="include-card__count include-card__count--excluded">{itinerario.notIncluded?.length ?? 0} excepciones</span>
+            </div>
+          </div>
+          <div class="include-card__divider include-card__divider--excluded"></div>
+          <ul class="include-card__list include-card__list--excluded">
+            {(itinerario.notIncluded ?? []).map((item, idx) => (
+              <li style={`--i:${idx}`}>
+                <span class="list-icon list-icon--excluded">✕</span>
+                <span class="list-text">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="include-card__footer include-card__footer--excluded">
+            <span class="include-card__note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Consulta disponibilidad para más detalles
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="includes-badge" data-reveal="fade-up" data-delay="200">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>¿Necesitas información específica sobre algún servicio? </span>
+        <a href={localePath(lang, "/contacto")}>Contáctanos →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="cta-final__pattern"></div>
+    <div class="cta-final__container">
+      <div class="cta-final__content" data-reveal="fade-up">
+        <span class="cta-final__kicker">{r.ctaEyebrow}</span>
+        <h2 class="cta-final__title">
+          ¿Listo para vivir esta<span>experiencia única?</span>
+        </h2>
+        <div class="cta-final__buttons">
+          <a href={localePath(lang, "/planificador")} class="btn-primary">
+            Personalizar viaje
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a href={localePath(lang, "/contacto")} class="btn-secondary">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  let labelObserver: IntersectionObserver | null = null;
+  let scrollCleanup: (() => void) | null = null;
+  let accordionCleanups: (() => void)[] = [];
+  let readMoreCleanups: (() => void)[] = [];
+
+  function cleanup() {
+    if (labelObserver) {
+      labelObserver.disconnect();
+      labelObserver = null;
+    }
+    if (scrollCleanup) {
+      scrollCleanup();
+      scrollCleanup = null;
+    }
+    accordionCleanups.forEach((cleanup) => cleanup());
+    accordionCleanups = [];
+    readMoreCleanups.forEach((cleanup) => cleanup());
+    readMoreCleanups = [];
+  }
+
+  function initReadMoreButtons() {
+    const readMoreButtons = document.querySelectorAll('[data-read-more-id]');
+    
+    readMoreButtons.forEach((button) => {
+      const activityId = button.getAttribute('data-read-more-id');
+      const description = document.querySelector(`[data-description-id="${activityId}"]`);
+      const card = button.closest('.optional-card');
+      
+      if (card?.classList.contains('optional-card--meal-options')) {
+        (button as HTMLElement).style.display = 'none';
+        return;
+      }
+      
+      if (!description) return;
+      
+      const textLength = description.textContent?.length || 0;
+      const isLongText = textLength > 300;
+      
+      if (!isLongText) {
+        (button as HTMLElement).style.display = 'none';
+        description.classList.add('short-text');
+        return;
+      }
+      
+      description.classList.add('collapsed');
+      
+      const newButton = button.cloneNode(true) as HTMLElement;
+      button.parentNode?.replaceChild(newButton, button);
+      
+      const handleReadMore = () => {
+        const isCollapsed = description.classList.contains('collapsed');
+        const span = newButton.querySelector('.read-more-text');
+        const svg = newButton.querySelector('svg');
+        
+        if (isCollapsed) {
+          description.classList.remove('collapsed');
+          description.classList.add('expanded');
+          if (span) span.textContent = 'Leer menos';
+          if (svg) svg.style.transform = 'rotate(90deg)';
+        } else {
+          description.classList.add('collapsed');
+          description.classList.remove('expanded');
+          if (span) span.textContent = 'Leer más';
+          if (svg) svg.style.transform = 'rotate(0deg)';
+        }
+      };
+      
+      newButton.addEventListener('click', handleReadMore);
+      
+      readMoreCleanups.push(() => {
+        newButton.removeEventListener('click', handleReadMore);
+      });
+    });
+  }
+
+  function initTourPage(): void {
+    cleanup();
+
+    const locationLabels = document.querySelectorAll(".js-location-label");
+    if (locationLabels.length) {
+      labelObserver = new IntersectionObserver(
+        (entries: IntersectionObserverEntry[]) =>
+          entries.forEach((e) => e.target.classList.toggle("is-active", e.isIntersecting)),
+        { rootMargin: "-20% 0px -60% 0px", threshold: 0.5 }
+      );
+      locationLabels.forEach((el: Element) => labelObserver?.observe(el));
+    }
+
+    const closeAll = (): void => {
+      document.querySelectorAll<HTMLElement>(".mobile-location__trigger").forEach((btn: HTMLElement) => {
+        btn.classList.remove("is-open");
+        btn.closest(".mobile-location")?.querySelector<HTMLElement>(".mobile-location__content")?.classList.remove("is-open");
+      });
+    };
+
+    const openAccordion = (trigger: HTMLElement): void => {
+      closeAll();
+      trigger.classList.add("is-open");
+      trigger.closest(".mobile-location")?.querySelector<HTMLElement>(".mobile-location__content")?.classList.add("is-open");
+    };
+
+    const triggers = document.querySelectorAll<HTMLElement>(".mobile-location__trigger");
+
+    triggers.forEach((trigger: HTMLElement, i: number) => {
+      const freshTrigger = trigger.cloneNode(true) as HTMLElement;
+      trigger.parentNode?.replaceChild(freshTrigger, trigger);
+
+      const handleClick = () => {
+        const isOpen = freshTrigger.classList.contains("is-open");
+        isOpen ? closeAll() : openAccordion(freshTrigger);
+      };
+
+      freshTrigger.addEventListener("click", handleClick);
+      accordionCleanups.push(() => {
+        freshTrigger.removeEventListener("click", handleClick);
+      });
+
+      if (i === 0) openAccordion(freshTrigger);
+    });
+
+    initReadMoreButtons();
+  }
+
+  document.addEventListener("astro:before-swap", cleanup);
+  document.addEventListener("astro:page-load", initTourPage);
+
+  if (document.readyState !== "loading") {
+    initTourPage();
+  } else {
+    document.addEventListener("DOMContentLoaded", initTourPage);
+  }
+</script>

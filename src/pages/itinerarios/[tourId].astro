@@ -1,0 +1,14 @@
+---
+import TourDetailPage from '@components/pages/TourDetailPage.astro';
+import { defaultLocale } from '@i18n/index';
+import { toursData } from 'src/data/tours';
+
+export function getStaticPaths() {
+  return toursData.map(tour => ({
+    params: { tourId: tour.id },
+  }));
+}
+
+const { tourId } = Astro.params;
+---
+<TourDetailPage lang={defaultLocale} tourId={tourId!} />

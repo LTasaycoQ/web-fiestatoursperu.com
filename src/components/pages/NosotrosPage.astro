@@ -1,0 +1,193 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { localePath, useTranslations, type Locale } from '@i18n/index';
+import { nosotrosFeatures, nosotrosRazones, nosotrosStats } from 'src/data/nosotros';
+import "@styles/components/about/nosotrosPage.css";
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const n = t.about;
+
+const features = nosotrosFeatures.map(feature => ({
+  icon: feature.icon,
+  title: n.featureTranslations[feature.titleKey] || "",
+  desc: n.featureTranslations[feature.descKey] || "",
+  badge: feature.badge
+}));
+
+const razones = nosotrosRazones.map(razon => n.razonTranslations[razon.key] || "");
+
+const stats = nosotrosStats.map(stat => ({
+  num: stat.num,
+  label: n[stat.labelKey as keyof typeof n] || ""
+}));
+
+const icons: Record<string, string> = {
+  medal: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="6"/><path d="M7 7V3h10v4"/><path d="M7 7l5 6 5-6"/></svg>`,
+  compass: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3L12 21l9.3-10.7L17 3H7L2.7 10.3z"/><path d="M7 3l2.5 7.3M17 3l-2.5 7.3M2.7 10.3h18.6M9.5 10.3L12 21M14.5 10.3L12 21"/></svg>`,
+  leaf: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l4 1 4-3 4 3 4-1v13l-4 1-4-3-4 3-4-1z"/><path d="M7 7v13M11 4v13M15 7v13"/></svg>`,
+  phone: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-8 5-8 12a8 8 0 0 0 16 0c0-7-8-12-8-12z"/><path d="M12 2v20"/><path d="M8 10c1.5 1 2.5 2 4 2"/><path d="M16 10c-1.5 1-2.5 2-4 2"/><path d="M8 16c1.5 1 2.5 1.5 4 1.5"/><path d="M16 16c-1.5 1-2.5 1.5-4 1.5"/></svg>`,
+};
+---
+
+<BaseLayout fullscreen={true} title={`Nosotros — Fiesta Tours Perú`} description="Conoce a Fiesta Tours Perú, operadora de turismo receptivo de lujo especializada desde 1976.">
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- HERO - FULL SCREEN (como itinerarios)                                      -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="rec-hero">
+    <div class="rec-hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1800&q=85&auto=format&fit=crop"
+        alt="Machu Picchu al amanecer"
+        aria-hidden="true"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="rec-hero__overlay"></div>
+
+    <div class="rec-hero__vert-line"></div>
+
+    <div class="rec-hero__container">
+      <div class="rec-hero__eyebrow" data-reveal="fade-up">
+        <span class="rec-hero__dot"></span>
+        <span>{n.heroBadge || "DESDE 1976 · 50+ AÑOS DE EXCELENCIA"}</span>
+      </div>
+
+      <h1 class="rec-hero__title" data-reveal="fade-up" data-delay="100">
+        {n.heroTitleLine1 || "La empresa"}<br/>
+        <em>{n.heroTitleLine2 || "Detrás del viaje"}</em><br/>
+        {n.heroTitleLine3 || "perfecto."}
+      </h1>
+
+      <p class="rec-hero__subtitle" data-reveal="fade-up" data-delay="200">
+        {n.heroSubtitle || "Operadora de turismo receptivo de lujo — especializada en el mercado más exigente de América Latina."}
+      </p>
+
+      <div class="rec-hero__actions" data-reveal="fade-up" data-delay="300">
+        <a href="#descubrir" class="rec-hero__btn-primary">
+          {n.heroBtnPrimary || "Descubrir más"}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a href={localePath(lang, "/contacto")} class="rec-hero__btn-ghost">
+          {n.heroBtnSecondary || "Contactar expertos"}
+        </a>
+      </div>
+
+      <div class="rec-hero__stats" data-reveal="fade-up" data-delay="400">
+        {stats.map((stat, idx) => (
+          <>
+            <div class="rec-hero__stat">
+              <strong>{stat.num}</strong>
+              <span>{stat.label}</span>
+            </div>
+            {idx < stats.length - 1 && <div class="rec-hero__stat-divider"></div>}
+          </>
+        ))}
+      </div>
+    </div>
+
+    <div class="rec-hero__scroll">
+      <div class="rec-hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- EMPRESA / HISTORIA                                                          -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section ns-empresa" id="descubrir">
+    <div class="ns-grid-empresa">
+      <div class="ns-empresa__text">
+        <span class="eyebrow-tag" data-reveal="fade-up">{n.empresaEyebrow || "LA EMPRESA"}</span>
+        <h2 class="display-h2" data-reveal="fade-up" set:html={n.empresaTitle || "Más de cuatro décadas<br>creando lo extraordinario."}></h2>
+        <div class="verde-stroke" data-reveal="fade-up"></div>
+        <div class="prose-stack" data-reveal="fade-up">
+          <p set:html={n.empresaText1 || "<strong>Fiesta Tours Perú</strong> nace en 1976 con una misión clara: mostrar la grandeza del Perú al mundo."}></p>
+          <p>{n.empresaText2 || "Con más de cuatro décadas de experiencia, nos hemos consolidado como operadores de turismo receptivo de lujo para el mercado más exigente de América Latina y el mundo."}</p>
+          <p>{n.empresaText3 || "Nuestro equipo está formado por profesionales apasionados que conocen cada rincón del Perú como nadie más."}</p>
+          <p set:html={n.empresaText4 || "La <strong>autenticidad</strong>, el <strong>respeto</strong> por la cultura local y la <strong>excelencia</strong> en el servicio son los pilares que nos guían día a día."}></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- WHY / FEATURES - VALORES                                                    -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section ns-why">
+    <div class="ns-inner">
+      <div class="ns-why__head" data-reveal="fade-up">
+        <span class="eyebrow-tag">{n.whyEyebrow || "VALORES"}</span>
+        <h2 class="display-h2" set:html={n.whyTitle || "Por qué<br>elegirnos"}></h2>
+        <div class="verde-stroke"></div>
+        <p class="section-lead">{n.whyBody || "Cuatro pilares que definen nuestra forma de viajar"}</p>
+      </div>
+
+      <div class="features-quad">
+        {features.map((f, idx) => (
+          <div class="fcard" data-reveal="fade-up">
+            <div class="fcard__head">
+              <span class="fcard__idx">0{idx + 1}</span>
+              <div class="fcard__icon" set:html={icons[f.icon] || icons.medal} />
+            </div>
+            <h3 class="fcard__title">{f.title}</h3>
+            <p class="fcard__desc">{f.desc}</p>
+            {f.badge && <span class="fcard__badge">{f.badge}</span>}
+          </div>
+        ))}
+      </div>
+
+      <div class="ns-why__cta" data-reveal="fade-up">
+        <a href={localePath(lang, '/destinos')} class="cta-primary">
+          <span>Explorar nuestros destinos</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- RAZONES PARA VIAJAR A PERÚ                                                  -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section ns-razones">
+    <div class="ns-inner">
+      <header class="ns-header" data-reveal="fade-up">
+        <span class="eyebrow-tag">{n.razonesEyebrow || "POR QUÉ PERÚ"}</span>
+        <h2 class="display-h2" set:html={n.razonesTitle || "Razones para<br>enamorarte"}></h2>
+        <div class="verde-stroke"></div>
+      </header>
+
+      <div class="razones-grid">
+        {razones.map((r, i) => (
+          <div class="ritem" data-reveal="fade-up">
+            <span class="ritem__n">{String(i + 1).padStart(2, '0')}</span>
+            <p class="ritem__text">{r}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- CIERRE / CALL TO ACTION                                                     -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section ns-cierre">
+    <div class="cierre-content" data-reveal="fade-up">
+      <div class="cierre-ornament" aria-hidden="true">
+        <span class="orn-line"></span>
+        <span class="orn-gem">◆</span>
+        <span class="orn-line"></span>
+      </div>
+      <blockquote class="cierre-quote">{n.cierreQuote || "Cada viaje es una historia que merece ser vivida"}</blockquote>
+      <p class="cierre-firma">Atentamente, <strong>Fiesta Tours Perú</strong></p>
+      <a href={localePath(lang, "/contacto")} class="cta-primary cta-white">{n.cierreBtn || "Planifica tu experiencia"}</a>
+    </div>
+  </section>
+
+</BaseLayout>

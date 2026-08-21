@@ -1,0 +1,274 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { useTranslations, localePath } from "@i18n/index";
+import type { Locale } from "@i18n/index";
+import { crucerosData } from "src/data/cruceros";
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const c = t.cruceros;
+
+// ✅ Combinar datos puros + traducciones
+const cruises = crucerosData.map((crucero) => ({
+  id: crucero.id,
+  title: crucero.title,
+  tag: c.tagTranslations[crucero.tagKey] || crucero.tagKey,
+  desc: c.cruiseDescriptions[crucero.descriptionKey] || "",
+  duration: c.durationFormat.replace("{nights}", crucero.durationNights.toString()),
+  route: crucero.route,
+  img: crucero.id === "gran-expedicion-amazonica" 
+    ? "https://res.cloudinary.com/dlgeap8h0/image/upload/v1772650146/banner-amazon-river-cruises_orie2a_1_ponq23.webp"
+    : crucero.id === "amazonas-pacaya-samiria"
+    ? "https://res.cloudinary.com/dlgeap8h0/image/upload/v1772650146/banner-amazon-river-cruises_orie2a_1_ponq23.webp"
+    : "https://images.unsplash.com/photo-1531761535209-180857e963b9?w=800&q=80&auto=format&fit=crop"
+}));
+
+const amenities = [c.amen1, c.amen2, c.amen3, c.amen4, c.amen5, c.amen6];
+---
+
+<BaseLayout title={c.metaTitle} description={c.metaDesc}>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="cru-hero">
+    <div class="cru-hero__bg">
+      <img src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1772650146/banner-amazon-river-cruises_orie2a_1_ponq23.webp" alt="" aria-hidden="true" fetchpriority="high" />
+    </div>
+    <div class="cru-hero__overlay"></div>
+
+    <div class="cru-hero__particles" aria-hidden="true">
+      {Array.from({length: 8}).map((_, i) => <span class="particle" style={`--i:${i}`}></span>)}
+    </div>
+
+    <div class="cru-hero__content">
+      <p class="eyebrow-light reveal-up" style="--d:0s">{c.heroEyebrow}</p>
+      <h1 class="cru-hero__title reveal-up" style="--d:.13s">
+        {c.heroTitle.split('\n').map((line: string) => <>{line}<br/></>)}
+      </h1>
+      <span class="gold-rule reveal-up" style="--d:.24s; margin:22px auto;"></span>
+      <p class="cru-hero__sub reveal-up" style="--d:.34s">
+        {c.heroSubtitle.split('\n').map((line: string) => <>{line}<br/></>)}
+      </p>
+      <a href={localePath(lang, '/contacto')} class="btn-primary reveal-up" style="--d:.46s">
+        {c.heroCta}
+      </a>
+    </div>
+
+    <div class="cru-hero__wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO ═══ -->
+  <section class="cru-intro">
+    <div class="cru-intro__inner">
+      <div class="cru-intro__text js-reveal">
+        <p class="eyebrow">{c.introEyebrow}</p>
+        <h2 class="display-title">{c.introTitle}</h2>
+        <span class="gold-rule"></span>
+        <p class="section-body">{c.introBody}</p>
+      </div>
+      <div class="cru-intro__amenities js-reveal" style="--di:.1s">
+        <h3 class="amen-title">{c.amenitiesTitle}</h3>
+        <ul class="amen-list">
+          {amenities.map((a: string) => (
+            <li class="amen-item">
+              <span class="amen-check">✦</span>
+              <span>{a}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CRUISE CARDS ═══ -->
+  <section class="cru-list">
+    {cruises.map((cruise, idx) => (
+      <article class={`cruise-card js-reveal ${idx % 2 === 1 ? 'cruise-card--reverse' : ''}`} style={`--di:0s`}>
+        <div class="cruise-card__img">
+          <img src={cruise.img} alt={cruise.title} loading="lazy" width="700" height="500" />
+          <div class="cruise-card__img-overlay"></div>
+          <div class="cruise-card__meta-badges">
+            <span class="cruise-badge">
+              <span class="badge-icon">⏱</span>
+              <span class="badge-label">{c.durationLabel}</span>
+              <strong>{cruise.duration}</strong>
+            </span>
+            <span class="cruise-badge">
+              <span class="badge-icon">🗺</span>
+              <span class="badge-label">{c.routeLabel}</span>
+              <strong>{cruise.route}</strong>
+            </span>
+          </div>
+        </div>
+        <div class="cruise-card__body">
+          <p class="cruise-card__tag">{cruise.tag}</p>
+          <h3 class="cruise-card__title">{cruise.title}</h3>
+          <span class="gold-rule"></span>
+          <p class="cruise-card__desc">{cruise.desc}</p>
+          <a href={localePath(lang, '/contacto')} class="btn-primary" style="margin-top:28px">{c.cardCta}</a>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cru-cta">
+    <div class="cru-cta__inner">
+      <p class="eyebrow-light js-reveal">{c.ctaEyebrow}</p>
+      <h2 class="cru-cta__title js-reveal">{c.ctaTitle}</h2>
+      <div class="cta-actions js-reveal">
+        <a href={localePath(lang, '/contacto')} class="btn-primary">{c.ctaBtn1}</a>
+        <a href={localePath(lang, '/planificador')} class="btn-outline-light">{c.ctaBtn2}</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+:root { --gold:var(--color-gold,#c8962a); --darker:var(--color-darker,#1a1208); }
+
+@keyframes fadeUp     { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:none} }
+@keyframes floatUp    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes shimmer    { from{background-position:200% 0} to{background-position:-200% 0} }
+
+.reveal-up { animation:fadeUp .85s cubic-bezier(.22,1,.36,1) both; animation-delay:var(--d,0s); }
+.js-reveal  { opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1); }
+.js-reveal.visible { opacity:1;transform:none;transition-delay:var(--di,0s); }
+
+.eyebrow { font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px; }
+.eyebrow-light { font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:14px; }
+.gold-rule { display:block;width:52px;height:2px;background:var(--gold);margin:18px 0; }
+.section-body { font-size:15px;line-height:1.9;color:#666; }
+
+/* HERO */
+.cru-hero {
+  position:relative; height:100vh; min-height:640px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;text-align:center;
+}
+.cru-hero__bg { position:absolute;inset:0;
+  img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 16s ease;}
+}
+.cru-hero:hover .cru-hero__bg img { transform:scale(1); }
+.cru-hero__overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(175deg,rgba(8,20,30,.82) 0%,rgba(15,30,45,.5) 50%,rgba(8,20,30,.90) 100%);
+}
+.cru-hero__content { position:relative;z-index:2;padding:0 24px;max-width:780px; display:flex;flex-direction:column;align-items:center; }
+.cru-hero__title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,7vw,90px);font-weight:300;color:#fff;line-height:1.06;margin:12px 0;
+  letter-spacing:-.01em;
+}
+.cru-hero__sub { font-size:14px;line-height:2;color:rgba(255,255,255,.68);margin-bottom:36px; }
+
+/* Partículas */
+.cru-hero__particles { position:absolute;inset:0;pointer-events:none; }
+.particle {
+  position:absolute;
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(200,150,42,.5);
+  animation:floatUp calc(4s + var(--i,0) * 1.2s) ease-in-out infinite;
+  left:calc(10% + var(--i,0) * 12%);
+  top:calc(30% + var(--i,0) * 5%);
+  animation-delay:calc(var(--i,0) * .6s);
+}
+
+/* Wave */
+.cru-hero__wave { position:absolute;bottom:-1px;left:0;right:0;
+  svg{display:block;width:100%;height:80px;}
+}
+
+/* INTRO */
+.cru-intro { background:#f8f5f0; padding:88px 8%; }
+.cru-intro__inner { display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start; }
+.cru-intro__text .display-title { font-size:clamp(26px,2.8vw,40px);color:var(--darker); }
+
+.amen-title { font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--darker);margin-bottom:24px; }
+.amen-list { list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px; }
+.amen-item { display:flex;align-items:center;gap:12px;font-size:14px;color:#555;line-height:1.5; }
+.amen-check { color:var(--gold);font-size:12px;flex-shrink:0; }
+
+/* CRUISE CARDS */
+.cru-list { background:#fff; padding:80px 8%; display:flex;flex-direction:column;gap:0; }
+.cruise-card {
+  display:grid; grid-template-columns:1fr 1fr;
+  min-height:520px; position:relative;
+}
+.cruise-card + .cruise-card { border-top:1px solid rgba(200,150,42,.12); }
+.cruise-card--reverse { direction:rtl; }
+.cruise-card--reverse > * { direction:ltr; }
+
+.cruise-card__img {
+  position:relative; overflow:hidden;
+  img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+}
+.cruise-card:hover .cruise-card__img img { transform:scale(1.05); }
+.cruise-card__img-overlay { position:absolute;inset:0;background:linear-gradient(to right,rgba(15,8,2,.3),transparent 60%); }
+.cruise-card__meta-badges {
+  position:absolute;bottom:24px;left:24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.cruise-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(15,8,2,.6);backdrop-filter:blur(8px);
+  border:1px solid rgba(200,150,42,.3);
+  padding:8px 14px;border-radius:2px;
+  font-size:12px;color:#fff;
+}
+.badge-icon { font-size:14px; }
+.badge-label { color:rgba(255,255,255,.55);font-size:10px;text-transform:uppercase;letter-spacing:.12em; }
+.cruise-badge strong { font-weight:600; }
+
+.cruise-card__body {
+  padding:56px 52px;display:flex;flex-direction:column;
+  justify-content:center;background:#fff;
+}
+.cruise-card__tag { font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px; }
+.cruise-card__title { font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;color:var(--darker);line-height:1.2;margin-bottom:0; }
+.cruise-card__desc { font-size:14px;line-height:1.85;color:#666; }
+
+/* CTA */
+.cru-cta {
+  background:var(--darker);padding:100px 8%;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cru-cta::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(200,150,42,.1) 0%,transparent 70%); }
+.cru-cta__inner { position:relative;z-index:1;max-width:640px;margin:0 auto; }
+.cru-cta__title { font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,52px);font-weight:300;color:#fff;margin:14px 0 40px; }
+.cta-actions { display:flex;gap:16px;justify-content:center;flex-wrap:wrap; }
+.btn-outline-light { display:inline-block;padding:14px 38px;border:1px solid rgba(200,150,42,.45);color:rgba(255,255,255,.75);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:border-color .2s,color .2s; }
+.btn-outline-light:hover { border-color:var(--gold);color:var(--gold); }
+
+@media(max-width:960px) {
+  .cru-intro__inner { grid-template-columns:1fr; gap:48px; }
+  .cruise-card { grid-template-columns:1fr; min-height:auto; }
+  .cruise-card--reverse { direction:ltr; }
+  .cruise-card__img { aspect-ratio:16/9; }
+  .cruise-card__body { padding:36px 32px; }
+}
+@media(max-width:600px) {
+  .cru-intro { padding:64px 5%; }
+  .cru-list { padding:48px 5%; }
+  .cruise-card__body { padding:28px 20px; }
+}
+</style>
+
+<script>
+  function initCruceros() {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.js-reveal').forEach(el => obs.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", initCruceros);
+</script>

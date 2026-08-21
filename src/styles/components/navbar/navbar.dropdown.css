@@ -1,0 +1,71 @@
+/* ============================================
+   navbar.dropdown.css
+   Dropdowns premium con animaciones suaves
+   ============================================ */
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 260px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-inner {
+  background: rgba(48, 52, 52, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(71, 138, 61, 0.2);
+  border-radius: 16px;
+  padding: 0.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.dropdown-link,
+.dropdown-link:link,
+.dropdown-link:visited {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.dropdown-link:hover,
+.dropdown-link:hover:visited {
+  background: rgba(62, 68, 61, 0.12);
+  color: white;
+  transform: translateX(4px);
+  padding-left: 1.25rem;
+}
+
+.dropdown-link-icon {
+  opacity: 0;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+}
+
+.dropdown-link:hover .dropdown-link-icon {
+  opacity: 1;
+  transform: translateX(2px);
+}

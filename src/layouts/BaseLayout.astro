@@ -1,0 +1,146 @@
+---
+import Meta from "@components/seo/Meta.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import { getLang, useTranslations } from "@i18n/index";
+import "@styles/global.css";
+import "@styles/scrollReveal.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  fullscreen?: boolean;
+}
+
+const { title, description, image, fullscreen = false } = Astro.props;
+
+const lang = getLang(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = title ?? t.meta.homeTitle;
+const pageDescription = description ?? t.meta.homeDescription;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <Meta title={pageTitle} description={pageDescription} {image} {lang} />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "wjf5g0m2dd");
+    </script>
+
+    <style>
+      html {
+        height: -webkit-fill-available;
+      }
+      body {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+      }
+    </style>
+  </head>
+  <body>
+    <Navbar {lang} {t} />
+
+    <main class:list={[!fullscreen && "page-wrapper"]}>
+      <slot />
+    </main>
+
+    <Footer {lang} {t} />
+  </body>
+</html>
+
+<script>
+  import { initScrollReveal } from "src/scripts/scrollReveal";
+  import { initIPadFixes, isIOS, isIPadOnly } from "src/scripts/ipadFix";
+
+  let scrollRevealInitialized = false;
+  let iPadFixesInitialized = false;
+  let forcedVisible = false;
+
+  function init(): void {
+    const isIPad = isIPadOnly();
+    
+    // 🔥 EN IPAD: Forzar visibilidad inmediata de todo el contenido
+    if (isIPad && !forcedVisible) {
+      forcedVisible = true;
+      
+      // Forzar que todos los elementos con data-reveal sean visibles
+      const elements = document.querySelectorAll("[data-reveal]");
+      elements.forEach(el => el.classList.add("is-visible"));
+      
+      // Inyectar CSS de emergencia para iPad
+      const style = document.createElement('style');
+      style.textContent = `
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          animation: none !important;
+        }
+        .section-about, .section-value, .section-tours, .testimonios, .section-cta-final {
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Ejecutar iPad fixes para imágenes
+      if (!iPadFixesInitialized && isIOS()) {
+        setTimeout(() => {
+          initIPadFixes();
+          iPadFixesInitialized = true;
+        }, 150);
+      }
+      return;
+    }
+    
+    // 🔥 Para dispositivos NO iPad, ejecutar scrollReveal normalmente
+    if (!scrollRevealInitialized) {
+      setTimeout(() => {
+        initScrollReveal();
+        scrollRevealInitialized = true;
+      }, 100);
+    }
+    
+    if (!iPadFixesInitialized && isIOS()) {
+      setTimeout(() => {
+        initIPadFixes();
+        iPadFixesInitialized = true;
+      }, 150);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

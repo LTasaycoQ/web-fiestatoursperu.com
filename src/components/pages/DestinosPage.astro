@@ -1,0 +1,555 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { useTranslations, localePath } from "@i18n/index";
+import type { Locale } from "@i18n/index";
+import { incentivosExperiences, incentivosFeatures, incentivosStats } from "src/data/incentivos";
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const i = t.incentivos;
+
+// ✅ Usar datos puros + traducciones para features
+const features = incentivosFeatures.map(feature => ({
+  icon: feature.icon,
+  title: i.featureTranslations[feature.titleKey] || "",
+  desc: i.featureTranslations[feature.descKey] || "",
+  badge: feature.badge
+}));
+
+// ✅ Usar datos puros + traducciones para experiences
+const experiences = incentivosExperiences.map(exp => ({
+  ...exp,
+  tag: i.tagTranslations[exp.tagKey] || exp.tagKey,
+  title: i.experienceTranslations[exp.titleKey] || "",
+  desc: i.experienceTranslations[exp.descKey] || ""
+}));
+
+// ✅ Usar datos puros + traducciones para stats
+const stats = incentivosStats.map(stat => ({
+  num: stat.num,
+  label: i.statTranslations[stat.labelKey] || ""
+}));
+
+const icons: Record<string, string> = {
+  medal: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="6"/><path d="M7 7V3h10v4"/><path d="M7 7l5 6 5-6"/></svg>`,
+  compass: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3L12 21l9.3-10.7L17 3H7L2.7 10.3z"/><path d="M7 3l2.5 7.3M17 3l-2.5 7.3M2.7 10.3h18.6M9.5 10.3L12 21M14.5 10.3L12 21"/></svg>`,
+  leaf: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l4 1 4-3 4 3 4-1v13l-4 1-4-3-4 3-4-1z"/><path d="M7 7v13M11 4v13M15 7v13"/></svg>`,
+  phone: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-8 5-8 12a8 8 0 0 0 16 0c0-7-8-12-8-12z"/><path d="M12 2v20"/><path d="M8 10c1.5 1 2.5 2 4 2"/><path d="M16 10c-1.5 1-2.5 2-4 2"/><path d="M8 16c1.5 1 2.5 1.5 4 1.5"/><path d="M16 16c-1.5 1-2.5 1.5-4 1.5"/></svg>`,
+};
+---
+
+<BaseLayout title={i.metaTitle} description={i.metaDesc}>
+
+  <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+  <section class="inc-hero">
+    <div class="inc-hero__bg">
+      <img
+        src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1772812676/lima4_bu8wrf?w=1800&q=80&auto=format&fit=crop"
+        alt="" aria-hidden="true" fetchpriority="high"
+      />
+    </div>
+    <div class="inc-hero__overlay"></div>
+    <div class="inc-hero__content">
+      <p class="eyebrow-light" data-reveal="fade-up" data-delay="0">{i.heroEyebrow}</p>
+      <h1 class="inc-hero__title" data-reveal="fade-up" data-delay="120">
+        {i.heroTitle.split('\n').map((line: string) => <>{line}<br/></>)}
+      </h1>
+      <span class="verde-rule" data-reveal="scale" data-delay="220"></span>
+      <p class="inc-hero__sub" data-reveal="fade-up" data-delay="320">
+        {i.heroSubtitle.split('\n').map((line: string) => <>{line}<br/></>)}
+      </p>
+      <a href={localePath(lang, '/contacto')} class="btn-primary" data-reveal="fade-up" data-delay="440">
+        {i.heroCta}
+      </a>
+    </div>
+    <div class="inc-hero__scroll-hint" aria-hidden="true">
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ WHY ═══════════════════════════════ -->
+  <section class="inc-why content-section">
+    <div class="inc-why__inner">
+      <div class="inc-why__text">
+        <p class="eyebrow" data-reveal="fade-up">{i.whyEyebrow}</p>
+        <h2 class="display-title" data-reveal="fade-up" data-delay="80">{i.whyTitle}</h2>
+        <span class="verde-rule" data-reveal="scale" data-delay="120"></span>
+        <p class="section-body" data-reveal="fade-up" data-delay="160">{i.whyBody}</p>
+      </div>
+      <div class="inc-why__feats">
+        {features.map((f, idx) => (
+          <div class="feat-card" data-reveal="fade-up" data-delay={String(idx * 70)}>
+            <span class="feat-card__num">0{idx + 1}</span>
+            <span class="feat-card__icon" set:html={icons[f.icon]} />
+            <h3 class="feat-card__title">{f.title}</h3>
+            <p class="feat-card__desc">{f.desc}</p>
+            {f.badge && (
+              <div class="feat-card__badge">{f.badge}</div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div class="btn_explorer">
+        <a href={localePath(lang, '/destinos')} class="btn_destino_redireccion">
+          Explorar nuestros destinos
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ═══════════════════════════════ STATS ════════════════════════════ -->
+  <section class="inc-stats">
+    <div class="inc-stats__tape" aria-hidden="true">
+      <span>PERÚ</span><span>·</span><span>INCENTIVOS</span><span>·</span>
+      <span>PERÚ</span><span>·</span><span>INCENTIVOS</span><span>·</span>
+      <span>PERÚ</span><span>·</span><span>INCENTIVOS</span><span>·</span>
+      <span>PERÚ</span><span>·</span><span>INCENTIVOS</span><span>·</span>
+    </div>
+    <div class="inc-stats__grid">
+      {stats.map((s, idx) => (
+        <div class="stat-block" data-reveal="fade-up" data-delay={String(idx * 100)}>
+          <span class="stat-block__num" data-count={s.num}>{s.num}</span>
+          <span class="stat-block__label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ EXPERIENCES ═══════════════════════ -->
+  <section class="inc-exp content-section" style="background:#fff">
+    <p class="eyebrow" data-reveal="fade-up" style="color:var(--color-verdec)">{i.expEyebrow}</p>
+    <h2 class="display-title" data-reveal="fade-up" data-delay="80" style="color:var(--color-darker)">{i.expTitle}</h2>
+    <span class="verde-rule" data-reveal="scale" data-delay="120"></span>
+    <div class="inc-exp__grid">
+      {experiences.map((e, idx) => (
+        <article class="exp-card" data-reveal="fade-up" data-delay={String(idx * 120)}>
+          <div class="exp-card__img-wrap">
+            <img src={e.img} alt={e.title} loading="lazy" width="600" height="400" />
+            <div class="exp-card__img-overlay"></div>
+            <p class="exp-card__tag">{e.tag}</p>
+          </div>
+          <div class="exp-card__body">
+            <h3 class="exp-card__title">{e.title}</h3>
+            <p class="exp-card__desc">{e.desc}</p>
+            <a href={localePath(lang, '/contacto')} class="exp-card__cta">{i.ctaBtn1} →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CTA FINAL ════════════════════════ -->
+  <section class="inc-cta">
+    <div class="inc-cta__bg" aria-hidden="true"></div>
+    <div class="inc-cta__inner">
+      <p class="eyebrow-light" data-reveal="fade-up">{i.ctaEyebrow}</p>
+      <h2 class="inc-cta__title" data-reveal="fade-up" data-delay="80">{i.ctaTitle}</h2>
+      <div class="cta-actions" data-reveal="fade-up" data-delay="160">
+        <a href={localePath(lang, '/contacto')} class="btn-primary">{i.ctaBtn1}</a>
+        <a href={localePath(lang, '/planificador')} class="btn-outline-light">{i.ctaBtn2}</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* ── Variables usando colores verdes ── */
+:root {
+  --verde: var(--color-verde, #3e4b3c);
+  --verdec: var(--color-verdec, #478a3d);
+  --darker: var(--color-darker, #0e0b09);
+  --dark: var(--color-dark, #1a1a1a);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:none; } }
+@keyframes scaleIn { from { opacity:0; transform:scaleX(0); } to { opacity:1; transform:scaleX(1); } }
+@keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes scrollPulse { 0%,100% { transform:scaleY(1); opacity:.6; } 50% { transform:scaleY(1.6); opacity:1; } }
+
+/* ── Utility classes (compatibles con scrollReveal) ── */
+.eyebrow-light {
+  font-size: 11px; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(255,255,255,.65);
+  margin-bottom: 16px; display: block;
+}
+
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--verde);
+  margin-bottom: 16px; display: block;
+}
+
+.verde-rule {
+  display: block; width: 52px; height: 2px;
+  background: var(--verdec);
+  margin: 18px 0;
+}
+
+.section-body {
+  font-size: 15px; line-height: 1.85;
+  color: #666; max-width: 560px;
+}
+
+.content-section {
+  padding: 96px 8%;
+}
+
+.btn_destino_redireccion {
+  color: #2d3c1e; text-align: center; background: #f4f4f4;
+  font-size: 15px; border-radius: 10px; border: 1px solid gray;
+  padding: 10px 50px; font-weight: 600; letter-spacing: .15em;
+  text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn_destino_redireccion:hover {
+  background: var(--verde);
+  color: white;
+  border-color: var(--verde);
+}
+
+.btn_explorer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 2px;
+}
+
+/* ── Hero ── */
+.inc-hero {
+  position: relative; height: 100vh; min-height: 680px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; text-align: center;
+}
+.inc-hero__bg {
+  position: absolute; inset: 0;
+}
+.inc-hero__bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.04); transition: transform 12s ease;
+}
+.inc-hero:hover .inc-hero__bg img { transform: scale(1); }
+.inc-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(15,8,2,.72) 0%, rgba(26,18,8,.55) 50%, rgba(15,8,2,.80) 100%);
+}
+.inc-hero__content {
+  position: relative; z-index: 2; max-width: 760px; padding: 0 24px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.inc-hero__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 300; color: #fff; line-height: 1.08;
+  margin: 12px 0; letter-spacing: -.01em;
+}
+.inc-hero__sub {
+  font-size: 14px; line-height: 1.9;
+  color: rgba(255,255,255,.72);
+  letter-spacing: .06em; margin-bottom: 36px;
+}
+.inc-hero__scroll-hint {
+  position: absolute; bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.scroll-line {
+  width: 1px; height: 52px;
+  background: rgba(71, 138, 61, 0.5);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ── Why section ── */
+.inc-why__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  background: #f5f3ee;
+}
+
+.inc-why__text {
+  margin-bottom: 28px;
+}
+
+.display-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: #2c2c24;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.inc-why__feats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #dedad2;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.feat-card {
+  padding: 24px 22px 28px;
+  border-right: 1px solid #dedad2;
+  background: #fff;
+}
+.feat-card:last-child {
+  border-right: none;
+}
+
+.feat-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--verde);
+  border-radius: 50%;
+  color: var(--verde);
+  margin-top: 28px;
+  margin-bottom: 16px;
+}
+
+.feat-card:last-child .feat-card__icon {
+  border-color: var(--verdec);
+  color: var(--verdec);
+}
+
+.feat-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 35px;
+  font-weight: 900;
+  color: #3d3d3d;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.feat-card__title::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #9a9585;
+  margin-top: 8px;
+}
+
+.feat-card__desc {
+  font-size: 14.5px;
+  color: #7a7a6a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feat-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 30px;
+  border: 1px solid var(--verdec);
+  border-radius: 3px;
+  padding: 5px 10px;
+  background: rgba(71, 138, 61, 0.15);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--verdec);
+  font-weight: 500;
+}
+
+.feat-card__num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 90px;
+  font-weight: 300;
+  color: #dedad2;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Stats ── */
+.inc-stats {
+  background: var(--darker);
+  padding: 80px 8%;
+  position: relative;
+  overflow: hidden;
+}
+.inc-stats__tape {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; gap: 28px; white-space: nowrap;
+  animation: ticker 18s linear infinite;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(71, 138, 61, 0.15);
+}
+.inc-stats__tape span {
+  font-size: 10px; letter-spacing: .3em;
+  color: rgba(71, 138, 61, 0.35);
+  text-transform: uppercase;
+}
+.inc-stats__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 32px; padding-top: 32px;
+}
+.stat-block {
+  text-align: center;
+}
+.stat-block__num {
+  display: block; font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(46px, 5vw, 72px);
+  font-weight: 300; color: var(--verdec);
+  line-height: 1; margin-bottom: 10px;
+}
+.stat-block__label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+
+/* ── Experiences ── */
+.inc-exp { padding-top: 96px; padding-bottom: 96px; }
+.inc-exp .display-title { font-size: clamp(28px, 3.2vw, 44px); }
+.inc-exp__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px; margin-top: 56px;
+}
+.exp-card {
+  border-radius: 4px; overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  transition: transform .3s, box-shadow .3s;
+}
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.14);
+}
+.exp-card__img-wrap {
+  position: relative; aspect-ratio: 4/3; overflow: hidden;
+}
+.exp-card__img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+}
+.exp-card:hover .exp-card__img-wrap img {
+  transform: scale(1.06);
+}
+.exp-card__img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,8,2,.7) 0%, transparent 60%);
+}
+.exp-card__tag {
+  position: absolute; bottom: 16px; left: 16px;
+  font-size: 11px; font-weight: 600; letter-spacing: .15em;
+  text-transform: uppercase; color: rgba(255,255,255,.9);
+  background: rgba(71, 138, 61, 0.25);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(71, 138, 61, 0.4);
+  padding: 5px 12px; border-radius: 2px;
+}
+.exp-card__body {
+  background: #fff; padding: 28px 24px;
+}
+.exp-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600;
+  color: var(--darker); margin-bottom: 10px;
+}
+.exp-card__desc {
+  font-size: 13px; line-height: 1.75;
+  color: #777; margin-bottom: 20px;
+}
+.exp-card__cta {
+  font-size: 11px; font-weight: 600; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--verdec);
+  text-decoration: none; border-bottom: 1px solid transparent;
+  transition: border-color .2s;
+}
+.exp-card__cta:hover {
+  border-color: var(--verdec);
+}
+
+/* ── CTA Final ── */
+.inc-cta {
+  position: relative; padding: 112px 8%;
+  text-align: center; background: var(--dark);
+  overflow: hidden;
+}
+.inc-cta__bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(71, 138, 61, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.inc-cta__inner {
+  position: relative; z-index: 1;
+  max-width: 680px; margin: 0 auto;
+}
+.inc-cta__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 300; color: #fff;
+  margin: 16px 0 40px; line-height: 1.15;
+}
+.cta-actions {
+  display: flex; gap: 16px;
+  justify-content: center; flex-wrap: wrap;
+}
+.btn-outline-light {
+  display: inline-block; padding: 14px 38px;
+  border: 1px solid rgba(71, 138, 61, 0.45);
+  color: rgba(255,255,255,.75);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  border-radius: 2px; text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.btn-outline-light:hover {
+  border-color: var(--verdec);
+  color: var(--verdec);
+}
+
+.btn-primary {
+  display: inline-block; padding: 14px 38px;
+  background: var(--verdec); color: #fff;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  border-radius: 2px; text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover {
+  background: var(--verde);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .inc-why__inner { gap: 48px; }
+  .inc-why__text { position: static; }
+  .inc-stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .inc-exp__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .inc-why__feats { grid-template-columns: 1fr; }
+  .inc-exp__grid { grid-template-columns: 1fr; }
+  .inc-stats__grid { grid-template-columns: 1fr 1fr; }
+  .content-section { padding: 64px 5%; }
+  .inc-hero__title { font-size: clamp(36px, 8vw, 52px); }
+  .btn_destino_redireccion { padding: 8px 30px; font-size: 12px; }
+  .feat-card { padding: 20px; }
+  .feat-card__title { font-size: 28px; }
+  .feat-card__num { font-size: 60px; }
+}
+
+/* 🔥 FIX IPAD - Forzar visibilidad de data-reveal 🔥 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+</style>

@@ -1,0 +1,827 @@
+---
+// src/components/pages/ImportantInfoPage.astro
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type { Locale } from "@i18n/index";
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+---
+
+<BaseLayout 
+  title="Información Importante para su Viaje | Peru Luxury Journeys" 
+  description="Por favor, lea atentamente las siguientes disposiciones para garantizar su itinerario de viaje a Machu Picchu"
+>
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════
+       Important Info Page - Estilos consistentes con global.css
+       Optimizado para iPad y todos los dispositivos
+       ═══════════════════════════════════════════════════════════════════ */
+    
+    /* ── Reset adicional para iPad ── */
+    .info-hero,
+    .info-content,
+    .info-container,
+    .info-section,
+    .critical-notice,
+    .info-table {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Hero Section optimizada ── */
+    .info-hero {
+      position: relative;
+      height: 45vh;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a2a1a 0%, #0e1a0f 100%);
+      overflow: hidden;
+    }
+
+    /* Fix para iPad: altura correcta */
+    @supports (height: 100dvh) {
+      .info-hero {
+        height: 45dvh;
+        min-height: 320px;
+      }
+    }
+
+    .info-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(71, 138, 61, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .info-hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .info-hero__eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .info-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .info-hero__rule {
+      width: 56px;
+      height: 2px;
+      background: var(--color-verdec);
+      margin: 28px auto 0;
+    }
+
+    /* ── Contenido principal (fondo blanco/cream) ── */
+    .info-content {
+      background: white;
+      color: var(--color-dark);
+      padding: 80px var(--section-px);
+    }
+
+    .info-container {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ── Secciones ── */
+    .info-section {
+      margin-bottom: 64px;
+    }
+
+    .info-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-section h2 {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-verdec);
+      margin-bottom: 24px;
+      border-left: 3px solid var(--color-verde);
+      padding-left: 15px;
+    }
+
+    .info-section p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #525252;
+      margin-bottom: 20px;
+    }
+
+    .info-section ul {
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+
+    .info-section li {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #525252;
+      margin-bottom: 8px;
+    }
+
+    .info-section strong {
+      color: var(--color-darker);
+      font-weight: 600;
+    }
+
+    .info-section em {
+      font-style: italic;
+      color: #666;
+    }
+
+    /* ── Alerta crítica ── */
+    .critical-notice {
+      background: rgba(62, 75, 60, 0.05);
+      border-left: 4px solid var(--color-verdec);
+      padding: 28px 32px;
+      margin: 32px 0;
+      border-radius: 4px;
+    }
+
+    .critical-notice h3 {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-verdec);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .critical-notice p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .critical-notice ul {
+      margin-bottom: 0;
+    }
+
+    .critical-notice li {
+      font-size: 14px;
+    }
+
+    /* ── Tablas ── */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 32px;
+      font-size: 14px;
+    }
+
+    .info-table th {
+      background: rgba(62, 75, 60, 0.06);
+      color: var(--color-darker);
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--color-verde);
+    }
+
+    .info-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(62, 75, 60, 0.1);
+      font-weight: 300;
+      color: #525252;
+    }
+
+    /* ── Botón ── */
+    .btn-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 40px;
+      background: var(--color-verdec);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-action:hover {
+      background: var(--color-verde);
+      transform: translateY(-2px);
+    }
+
+    .btn-action:active {
+      transform: translateY(0);
+    }
+
+    /* ── Footer de la página ── */
+    .info-footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(62, 75, 60, 0.15);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 300;
+      color: #888;
+      letter-spacing: 0.02em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       RESPONSIVE: iPad (768px - 1024px) y todos los dispositivos
+       ═══════════════════════════════════════════════════════════════════ */
+
+    /* ── iPad Landscape (1024px - 1180px) ── */
+    @media (min-width: 1024px) and (max-width: 1180px) and (orientation: landscape) {
+      .info-content {
+        padding: 64px var(--section-px);
+      }
+      
+      .info-container {
+        max-width: 800px;
+      }
+      
+      .info-section {
+        margin-bottom: 48px;
+      }
+      
+      .info-section h2 {
+        font-size: 13px;
+      }
+      
+      .info-section p,
+      .info-section li {
+        font-size: 15px;
+      }
+      
+      .critical-notice {
+        padding: 24px 28px;
+      }
+    }
+
+    /* ── iPad Portrait y tablets (768px - 1024px) ── */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .info-hero {
+        height: 40vh;
+        min-height: 300px;
+      }
+      
+      @supports (height: 100dvh) {
+        .info-hero {
+          height: 40dvh;
+        }
+      }
+      
+      .info-hero__title {
+        font-size: clamp(42px, 6vw, 56px);
+      }
+      
+      .info-content {
+        padding: 64px var(--section-px);
+      }
+      
+      .info-container {
+        max-width: 720px;
+      }
+      
+      .info-section {
+        margin-bottom: 52px;
+      }
+      
+      .info-section h2 {
+        font-size: 13px;
+        letter-spacing: 0.2em;
+      }
+      
+      .info-section p,
+      .info-section li {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+      
+      .critical-notice {
+        padding: 24px 28px;
+      }
+      
+      .critical-notice h3 {
+        font-size: 12px;
+      }
+      
+      .critical-notice p,
+      .critical-notice li {
+        font-size: 14px;
+      }
+      
+      .info-table th,
+      .info-table td {
+        padding: 12px 16px;
+      }
+      
+      .info-table th {
+        font-size: 11px;
+      }
+      
+      .info-table td {
+        font-size: 13px;
+      }
+      
+      .btn-action {
+        padding: 14px 36px;
+        font-size: 10.5px;
+      }
+      
+      .info-footer {
+        margin-top: 52px;
+        padding-top: 28px;
+      }
+    }
+
+    /* ── Móviles grandes (601px - 767px) ── */
+    @media (min-width: 601px) and (max-width: 767px) {
+      .info-hero {
+        height: 38vh;
+        min-height: 280px;
+      }
+      
+      .info-hero__title {
+        font-size: clamp(34px, 5.5vw, 44px);
+      }
+      
+      .info-hero__eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.35em;
+      }
+      
+      .info-content {
+        padding: 56px var(--section-px);
+      }
+      
+      .info-section {
+        margin-bottom: 48px;
+      }
+      
+      .info-section h2 {
+        font-size: 12px;
+        letter-spacing: 0.18em;
+      }
+      
+      .info-section p,
+      .info-section li {
+        font-size: 14px;
+      }
+      
+      .critical-notice {
+        padding: 20px 24px;
+      }
+      
+      .critical-notice h3 {
+        font-size: 11px;
+      }
+      
+      .critical-notice p,
+      .critical-notice li {
+        font-size: 13px;
+      }
+      
+      .info-table th,
+      .info-table td {
+        padding: 10px 14px;
+      }
+      
+      .info-table th {
+        font-size: 10px;
+      }
+      
+      .info-table td {
+        font-size: 12px;
+      }
+      
+      .btn-action {
+        padding: 12px 32px;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+      }
+    }
+
+    /* ── Móviles pequeños (480px - 600px) ── */
+    @media (min-width: 480px) and (max-width: 600px) {
+      .info-hero {
+        height: 35vh;
+        min-height: 260px;
+      }
+      
+      .info-hero__title {
+        font-size: clamp(30px, 5vw, 38px);
+      }
+      
+      .info-hero__eyebrow {
+        font-size: 9px;
+        letter-spacing: 0.3em;
+        margin-bottom: 12px;
+      }
+      
+      .info-hero__rule {
+        margin-top: 20px;
+      }
+      
+      .info-content {
+        padding: 48px var(--section-px);
+      }
+      
+      .info-section {
+        margin-bottom: 40px;
+      }
+      
+      .info-section h2 {
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        padding-left: 12px;
+        margin-bottom: 18px;
+      }
+      
+      .info-section p,
+      .info-section li {
+        font-size: 13.5px;
+      }
+      
+      .critical-notice {
+        padding: 18px 20px;
+        margin: 24px 0;
+      }
+      
+      .critical-notice h3 {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+      
+      .critical-notice p,
+      .critical-notice li {
+        font-size: 13px;
+      }
+      
+      /* Tablas en modo cards para móviles */
+      .info-table,
+      .info-table tbody,
+      .info-table tr,
+      .info-table td,
+      .info-table th {
+        display: block;
+      }
+      
+      .info-table thead {
+        display: none;
+      }
+      
+      .info-table tr {
+        margin-bottom: 16px;
+        border: 1px solid rgba(62, 75, 60, 0.12);
+        border-radius: 8px;
+        background: #fff;
+      }
+      
+      .info-table td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(62, 75, 60, 0.08);
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      
+      .info-table td:last-child {
+        border-bottom: none;
+      }
+      
+      .info-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-verde);
+        min-width: 110px;
+      }
+      
+      .btn-action {
+        padding: 12px 28px;
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+      }
+      
+      .info-footer {
+        margin-top: 40px;
+        padding-top: 24px;
+        font-size: 10px;
+      }
+    }
+
+    /* ── Móviles muy pequeños (hasta 479px) ── */
+    @media (max-width: 479px) {
+      .info-hero {
+        height: 40vh;
+        min-height: 320px;
+      }
+      
+      .info-hero__title {
+        font-size: 28px;
+      }
+      
+      .info-hero__eyebrow {
+        font-size: 8px;
+        letter-spacing: 0.25em;
+        margin-bottom: 12px;
+      }
+      
+      .info-hero__rule {
+        width: 40px;
+        margin-top: 16px;
+      }
+      
+      .info-content {
+        padding: 40px var(--section-px);
+      }
+      
+      .info-section {
+        margin-bottom: 36px;
+      }
+      
+      .info-section h2 {
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        padding-left: 10px;
+        margin-bottom: 16px;
+      }
+      
+      .info-section p,
+      .info-section li {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      
+      .info-section ul {
+        padding-left: 18px;
+      }
+      
+      .critical-notice {
+        padding: 16px 18px;
+        margin: 20px 0;
+      }
+      
+      .critical-notice h3 {
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+      
+      .critical-notice p,
+      .critical-notice li {
+        font-size: 12px;
+      }
+      
+      /* Tablas modo cards */
+      .info-table,
+      .info-table tbody,
+      .info-table tr,
+      .info-table td,
+      .info-table th {
+        display: block;
+      }
+      
+      .info-table thead {
+        display: none;
+      }
+      
+      .info-table tr {
+        margin-bottom: 14px;
+        border: 1px solid rgba(62, 75, 60, 0.12);
+        border-radius: 8px;
+        background: #fff;
+      }
+      
+      .info-table td {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(62, 75, 60, 0.08);
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      
+      .info-table td:last-child {
+        border-bottom: none;
+      }
+      
+      .info-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-verde);
+        min-width: 100px;
+      }
+      
+      .btn-container {
+        margin: 32px 0 16px;
+      }
+      
+      .btn-action {
+        padding: 12px 24px;
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      .info-footer {
+        margin-top: 36px;
+        padding-top: 20px;
+        font-size: 9px;
+      }
+    }
+
+    /* ── Fix para iPad con touch y hover ── */
+    @media (hover: none) and (pointer: coarse) {
+      .btn-action:hover {
+        transform: none;
+        background: var(--color-verdec);
+      }
+      
+      .btn-action:active {
+        background: var(--color-verde);
+        transform: scale(0.98);
+      }
+    }
+
+    /* ── Fix para iPad Pro 12.9" ── */
+    @media (min-width: 1024px) and (max-width: 1366px) and (min-height: 1024px) {
+      .info-content {
+        padding: 80px var(--section-px);
+      }
+      
+      .info-container {
+        max-width: 800px;
+      }
+      
+      .info-section p,
+      .info-section li {
+        font-size: 17px;
+        line-height: 1.9;
+      }
+    }
+
+    /* ── Mejora de legibilidad en todos los dispositivos ── */
+    @media (prefers-color-scheme: light) {
+      .info-content {
+        background: var(--color-cream);
+      }
+    }
+
+    /* ── Accesibilidad: reducir movimiento ── */
+    @media (prefers-reduced-motion: reduce) {
+      .btn-action,
+      .btn-action:hover {
+        transition: none;
+        transform: none;
+      }
+    }
+  </style>
+
+  <!-- Hero con estilo consistente -->
+  <div class="info-hero">
+    <div class="info-hero__overlay"></div>
+    <div class="info-hero__content" data-reveal="fade-up">
+      <span class="info-hero__eyebrow">Información Importante</span>
+      <h1 class="info-hero__title">Prepare su viaje<br />con anticipación</h1>
+      <div class="info-hero__rule"></div>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="info-content">
+    <div class="info-container">
+      
+      <!-- Sección 1 -->
+      <div class="info-section" data-reveal="fade-up">
+        <h2>1. Compra Anticipada de Trenes y Entradas</h2>
+        <p>Para garantizar el mejor horario posible, la compra de boletos de tren a <strong>Machu Picchu</strong> debe efectuarse con la mayor anticipación. Mientras más pronto recibamos el pre-pago, más beneficiados serán los pasajeros en su asignación de itinerarios <strong>(se recomienda un mínimo de 60 días antes de su partida)</strong>.</p>
+        
+        <div class="critical-notice">
+          <h3>⚠️ PRIORIDAD CRÍTICA PARA SU RESERVA</h3>
+          <p>Debido a la altísima demanda y la disponibilidad estrictamente limitada de las entradas a la Ciudadela y los espacios ferroviarios, es indispensable un adelanto financiero para proceder con la compra inmediata.</p>
+          <ul>
+            <li><strong>Sincronización:</strong> Los horarios de tren y los turnos de ingreso a Machu Picchu deben reservarse en conjunto para asegurar la perfecta conexión de su itinerario.</li>
+            <li><strong>Garantía:</strong> Tenga en cuenta que <em>solo la emisión del boleto físico asegura su espacio</em>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sección 2 -->
+      <div class="info-section" data-reveal="fade-up" data-delay="100">
+        <h2>2. Requisitos de Emisión Obligatorios</h2>
+        <p>Requerimos que nos facilite la siguiente información exacta para la emisión segura de sus pases de viaje:</p>
+        
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>Dato Requerido</th>
+              <th>Especificación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Dato Requerido"><strong>Nombres completos</strong></td><td data-label="Especificación">Tal como aparecen en su documento de identidad</td></tr>
+            <tr><td data-label="Dato Requerido"><strong>Número de pasaporte</strong></td><td data-label="Especificación">Debe estar vigente para las fechas del viaje</td></tr>
+            <tr><td data-label="Dato Requerido"><strong>Nacionalidad</strong></td><td data-label="Especificación">Para fines de regulaciones migratorias y ferroviarias</td></tr>
+            <tr><td data-label="Dato Requerido"><strong>Fecha de nacimiento</strong></td><td data-label="Especificación">DD / MM / AAAA</td></tr>
+          </tbody>
+        </table>
+
+        <div class="btn-container">
+          <a href="https://fiestatoursperu.com/paxdata" class="btn-action" target="_blank" rel="noopener noreferrer">
+            Registrar Datos de Forma Segura →
+          </a>
+        </div>
+      </div>
+
+      <!-- Sección 3 -->
+      <div class="info-section" data-reveal="fade-up" data-delay="200">
+        <h2>3. Detalles y Estado de su Reserva</h2>
+        <table class="info-table">
+          <thead>
+            <tr><th>Concepto</th><th>Detalle del Servicio</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Concepto"><strong>Alimentación</strong></td><td data-label="Detalle">Incluye desayunos diarios y las comidas especificadas en su itinerario.</td></tr>
+            <tr><td data-label="Concepto"><strong>Servicios</strong></td><td data-label="Detalle">Tours privados operados con un guía especializado.</td></tr>
+            <tr><td data-label="Concepto"><strong>Vuelos internos</strong></td><td data-label="Detalle">Completamente operados y gestionados por la agencia.</td></tr>
+            <tr><td data-label="Concepto"><strong>Documentación</strong></td><td data-label="Detalle">Adjuntamos la liquidación detallada de su reserva para su revisión.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sección 4 -->
+      <div class="info-section" data-reveal="fade-up" data-delay="300">
+        <h2>4. Fecha Límite de Pago Total y Cancelaciones</h2>
+        <p>Para evitar la <strong>cancelación automática de la reserva</strong> por parte de los operadores de servicios, es de carácter obligatorio facilitar los siguientes datos antes de la fecha límite señalada en su orden:</p>
+        
+        <ul>
+          <li>Constancia del pago del file.</li>
+          <li>Detalle de vuelos internacionales (incluyendo código localizador).</li>
+          <li>Copia legible de los pasaportes.</li>
+          <li>Número de WhatsApp de contacto principal.</li>
+          <li>Restricciones o preferencias alimenticias (alergias, régimen especial).</li>
+        </ul>
+
+        <p><em>Nota sobre Políticas de Cambios:</em> Cualquier modificación o cancelación posterior a la emisión está sujeta a penalidades administrativas y hoteleras de hasta el 100% de la tarifa.</p>
+      </div>
+
+      <!-- Footer de página -->
+      <div class="info-footer" data-reveal="fade-up" data-delay="400">
+        <p>Av. San Luis 2642, San Borja, Lima, Perú | www.FiestaToursPeru.com | www.PeruLuxuryJourneys.com</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

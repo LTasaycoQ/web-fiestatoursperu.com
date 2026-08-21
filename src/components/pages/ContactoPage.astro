@@ -1,0 +1,1329 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { useTranslations } from '@i18n/index';
+import type { Locale } from '@i18n/index';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const c = t.contacto;
+---
+
+<BaseLayout title={c.metaTitle} description={c.metaDesc}>
+  <!-- Hero Section - Estilo cinematográfico como blog -->
+  <section class="contact-hero">
+    <div class="contact-hero__bg">
+      <img
+        src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1778686262/iStock-2226956576_xlkrcw.jpg?w=1600&q=80&auto=format&fit=crop"
+        alt="Asesor de viajes de Fiesta Tours Perú atendiendo clientes"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="contact-hero__overlay"></div>
+    
+    <div class="contact-hero__content">
+      <span class="hero-eyebrow">{c.eyebrow}</span>
+      <h1 class="contact-hero__title">{c.heroTitle}</h1>
+      <div class="hero-rule"></div>
+      <p class="contact-hero__subtitle">Estamos aquí para ayudarte a crear el viaje de tus sueños</p>
+    </div>
+
+    <div class="contact-hero__scroll" aria-hidden="true">
+      <span class="scroll-line"></span>
+      <span class="scroll-label">Contactar</span>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-section__header">
+        <span class="section-eyebrow">{c.eyebrow}</span>
+        <h2 class="contact-section__title">{c.sectionTitle}</h2>
+        <div class="verde-rule"></div>
+        <p class="contact-section__description">{c.infoBody}</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- FORMULARIO -->
+        <div class="contact-form-container">
+          <div class="form-card">
+            <div class="form-header">
+              <h3 class="form-title">Envíanos un mensaje</h3>
+              <p class="form-subtitle">Completa el formulario y te responderemos en menos de 24 horas</p>
+            </div>
+            
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre">{c.labelName}</label>
+                  <div class="input-wrapper">
+                    <input id="nombre" type="text" name="nombre" placeholder="Tu nombre completo" required />
+                    <span class="input-border"></span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">{c.labelEmail}</label>
+                  <div class="input-wrapper">
+                    <input id="email" type="email" name="email" placeholder="tu@email.com" required />
+                    <span class="input-border"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="destino">{c.labelDest}</label>
+                  <div class="input-wrapper select-wrapper">
+                    <select id="destino" name="destino">
+                      <option value="" disabled selected>{c.placeholderDest}</option>
+                      <option>{c.dest1}</option>
+                      <option>{c.dest2}</option>
+                      <option>{c.dest3}</option>
+                      <option>{c.dest4}</option>
+                      <option>{c.dest5}</option>
+                    </select>
+                    <span class="input-border"></span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="viajeros">{c.labelTravelers}</label>
+                  <div class="input-wrapper">
+                    <input id="viajeros" type="number" name="viajeros" placeholder="Número de viajeros" min="1" />
+                    <span class="input-border"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje">{c.labelMessage}</label>
+                <div class="input-wrapper">
+                  <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu viaje ideal..."></textarea>
+                  <span class="input-border"></span>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">{c.submitBtn}</span>
+                <span class="btn-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- INFORMACIÓN -->
+        <div class="contact-info-container">
+          <div class="info-card">
+            <div class="info-header">
+              <h3 class="info-title">{c.infoTitle}</h3>
+              <div class="info-decoration"></div>
+            </div>
+            
+            <div class="info-details">
+              <div class="info-item">
+                <div class="info-icon-wrapper">
+                  <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Dirección</span>
+                  <span class="info-text">{c.address}</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon-wrapper">
+                  <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Teléfono</span>
+                  <span class="info-text">{c.phone}</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon-wrapper">
+                  <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/>
+                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Email</span>
+                  <span class="info-text">{c.email}</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon-wrapper">
+                  <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                    <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Horario</span>
+                  <span class="info-text">{c.hours}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="quote-wrapper">
+              <div class="quote-line"></div>
+              <blockquote class="info-quote">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="quote-mark">
+                  <path d="M10 11H6C5.46957 11 4.96086 10.7893 4.58579 10.4142C4.21071 10.0391 4 9.53043 4 9V7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H8C8.53043 5 9.03914 5.21071 9.41421 5.58579C9.78929 5.96086 10 6.46957 10 7V15C10 16.0609 9.57857 17.0783 8.82843 17.8284C8.07828 18.5786 7.06087 19 6 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M20 11H16C15.4696 11 14.9609 10.7893 14.5858 10.4142C14.2107 10.0391 14 9.53043 14 9V7C14 6.46957 14.2107 5.96086 14.5858 5.58579C14.9609 5.21071 15.4696 5 16 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V15C20 16.0609 19.5786 17.0783 18.8284 17.8284C18.0783 18.5786 17.0609 19 16 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <p class="quote-text">"{c.quote}"</p>
+              </blockquote>
+            </div>
+
+            <div class="social-links">
+              <span class="social-label">Síguenos</span>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Twitter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAPA - VERSIÓN CORREGIDA -->
+      <div class="map-wrapper">
+        <div class="map-header">
+          <div class="map-header-content">
+            <span class="map-eyebrow">Ubicación</span>
+            <h3 class="map-title">Encuéntranos fácilmente</h3>
+            <div class="verde-rule" style="margin: 0 auto;"></div>
+          </div>
+        </div>
+        
+        <div class="map-card">
+          <div class="map-container">
+            <div class="map-interactive">
+              <iframe 
+                class="map-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1518840959848!2d-76.99468940000001!3d-12.101752799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7c39527c149%3A0x3f16595a3b9f4fba!2sFiesta%20Tours%20International%20S.A.!5e0!3m2!1ses!2spe!4v1778692602868!5m2!1ses!2spe" 
+                width="100%" 
+                height="400" 
+                style="border:0; display: block;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div class="map-info-card">
+                <div class="map-info-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="map-info-text">
+                  <strong>Fiesta Tours International S.A.</strong>
+                  <span>San Isidro, Lima - Perú</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="map-footer">
+            <div class="map-direction-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22C12 22 4 16 4 10C4 5 8 2 12 2C16 2 20 5 20 10C20 16 12 22 12 22Z" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <span>Calle Los Laureles 350, San Isidro</span>
+            </div>
+            <div class="map-direction-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M2 8L12 13L22 8L12 3L2 8Z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 10V16L12 20L18 16V10" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <span>Referencia: Frente al Centro Comercial La Aurora</span>
+            </div>
+            <div class="map-direction-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 8V12L14 14" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <span>Horario de atención: Lun - Vie 9am a 6pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notificación -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</BaseLayout>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════ */
+/* CONTACTO.ASTRO - DISEÑO PREMIUM CON TONOS VERDES                */
+/* Fondo blanco puro, hero cinematográfico, diseño moderno         */
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* ── Design tokens (tonos verdes) ─────────────────────────────── */
+:root {
+  --verde:       #3e4b3c;
+  --verdec:      #478a3d;
+  --verde-claro: #5a9a50;
+  --verde-light: rgba(62, 75, 60, 0.08);
+  --verde-border: rgba(62, 75, 60, 0.12);
+  --verde-gradient: linear-gradient(135deg, var(--verdec), var(--verde));
+  --ink:         #1a1a1a;
+  --ink-mid:     #2d2d2d;
+  --ink-soft:    #6b6b6b;
+  --cream:       #ffffff;
+  --cream-mid:   #f8f9f8;
+  --off-white:   #fafbfa;
+  --rule:        rgba(0, 0, 0, 0.08);
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+  --ease:       cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* HERO CINEMATOGRÁFICO (estilo blog)                              */
+/* ═══════════════════════════════════════════════════════════════ */
+.contact-hero {
+  position: relative;
+  height: 75vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--verde);
+  margin-top: -72px;
+  padding-top: 72px;
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: 480px;
+  }
+}
+
+.contact-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.contact-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 12s var(--ease);
+  transform: scale(1.04);
+}
+
+.contact-hero:hover .contact-hero__bg img {
+  transform: scale(1);
+}
+
+.contact-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(10,12,10,0.75) 0%, rgba(10,12,10,0.45) 52%, rgba(10,12,10,0.2) 100%),
+    linear-gradient(to top, rgba(10,12,10,0.7) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(62,75,60,0.2) 0%, transparent 55%);
+}
+
+.contact-hero__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 6%;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--verdec);
+  animation: heroDotPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes heroDotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(71,138,61,0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(71,138,61,0); }
+}
+
+.contact-hero__title {
+  font-family: var(--ff-display);
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-rule {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(to right, var(--verdec), rgba(71,138,61,0.3));
+  margin: 0 auto 24px;
+}
+
+.contact-hero__subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.contact-hero__scroll {
+  position: absolute;
+  bottom: 36px;
+  right: 6%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .contact-hero__scroll { display: none; }
+}
+
+.scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.18), transparent);
+  animation: scrollLineAnim 2s ease-in-out infinite;
+}
+
+@keyframes scrollLineAnim {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.scroll-label {
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  writing-mode: vertical-rl;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* CONTACT SECTION - FONDO BLANCO                                  */
+/* ═══════════════════════════════════════════════════════════════ */
+.contact-section {
+  background: #FFFFFF;
+  padding: 80px 6%;
+  position: relative;
+}
+
+.contact-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-section__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--verdec);
+  margin-bottom: 16px;
+}
+
+.contact-section__title {
+  font-family: var(--ff-display);
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.verde-rule {
+  width: 48px;
+  height: 2px;
+  background: var(--verdec);
+  margin: 0 auto 20px;
+}
+
+.contact-section__description {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* CONTACT GRID                                                    */
+/* ═══════════════════════════════════════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* FORM CARD */
+.contact-form-container {
+  position: relative;
+}
+
+.form-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 42px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s var(--ease);
+  border: 1px solid var(--verde-border);
+}
+
+.form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 50px rgba(62, 75, 60, 0.08);
+  border-color: rgba(62, 75, 60, 0.2);
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    padding: 32px;
+  }
+}
+
+.form-header {
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.form-header::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: var(--verdec);
+}
+
+.form-title {
+  font-size: 26px;
+  font-family: var(--ff-display);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.form-subtitle {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.2s;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #e5e5e5;
+  color: var(--ink);
+  outline: none;
+  transition: all 0.3s;
+  font-family: var(--ff-body);
+}
+
+.input-wrapper textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.input-wrapper select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 20px;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "⌵";
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  font-size: 18px;
+  color: #aaa;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+
+.select-wrapper:hover::after {
+  color: var(--verdec);
+}
+
+.input-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--verdec);
+  transition: width 0.35s var(--ease);
+}
+
+.input-wrapper input:focus ~ .input-border,
+.input-wrapper textarea:focus ~ .input-border,
+.input-wrapper select:focus ~ .input-border {
+  width: 100%;
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus,
+.input-wrapper select:focus {
+  border-bottom-color: transparent;
+}
+
+.form-group:focus-within label {
+  color: var(--verdec);
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: var(--verdec);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  width: fit-content;
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover {
+  background: var(--verde);
+  transform: translateY(-2px);
+  gap: 16px;
+  box-shadow: 0 10px 25px rgba(62, 75, 60, 0.3);
+}
+
+.btn-icon svg {
+  transition: transform 0.3s;
+}
+
+.submit-btn:hover .btn-icon svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* INFO CARD */
+.contact-info-container {
+  position: relative;
+}
+
+.info-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 42px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  height: 100%;
+  transition: all 0.4s var(--ease);
+  border: 1px solid var(--verde-border);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 50px rgba(62, 75, 60, 0.08);
+  border-color: rgba(62, 75, 60, 0.2);
+}
+
+@media (max-width: 768px) {
+  .info-card {
+    padding: 32px;
+  }
+}
+
+.info-header {
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.info-header::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: var(--verdec);
+}
+
+.info-title {
+  font-size: 26px;
+  font-family: var(--ff-display);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s;
+}
+
+.info-item:hover {
+  transform: translateX(6px);
+}
+
+.info-icon-wrapper {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--verde-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.info-item:hover .info-icon-wrapper {
+  background: var(--verdec);
+}
+
+.info-item:hover .info-icon {
+  color: white;
+}
+
+.info-icon {
+  color: var(--verdec);
+  transition: all 0.3s;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.info-text {
+  display: block;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  font-weight: 450;
+}
+
+/* QUOTE */
+.quote-wrapper {
+  margin: 36px 0;
+  position: relative;
+}
+
+.quote-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--verde-border), transparent);
+  margin-bottom: 24px;
+}
+
+.info-quote {
+  position: relative;
+  padding: 16px 0;
+}
+
+.quote-mark {
+  color: var(--verdec);
+  opacity: 0.3;
+  margin-bottom: 12px;
+}
+
+.quote-text {
+  font-family: var(--ff-display);
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* SOCIAL LINKS */
+.social-links {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.social-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 14px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--verdec);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* MAP SECTION - CORREGIDO PARA PANTALLAS GRANDES                   */
+/* ═══════════════════════════════════════════════════════════════ */
+.map-wrapper {
+  margin-top: 40px;
+}
+
+.map-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.map-header-content {
+  display: inline-block;
+}
+
+.map-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--verdec);
+  margin-bottom: 12px;
+}
+
+.map-title {
+  font-size: 26px;
+  font-family: var(--ff-display);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.map-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s var(--ease);
+  border: 1px solid var(--verde-border);
+}
+
+.map-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 50px rgba(62, 75, 60, 0.1);
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.map-interactive {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+  border: 0;
+}
+
+/* Tarjeta de información dentro del mapa */
+.map-info-card {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--verde-border);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.map-info-card:hover {
+  transform: translateY(-2px);
+  background: white;
+  border-color: var(--verdec);
+}
+
+.map-info-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--verde-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verdec);
+}
+
+.map-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-info-text strong {
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.map-info-text span {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Footer del mapa */
+.map-footer {
+  padding: 20px 28px;
+  background: #fafbfa;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .map-footer {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 24px;
+  }
+}
+
+.map-direction-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.map-direction-item svg {
+  flex-shrink: 0;
+  color: var(--verdec);
+  transition: transform 0.3s;
+}
+
+.map-direction-item:hover svg {
+  transform: scale(1.1);
+}
+
+.map-direction-item:hover {
+  color: var(--verdec);
+  transform: translateX(4px);
+}
+
+/* Responsive del mapa */
+@media (max-width: 1200px) {
+  .map-iframe {
+    height: 380px;
+  }
+  .map-container {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-iframe {
+    height: 350px;
+  }
+  .map-container {
+    min-height: 350px;
+  }
+  .map-info-card {
+    bottom: 12px;
+    left: 12px;
+    padding: 8px 16px;
+  }
+  .map-info-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .map-info-text strong {
+    font-size: 12px;
+  }
+  .map-info-text span {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-iframe {
+    height: 280px;
+  }
+  .map-container {
+    min-height: 280px;
+  }
+  .map-info-card {
+    display: none;
+  }
+}
+
+/* ══ TOAST ══════════════════════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  padding: 12px 28px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  border-radius: 40px;
+  transition: all 0.35s var(--ease);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .toast {
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+    font-size: 12px;
+    padding: 10px 20px;
+  }
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ══ RESPONSIVE AJUSTES FINOS ═══════════════════════════════════ */
+@media (max-width: 1200px) {
+  .contact-section {
+    padding: 70px 5%;
+  }
+  .contact-grid {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card,
+  .info-card {
+    padding: 24px;
+  }
+  .form-title,
+  .info-title,
+  .map-title {
+    font-size: 22px;
+  }
+  .info-item {
+    gap: 12px;
+  }
+  .info-icon-wrapper {
+    width: 38px;
+    height: 38px;
+  }
+  .quote-text {
+    font-size: 15px;
+  }
+  .contact-section__title {
+    font-size: 32px;
+  }
+}
+
+/* ══ REDUCCIÓN DE MOVIMIENTO ════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .contact-hero__bg img,
+  .map-iframe,
+  .info-item,
+  .social-icon {
+    transition: none !important;
+  }
+  .scroll-line {
+    animation: none !important;
+  }
+  .hero-eyebrow::before {
+    animation: none !important;
+  }
+}
+
+/* ══ iOS SAFARI FIX ═════════════════════════════════════════════ */
+@supports (-webkit-touch-callout: none) {
+  .contact-hero {
+    min-height: -webkit-fill-available !important;
+  }
+}
+</style>
+
+<script>
+  (function() {
+    // Toast helper
+    function showToast(message: string) {
+      const toast = document.getElementById('toast') as HTMLElement;
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Contact form handler
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const nombre = (document.getElementById('nombre') as HTMLInputElement)?.value;
+        const email = (document.getElementById('email') as HTMLInputElement)?.value;
+        
+        if (!nombre || !email) {
+          showToast('Por favor, completa los campos obligatorios');
+          return;
+        }
+        
+        if (!email.includes('@')) {
+          showToast('Por favor, ingresa un email válido');
+          return;
+        }
+        
+        const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
+        const originalText = submitBtn?.innerHTML;
+        
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="btn-text">Enviando...</span>';
+        }
+        
+        setTimeout(() => {
+          showToast('¡Mensaje enviado con éxito! Te contactaremos pronto.');
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText || '';
+          }
+        }, 1500);
+      });
+    }
+
+    // Fullscreen para el mapa
+    const fullscreenBtn = document.getElementById('fullscreen-map');
+    const mapCard = document.querySelector('.map-card') as HTMLElement;
+    
+    if (fullscreenBtn && mapCard) {
+      fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          mapCard.requestFullscreen().catch(err => {
+            showToast(`Error: ${err.message}`);
+          });
+          showToast('Presiona ESC para salir de pantalla completa');
+        } else {
+          document.exitFullscreen();
+        }
+      });
+    }
+
+    // Actualizar mensaje al salir de fullscreen
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        // Opcional: mostrar mensaje al salir
+      }
+    });
+  })();
+</script>

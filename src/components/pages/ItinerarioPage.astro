@@ -1,0 +1,450 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { useTranslations, localePath } from "@i18n/index";
+import type { Locale } from "@i18n/index";
+import { toursData } from "src/data/tours";
+import "@styles/components/itinerario/itinerariosPage.css";
+import { itinerariosData } from "src/data/itinerarios";
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const r = t.recorridos;
+
+const tours = toursData.map(tour => {
+  const itinerario = itinerariosData[tour.id];
+  const durationDays = itinerario?.days.length ?? 0;
+  return {
+    ...tour,
+    tag: r.tagTranslations[tour.tagKey] || tour.tagKey,
+    description: r.tourDescriptions[tour.descriptionKey] || "",
+    durationText: `${durationDays} ${durationDays === 1 ? 'día' : 'días'}`,
+    difficultyText: r.difficultyTranslations[tour.difficultyLevel] || "",
+  };
+});
+
+const filters = [
+  { key: "all",        label: r.filterAll },
+  { key: "lujo",       label: r.filterClassic },
+  { key: "aventura",   label: r.filterAdventure },
+  { key: "culturales", label: r.filterCultural },
+  { key: "familias",   label: r.filterExperiential },
+  { key: "grupos",     label: r.filterGroups || "Grupos" },
+];
+
+function cloudinaryOptimize(url: string, width: number): string {
+  if (!url.includes('res.cloudinary.com')) return url;
+  return url.replace('/upload/', `/upload/f_auto,q_auto,w_${width}/`);
+}
+---
+
+<BaseLayout fullscreen={true} title={r.metaTitle} description={r.metaDesc}>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO                                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="rec-hero">
+    <div class="rec-hero__bg">
+      <img
+        src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1772750026/2_14_11zon_scv4xy.png?w=1800&q=85&auto=format&fit=crop"
+        alt=""
+        aria-hidden="true"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="rec-hero__overlay"></div>
+
+    <!-- Decorative vertical line -->
+    <div class="rec-hero__vert-line"></div>
+
+    <div class="rec-hero__container">
+
+      <div class="rec-hero__eyebrow" data-reveal="fade-up">
+        <span class="rec-hero__dot"></span>
+        <span>Colección exclusiva · 50+ años de excelencia</span>
+      </div>
+
+      <h1 class="rec-hero__title" data-reveal="fade-up" data-delay="100">
+        Experiencias que<br/>
+        <em>trascienden el tiempo</em>
+      </h1>
+
+      <p class="rec-hero__subtitle" data-reveal="fade-up" data-delay="200">
+        Descubra una colección exclusiva de viajes diseñados con la expertise de medio siglo creando momentos inolvidables en cada rincón del Perú.
+      </p>
+
+      <div class="rec-hero__actions" data-reveal="fade-up" data-delay="300">
+        <a href="#tours-section" class="rec-hero__btn-primary">
+          Explorar tours
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a href={localePath(lang, "/contacto")} class="rec-hero__btn-ghost">
+          Hablar con un experto
+        </a>
+      </div>
+
+      <div class="rec-hero__stats" data-reveal="fade-up" data-delay="400">
+        <div class="rec-hero__stat">
+          <strong>50+</strong>
+          <span>Años de experiencia</span>
+        </div>
+        <div class="rec-hero__stat-divider"></div>
+        <div class="rec-hero__stat">
+          <strong>120+</strong>
+          <span>Destinos únicos</span>
+        </div>
+        <div class="rec-hero__stat-divider"></div>
+        <div class="rec-hero__stat">
+          <strong>98%</strong>
+          <span>Satisfacción</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="rec-hero__scroll">
+      <div class="rec-hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- INTRO STRIP                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="rec-intro">
+    <div class="rec-intro__inner">
+      <span class="rec-intro__label" data-reveal="fade-up">Nuestra filosofía</span>
+      <p class="rec-intro__text" data-reveal="fade-up" data-delay="100">
+        Cada recorrido que diseñamos es una obra maestra construida sobre décadas de conocimiento local, guías certificados y atención al detalle que solo medio siglo de pasión puede ofrecer.
+      </p>
+      <div class="rec-intro__rule" data-reveal="scale" data-delay="200"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TOURS SECTION                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="tours-section" id="tours-section">
+    <div class="tours-container">
+
+      <!-- Header -->
+      <div class="tours-header" data-reveal="fade-up">
+        <div class="tours-header__left">
+          <span class="tours-kicker">Colección exclusiva</span>
+          <h2 class="tours-title">
+            Experiencias diseñadas con<br/>
+            <strong>50 años de expertise</strong>
+          </h2>
+        </div>
+        <a href="#" class="tours-view-all">
+          Ver colección completa
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Filters -->
+      <div class="tours-filters" data-reveal="fade-up" data-delay="100">
+        {filters.map((f) => (
+          <button
+            class="tours-filter-btn"
+            data-filter={f.key}
+            class:list={[f.key === "all" && "active"]}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid -->
+      <div class="tours-grid" id="tours-grid">
+        {tours.slice(0, 20).map((tour, idx) => (
+          <a
+            href={localePath(lang, tour.link)}
+            class="tour-card"
+            data-category={tour.category}
+            data-reveal="fade-up"
+            data-delay={String(idx * 80)}
+          >
+            <div class="tour-card__image">
+              <img
+                src={cloudinaryOptimize(tour.image, 600)}
+                alt={tour.title}
+                loading={idx < 3 ? "eager" : "lazy"}
+              />
+              <div class="tour-card__overlay"></div>
+              <span class="tour-card__tag">{tour.tag}</span>
+              <div class="tour-card__hover-cta">
+                <span>Ver experiencia</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="tour-card__body">
+              <div class="tour-card__meta">
+                <span class="tour-card__meta-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                  {tour.durationText}
+                </span>
+                <span class="tour-card__meta-sep">·</span>
+                <span class="tour-card__meta-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L15 8H22L16 13L18 20L12 16L6 20L8 13L2 8H9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  </svg>
+                  {tour.difficultyText}
+                </span>
+              </div>
+
+              <h3 class="tour-card__title">{tour.title}</h3>
+              <p class="tour-card__desc">{tour.description}</p>
+
+              <div class="tour-card__footer">
+                <span class="tour-card__link">
+                  Descubrir experiencia
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TRUST BAR                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="trust-bar">
+    <div class="trust-bar__inner">
+      <div class="trust-bar__item" data-reveal="fade-up">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <strong>Guías certificados</strong>
+        <span>Profesionales con licencia oficial</span>
+      </div>
+      <div class="trust-bar__divider"></div>
+      <div class="trust-bar__item" data-reveal="fade-up" data-delay="100">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <strong>Viajes seguros</strong>
+        <span>Cobertura y asistencia 24/7</span>
+      </div>
+      <div class="trust-bar__divider"></div>
+      <div class="trust-bar__item" data-reveal="fade-up" data-delay="200">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <strong>Itinerarios a medida</strong>
+        <span>Diseñados para cada viajero</span>
+      </div>
+      <div class="trust-bar__divider"></div>
+      <div class="trust-bar__item" data-reveal="fade-up" data-delay="300">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <strong>Calidad garantizada</strong>
+        <span>98% de satisfacción comprobada</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CTA FINAL                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="rec-cta">
+    <div class="rec-cta__inner">
+      <div class="rec-cta__content">
+        <span class="rec-cta__kicker" data-reveal="fade-up">¿Listo para la aventura?</span>
+        <h2 class="rec-cta__title" data-reveal="fade-up" data-delay="100">
+          Deja que nuestros expertos<br/>
+          <span>diseñen tu viaje perfecto</span>
+        </h2>
+        <p class="rec-cta__text" data-reveal="fade-up" data-delay="150">
+          Cada detalle, cada momento, cada recuerdo — personalizado para ti.
+        </p>
+        <div class="rec-cta__buttons" data-reveal="fade-up" data-delay="200">
+          <a href={localePath(lang, "/contacto")} class="rec-cta__btn-primary">
+            Contactar asesor
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a href={localePath(lang, "/itinerarios")} class="rec-cta__btn-ghost">
+            Ver todos los tours
+          </a>
+        </div>
+      </div>
+      <div class="rec-cta__visual" data-reveal="fade-left" data-delay="200">
+        <div class="rec-cta__img-wrap">
+          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=500&q=85&auto=format" alt="Machu Picchu" loading="lazy" />
+        </div>
+        <div class="rec-cta__img-accent"></div>
+        <div class="rec-cta__img-badge">
+          <span class="rec-cta__badge-num">50+</span>
+          <span class="rec-cta__badge-label">años de<br/>excelencia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  // ============================================================
+  // TOURS PAGE - SISTEMA CENTRALIZADO DE FILTROS
+  // 100% compatible con SSG/SSR
+  // ============================================================
+  
+  (function() {
+    const DEFAULT_FILTER = 'all';
+    let currentFilter = DEFAULT_FILTER;
+    
+    let filterBtns: NodeListOf<HTMLButtonElement>;
+    let tourCards: NodeListOf<HTMLElement>;
+    let viewAllLinks: NodeListOf<HTMLAnchorElement>;
+    
+    function applyFilter(filterValue: string): void {
+      if (currentFilter === filterValue) return;
+      currentFilter = filterValue;
+      
+      filterBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filterValue);
+      });
+      
+      let visibleCount = 0;
+      tourCards.forEach(card => {
+        const category = card.dataset.category;
+        const shouldShow = filterValue === 'all' || category === filterValue;
+        
+        if (shouldShow) {
+          card.style.display = 'block';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          card.offsetHeight;
+          
+          const delay = visibleCount * 60;
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, delay);
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      try {
+        const url = new URL(window.location.href);
+        if (filterValue === 'all') {
+          url.searchParams.delete('filter');
+        } else {
+          url.searchParams.set('filter', filterValue);
+        }
+        window.history.replaceState({ filter: filterValue }, '', url);
+      } catch (e) {}
+    }
+    
+    function setupEventListeners(): void {
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.filter) {
+            applyFilter(btn.dataset.filter);
+            const toursSection = document.getElementById('tours-section');
+            if (toursSection && window.scrollY > toursSection.offsetTop - 150) {
+              toursSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+      
+      viewAllLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          applyFilter('all');
+          const toursSection = document.getElementById('tours-section');
+          if (toursSection) {
+            toursSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+    
+    function getFilterFromURL(): string | null {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlFilter = urlParams.get('filter');
+        if (urlFilter && [...filterBtns].some(btn => btn.dataset.filter === urlFilter)) {
+          return urlFilter;
+        }
+      } catch (e) {}
+      return null;
+    }
+    
+    function init(): void {
+      filterBtns = document.querySelectorAll<HTMLButtonElement>('.tours-filter-btn');
+      tourCards = document.querySelectorAll<HTMLElement>('.tour-card');
+      viewAllLinks = document.querySelectorAll<HTMLAnchorElement>('.tours-view-all');
+      
+      if (!filterBtns.length || !tourCards.length) return;
+      
+      setupEventListeners();
+      
+      const urlFilter = getFilterFromURL();
+      const initialFilter = urlFilter || DEFAULT_FILTER;
+      
+      setTimeout(() => applyFilter(initialFilter), 50);
+    }
+    
+    function initSmoothScroll(): void {
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === '#') return;
+        
+        link.addEventListener('click', (e) => {
+          const id = href?.slice(1);
+          const target = id ? document.getElementById(id) : null;
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        init();
+        initSmoothScroll();
+      });
+    } else {
+      init();
+      initSmoothScroll();
+    }
+    
+    document.addEventListener('astro:page-load', () => {
+      init();
+      initSmoothScroll();
+    });
+  })();
+</script>

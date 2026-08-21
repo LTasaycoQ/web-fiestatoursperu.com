@@ -1,0 +1,450 @@
+---
+import '@styles/components/navbar/navbar.base.css';
+import '@styles/components/navbar/navbar.topbar.css';
+import '@styles/components/navbar/navbar.dropdown.css';
+import '@styles/components/navbar/navbar.mobile.css';
+import '@styles/components/navbar/navbar.responsive.css';
+import { navRoutes, languages } from '@lib/nav';
+import { switchLocalePath, localePath } from '@i18n';
+import type { Locale, Translations } from '@i18n';
+
+interface Props {
+  lang: Locale;
+  t: Translations;
+}
+
+const { lang, t } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+function isActive(path: string): boolean {
+  const full = localePath(lang, path);
+  return currentPath === full || currentPath.startsWith(full + '/');
+}
+
+// Importar logos como URLs estáticas (más compatible con iPad)
+import LogoEs from '../../assets/log-png.png?url';
+import LogoEn from '../../assets/log-png.png?url';
+import LogoPt from '../../assets/log-png.png?url';
+
+const logos: Record<string, string> = {
+  es: LogoEs,
+  en: LogoEn,
+  pt: LogoPt,
+};
+
+const logo = logos[lang] ?? LogoEs;
+
+// ⚠️ Reemplaza este número por el teléfono real de la empresa
+const phoneDisplay = '+51 984 123 456';
+const phoneHref = 'tel:+51984123456';
+
+// Helper para acceder a las traducciones del nav de forma segura
+function getNavTranslation(key: string): string {
+  // Conversión segura usando unknown primero
+  const nav = t.nav as unknown as Record<string, string>;
+  return nav[key] || key;
+}
+---
+
+<header id="site-header">
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- TOP BAR: teléfono + idiomas (estilo Luxury Gold) -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+
+      <a href={phoneHref} class="top-bar-phone" aria-label="Llamar a Fiesta Tours Perú">
+        <svg class="phone-icon" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+          />
+        </svg>
+        <span class="top-bar-phone-text">Fiesta Tours / {phoneDisplay}</span>
+      </a>
+
+      <div class="top-bar-right">
+        <!-- IDIOMAS: fila de texto plano "ESPAÑOL - ENGLISH - PORTUGUÊS" -->
+        <ul class="top-bar-languages">
+          {languages.map((l, i) => (
+            <li class="top-bar-lang-item">
+              <a
+                href={switchLocalePath(Astro.url, l.code)}
+                class:list={[
+                  'top-bar-lang-link',
+                  lang === l.code && 'active'
+                ]}
+              >
+                {l.label}
+              </a>
+              {i < languages.length - 1 && <span class="top-bar-lang-sep" aria-hidden="true">-</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- MENÚ PRINCIPAL (igual que antes, sin idiomas) -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="nav-container">
+    <div class="nav-inner">
+
+      <!-- BLOQUE CENTRADO: logo + nav (con max-width interno) -->
+      <div class="nav-inner-content">
+
+        <!-- LOGO con efecto hover - Usando img nativo -->
+        <a
+          href={localePath(lang, '/')}
+          class="logo"
+          aria-label="Fiesta Tours Perú - Inicio"
+        >
+          <div class="logo-wrapper">
+            <img
+              src={logo}
+              alt="Fiesta Tours Perú"
+              class="logo-image"
+              loading="eager"
+              width="180"
+              height="48"
+              decoding="sync"
+            />
+          </div>
+        </a>
+
+        <!-- NAV DESKTOP mejorado -->
+        <nav class="nav-links" aria-label="Menú principal">
+          {navRoutes.map((route) => (
+            <div class:list={['nav-item-wrapper', route.children ? 'has-dropdown' : '']}>
+
+              <a
+                href={localePath(lang, route.path)}
+                class:list={[
+                  'nav-link',
+                  isActive(route.path) && 'active'
+                ]}
+              >
+                <span class="nav-link-text">{getNavTranslation(route.key)}</span>
+                {route.children && (
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                )}
+              </a>
+
+              {route.children && (
+                <div class="dropdown-menu" role="menu">
+                  <div class="dropdown-inner">
+                    {route.children.map((child) => (
+                      <a
+                        href={localePath(lang, child.path)}
+                        class="dropdown-link"
+                        role="menuitem"
+                      >
+                        <span class="dropdown-link-icon">→</span>
+                        <span>{getNavTranslation(child.key)}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          ))}
+        </nav>
+
+      </div>
+
+      <!-- CTA BUTTON premium: 2ª columna del grid → siempre pegado al borde derecho real -->
+      <a href={localePath(lang, '/informacion')} class="cta-button">
+        <span class="cta-text"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
+      </a>
+
+    </div>
+  </div>
+
+</header>
+
+<!-- MOBILE TOGGLE mejorado -->
+<button
+  id="mobile-toggle"
+  class="mobile-toggle"
+  aria-label="Abrir menú"
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
+  <span></span><span></span><span></span>
+</button>
+
+<!-- MOBILE MENU premium -->
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+
+  <nav class="mobile-nav">
+    {navRoutes.map((route) => (
+      <div class="mobile-nav-item">
+
+        <button
+          class="mobile-nav-link mobile-parent"
+          data-href={localePath(lang, route.path)}
+        >
+          <span>{getNavTranslation(route.key)}</span>
+          {route.children && (
+            <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          )}
+        </button>
+
+        {route.children && (
+          <div class="mobile-submenu">
+            {route.children.map((child) => (
+              <a
+                href={localePath(lang, child.path)}
+                class="mobile-sublink"
+              >
+                {getNavTranslation(child.key)}
+              </a>
+            ))}
+          </div>
+        )}
+
+      </div>
+    ))}
+  </nav>
+
+  <!-- TELÉFONO MOBILE -->
+  <div class="mobile-footer">
+    <a href={phoneHref} class="mobile-phone-link">
+      <svg class="phone-icon" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+        />
+      </svg>
+      <span>{phoneDisplay}</span>
+    </a>
+  </div>
+
+  <!-- LANGUAGE SWITCHER MOBILE -->
+  <div class="mobile-footer">
+    <p class="mobile-section-title">Idioma</p>
+    <div class="mobile-language-options">
+      {languages.map((l) => (
+        <a
+          href={switchLocalePath(Astro.url, l.code)}
+          class:list={['mobile-language-option', lang === l.code && 'active']}
+        >
+          <span class="language-flag">{l.flag}</span>
+          <span>{l.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- CTA dentro del menú mobile, para que siga siendo accesible -->
+  <div class="mobile-footer">
+    <a href={localePath(lang, '/informacion')} class="cta-button">
+      <span class="cta-text"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
+    </a>
+  </div>
+</div>
+
+<script is:inline>
+// ─── Estado global ──────────────────────────────────────────────────────────
+let scrollHandlerAttached = false;
+let isMenuOpen = false;
+let scrollPosition = 0;
+let currentToggle = null;
+let currentMenu = null;
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+function updateActiveLinks() {
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const normCurrent = currentPath.replace(/\/$/, '') || '/';
+    const normHref = href.replace(/\/$/, '') || '/';
+    const active = normCurrent === normHref || (normHref !== '/' && normCurrent.startsWith(normHref + '/'));
+    link.classList.toggle('active', active);
+  });
+}
+
+function closeMenu(toggle, menu) {
+  if (!toggle || !menu) return;
+  toggle.setAttribute('aria-expanded', 'false');
+  menu.setAttribute('aria-hidden', 'true');
+  menu.classList.remove('is-open');
+  
+  // Restaurar scroll correctamente
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  
+  if (scrollPosition) {
+    window.scrollTo(0, scrollPosition);
+    scrollPosition = 0;
+  }
+  
+  isMenuOpen = false;
+}
+
+function openMenu(toggle, menu) {
+  if (!toggle || !menu) return;
+  
+  // Guardar posición actual
+  scrollPosition = window.scrollY;
+  
+  toggle.setAttribute('aria-expanded', 'true');
+  menu.setAttribute('aria-hidden', 'false');
+  menu.classList.add('is-open');
+  
+  // Prevenir scroll del body
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = '100%';
+  
+  isMenuOpen = true;
+}
+
+// ─── Navegación segura ──────────────────────────────────────────────────────
+function safeNavigate(href) {
+  if (!href || href === '#') return;
+  
+  // Cerrar menú si está abierto
+  if (isMenuOpen && currentToggle && currentMenu) {
+    closeMenu(currentToggle, currentMenu);
+  }
+  
+  // Navegación estándar (funciona siempre)
+  window.location.href = href;
+}
+
+// ─── Inicializar Navbar ─────────────────────────────────────────────────────
+function initNavbar() {
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const header = document.getElementById('site-header');
+  
+  if (!toggle || !menu || !header) return;
+  
+  // Guardar referencias globales
+  currentToggle = toggle;
+  currentMenu = menu;
+  
+  // Limpiar estado residual del menú
+  menu.classList.remove('is-open');
+  menu.setAttribute('aria-hidden', 'true');
+  toggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  isMenuOpen = false;
+  scrollPosition = 0;
+  
+  // ⚠️ IMPORTANTE: Clonar para eliminar listeners anteriores
+  const newToggle = toggle.cloneNode(true);
+  toggle.parentNode.replaceChild(newToggle, toggle);
+  const newMenu = menu.cloneNode(true);
+  menu.parentNode.replaceChild(newMenu, menu);
+  
+  // Actualizar referencias
+  currentToggle = newToggle;
+  currentMenu = newMenu;
+  
+  // ── Mobile toggle ──
+  newToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = newToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu(newToggle, newMenu);
+    } else {
+      openMenu(newToggle, newMenu);
+    }
+  });
+  
+  // ── Cerrar al hacer click en enlaces del menú ──
+  newMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href !== '#' && !href.startsWith('javascript:')) {
+        e.preventDefault();
+        safeNavigate(href);
+      }
+    });
+  });
+  
+  // ── Mobile dropdowns (con toggle mejorado) ──
+  newMenu.querySelectorAll('.mobile-parent').forEach(btn => {
+    // Clonar para limpiar listeners
+    const newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+    
+    newBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const item = newBtn.closest('.mobile-nav-item');
+      if (!item) return;
+      
+      const submenu = item.querySelector('.mobile-submenu');
+      const href = newBtn.dataset.href;
+      
+      if (submenu && submenu.children.length > 0) {
+        // Cerrar otros submenús abiertos
+        newMenu.querySelectorAll('.mobile-nav-item.open').forEach(openItem => {
+          if (openItem !== item) openItem.classList.remove('open');
+        });
+        // Toggle actual
+        item.classList.toggle('open');
+      } else if (href && href !== '#') {
+        safeNavigate(href);
+      }
+    });
+  });
+  
+  // ── Scroll header (solo se registra UNA vez globalmente) ──
+  if (!scrollHandlerAttached) {
+    scrollHandlerAttached = true;
+    const updateScroll = () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 50);
+    };
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll(); // Estado inicial
+  }
+  
+  updateActiveLinks();
+}
+
+// ─── Manejar botón "atrás" del navegador ────────────────────────────────────
+function handlePopState() {
+  if (isMenuOpen && currentToggle && currentMenu) {
+    closeMenu(currentToggle, currentMenu);
+  }
+}
+
+// ─── Bootstrap ──────────────────────────────────────────────────────────────
+// Inicializar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initNavbar);
+} else {
+  initNavbar();
+}
+
+// Re-inicializar en cada navegación con View Transitions
+document.addEventListener('astro:page-load', () => {
+  // Limpiar estado residual antes de reinicializar
+  if (isMenuOpen && currentToggle && currentMenu) {
+    closeMenu(currentToggle, currentMenu);
+  }
+  initNavbar();
+});
+
+// Escuchar botón atrás
+window.addEventListener('popstate', handlePopState);
+</script>

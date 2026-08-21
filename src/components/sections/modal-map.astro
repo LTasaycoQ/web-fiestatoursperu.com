@@ -1,0 +1,312 @@
+---
+interface Props {
+  title: string;
+  location: string;
+  altitude: string;
+  duration: string;
+  description: string;
+  badge: string;
+  activities: string[];
+  images: string[];
+  heroImg: string;
+}
+
+const { title, location, altitude,  duration, description, badge, activities, images, heroImg } = Astro.props;
+---
+
+<div class="modal-overlay">
+  <div class="modal-card">
+    <button class="btn-cerrar-modal">✕</button>
+
+    <div class="modal-hero">
+      <img src={heroImg} alt={title} class="modal-hero-img" />
+      <div class="modal-hero-gradient"></div>
+      <div class="modal-badge">{badge}</div>
+      <div class="modal-hero-text">
+        <p class="modal-title">{title}</p>
+        <p class="modal-subtitle">{location} · {altitude}</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-stats">
+        <div class="stat-item">
+          <p class="stat-value">{duration}</p>
+          <p class="stat-label">Duración ideal</p>
+        </div>
+      
+       
+      </div>
+
+      <p class="modal-desc">{description}</p>
+
+      <p class="section-label">Actividades incluidas</p>
+      <div class="modal-tags">
+        {activities.map((act) => (
+          <span class="tag">{act}</span>
+        ))}
+      </div>
+
+      <p class="section-label">Galería</p>
+      <div class="modal-gallery">
+        {images.map((img) => (
+          <img src={img} alt="" class="gallery-img" />
+        ))}
+      </div>
+
+      <div class="modal-actions">
+        <a href="#" class="btn-primary-modal">Ver tour completo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;           /* ← se ancla al lado del mapa */
+  bottom: 0;
+  width: 50%;         /* ← ocupa solo la mitad derecha (donde está el mapa) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+  .modal-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    width: min(320px, 85%);      /* ← más compacto para caber en el mapa */
+    height: 200px;
+    max-height: 85%;             /* ← porcentaje del contenedor, no viewport */
+    overflow-y: auto;
+    scrollbar-width: none;
+    flex-shrink: 0;
+  }
+
+  .modal-card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .btn-cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+
+  .btn-cerrar-modal:hover {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  /* Hero */
+  .modal-hero {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .modal-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .modal-hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 35%, rgba(0, 0, 0, 0.7) 100%);
+  }
+
+  .modal-badge {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 10px;
+    color: #fff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .modal-hero-text {
+    position: absolute;
+    bottom: 16px;
+    left: 18px;
+    right: 18px;
+  }
+
+  .modal-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .modal-subtitle {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  /* Body */
+  .modal-body {
+    padding: 18px 20px 22px;
+  }
+
+  /* Stats */
+  .modal-stats {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .stat-item {
+    background: #e9e9e9;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 10px 18px;
+    text-align: center;
+  }
+
+  .stat-value {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a1a;
+    /* evita que el texto se desborde en el grid */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .stat-label {
+    margin: 4px 0 0;
+    font-size: 9px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+  }
+
+  /* Descripción */
+  .modal-desc {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* Sección label */
+  .section-label {
+    margin: 0 0 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* Tags */
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .tag {
+    background: #f5f5f3;
+    border: 0.5px solid #e4e4e4;
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 11px;
+    color: #444;
+  }
+
+  /* Galería */
+  .modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 18px;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Botones */
+  .modal-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn-primary-modal {
+    flex: 1;
+    padding: 11px 8px;
+    background: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary-modal:hover {
+    opacity: 0.85;
+  }
+
+  .btn-secondary-modal {
+    flex: 1;
+    padding: 11px 8px;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    border: 0.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background 0.15s;
+  }
+
+  .btn-secondary-modal:hover {
+    background: #ebebea;
+  }
+</style>

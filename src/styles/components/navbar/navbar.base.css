@@ -1,0 +1,238 @@
+/* ============================================
+   navbar.base.css
+   Base y estructura principal del navbar premium
+   ============================================ */
+
+:root {
+  --navbar-bg: #272b2b;
+  --navbar-blur: 20px;
+  --navbar-transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ────────────────────────────────────────── */
+/* HEADER PRINCIPAL                           */
+/* ────────────────────────────────────────── */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.4s var(--navbar-transition);
+}
+
+#site-header.scrolled {
+  background: #272b2b;
+  backdrop-filter: blur(var(--navbar-blur));
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ────────────────────────────────────────── */
+/* CONTAINER                                  */
+/* ────────────────────────────────────────── */
+.nav-container {
+  background: #272b2b;
+  backdrop-filter: blur(var(--navbar-blur));
+  border-bottom: 1px solid rgba(71, 138, 61, 0.15);
+  position: relative;
+  width: 100%;
+}
+
+.nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+.nav-inner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1rem 3rem;
+}
+
+/* ────────────────────────────────────────── */
+/* LOGO                                       */
+/* ────────────────────────────────────────── */
+.logo {
+  flex-shrink: 0;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-wrapper {
+  position: relative;
+  align-items: center;
+  transition: transform 0.3s var(--navbar-transition);
+}
+
+.logo:hover .logo-wrapper {
+  transform: scale(1.02);
+}
+
+.logo-image {
+  display: block;
+  height: 58px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+/* Badge animado */
+.logo-badge {
+  position: absolute;
+  top: -12px;
+  right: -32px;
+  background: var(--color-red, #B8231E);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  animation: pulseBadge 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(184, 35, 30, 0.4);
+  }
+}
+
+.logo-image:error { opacity: 0; }
+
+.logo-wrapper:has(img:error)::after {
+  content: "FT";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* ────────────────────────────────────────── */
+/* NAV LINKS                                  */
+/* ────────────────────────────────────────── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.nav-item-wrapper {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, rgba(255,255,255,0.7));
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s var(--navbar-transition);
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 0.3s var(--navbar-transition);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 70%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+  background: rgba(62, 68, 61, 0.12);
+}
+
+.nav-link-text {
+  position: relative;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.has-dropdown:hover .chevron {
+  transform: rotate(180deg);
+}
+
+/* ────────────────────────────────────────── */
+/* ACCIONES                                   */
+/* Nota: el selector de idiomas ya NO vive    */
+/* aquí — se movió a la .top-bar. Esta clase  */
+/* se deja por si en el futuro agregas otra   */
+/* acción a la nav principal (ej. un buscador)*/
+/* ────────────────────────────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────────────────── */
+/* FIX ESPECÍFICO PARA IPAD                   */
+/* ────────────────────────────────────────── */
+@supports (-webkit-touch-callout: none) {
+  .logo-image {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .logo-wrapper {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}

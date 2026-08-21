@@ -1,0 +1,105 @@
+---
+import { getLang, localePath } from "@i18n";
+import { navRoutes } from "@lib/nav";
+import "@styles/components/home/heroPage.css"
+import VideoOne from '@assets/videos/12740971_2560_1440_30fps.mp4';
+import VideoTwo from '@assets/videos/15225962_2560_1440_60fps.mp4';
+import VideoThree from '@assets/videos/19193064-uhd_2560_1440_30fps.mp4';
+const lang = getLang(Astro.url);
+
+const toursRoute = navRoutes.find(r => r.key === "tours");
+const toursHref = toursRoute ? localePath(lang, toursRoute.path) : "/";
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  title2?: string;
+  title3?: string;
+  subtitle?: string;
+  cta?: string;
+  ctaHref?: string;
+}
+
+const {
+  eyebrow = '',
+  title = '',
+  title2 = '',
+  title3 = '',
+  subtitle = '',
+  cta = '',
+  ctaHref = '/',
+} = Astro.props;
+
+const videos = [VideoOne, VideoTwo, VideoThree];
+
+---
+
+<section class="hero" aria-label="Hero principal">
+
+  <div class="hero__carousel" aria-hidden="true">
+    {videos.map((video, index) => (
+      <video
+        class:list={['hero__video', index === 0 && 'is-active']}
+        src={video}
+        autoplay={index === 0}
+        muted
+        playsinline
+        preload={index === 0 ? 'auto' : 'metadata'}
+        data-video-index={index}
+      ></video>
+    ))}
+  </div>
+
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__content" data-reveal="fade-up">
+    <span class="eyebrow hero__eyebrow" style="justify-content: center; display: flex; align-items: center; gap: 7px;"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+        <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+      </svg>
+      {eyebrow}
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+        <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+      </svg>
+    </span>
+
+    <h1 class="hero__title display-title" data-reveal="fade-up" data-delay="100">
+      {title.split('\n').map((line: string) => <>{line}<br/></>)}
+    </h1>
+
+    <h1 class="hero__title display-title" data-reveal="fade-up" data-delay="200">
+      <span style="font-weight: 200; color: #fda532;">{title2}</span> {title3}
+    </h1>
+
+    <p class="hero__subtitle" data-reveal="fade-up" data-delay="300">
+      {subtitle.split('\n').map((line: string) => <>{line}<br/></>)}
+    </p>
+
+    <div class="btn_hero" data-reveal="fade-up" data-delay="400">
+      <a href={toursHref} class="hero_cta">Ver nuestros Tours</a>
+      <a href={localePath(lang, "/nosotros")} class="hero_cta">Nuestra Historia</a>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>('.hero__video');
+
+  if (videos.length > 1) {
+    videos.forEach((video, index) => {
+      video.addEventListener('ended', () => {
+        const nextIndex = (index + 1) % videos.length;
+        const nextVideo = videos[nextIndex];
+
+        video.classList.remove('is-active');
+        video.pause();
+        video.currentTime = 0;
+        nextVideo.classList.add('is-active');
+        nextVideo.currentTime = 0;
+        nextVideo.play().catch(() => undefined);
+      });
+    });
+  }
+</script>
+

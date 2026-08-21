@@ -1,0 +1,258 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { useTranslations, localePath } from "@i18n/index";
+import type { Locale } from "@i18n/index";
+import "@styles/components/hotelesPage.css"
+import { hotelesData } from "src/data/hoteles";
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const h = t.hoteles;
+
+// ✅ Usar datos puros
+const hoteles = hotelesData;
+
+const categories = [
+  {
+    title: h.cat1Title,
+    desc: h.cat1Desc,
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop",
+    key: "lima",
+  },
+  {
+    title: h.cat2Title,
+    desc: h.cat2Desc,
+    img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80&auto=format&fit=crop",
+    key: "cusco",
+  },
+  {
+    title: h.cat3Title,
+    desc: h.cat3Desc,
+    img: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&q=80&auto=format&fit=crop",
+    key: "machupicchu",
+  },
+  {
+    title: h.cat4Title,
+    desc: h.cat4Desc,
+    img: "https://images.unsplash.com/photo-1518182170546-07661fd94144?w=600&q=80&auto=format&fit=crop",
+    key: "lodge",
+  },
+];
+
+// ✅ Mapear hoteles con datos puros + traducciones
+const hotelsWithMetadata = hoteles.map((hotel, index) => ({
+  id: hotel.id,
+  city: hotel.city,
+  name: hotel.name,
+  desc: h.hotelDescriptions?.[hotel.descriptionKey] || "",
+  stars: hotel.stars,
+  tags: hotel.tags.map((tag: string) => h.tagTranslations?.[tag] || tag),
+  
+  img: [
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=700&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=700&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=700&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=700&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1518182170546-07661fd94144?w=700&q=80&auto=format&fit=crop",
+  ][index % 6],
+
+  href: localePath(
+    lang,
+    hotel.city === "Lima"
+      ? "/hoteles/lima"
+      : hotel.city === "Cusco"
+      ? "/hoteles/cusco"
+      : hotel.city === "Amazonía"
+      ? "/hoteles/lodges-selva"
+      : "/hoteles"
+  ),
+
+  cityKey:
+    hotel.city === "Lima"
+      ? "lima"
+      : hotel.city === "Cusco"
+      ? "cusco"
+      : hotel.city === "Amazonía"
+      ? "lodge"
+      : "default",
+      
+  priceFrom: hotel.priceFrom
+}));
+---
+
+<BaseLayout title={h.metaTitle} description={h.metaDesc}>
+  <!-- HERO -->
+  <section class="hot-hero">
+    <div class="hot-hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1800&q=80&auto=format&fit=crop"
+        alt=""
+        aria-hidden="true"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hot-hero__overlay"></div>
+    <div class="hot-hero__content">
+      <p class="eyebrow-light reveal-up" style="--d:0s">{h.heroEyebrow}</p>
+      <h1 class="hot-hero__title reveal-up" style="--d:.12s">
+        {
+          h.heroTitle.split("\n").map((line: string) => (
+            <>
+              {line}
+              <br />
+            </>
+          ))
+        }
+      </h1>
+      <span class="gold-rule reveal-up" style="--d:.22s; margin: 20px auto;"
+      ></span>
+      <p class="hot-hero__sub reveal-up" style="--d:.32s">{h.heroSubtitle}</p>
+    </div>
+    <div class="hot-hero__cut" aria-hidden="true"></div>
+  </section>
+
+  <!-- INTRO + CATEGORIES -->
+  <section class="hot-intro">
+    <div class="hot-intro__text js-reveal">
+      <p class="eyebrow">{h.sectionEyebrow}</p>
+      <h2 class="display-title">{h.sectionTitle}</h2>
+      <span class="gold-rule"></span>
+      <p class="section-body">{h.sectionBody}</p>
+    </div>
+
+    <!-- Categorías -->
+    <div class="hot-cats" id="hot-cats">
+      {
+        categories.map((cat, idx) => (
+          <a
+            href={localePath(lang, "/hoteles") + `?city=${cat.key}`}
+            class="hot-cat js-reveal"
+            data-city={cat.key}
+            style={`--di:${idx * 0.1}s`}
+          >
+            <div class="hot-cat__img">
+              <img
+                src={cat.img}
+                alt={cat.title}
+                loading="lazy"
+                width="400"
+                height="280"
+              />
+              <div class="hot-cat__overlay" />
+            </div>
+
+            <div class="hot-cat__body">
+              <h3 class="hot-cat__title">{cat.title}</h3>
+              <p class="hot-cat__desc">{cat.desc}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- HOTEL CARDS -->
+  <section class="hot-list" id="hot-list">
+    <div class="hot-list__inner">
+      {
+        hotelsWithMetadata.map((hotel, idx) => (
+          <a
+            href={hotel.href}
+            class="hotel-card js-reveal"
+            data-city={hotel.cityKey}
+            style={`--di:${(idx % 2) * 0.12}s`}
+          >
+            <div class="hotel-card__img">
+              <img
+                src={hotel.img}
+                alt={hotel.name}
+                loading="lazy"
+                width="560"
+                height="380"
+              />
+              <div class="hotel-card__img-overlay" />
+              {hotel.tags.length > 0 && (
+                <span class="hotel-card__tag">{hotel.tags[0]}</span>
+              )}
+            </div>
+
+            <div class="hotel-card__body">
+              <p class="hotel-card__city">{hotel.city}</p>
+              <h3 class="hotel-card__name">{hotel.name}</h3>
+
+              <div
+                class="hotel-card__stars"
+                aria-label={`${hotel.stars} estrellas`}
+              >
+                {"★".repeat(hotel.stars)}
+              </div>
+
+              <p class="hotel-card__desc">{hotel.desc}</p>
+              
+              {hotel.priceFrom && (
+                <p class="hotel-card__price">Desde ${hotel.priceFrom} USD</p>
+              )}
+
+              <span class="hotel-card__cta">{h.cardCta} →</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="hot-cta">
+    <div class="hot-cta__inner">
+      <p class="eyebrow-light js-reveal">{h.ctaEyebrow}</p>
+      <h2 class="hot-cta__title js-reveal">{h.ctaTitle}</h2>
+      <div class="cta-actions js-reveal">
+        <a href={localePath(lang, "/contacto")} class="btn-primary"
+          >{h.ctaBtn1}</a
+        >
+        <a href={localePath(lang, "/planificador")} class="btn-outline-light"
+          >{h.ctaBtn2}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function initHoteles() {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".js-reveal").forEach((el) => obs.observe(el));
+
+    const params = new URLSearchParams(window.location.search);
+    const cityParam = params.get("city");
+
+    if (cityParam) {
+      setTimeout(() => {
+        const catsSection = document.getElementById("hot-cats");
+        catsSection?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        document.querySelectorAll<HTMLElement>(".hot-cat").forEach((card) => {
+          if (card.dataset.city === cityParam) card.classList.add("hot-cat--active");
+          else card.classList.add("hot-cat--dimmed");
+        });
+
+        document.querySelectorAll<HTMLElement>(".hotel-card").forEach((card) => {
+          const match = card.dataset.city === cityParam;
+          card.classList.toggle("hidden", !match);
+          if (match) card.style.animation = "fadeIn .4s ease both";
+        });
+      }, 100);
+    }
+  }
+
+  document.addEventListener("astro:page-load", initHoteles);
+</script>
