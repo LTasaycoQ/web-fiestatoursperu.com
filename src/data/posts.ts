@@ -143,17 +143,17 @@ export const blogPosts: Record<string, BlogPost> = {
         type: "gallery",
         images: [
           {
-            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f.jpg",
+            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
             alt: "Vista del valle desde la mitad del camino",
             caption: "Desde aquí ya se ve el valle de Cusco a lo lejos.",
           },
           {
-            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f.jpg",
+            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
             alt: "Llamas en el camino a Vinicunca",
             caption: "Las llamas no se inmutan. Nos miraron pasar con absoluta indiferencia.",
           },
           {
-            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f.jpg",
+            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
             alt: "Primeros colores de Vinicunca asomando",
             caption: "El momento en que empiezas a ver los primeros colores. Aquí ya no importa el cansancio.",
           },
