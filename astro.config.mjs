@@ -16,6 +16,10 @@ export default defineConfig({
     },
   },
 
+  image: {
+    domains: ['res.cloudinary.com'],
+  },
+
   site: 'https://fiestatoursperu.com',
   compressHTML: false,
 
