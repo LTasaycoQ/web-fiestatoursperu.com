@@ -30,7 +30,7 @@ const fullTitle = title.includes(siteName)
 
 // Imagen siempre absoluta
 const origin = Astro.url.origin;
-const absoluteImage = image.startsWith('http') ? image : `${origin}${image}`;
+const absoluteImage = image.startsWith('https') ? image : `${origin}${image}`;
 ---
 
 <!-- Primarios -->
