@@ -40,13 +40,15 @@ const videos = [VideoOne, VideoTwo, VideoThree];
     {videos.map((video, index) => (
       <video
         class:list={['hero__video', index === 0 && 'is-active']}
-        src={video}
         autoplay={index === 0}
         muted
-        playsinline
+        playsinline 
         preload={index === 0 ? 'auto' : 'metadata'}
         data-video-index={index}
-      ></video>
+      >
+        <source src={video} type="video/mp4">
+          
+      </video>
     ))}
   </div>
 
