@@ -2,9 +2,11 @@
 import { getLang, localePath } from "@i18n";
 import { navRoutes } from "@lib/nav";
 import "@styles/components/home/heroPage.css"
-import VideoOne from '@assets/videos/12740971_2560_1440_30fps.mp4';
-import VideoTwo from '@assets/videos/15225962_2560_1440_60fps.mp4';
-import VideoThree from '@assets/videos/19193064-uhd_2560_1440_30fps.mp4';
+import VideoOne from '@assets/videos/MACHU-PICCHU.mp4';
+import VideoTwo from '@assets/videos/Lima.mp4';
+import VideoThree from '@assets/videos/ValleSagrado.mp4';
+import VideoFor from '@assets/videos/Danza.mp4';
+import VideoFor from '@assets/videos/Ruinas.mp4';
 const lang = getLang(Astro.url);
 
 const toursRoute = navRoutes.find(r => r.key === "tours");
@@ -30,7 +32,7 @@ const {
   ctaHref = '/',
 } = Astro.props;
 
-const videos = [VideoOne, VideoTwo, VideoThree];
+const videos = [VideoOne, VideoTwo, VideoThree,VideoFor];
 
 ---
 
