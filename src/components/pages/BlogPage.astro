@@ -64,7 +64,7 @@ const categories = [
     <div class="blog-hero__overlay"></div>
     <div class="blog-hero__vert-line"></div>
 
-    <div class="blog-hero__content">
+    <div class="blog-hero__content"  data-aos="fade-right">
       <p class="hero-eyebrow">{ui.heroEyebrow}</p>
       <h1 class="blog-hero__title">{ui.heroTitle}</h1>
       <div class="hero-rule"></div>
@@ -112,14 +112,14 @@ const categories = [
   {featuredPost && (
     <section class="blog-featured">
       <div class="blog-featured__inner">
-        <div class="section-label">
+        <div  data-aos="fade-right" class="section-label">
           <span class="section-label__line"></span>
           <span class="section-label__text">Featured Story</span>
         </div>
         <a
           href={localePath(lang, `/blog/${featuredPost.slug}`)}
           class="featured-card"
-          aria-label={featuredPost.title}
+          aria-label={featuredPost.title}  data-aos="fade-up"
         >
           <div class="featured-card__img">
             <img
@@ -160,7 +160,7 @@ const categories = [
 
   <!-- ═══ POST GRID ═══ -->
   <section class="blog-grid" id="blog-grid">
-    <div class="blog-grid__container">
+    <div class="blog-grid__container"  data-aos="fade-up">
       <div class="section-label">
         <span class="section-label__line"></span>
         <span class="section-label__text">All Stories</span>
@@ -223,7 +223,7 @@ const categories = [
       <span class="deco-circle deco-circle--1"></span>
       <span class="deco-circle deco-circle--2"></span>
     </div>
-    <div class="blog-newsletter__inner">
+    <div class="blog-newsletter__inner"  data-aos="fade-up">
       <div class="newsletter-text">
         <p class="section-eyebrow">{ui.nlEyebrow}</p>
         <h2 class="newsletter-title">{ui.nlTitle}</h2>

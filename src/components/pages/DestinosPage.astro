@@ -47,7 +47,7 @@ const icons: Record<string, string> = {
       />
     </div>
     <div class="inc-hero__overlay"></div>
-    <div class="inc-hero__content">
+    <div class="inc-hero__content"  data-aos="fade-up">
       <p class="eyebrow-light">{i.heroEyebrow}</p>
       <h1 class="inc-hero__title">
         {i.heroTitle.split('\n').map((line: string) => <>{line}<br/></>)}
@@ -67,7 +67,7 @@ const icons: Record<string, string> = {
 
   <!-- ═══════════════════════════════ WHY ═══════════════════════════════ -->
   <section class="inc-why content-section">
-    <div class="inc-why__inner">
+    <div class="inc-why__inner"  data-aos="fade-up">
       <div class="inc-why__text">
         <p class="eyebrow" >{i.whyEyebrow}</p>
         <h2 class="display-title">{i.whyTitle}</h2>
@@ -115,10 +115,10 @@ const icons: Record<string, string> = {
 
   <!-- ═══════════════════════════════ EXPERIENCES ═══════════════════════ -->
   <section class="inc-exp content-section" style="background:#fff">
-    <p class="eyebrow" style="color:var(--color-verdec)">{i.expEyebrow}</p>
-    <h2 class="display-title" style="color:var(--color-darker)">{i.expTitle}</h2>
+    <p  data-aos="fade-right" class="eyebrow" style="color:var(--color-verdec)">{i.expEyebrow}</p>
+    <h2  data-aos="fade-right" class="display-title" style="color:var(--color-darker)">{i.expTitle}</h2>
     <span class="verde-rule"></span>
-    <div class="inc-exp__grid">
+    <div class="inc-exp__grid" data-aos="fade-up">
       {experiences.map((e, idx) => (
         <article class="exp-card">
           <div class="exp-card__img-wrap">
@@ -137,9 +137,9 @@ const icons: Record<string, string> = {
   </section>
 
   <!-- ═══════════════════════════════ CTA FINAL ════════════════════════ -->
-  <section class="inc-cta">
+  <section class="inc-cta" >
     <div class="inc-cta__bg" aria-hidden="true"></div>
-    <div class="inc-cta__inner">
+    <div class="inc-cta__inner"  data-aos="fade-up">
       <p class="eyebrow-light" >{i.ctaEyebrow}</p>
       <h2 class="inc-cta__title">{i.ctaTitle}</h2>
       <div class="cta-actions">

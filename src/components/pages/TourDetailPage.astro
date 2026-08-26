@@ -91,7 +91,7 @@ const mapWaypoints: Waypoint[] = itinerario.locations
         <div class="tour-hero__gradient-edge"></div>
       </div>
 
-      <div class="tour-hero__container">
+      <div class="tour-hero__container" data-aos="fade-right">
         <a
           href={localePath(lang, "/itinerarios")}
           class="back-link"
@@ -157,7 +157,7 @@ const mapWaypoints: Waypoint[] = itinerario.locations
   <!-- ═══════════════════════════════════════════════════════════════════════ -->
   <section class="itinerary-section">
     <div class="itinerary-container">
-      <div class="itinerary-header" >
+      <div class="itinerary-header" data-aos="fade-up">
         <span class="itinerary-kicker">Ruta del Viaje</span>
         <h2 class="itinerary-title">{tour.title}</h2>
         <div class="itinerary-divider"></div>
@@ -333,7 +333,7 @@ const mapWaypoints: Waypoint[] = itinerario.locations
       {/* ACTIVIDADES OPCIONALES */}
       {itinerario.optionalActivities && itinerario.optionalActivities.length > 0 && (
         <section class="optional-section">
-          <div class="optional-section__header">
+          <div class="optional-section__header" data-aos="fade-right">
             <div class="optional-section__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
@@ -344,9 +344,9 @@ const mapWaypoints: Waypoint[] = itinerario.locations
               <h2 class="optional-section__title">Actividades Opcionales</h2>
             </div>
           </div>
-          <p class="optional-section__subtitle">Complementa tu viaje con estas experiencias únicas disponibles durante tu estadía</p>
+          <p data-aos="fade-right" class="optional-section__subtitle">Complementa tu viaje con estas experiencias únicas disponibles durante tu estadía</p>
 
-          <div class="optional-grid">
+          <div class="optional-grid" data-aos="fade-up">
             {itinerario.optionalActivities.map((opt) => {
               const isMealOptions = opt.mealOptions && opt.mealOptions.length > 0;
               
@@ -407,15 +407,15 @@ const mapWaypoints: Waypoint[] = itinerario.locations
   <!-- INCLUYE / NO INCLUYE -->
   <section class="includes-section">
     <div class="includes-container">
-      <div class="includes-header" >
+      <div class="includes-header"  data-aos="fade-up">
         <span class="includes-kicker">Detalles del viaje</span>
         <h2 class="includes-title">Qué incluye tu experiencia</h2>
         <div class="includes-divider"></div>
         <p class="includes-subtitle">Todo lo que necesitas saber para planificar tu aventura</p>
       </div>
 
-      <div class="includes-grid">
-        <div class="include-card include-card--included">
+      <div class="includes-grid" >
+        <div class="include-card include-card--included" data-aos="fade-right">
           <div class="include-card__header">
             <div class="include-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -447,7 +447,7 @@ const mapWaypoints: Waypoint[] = itinerario.locations
           </div>
         </div>
 
-        <div class="include-card include-card--excluded">
+        <div class="include-card include-card--excluded" data-aos="fade-left">
           <div class="include-card__header">
             <div class="include-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
