@@ -31,8 +31,13 @@
 /* CONTAINER                                  */
 /* ────────────────────────────────────────── */
 .nav-container {
+  background: transparent;
+  position: relative;
+  width: 100%;
+}
+
+.nav-container .scrolled{
   background: #272b2b;
-  backdrop-filter: blur(var(--navbar-blur));
   border-bottom: 1px solid rgba(71, 138, 61, 0.15);
   position: relative;
   width: 100%;

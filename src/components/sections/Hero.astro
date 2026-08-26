@@ -9,6 +9,8 @@ import VideoFor from '@assets/videos/ValleSagrado.mp4';
 import VideoFive from '@assets/videos/Danza.mp4';
 import VideoSex from '@assets/videos/VideoCondor.mp4';
 import VideoSeven from '@assets/videos/MontanaSevenColors.mp4';
+import VideoEight from '@assets/videos/LakeTiticaca.mp4';
+import VideoNine from '@assets/videos/Puno_animals.mp4';
 const lang = getLang(Astro.url);
 
 const toursRoute = navRoutes.find(r => r.key === "tours");
@@ -34,7 +36,7 @@ const {
   ctaHref = '/',
 } = Astro.props;
 
-const videos = [VideoOne, VideoTwo, VideoThree,VideoFor,VideoFive, VideoSex, VideoSeven];
+const videos = [VideoOne, VideoTwo, VideoThree,VideoFor,VideoFive, VideoSex, VideoSeven, VideoEight, VideoNine];
 
 ---
 
