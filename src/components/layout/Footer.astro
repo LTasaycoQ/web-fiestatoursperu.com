@@ -1,12 +1,10 @@
 ---
-// src/components/layout/Footer.astro
 import { localePath } from "@i18n";
 import { footerSections, footerLegal } from "@lib/footer";
 import type { Locale, Translations } from "@i18n";
 
 const { lang, t } = Astro.props;
 
-// 🔥 IMPORTANTE: Usar ?url para obtener la URL estática (más compatible con iPad)
 import LogoEs from "../../assets/Logo-FTI-esp-black.png?url";
 import LogoEn from "../../assets/Logo-FTI-ing-black.png?url";
 import LogoPt from "../../assets/Logo-FTI-port-black.png?url";
@@ -22,10 +20,8 @@ const logo = logos[lang] ?? LogoEs;
 
 <footer class="luxury-footer">
   <div class="footer-container">
-    <!-- Grid principal -->
     <div class="footer-grid">
       
-      <!-- Columna de marca (estilo Scott Dunn) -->
       <div class="footer-brand">
         <a href={localePath(lang, '/')} class="footer-logo">
           <img 

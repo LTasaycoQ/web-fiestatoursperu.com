@@ -12,7 +12,6 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const h = t.hoteles;
 
-// ✅ Usar datos puros
 const hoteles = hotelesData;
 
 const categories = [
@@ -42,7 +41,6 @@ const categories = [
   },
 ];
 
-// ✅ Mapear hoteles con datos puros + traducciones
 const hotelsWithMetadata = hoteles.map((hotel, index) => ({
   id: hotel.id,
   city: hotel.city,
@@ -85,7 +83,6 @@ const hotelsWithMetadata = hoteles.map((hotel, index) => ({
 ---
 
 <BaseLayout title={h.metaTitle} description={h.metaDesc}>
-  <!-- HERO -->
   <section class="hot-hero">
     <div class="hot-hero__bg">
       <img
@@ -115,7 +112,6 @@ const hotelsWithMetadata = hoteles.map((hotel, index) => ({
     <div class="hot-hero__cut" aria-hidden="true"></div>
   </section>
 
-  <!-- INTRO + CATEGORIES -->
   <section class="hot-intro">
     <div class="hot-intro__text js-reveal">
       <p class="eyebrow">{h.sectionEyebrow}</p>
@@ -124,7 +120,6 @@ const hotelsWithMetadata = hoteles.map((hotel, index) => ({
       <p class="section-body">{h.sectionBody}</p>
     </div>
 
-    <!-- Categorías -->
     <div class="hot-cats" id="hot-cats">
       {
         categories.map((cat, idx) => (
@@ -155,7 +150,6 @@ const hotelsWithMetadata = hoteles.map((hotel, index) => ({
     </div>
   </section>
 
-  <!-- HOTEL CARDS -->
   <section class="hot-list" id="hot-list">
     <div class="hot-list__inner">
       {
@@ -205,7 +199,6 @@ const hotelsWithMetadata = hoteles.map((hotel, index) => ({
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="hot-cta">
     <div class="hot-cta__inner">
       <p class="eyebrow-light js-reveal">{h.ctaEyebrow}</p>

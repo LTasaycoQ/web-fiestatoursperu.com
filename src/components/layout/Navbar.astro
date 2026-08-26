@@ -21,7 +21,6 @@ function isActive(path: string): boolean {
   return currentPath === full || currentPath.startsWith(full + '/');
 }
 
-// Importar logos como URLs estáticas (más compatible con iPad)
 import LogoEs from '../../assets/log-png.png?url';
 import LogoEn from '../../assets/log-png.png?url';
 import LogoPt from '../../assets/log-png.png?url';
@@ -34,13 +33,10 @@ const logos: Record<string, string> = {
 
 const logo = logos[lang] ?? LogoEs;
 
-// ⚠️ Reemplaza este número por el teléfono real de la empresa
 const phoneDisplay = '+51 984 123 456';
 const phoneHref = 'tel:+51984123456';
 
-// Helper para acceder a las traducciones del nav de forma segura
 function getNavTranslation(key: string): string {
-  // Conversión segura usando unknown primero
   const nav = t.nav as unknown as Record<string, string>;
   return nav[key] || key;
 }
@@ -48,9 +44,6 @@ function getNavTranslation(key: string): string {
 
 <header id="site-header">
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- TOP BAR: teléfono + idiomas (estilo Luxury Gold) -->
-  <!-- ════════════════════════════════════════ -->
   <div class="top-bar">
     <div class="top-bar-inner">
 
@@ -65,7 +58,6 @@ function getNavTranslation(key: string): string {
       </a>
 
       <div class="top-bar-right">
-        <!-- IDIOMAS: fila de texto plano "ESPAÑOL - ENGLISH - PORTUGUÊS" -->
         <ul class="top-bar-languages">
           {languages.map((l, i) => (
             <li class="top-bar-lang-item">
@@ -87,16 +79,11 @@ function getNavTranslation(key: string): string {
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- MENÚ PRINCIPAL (igual que antes, sin idiomas) -->
-  <!-- ════════════════════════════════════════ -->
   <div class="nav-container">
     <div class="nav-inner">
 
-      <!-- BLOQUE CENTRADO: logo + nav (con max-width interno) -->
       <div class="nav-inner-content">
 
-        <!-- LOGO con efecto hover - Usando img nativo -->
         <a
           href={localePath(lang, '/')}
           class="logo"
@@ -115,7 +102,6 @@ function getNavTranslation(key: string): string {
           </div>
         </a>
 
-        <!-- NAV DESKTOP mejorado -->
         <nav class="nav-links" aria-label="Menú principal">
           {navRoutes.map((route) => (
             <div class:list={['nav-item-wrapper', route.children ? 'has-dropdown' : '']}>
@@ -158,7 +144,6 @@ function getNavTranslation(key: string): string {
 
       </div>
 
-      <!-- CTA BUTTON premium: 2ª columna del grid → siempre pegado al borde derecho real -->
       <a href={localePath(lang, '/informacion')} class="cta-button">
         <span class="cta-text"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
       </a>
@@ -168,7 +153,6 @@ function getNavTranslation(key: string): string {
 
 </header>
 
-<!-- MOBILE TOGGLE mejorado -->
 <button
   id="mobile-toggle"
   class="mobile-toggle"
@@ -179,7 +163,6 @@ function getNavTranslation(key: string): string {
   <span></span><span></span><span></span>
 </button>
 
-<!-- MOBILE MENU premium -->
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
 
   <nav class="mobile-nav">
