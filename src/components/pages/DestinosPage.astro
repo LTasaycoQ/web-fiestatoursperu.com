@@ -9,7 +9,6 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const i = t.incentivos;
 
-// ✅ Usar datos puros + traducciones para features
 const features = incentivosFeatures.map(feature => ({
   icon: feature.icon,
   title: i.featureTranslations[feature.titleKey] || "",
@@ -17,7 +16,6 @@ const features = incentivosFeatures.map(feature => ({
   badge: feature.badge
 }));
 
-// ✅ Usar datos puros + traducciones para experiences
 const experiences = incentivosExperiences.map(exp => ({
   ...exp,
   tag: i.tagTranslations[exp.tagKey] || exp.tagKey,
@@ -25,7 +23,6 @@ const experiences = incentivosExperiences.map(exp => ({
   desc: i.experienceTranslations[exp.descKey] || ""
 }));
 
-// ✅ Usar datos puros + traducciones para stats
 const stats = incentivosStats.map(stat => ({
   num: stat.num,
   label: i.statTranslations[stat.labelKey] || ""
@@ -51,15 +48,15 @@ const icons: Record<string, string> = {
     </div>
     <div class="inc-hero__overlay"></div>
     <div class="inc-hero__content">
-      <p class="eyebrow-light" data-reveal="fade-up" data-delay="0">{i.heroEyebrow}</p>
-      <h1 class="inc-hero__title" data-reveal="fade-up" data-delay="120">
+      <p class="eyebrow-light">{i.heroEyebrow}</p>
+      <h1 class="inc-hero__title">
         {i.heroTitle.split('\n').map((line: string) => <>{line}<br/></>)}
       </h1>
-      <span class="verde-rule" data-reveal="scale" data-delay="220"></span>
-      <p class="inc-hero__sub" data-reveal="fade-up" data-delay="320">
+      <span class="verde-rule"></span>
+      <p class="inc-hero__sub">
         {i.heroSubtitle.split('\n').map((line: string) => <>{line}<br/></>)}
       </p>
-      <a href={localePath(lang, '/contacto')} class="btn-primary" data-reveal="fade-up" data-delay="440">
+      <a href={localePath(lang, '/contacto')} class="btn-primary">
         {i.heroCta}
       </a>
     </div>
@@ -72,14 +69,14 @@ const icons: Record<string, string> = {
   <section class="inc-why content-section">
     <div class="inc-why__inner">
       <div class="inc-why__text">
-        <p class="eyebrow" data-reveal="fade-up">{i.whyEyebrow}</p>
-        <h2 class="display-title" data-reveal="fade-up" data-delay="80">{i.whyTitle}</h2>
-        <span class="verde-rule" data-reveal="scale" data-delay="120"></span>
-        <p class="section-body" data-reveal="fade-up" data-delay="160">{i.whyBody}</p>
+        <p class="eyebrow" >{i.whyEyebrow}</p>
+        <h2 class="display-title">{i.whyTitle}</h2>
+        <span class="verde-rule"></span>
+        <p class="section-body" >{i.whyBody}</p>
       </div>
       <div class="inc-why__feats">
         {features.map((f, idx) => (
-          <div class="feat-card" data-reveal="fade-up" data-delay={String(idx * 70)}>
+          <div class="feat-card">
             <span class="feat-card__num">0{idx + 1}</span>
             <span class="feat-card__icon" set:html={icons[f.icon]} />
             <h3 class="feat-card__title">{f.title}</h3>
@@ -108,8 +105,8 @@ const icons: Record<string, string> = {
     </div>
     <div class="inc-stats__grid">
       {stats.map((s, idx) => (
-        <div class="stat-block" data-reveal="fade-up" data-delay={String(idx * 100)}>
-          <span class="stat-block__num" data-count={s.num}>{s.num}</span>
+        <div class="stat-block" >
+          <span class="stat-block__num" >{s.num}</span>
           <span class="stat-block__label">{s.label}</span>
         </div>
       ))}
@@ -118,12 +115,12 @@ const icons: Record<string, string> = {
 
   <!-- ═══════════════════════════════ EXPERIENCES ═══════════════════════ -->
   <section class="inc-exp content-section" style="background:#fff">
-    <p class="eyebrow" data-reveal="fade-up" style="color:var(--color-verdec)">{i.expEyebrow}</p>
-    <h2 class="display-title" data-reveal="fade-up" data-delay="80" style="color:var(--color-darker)">{i.expTitle}</h2>
-    <span class="verde-rule" data-reveal="scale" data-delay="120"></span>
+    <p class="eyebrow" style="color:var(--color-verdec)">{i.expEyebrow}</p>
+    <h2 class="display-title" style="color:var(--color-darker)">{i.expTitle}</h2>
+    <span class="verde-rule"></span>
     <div class="inc-exp__grid">
       {experiences.map((e, idx) => (
-        <article class="exp-card" data-reveal="fade-up" data-delay={String(idx * 120)}>
+        <article class="exp-card">
           <div class="exp-card__img-wrap">
             <img src={e.img} alt={e.title} loading="lazy" width="600" height="400" />
             <div class="exp-card__img-overlay"></div>
@@ -143,9 +140,9 @@ const icons: Record<string, string> = {
   <section class="inc-cta">
     <div class="inc-cta__bg" aria-hidden="true"></div>
     <div class="inc-cta__inner">
-      <p class="eyebrow-light" data-reveal="fade-up">{i.ctaEyebrow}</p>
-      <h2 class="inc-cta__title" data-reveal="fade-up" data-delay="80">{i.ctaTitle}</h2>
-      <div class="cta-actions" data-reveal="fade-up" data-delay="160">
+      <p class="eyebrow-light" >{i.ctaEyebrow}</p>
+      <h2 class="inc-cta__title">{i.ctaTitle}</h2>
+      <div class="cta-actions">
         <a href={localePath(lang, '/contacto')} class="btn-primary">{i.ctaBtn1}</a>
         <a href={localePath(lang, '/planificador')} class="btn-outline-light">{i.ctaBtn2}</a>
       </div>
@@ -543,13 +540,5 @@ const icons: Record<string, string> = {
   .feat-card__num { font-size: 60px; }
 }
 
-/* 🔥 FIX IPAD - Forzar visibilidad de data-reveal 🔥 */
-@media (min-width: 768px) and (max-width: 1024px) {
-  [data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
-}
+
 </style>

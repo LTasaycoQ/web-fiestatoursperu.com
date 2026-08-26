@@ -70,7 +70,7 @@ const featureIcons = [
   <!-- ══ ABOUT ══ -->
   <section class="section-about">
     <div class="about-container">
-      <div class="about-header" data-reveal="fade-up">
+      <div class="about-header">
         <img src={h.logo} alt="Logo" class="about-logo">
         <span class="eyebrow-title">{h.preTitle}</span>
          <div class="about-rule"></div>
@@ -78,12 +78,12 @@ const featureIcons = [
        
       </div>
       <div class="about-content">
-        <p class="about-text" data-reveal="fade-up" data-delay="100">{h.description}</p>
-        <p class="about-text" data-reveal="fade-up" data-delay="200">{h.description2}</p>
-        <p class="about-text " data-reveal="fade-up" data-delay="200">{h.description3}</p>
+        <p class="about-text">{h.description}</p>
+        <p class="about-text">{h.description2}</p>
+        <p class="about-text ">{h.description3}</p>
       </div>
 
-      <div class="about-stats" data-reveal="fade-up" data-delay="210">
+      <div class="about-stats" >
         <article class="about-stat">
           <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ const featureIcons = [
         </article>
       </div>
 
-      <div class="about-action" data-reveal="fade-up" data-delay="260">
+      <div class="about-action">
         <a href={localePath(lang, "/nosotros")} class="about-action__link">
           Descubra nuestra historia
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -155,7 +155,7 @@ const featureIcons = [
       </div>
     </div>
 
-    <div class="about-visual" data-reveal="fade-left">
+    <div class="about-visual" >
       <img loading="lazy"  src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1787332976/pexels-janonovoa-16756568_gpa5gj" alt="Paisaje peruano" loading="lazy">
     </div>
   </section>
@@ -163,7 +163,7 @@ const featureIcons = [
   <!-- ══ VALUE / FEATURES ══ -->
   <section class="section-value">
     <div class="value-container">
-      <div class="value-image-col" data-reveal="fade-right">
+      <div class="value-image-col">
         <div class="value-image-frame">
           <img
             src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1787342173/victor-rodriguez-IhAJpWUKS5s-unsplash_1_zdfbkd"
@@ -175,11 +175,11 @@ const featureIcons = [
         </div>
       </div>
 
-      <div class="value-content" data-reveal="fade-left">
+      <div class="value-content">
         <h2 class="value-title">{h.infoTitle}</h2>
         <div class="value-features">
           {c.length > 0 && featureIcons.map((icon, i) => (
-            <div class="value-feature" data-reveal="fade-up" data-delay={String((i + 1) * 100)}>
+            <div class="value-feature" >
               <div class="feature-icon" >0{c[i]?.id} <span class="line_circle"></span> </div>
               <div class="feature-text">
                 <h3 style="color: rgb(35, 47, 35);">{c[i]?.title}</h3>
@@ -208,7 +208,7 @@ const featureIcons = [
 
   <section class="section-tours">
     <div class="tours-inner">
-      <div class="tours-header" data-reveal="fade-up">
+      <div class="tours-header">
         <div class="tours-header-left">
           <span class="eyebrow-title">{h.toursEyebrow}</span>
           <h2 class="tours-title">
@@ -229,8 +229,7 @@ const featureIcons = [
           <a
             href={localePath(lang, tour.link)}
             class={`tour-card tour-card--${i === 0 ? "featured" : "regular"}`}
-            data-reveal="fade-up"
-            data-delay={String(i * 150)}
+           
           >
             <div class="tour-img-wrap">
               <img src={tour.image} alt={tour.title} loading="lazy" />
@@ -347,7 +346,7 @@ const featureIcons = [
     <div class="cta-final-bg">
       <div class="cta-final-grain"></div>
     </div>
-    <div class="cta-final-inner" data-reveal="fade-up">
+    <div class="cta-final-inner">
       <span class="eyebrow-title eyebrow-title--light">¿Listo para viajar?</span>
       <h3 class="cta-final-title">Tu próxima aventura<br /><em>te está esperando</em></h3>
       <p class="cta-final-sub">Habla con nuestros asesores — 50 años de experiencia al servicio de tu viaje ideal</p>
@@ -376,7 +375,7 @@ const featureIcons = [
       <p>Formamos parte de una red que eleva los estándares del turismo en el Perú.</p>
     </div> -->
 
-    <div class="logos_socios__grid" data-reveal="fade-up" data-delay="100">
+    <div class="logos_socios__grid" >
       <div class="partner-logo"><img src={ApavitLogo.src} alt="APAVIT" loading="lazy" /></div>
       <div class="partner-logo"><img src={ApturLogo.src} alt="APTUR" loading="lazy" /></div>
       <div class="partner-logo"><img src={SiteLogo.src} alt="SITE" loading="lazy" /></div>

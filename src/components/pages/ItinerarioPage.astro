@@ -56,26 +56,25 @@ function cloudinaryOptimize(url: string, width: number): string {
     </div>
     <div class="rec-hero__overlay"></div>
 
-    <!-- Decorative vertical line -->
     <div class="rec-hero__vert-line"></div>
 
     <div class="rec-hero__container">
 
-      <div class="rec-hero__eyebrow" data-reveal="fade-up">
+      <div class="rec-hero__eyebrow">
         <span class="rec-hero__dot"></span>
         <span>Colección exclusiva · 50+ años de excelencia</span>
       </div>
 
-      <h1 class="rec-hero__title" data-reveal="fade-up" data-delay="100">
+      <h1 class="rec-hero__title">
         Experiencias que<br/>
         <em>trascienden el tiempo</em>
       </h1>
 
-      <p class="rec-hero__subtitle" data-reveal="fade-up" data-delay="200">
+      <p class="rec-hero__subtitle">
         Descubra una colección exclusiva de viajes diseñados con la expertise de medio siglo creando momentos inolvidables en cada rincón del Perú.
       </p>
 
-      <div class="rec-hero__actions" data-reveal="fade-up" data-delay="300">
+      <div class="rec-hero__actions">
         <a href="#tours-section" class="rec-hero__btn-primary">
           Explorar tours
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -87,7 +86,7 @@ function cloudinaryOptimize(url: string, width: number): string {
         </a>
       </div>
 
-      <div class="rec-hero__stats" data-reveal="fade-up" data-delay="400">
+      <div class="rec-hero__stats" >
         <div class="rec-hero__stat">
           <strong>50+</strong>
           <span>Años de experiencia</span>
@@ -119,11 +118,11 @@ function cloudinaryOptimize(url: string, width: number): string {
   <!-- ═══════════════════════════════════════════ -->
   <section class="rec-intro">
     <div class="rec-intro__inner">
-      <span class="rec-intro__label" data-reveal="fade-up">Nuestra filosofía</span>
-      <p class="rec-intro__text" data-reveal="fade-up" data-delay="100">
+      <span class="rec-intro__label">Nuestra filosofía</span>
+      <p class="rec-intro__text" >
         Cada recorrido que diseñamos es una obra maestra construida sobre décadas de conocimiento local, guías certificados y atención al detalle que solo medio siglo de pasión puede ofrecer.
       </p>
-      <div class="rec-intro__rule" data-reveal="scale" data-delay="200"></div>
+      <div class="rec-intro__rule"></div>
     </div>
   </section>
 
@@ -135,7 +134,7 @@ function cloudinaryOptimize(url: string, width: number): string {
     <div class="tours-container">
 
       <!-- Header -->
-      <div class="tours-header" data-reveal="fade-up">
+      <div class="tours-header" >
         <div class="tours-header__left">
           <span class="tours-kicker">Colección exclusiva</span>
           <h2 class="tours-title">
@@ -152,7 +151,7 @@ function cloudinaryOptimize(url: string, width: number): string {
       </div>
 
       <!-- Filters -->
-      <div class="tours-filters" data-reveal="fade-up" data-delay="100">
+      <div class="tours-filters" >
         {filters.map((f) => (
           <button
             class="tours-filter-btn"
@@ -171,8 +170,6 @@ function cloudinaryOptimize(url: string, width: number): string {
             href={localePath(lang, tour.link)}
             class="tour-card"
             data-category={tour.category}
-            data-reveal="fade-up"
-            data-delay={String(idx * 80)}
           >
             <div class="tour-card__image">
               <img
@@ -233,7 +230,7 @@ function cloudinaryOptimize(url: string, width: number): string {
   <!-- ═══════════════════════════════════════════ -->
   <section class="trust-bar">
     <div class="trust-bar__inner">
-      <div class="trust-bar__item" data-reveal="fade-up">
+      <div class="trust-bar__item">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -241,7 +238,7 @@ function cloudinaryOptimize(url: string, width: number): string {
         <span>Profesionales con licencia oficial</span>
       </div>
       <div class="trust-bar__divider"></div>
-      <div class="trust-bar__item" data-reveal="fade-up" data-delay="100">
+      <div class="trust-bar__item" >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -249,7 +246,7 @@ function cloudinaryOptimize(url: string, width: number): string {
         <span>Cobertura y asistencia 24/7</span>
       </div>
       <div class="trust-bar__divider"></div>
-      <div class="trust-bar__item" data-reveal="fade-up" data-delay="200">
+      <div class="trust-bar__item">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -257,7 +254,7 @@ function cloudinaryOptimize(url: string, width: number): string {
         <span>Diseñados para cada viajero</span>
       </div>
       <div class="trust-bar__divider"></div>
-      <div class="trust-bar__item" data-reveal="fade-up" data-delay="300">
+      <div class="trust-bar__item" >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="1.5"/>
         </svg>
@@ -274,15 +271,15 @@ function cloudinaryOptimize(url: string, width: number): string {
   <section class="rec-cta">
     <div class="rec-cta__inner">
       <div class="rec-cta__content">
-        <span class="rec-cta__kicker" data-reveal="fade-up">¿Listo para la aventura?</span>
-        <h2 class="rec-cta__title" data-reveal="fade-up" data-delay="100">
+        <span class="rec-cta__kicker">¿Listo para la aventura?</span>
+        <h2 class="rec-cta__title">
           Deja que nuestros expertos<br/>
           <span>diseñen tu viaje perfecto</span>
         </h2>
-        <p class="rec-cta__text" data-reveal="fade-up" data-delay="150">
+        <p class="rec-cta__text" >
           Cada detalle, cada momento, cada recuerdo — personalizado para ti.
         </p>
-        <div class="rec-cta__buttons" data-reveal="fade-up" data-delay="200">
+        <div class="rec-cta__buttons">
           <a href={localePath(lang, "/contacto")} class="rec-cta__btn-primary">
             Contactar asesor
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -294,7 +291,7 @@ function cloudinaryOptimize(url: string, width: number): string {
           </a>
         </div>
       </div>
-      <div class="rec-cta__visual" data-reveal="fade-left" data-delay="200">
+      <div class="rec-cta__visual" >
         <div class="rec-cta__img-wrap">
           <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=500&q=85&auto=format" alt="Machu Picchu" loading="lazy" />
         </div>
@@ -308,6 +305,7 @@ function cloudinaryOptimize(url: string, width: number): string {
   </section>
 
 </BaseLayout>
+
 
 <script>
   // ============================================================
@@ -365,30 +363,7 @@ function cloudinaryOptimize(url: string, width: number): string {
       } catch (e) {}
     }
     
-    function setupEventListeners(): void {
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (btn.dataset.filter) {
-            applyFilter(btn.dataset.filter);
-            const toursSection = document.getElementById('tours-section');
-            if (toursSection && window.scrollY > toursSection.offsetTop - 150) {
-              toursSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }
-        });
-      });
-      
-      viewAllLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          applyFilter('all');
-          const toursSection = document.getElementById('tours-section');
-          if (toursSection) {
-            toursSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-    }
+   
     
     function getFilterFromURL(): string | null {
       try {
@@ -408,7 +383,6 @@ function cloudinaryOptimize(url: string, width: number): string {
       
       if (!filterBtns.length || !tourCards.length) return;
       
-      setupEventListeners();
       
       const urlFilter = getFilterFromURL();
       const initialFilter = urlFilter || DEFAULT_FILTER;
@@ -416,35 +390,17 @@ function cloudinaryOptimize(url: string, width: number): string {
       setTimeout(() => applyFilter(initialFilter), 50);
     }
     
-    function initSmoothScroll(): void {
-      document.querySelectorAll('a[href^="#"]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === '#') return;
-        
-        link.addEventListener('click', (e) => {
-          const id = href?.slice(1);
-          const target = id ? document.getElementById(id) : null;
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-    }
-    
+   
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
         init();
-        initSmoothScroll();
       });
     } else {
       init();
-      initSmoothScroll();
     }
     
     document.addEventListener('astro:page-load', () => {
       init();
-      initSmoothScroll();
     });
   })();
 </script>

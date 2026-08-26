@@ -50,22 +50,22 @@ const icons: Record<string, string> = {
     <div class="rec-hero__vert-line"></div>
 
     <div class="rec-hero__container">
-      <div class="rec-hero__eyebrow" data-reveal="fade-up">
+      <div class="rec-hero__eyebrow">
         <span class="rec-hero__dot"></span>
         <span>{n.heroBadge || "DESDE 1976 · 50+ AÑOS DE EXCELENCIA"}</span>
       </div>
 
-      <h1 class="rec-hero__title" data-reveal="fade-up" data-delay="100">
+      <h1 class="rec-hero__title">
         {n.heroTitleLine1 || "La empresa"}<br/>
         <em>{n.heroTitleLine2 || "Detrás del viaje"}</em><br/>
         {n.heroTitleLine3 || "perfecto."}
       </h1>
 
-      <p class="rec-hero__subtitle" data-reveal="fade-up" data-delay="200">
+      <p class="rec-hero__subtitle">
         {n.heroSubtitle || "Operadora de turismo receptivo de lujo — especializada en el mercado más exigente de América Latina."}
       </p>
 
-      <div class="rec-hero__actions" data-reveal="fade-up" data-delay="300">
+      <div class="rec-hero__actions">
         <a href="#descubrir" class="rec-hero__btn-primary">
           {n.heroBtnPrimary || "Descubrir más"}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -77,7 +77,7 @@ const icons: Record<string, string> = {
         </a>
       </div>
 
-      <div class="rec-hero__stats" data-reveal="fade-up" data-delay="400">
+      <div class="rec-hero__stats">
         {stats.map((stat, idx) => (
           <>
             <div class="rec-hero__stat">
@@ -102,10 +102,10 @@ const icons: Record<string, string> = {
   <section class="section ns-empresa" id="descubrir">
     <div class="ns-grid-empresa">
       <div class="ns-empresa__text">
-        <span class="eyebrow-tag" data-reveal="fade-up">{n.empresaEyebrow || "LA EMPRESA"}</span>
-        <h2 class="display-h2" data-reveal="fade-up" set:html={n.empresaTitle || "Más de cuatro décadas<br>creando lo extraordinario."}></h2>
-        <div class="verde-stroke" data-reveal="fade-up"></div>
-        <div class="prose-stack" data-reveal="fade-up">
+        <span class="eyebrow-tag">{n.empresaEyebrow || "LA EMPRESA"}</span>
+        <h2 class="display-h2" set:html={n.empresaTitle || "Más de cuatro décadas<br>creando lo extraordinario."}></h2>
+        <div class="verde-stroke"></div>
+        <div class="prose-stack">
           <p set:html={n.empresaText1 || "<strong>Fiesta Tours Perú</strong> nace en 1976 con una misión clara: mostrar la grandeza del Perú al mundo."}></p>
           <p>{n.empresaText2 || "Con más de cuatro décadas de experiencia, nos hemos consolidado como operadores de turismo receptivo de lujo para el mercado más exigente de América Latina y el mundo."}</p>
           <p>{n.empresaText3 || "Nuestro equipo está formado por profesionales apasionados que conocen cada rincón del Perú como nadie más."}</p>
@@ -120,7 +120,7 @@ const icons: Record<string, string> = {
   <!-- ═══════════════════════════════════════════════════════════════════════════ -->
   <section class="section ns-why">
     <div class="ns-inner">
-      <div class="ns-why__head" data-reveal="fade-up">
+      <div class="ns-why__head">
         <span class="eyebrow-tag">{n.whyEyebrow || "VALORES"}</span>
         <h2 class="display-h2" set:html={n.whyTitle || "Por qué<br>elegirnos"}></h2>
         <div class="verde-stroke"></div>
@@ -129,7 +129,7 @@ const icons: Record<string, string> = {
 
       <div class="features-quad">
         {features.map((f, idx) => (
-          <div class="fcard" data-reveal="fade-up">
+          <div class="fcard">
             <div class="fcard__head">
               <span class="fcard__idx">0{idx + 1}</span>
               <div class="fcard__icon" set:html={icons[f.icon] || icons.medal} />
@@ -141,7 +141,7 @@ const icons: Record<string, string> = {
         ))}
       </div>
 
-      <div class="ns-why__cta" data-reveal="fade-up">
+      <div class="ns-why__cta">
         <a href={localePath(lang, '/destinos')} class="cta-primary">
           <span>Explorar nuestros destinos</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -157,7 +157,7 @@ const icons: Record<string, string> = {
   <!-- ═══════════════════════════════════════════════════════════════════════════ -->
   <section class="section ns-razones">
     <div class="ns-inner">
-      <header class="ns-header" data-reveal="fade-up">
+      <header class="ns-header">
         <span class="eyebrow-tag">{n.razonesEyebrow || "POR QUÉ PERÚ"}</span>
         <h2 class="display-h2" set:html={n.razonesTitle || "Razones para<br>enamorarte"}></h2>
         <div class="verde-stroke"></div>
@@ -165,7 +165,7 @@ const icons: Record<string, string> = {
 
       <div class="razones-grid">
         {razones.map((r, i) => (
-          <div class="ritem" data-reveal="fade-up">
+          <div class="ritem">
             <span class="ritem__n">{String(i + 1).padStart(2, '0')}</span>
             <p class="ritem__text">{r}</p>
           </div>
@@ -178,7 +178,7 @@ const icons: Record<string, string> = {
   <!-- CIERRE / CALL TO ACTION                                                     -->
   <!-- ═══════════════════════════════════════════════════════════════════════════ -->
   <section class="section ns-cierre">
-    <div class="cierre-content" data-reveal="fade-up">
+    <div class="cierre-content">
       <div class="cierre-ornament" aria-hidden="true">
         <span class="orn-line"></span>
         <span class="orn-gem">◆</span>

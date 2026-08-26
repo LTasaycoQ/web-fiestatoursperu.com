@@ -390,15 +390,7 @@ function initNavbar() {
     });
   });
   
-  // ── Scroll header (solo se registra UNA vez globalmente) ──
-  if (!scrollHandlerAttached) {
-    scrollHandlerAttached = true;
-    const updateScroll = () => {
-      if (header) header.classList.toggle('scrolled', window.scrollY > 50);
-    };
-    window.addEventListener('scroll', updateScroll, { passive: true });
-    updateScroll(); // Estado inicial
-  }
+
   
   updateActiveLinks();
 }
