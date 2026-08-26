@@ -27,6 +27,4 @@ export default defineConfig({
     enabled: false,
   },
 
-  output: 'static',
-  // ← sin adapter, Cloudflare Pages sirve estáticos nativamente
 });
