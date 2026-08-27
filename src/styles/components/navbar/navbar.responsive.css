@@ -11,14 +11,16 @@
 /* ────────────────────────────────────────── */
 .cta-button {
   display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  padding: 0 2.2rem;
-  background: #373b3b86;
+  height: 40px;
+  padding: 0px 1rem;
+  background: #b06e18;
   border: none;
-  border-radius: 0; /* rectángulo, antes 40px (píldora) */
-  color: white;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -90,9 +92,9 @@
 }
 
 .nav-links {
-  display: flex;
-  flex: 1 1 auto;
-  min-width: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-actions {
@@ -237,7 +239,7 @@
 
   .cta-button {
     height: 60px;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 }
 
@@ -319,8 +321,8 @@
   }
 
   .cta-button {
-    height: 60px;
-    padding: 0 2.8rem;
+    height: 50px;
+    padding: 0 1.4rem;
   }
 
   .cta-text {

@@ -30,5 +30,5 @@ export const navRoutes: NavRoute[] = [
 export const languages = [
   { code: 'es' as Locale, label: 'Español',   flag: '🇵🇪' },
   { code: 'en' as Locale, label: 'English',   flag: '🇺🇸' },
-  { code: 'pt' as Locale, label: 'Português', flag: '🇧🇷' },
+  { code: 'pt-BR' as Locale, label: 'Português', flag: '🇧🇷' },
 ];
