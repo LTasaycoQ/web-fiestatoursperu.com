@@ -68,7 +68,7 @@
 
 /* CTA dentro del menú mobile (hamburguesa): altura cómoda, ancho completo */
 .mobile-menu .cta-button {
-  height: 16px;
+  height: 40px;
   width: 100%;
   padding: 0 1.5rem;
   background: #3a3f3f;
@@ -305,7 +305,7 @@
 
   /* CTA dentro del menú mobile: alto cómodo, no 60px fijo porque aquí ocupa el ancho completo */
   .mobile-menu .cta-button {
-    height: 26px;
+    height: 36px;
     font-size: 14px;
   }
 }
