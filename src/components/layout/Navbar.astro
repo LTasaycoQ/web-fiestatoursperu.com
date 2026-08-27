@@ -74,11 +74,11 @@ function getNavTranslation(key: string): string {
               <a
                 href={localePath(lang, route.path)}
                 class:list={[
-                  'nav-link letritas',
+                  'nav-link',
                   isActive(route.path) && 'active' 
                 ]}
               >
-                <span class="nav-link-text">{getNavTranslation(route.key)}</span>
+                <span class="nav-link-text  letritas letritas">{getNavTranslation(route.key)}</span>
                 {route.children && (
                   <svg class="chevron" viewBox="0 0 24 24" fill="none">
                     <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
