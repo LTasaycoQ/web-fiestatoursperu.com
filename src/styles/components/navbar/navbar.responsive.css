@@ -109,6 +109,22 @@
   flex-shrink: 0;
 }
 
+
+
+
+@media (max-width: 1064px) {
+    .cont_extras,
+    .nav-inner-content .nav-links {
+      display: none !important;
+    }
+
+
+  /* Mostrar mobile */
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+
 /* ============================================
    BREAKPOINT PRINCIPAL — ≤ 900px
    ============================================ */
@@ -121,7 +137,6 @@
   }
 
   /* Ocultar desktop */
-  .nav-inner-content .nav-links,
   .nav-inner-content .nav-actions {
     display: none !important;
   }
@@ -137,12 +152,6 @@
   .nav-inner {
     grid-template-columns: 1fr;
   }
-
-  /* Mostrar mobile */
-  .mobile-toggle {
-    display: flex !important;
-  }
-
   .mobile-menu {
     display: block !important;
   }
@@ -187,7 +196,6 @@
     grid-template-columns: 1fr auto;
   }
 
-  .nav-inner-content .nav-links,
   .nav-inner-content .nav-actions {
     display: flex !important;
   }
@@ -196,7 +204,6 @@
     display: flex !important;
   }
 
-  .mobile-toggle,
   .mobile-menu {
     display: none !important;
   }
