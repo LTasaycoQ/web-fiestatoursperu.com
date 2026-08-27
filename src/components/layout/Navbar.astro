@@ -117,7 +117,7 @@ function getNavTranslation(key: string): string {
             </a>
 
             <a href={localePath(lang, '/informacion')} class="cta-button letrita" >
-            <span class="cta-text letritas"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
+            <span class="cta-text letritas" style="font-weight: 500; font-family: Montserrat, sans-serif;"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
           </a>
 
           <div>
@@ -128,7 +128,7 @@ function getNavTranslation(key: string): string {
             <ul class="top-bar-languages" style="position:relative;">
               {languages.filter(l => lang === l.code).map((l) => (
                 <li class="top-bar-lang-item current-lang">
-                  <span class="top-bar-lang-link letritas active" style="font-size: 15px; font-weight: normal; display:flex; gap: 10px;">
+                  <span class="top-bar-lang-link letritas active" style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; font-family: Montserrat, sans-serif;">
                     {l.code}
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="transition-transform duration-300 group-[.destinations-dark]/body:fill-white group-[.destinations-dark]/body:[&amp;_path]:fill-white"><path d="M15.6462 10.945C15.8415 11.1403 15.8415 11.4569 15.6462 11.6521L12.1107 15.1877C11.94 15.3584 11.6764 15.3805 11.4823 15.2526L11.4036 15.1877L7.86805 11.6521C7.67279 11.4569 7.67279 11.1403 7.86805 10.945C8.06333 10.75 8.37997 10.7499 8.57516 10.945L11.7571 14.127L14.9391 10.945C15.1343 10.7499 15.4509 10.75 15.6462 10.945Z" fill="#4D4D4D" stroke-width="1"></path></svg>
                   
