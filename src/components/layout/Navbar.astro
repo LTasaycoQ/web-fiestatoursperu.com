@@ -124,27 +124,51 @@ function getNavTranslation(key: string): string {
 
 
 
-         <div style="background=red; padding-left: 30px;">
-            <ul class="top-bar-languages" style="position:relative;">
+         <div style="padding-left: 30px;">
+            <ul class="top-bar-languages" style="position:relative; list-style: none;">
               {languages.filter(l => lang === l.code).map((l) => (
-                <li class="top-bar-lang-item current-lang">
-                  <span class="top-bar-lang-link letritas active" style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; font-family: Montserrat, sans-serif;">
-                    {l.code}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="transition-transform duration-300 group-[.destinations-dark]/body:fill-white group-[.destinations-dark]/body:[&amp;_path]:fill-white"><path d="M15.6462 10.945C15.8415 11.1403 15.8415 11.4569 15.6462 11.6521L12.1107 15.1877C11.94 15.3584 11.6764 15.3805 11.4823 15.2526L11.4036 15.1877L7.86805 11.6521C7.67279 11.4569 7.67279 11.1403 7.86805 10.945C8.06333 10.75 8.37997 10.7499 8.57516 10.945L11.7571 14.127L14.9391 10.945C15.1343 10.7499 15.4509 10.75 15.6462 10.945Z" fill="#4D4D4D" stroke-width="1"></path></svg>
+                <li class="top-bar-lang-item current-lang" style="position: relative;">
                   
-                  <ul  style="display:none; position: absolute; top: 40px; right:0px; padding:10px;">
+                  {/* BOTÓN RECEPTOR DEL CLIC (Se cerró correctamente la etiqueta span) */}
+                  <span class="top-bar-lang-link letritas active" id="language_define" style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; font-family: Montserrat, sans-serif; cursor:pointer;">
+                    {l.code}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="transition-transform duration-300">
+                      <path d="M15.6462 10.945C15.8415 11.1403 15.8415 11.4569 15.6462 11.6521L12.1107 15.1877C11.94 15.3584 11.6764 15.3805 11.4823 15.2526L11.4036 15.1877L7.86805 11.6521C7.67279 11.4569 7.67279 11.4036 7.86805 10.945C8.06333 10.75 8.37997 10.7499 8.57516 10.945L11.7571 14.127L14.9391 10.945C15.1343 10.7499 15.4509 10.75 15.6462 10.945Z" fill="#4D4D4D" stroke-width="1"></path>
+                    </svg>
+                  </span>
+                  
+                  {/* MENÚ DESPLEGABLE (Ahora está fuera de span, pero comparte el contenedor li) */}
+                  <ul id="menu_language" style="display:none; flex-direction: column; gap: 10px; background-color:rgb(0, 0, 0); position: absolute; top: 40px; right:0px; padding:10px; border-radius: 10px; width: 80px; text-align: center; z-index: 50;">
                     {languages.filter(l => lang !== l.code).map((otherLang) => (
                       <li class="dropdown-item" style="list-style: none;">
-                        <a href={switchLocalePath(Astro.url, otherLang.code)} class="top-bar-lang-link">
-                          {otherLang.code}
+                        <a href={switchLocalePath(Astro.url, otherLang.code)} class="top-bar-lang-link" style="color: white; text-decoration: none;">
+                          {otherLang.code_pais}
                         </a>
                       </li>
                     ))}
                   </ul>
+
                 </li>
               ))}
             </ul>
+
+            <script is:inline>
+              document.getElementById('language_define')?.addEventListener('click', function(e) {
+                e.stopPropagation(); 
+                const language_modal = document.getElementById('menu_language');
+                if (language_modal) {
+                  const isHidden = language_modal.style.display === 'none' || language_modal.style.display === '';
+                  language_modal.style.display = isHidden ? 'flex' : 'none';
+                }
+              });
+
+              document.addEventListener('click', function() {
+                const language_modal = document.getElementById('menu_language');
+                if (language_modal) language_modal.style.display = 'none';
+              });
+            </script>
           </div>
+
 
             
 

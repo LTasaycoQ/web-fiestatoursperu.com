@@ -28,7 +28,7 @@ export const navRoutes: NavRoute[] = [
 ];
 
 export const languages = [
-  { code: 'es' as Locale, label: 'Español',   flag: '🇵🇪' },
-  { code: 'en' as Locale, label: 'English',   flag: '🇺🇸' },
-  { code: 'pt-BR' as Locale, label: 'Português', flag: '🇧🇷' },
+  { code: 'es' as Locale, label: 'Español',   flag: '🇵🇪', code_pais: 'es' },
+  { code: 'en' as Locale, label: 'English',   flag: '🇺🇸', code_pais: 'en' },
+  { code: 'pt' as Locale, label: 'Português', flag: '🇧🇷', code_pais: 'pt-BR' },
 ];
