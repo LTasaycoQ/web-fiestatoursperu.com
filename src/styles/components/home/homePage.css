@@ -41,7 +41,7 @@
    ABOUT
 ══════════════════════════════════════════ */
 .section-about {
-  background: #F3F0EB;
+  background: #ffffff;
   display: flex;
 }
 
@@ -1347,7 +1347,7 @@
 
 .about-action {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   font-family: "Montserrat", sans-serif;
   align-items: center;
   margin-top: 42px;
