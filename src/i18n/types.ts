@@ -71,7 +71,9 @@ export interface HomeTranslations {
   description3?: string;
 
   infoTitle?: string;
+  infoTitle2?: string;
   content?: Content[];
+  infoDescription?: string;
 
   toursTitle?: string;
   toursTitle2?: string;

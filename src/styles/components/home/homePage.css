@@ -72,7 +72,7 @@
 }
 
 .about-rule {
-  width: 76px;
+  width: 30px;
   height: 3px;
   background: #E6B30C;
   margin: 4px auto 40px;
@@ -106,6 +106,8 @@
   font-weight: 300;
   margin-bottom: 5px;
 }
+
+
 
 
 
@@ -150,7 +152,7 @@
 
 .value-main-img {
   width: 100%;
-  height: clamp(420px, 90vw, 950px);
+  height: clamp(20px, 90vw, 550px);
   object-fit: cover;
   border-radius: 20px;
   display: block;
@@ -254,17 +256,18 @@
 
 .value-content {
   display: flex;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+
   flex-direction: column;
 }
 
 .value-title {
-  font-family: var(--font-display);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: clamp(30px, 3.5vw, 46px);
   font-weight: 300;
   color: var(--color-darker);
   line-height: 1.2;
   letter-spacing: -0.02em;
-  margin-bottom: 48px;
 }
 
 .value-features {
@@ -1373,7 +1376,6 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 100%;
-  margin-top: 42px;
   border-top: 1px solid rgba(156, 110, 41, 0.42);
 }
 
@@ -1675,21 +1677,23 @@
 }
 
 .value-image-frame {
-  height: 100%;
+  height: 50%;
   border-radius: 0;
   overflow: hidden;
 }
 
 .value-main-img {
-  height: 100%;
-  min-height: 760px;
-  border-radius: 0;
-  box-shadow: none;
+    min-height: 320px;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 100px;
+    padding-left: 160px;
+    border-radius: 20px;
 }
 
 .value-content {
   order: 2;
-  justify-content: center;
+  justify-content: start;
   padding: clamp(72px, 8vw, 128px) clamp(32px, 7vw, 112px);
 }
 
@@ -1709,11 +1713,5 @@
 
   .value-content {
     order: 1;
-  }
-}
-
-@media (max-width: 600px) {
-  .value-content {
-    padding: 60px 24px;
   }
 }
