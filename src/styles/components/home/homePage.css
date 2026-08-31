@@ -101,7 +101,8 @@
 
 .about-text {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  color: #2b2b2b;
+    color: rgb(27, 26, 26);
+
   font-weight: 300;
   margin-bottom: 5px;
 }
