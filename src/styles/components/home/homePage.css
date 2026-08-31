@@ -50,8 +50,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-top: 80px;
+  margin-bottom: 170px;
   padding-left: 190px;
 }
 
@@ -100,10 +100,9 @@
 }
 
 .about-text {
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  color: #3a3a3a;
-  font-weight: 400;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  color: #2b2b2b;
+  font-weight: 300;
   margin-bottom: 5px;
 }
 
@@ -1365,7 +1364,7 @@
 }
 
 .about-text {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.85;
 }
 

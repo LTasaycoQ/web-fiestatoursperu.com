@@ -41,7 +41,7 @@ export const home: HomeTranslations = {
     "El gran atractivo de estos operadores turísticos nos ha ayudado a alcanzar el alto nivel de servicio que ofrecemos actualmente. Entre los productos que ofrecemos se encuentra “Peru Boutique”, que destaca el alojamiento en propiedades Relais & Châteaux, y “Gastronomía de Lujo”, con restaurantes galardonados con el premio San Pellegrino. Tampoco podemos olvidar los “Cruceros de Lujo por el Amazonas”, así como las aventuras en la selva tropical en el galardonado Inkaterra Reserva Amazónica. Entre los productos más destacados se encuentra el paquete “Dos Maravillas, Un País”, que incluye una estancia en el Valle Sagrado para una mejor aclimatación antes de ir a Machu Picchu y dos noches en Machu Picchu en lugar de la habitual de una noche, y “Caminos Incas Alternativos” de albergue en albergue hasta Machu Picchu a pie o a caballo. Ya sea en los Andes, en los valles o en las playas del norte, contamos con 39 años de experiencia ofreciendo una alternativa de lujo en Perú. Esperamos tener la oportunidad de servirle. La gerencia de Fiesta Tours Perú, operador turístico receptivo y DMC desde 1976.",
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-esp_jlhihh.png",
-  preTitle: "50 AÑOS DE EXPERIENCIA EN PERÚ",
+  preTitle: "50 AÑOS DE EXPERIENCIA",
   title: "Conocemos el Perú",
   title2: "Creamos experiencias que perduran.",
   description: "Desde 1976, Fiesta Tours Perú, ha acompañado a viajeros de todo el mundo a descubrir la esencia de nuestro pais.",
