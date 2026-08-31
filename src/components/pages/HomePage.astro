@@ -259,9 +259,10 @@ const featureIcons = [
 
   .workflow-image img {
     width: 100%;
-    height: 650px;
+    height: 600px;
     object-fit: cover;
     display: block;
+    padding-left: 150px;
   }
 
   .workflow-stats {
@@ -315,6 +316,12 @@ const featureIcons = [
     font-weight: 300;
     line-height: 1.75;
   }
+  @media (max-width: 1240px) {
+      .workflow-image img {
+    padding-left: 100px;
+  }
+
+  }
 
   @media (max-width: 900px) {
     .workflow-top {
@@ -327,8 +334,11 @@ const featureIcons = [
       order: -1;
       min-height: 380px;
       border-radius: 0;
-    }
 
+    }
+.workflow-image img {
+    padding-left: 0px;
+  }
     .workflow-text {
       text-align: center;
       align-items: center;
