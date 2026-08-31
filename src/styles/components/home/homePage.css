@@ -1356,8 +1356,8 @@
   gap: 20px;
   padding: 15px 35px;
   text-align: center;
-  background-color: #D5EA51;
-  color: rgb(66, 86, 71);
+  background-color: #E6B30C;
+  color: rgb(255, 255, 255);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -1369,7 +1369,8 @@
 .about-action__link:hover {
   color: #f6f5f2;
   gap: 30px;
-  background-color: #0c1e13;
+  transition: all 0.5s;
+  background-color: #dd9726;
 }
 
 .about-visual {
