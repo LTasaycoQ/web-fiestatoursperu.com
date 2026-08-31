@@ -70,11 +70,15 @@ const featureIcons = [
   <section class="section-about" >
     <div class="about-container" data-aos="fade-up"
      data-aos-duration="1000">
-      <div class="about-header">
+      <div class="about-header letritas">
+        <div style="display: flex; flex-direction: column; width: 100%; justify-content: center; align-items:center;">
         <img src={h.logo} alt="Logo" class="about-logo">
-        <span class="eyebrow-title">{h.preTitle}</span>
-         <div class="about-rule"></div>
-        <h2 class="about-title">{h.title}</h2>
+        <span style=" font-family: Montserrat, sans-serif;" class="eyebrow-title">{h.preTitle}</span>
+        <div class="about-rule"></div>
+        
+      </div>
+        <h2 class="about-title" style=" font-family: Montserrat, sans-serif;">{h.title}</h2>
+        <h2 class="about-title" style=" font-family: Montserrat, sans-serif; font-weight: 700;">{h.title2}</h2>
        
       </div>
       <div class="about-content">
@@ -83,68 +87,7 @@ const featureIcons = [
         <p class="about-text ">{h.description3}</p>
       </div>
 
-      <div class="about-stats" >
-        <article class="about-stat">
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-           class="about-stat__icon"
-
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M18 21a8 8 0 0 0-16 0" />
-  <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-  <circle cx="10" cy="8" r="5" />
-    </svg>
-              <strong class="about-stat__value">50</strong>
-              <span class="about-stat__label">Años de trayectoria</span>
-              <p>Desde 1976 creando experiencias inolvidables.</p>
-            </article>
-
-            <article class="about-stat">
-              <svg
-      xmlns="http://www.w3.org/2000/svg"
-                class="about-stat__icon"
-
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-          <strong class="about-stat__value">DMC</strong>
-          <span class="about-stat__label">Especialistas en Perú</span>
-          <p>Operación propia, conocimiento profundo y atención personalizada.</p>
-        </article>
-
-        <article class="about-stat">
-          <svg
-          xmlns="http://www.w3.org/2000/svg"
     
-          class="about-stat__icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8" />
-        </svg>
-          <strong class="about-stat__value">A medida</strong>
-          <span class="about-stat__label">Viajes con propósito</span>
-          <p>Diseñamos cada ruta con detalle, sensibilidad y estilo.</p>
-        </article>
-      </div>
-
       <div class="about-action">
         <a href={localePath(lang, "/nosotros")} class="about-action__link">
           Descubra nuestra historia

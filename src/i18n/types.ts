@@ -65,6 +65,7 @@ export interface HomeTranslations {
   logo? : string;
   preTitle?: string;
   title?: string;
+  title2?: string;
   description?: string;
   description2?: string;
   description3?: string;

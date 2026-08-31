@@ -42,7 +42,8 @@ export const home: HomeTranslations = {
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-esp_jlhihh.png",
   preTitle: "50 AÑOS DE EXPERIENCIA EN PERÚ",
-  title: "Conocemos el Perú. Creamos experiencias que perduran.",
+  title: "Conocemos el Perú",
+  title2: "Creamos experiencias que perduran.",
   description: "Desde 1976, Fiesta Tours Perú, ha acompañado a viajeros de todo el mundo a descubirr la esencia de nuestro pais",
   description2: "Somos un DMC especializado en diseñar y operar experiencias a medida combinando conocimiento local, excelenecia operativa y una profunda pasión por el Perú.",
   description3: "Durante cinco decádas hemos construido relaciones de confianza con nuestros socios y proveedores, convirtiendo cada itinerario en una experiencia cuidadosamente diseñada, autentica y memorable",
