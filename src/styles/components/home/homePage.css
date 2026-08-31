@@ -1348,6 +1348,7 @@
 .about-action {
   display: flex;
   justify-content: center;
+  font-family: "Montserrat", sans-serif;
   align-items: center;
   margin-top: 42px;
 }
