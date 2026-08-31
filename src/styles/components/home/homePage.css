@@ -80,7 +80,7 @@
 
 .about-title {
   font-family: var(--font-display);
-  font-size: clamp(22px, 4.5vw, 45px);
+  font-size: clamp(22px, 4.5vw, 40px);
   font-weight: 300;
   color: var(--color-darker);
   line-height: 1.15;
@@ -101,6 +101,7 @@
 
 .about-text {
   font-size: 14px;
+  font-family: "Montserrat", sans-serif;
   color: #3a3a3a;
   font-weight: 400;
   margin-bottom: 5px;
