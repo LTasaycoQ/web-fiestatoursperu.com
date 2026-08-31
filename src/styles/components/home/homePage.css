@@ -1321,7 +1321,7 @@
   display: block;
   color: var(--color-darker);
   font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(32px, 3vw, 40px);
   font-weight: 300;
   line-height: 1;
 }
