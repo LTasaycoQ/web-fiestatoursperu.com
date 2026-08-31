@@ -49,15 +49,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  max-width: 900px;
+  align-items: start;
   padding: 80px;
-  margin: 0 auto;
 }
 
 .about-header {
   display: flex;
-  
+  width: 100%;
   flex-direction: column;
   align-items: start;
   margin-bottom: 52px;
@@ -1029,6 +1027,7 @@
   .value-title {
     text-align: center;
   }
+
   
   .value-button-wrapper {
     justify-content: center;
@@ -1254,8 +1253,6 @@
   width: 100%;
   max-width: none;
   box-sizing: border-box;
-  align-items: stretch;
-  padding: clamp(72px, 8vw, 128px) clamp(32px, 7vw, 112px);
 }
 
 .about-header {
@@ -1276,7 +1273,7 @@
 }
 
 .about-title {
-  max-width: 650px;
+  max-width: 800px;
   margin: 0;
 }
 
@@ -1359,8 +1356,8 @@
   gap: 20px;
   padding: 15px 35px;
   text-align: center;
-  background-color: #0D2A18;
-  color: white;
+  background-color: #D5EA51;
+  color: rgb(66, 86, 71);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -1377,7 +1374,6 @@
 
 .about-visual {
   position: relative;
-  
   min-height: 750px;
   overflow: hidden;
   background: #20372b;
@@ -1398,8 +1394,9 @@
 
 
 .about-visual img {
-  width: 80%;
+  width: 100%;
   height: 75%;
+  padding-right: 80px;
   display: block;
   object-fit: cover;
 }
@@ -1434,6 +1431,10 @@
     min-height: clamp(360px, 58vw, 560px);
     max-height: 560px;
     order: 2;
+    img{
+      padding-right: 0px;
+    }
+    padding-right: 0px;
     width: 100%;
     grid-column: auto;
     grid-row: auto;
