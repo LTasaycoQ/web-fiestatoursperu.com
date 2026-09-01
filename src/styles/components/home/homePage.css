@@ -1584,7 +1584,7 @@
 ══════════════════════════════════════════ */
 .logos_socios {
   padding: clamp(24px, 8vw, 60px) var(--section-px);
-  background: #f8f6f1;
+  background: #ffffff;
   text-align: center;
 }
 
