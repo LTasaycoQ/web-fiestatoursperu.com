@@ -269,3 +269,18 @@ button { cursor: pointer; }
   :root { --section-px: 5%; }
   .footer__grid { grid-template-columns: 1fr; }
 }
+
+
+
+.logo_extras{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+
+  img{
+    filter: brightness(0) invert(1);
+    width: 150px;
+  }
+}
