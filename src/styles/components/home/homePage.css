@@ -1609,30 +1609,6 @@
   line-height: 1.7;
 }
 
-.logos_socios__grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.partner-logo {
-  min-width: 0;
-  min-height: 124px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.partner-logo img {
-  height: 150px;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-
 
 
 @media (max-width: 768px) {

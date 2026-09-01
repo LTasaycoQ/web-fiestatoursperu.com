@@ -7,12 +7,7 @@ import "@styles/components/home/homePage.css";
 import { toursData } from "src/data/tours";
 import { itinerariosData } from "src/data/itinerarios";
 import { testimoniosData } from "src/data/testimonios";
-import { Image } from "astro:assets";
-import ApavitLogo from "@assets/logos-Respaldo/apavit.png";
-import ApturLogo from "@assets/logos-Respaldo/Aptur.png";
-import SiteLogo from "@assets/logos-Respaldo/SITE.png";
-import TurismoCuscoLogo from "@assets/logos-Respaldo/tuRISMO-cUSCO.png";
-import UstoaLogo from "@assets/logos-Respaldo/USTOA.png";
+
 
 interface Props {
   lang: Locale;
@@ -598,15 +593,7 @@ const featureIcons = [
       <p>Formamos parte de una red que eleva los estándares del turismo en el Perú.</p>
     </div> -->
 
-    <div class="logos_socios__grid"  data-aos="fade-up"
-     data-aos-duration="1000">
-      <div class="partner-logo"><img src={UstoaLogo.src} alt="USTOA" loading="lazy" /></div>
-      <div class="partner-logo"><img src={SiteLogo.src} alt="SITE" loading="lazy" /></div>
-
-      <div class="partner-logo"><img src={ApavitLogo.src} alt="APAVIT" loading="lazy" /></div>
-      <div class="partner-logo"><img src={ApturLogo.src} alt="APTUR" loading="lazy" /></div>
-      <div class="partner-logo"><img src={TurismoCuscoLogo.src} alt="Turismo Cusco" loading="lazy" /></div>
-    </div>
+  
   </section>
 </BaseLayout>
 

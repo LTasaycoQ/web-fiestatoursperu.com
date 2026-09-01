@@ -1,8 +1,11 @@
 ---
 import { localePath } from "@i18n";
 import { footerSections, footerLegal } from "@lib/footer";
-import type { Locale, Translations } from "@i18n";
-
+import ApavitLogo from "@assets/logos-Respaldo/apavit.png";
+import ApturLogo from "@assets/logos-Respaldo/Aptur.png";
+import SiteLogo from "@assets/logos-Respaldo/SITE.png";
+import TurismoCuscoLogo from "@assets/logos-Respaldo/tuRISMO-cUSCO.png";
+import UstoaLogo from "@assets/logos-Respaldo/ustoa_white.png";
 const { lang, t } = Astro.props;
 
 import LogoEs from "../../assets/Logo-FTI-esp-black.png?url";
@@ -21,12 +24,11 @@ const logo = logos[lang] ?? LogoEs;
 <footer class="luxury-footer">
   <div class="footer-container">
     <div class="footer-grid">
-      
       <div class="footer-brand">
-        <a href={localePath(lang, '/')} class="footer-logo">
-          <img 
-            src={logo} 
-            alt="Fiesta Tours Perú" 
+        <a href={localePath(lang, "/")} class="footer-logo">
+          <img
+            src={logo}
+            alt="Fiesta Tours Perú"
             class="footer-logo-img"
             loading="eager"
             width="190"
@@ -38,57 +40,98 @@ const logo = logos[lang] ?? LogoEs;
         <div class="footer-contact">
           <span>📍 Av. San Luis 2642 San Borja, Lima - Peru</span>
           <a href="tel:+51982836947">📞 (+51) 982 836 947</a>
-          <a href="mailto:info@fiestatoursperu.com">✉️ info@fiestatoursperu.com</a>
+          <a href="mailto:info@fiestatoursperu.com"
+            >✉️ info@fiestatoursperu.com</a
+          >
         </div>
       </div>
 
-      <!-- Columnas dinámicas (Destinos, Servicios, Empresa) -->
-      {footerSections.map((section) => (
-        <div class="footer-links">
-          <h4>{t.footer[section.titleKey as keyof typeof t.footer]}</h4>
-          <ul>
-            {section.links.map((link) => (
-              <li>
-                <a href={localePath(lang, link.path)}>
-                  {t.footer[link.key as keyof typeof t.footer]}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <div>
+        <!-- Columnas dinámicas (Destinos, Servicios, Empresa) -->
 
-      <!-- Columna de Newsletter (inspirada en Scott Dunn) -->
-      <div class="footer-newsletter">
-        <h4>Inspírate</h4>
-        <p>Suscríbete para recibir ofertas exclusivas y novedades.</p>
-        <form class="newsletter-form" action="/subscribe" method="POST">
-          <input 
-            type="email" 
-            placeholder="Tu correo electrónico" 
-            aria-label="Correo para newsletter"
-            required
-          />
-          <button type="submit">→</button>
-        </form>
-        <div class="social-links">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Twitter">X</a>
-          <a href="#" aria-label="YouTube">YT</a>
+        <div style="display: flex; gap: 48px; flex-direction: column; width:100%;">
+          <div style="display: flex; justify-content: space-between; gap: 48px; width:100%;">
+            {
+              footerSections.map((section) => (
+                <div class="footer-links">
+                  <h4>{t.footer[section.titleKey as keyof typeof t.footer]}</h4>
+                  <ul>
+                    {section.links.map((link) => (
+                      <li>
+                        <a href={localePath(lang, link.path)}>
+                          {t.footer[link.key as keyof typeof t.footer]}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+
+            <div class="footer-newsletter">
+              <h4>Inspírate</h4>
+              <p>Suscríbete para recibir ofertas exclusivas y novedades.</p>
+              <form class="newsletter-form" action="/subscribe" method="POST">
+                <input
+                  type="email"
+                  placeholder="Tu correo electrónico"
+                  aria-label="Correo para newsletter"
+                  required
+                />
+                <button type="submit">→</button>
+              </form>
+              <div class="social-links">
+                <a href="#" aria-label="Facebook">FB</a>
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="Twitter">X</a>
+                <a href="#" aria-label="YouTube">YT</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="logos_socios__grid"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <div class="partner-logo">
+              <img style="filter: none;" src={UstoaLogo.src} alt="USTOA" loading="lazy" />
+            </div>
+            <div class="partner-logo">
+              <img src={SiteLogo.src} alt="SITE" loading="lazy" />
+            </div>
+
+            <div class="partner-logo">
+              <img src={ApavitLogo.src} alt="APAVIT" loading="lazy" />
+            </div>
+            <div class="partner-logo">
+              <img src={ApturLogo.src} alt="APTUR" loading="lazy" />
+            </div>
+            <div class="partner-logo">
+              <img
+                src={TurismoCuscoLogo.src}
+                alt="Turismo Cusco"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Barra inferior -->
     <div class="footer-bottom">
-      <p>© {new Date().getFullYear()} Fiesta Tours Perú. Todos los derechos reservados.</p>
+      <p>
+        © {new Date().getFullYear()} Fiesta Tours Perú. Todos los derechos reservados.
+      </p>
       <div class="footer-bottom-links">
-        {footerLegal.map((link) => (
-          <a href={localePath(lang, link.path)}>
-            {t.footer[link.key as keyof typeof t.footer]}
-          </a>
-        ))}
+        {
+          footerLegal.map((link) => (
+            <a href={localePath(lang, link.path)}>
+              {t.footer[link.key as keyof typeof t.footer]}
+            </a>
+          ))
+        }
       </div>
       <div class="payment-methods">
         <span>Pago seguro con:</span>
@@ -101,308 +144,339 @@ const logo = logos[lang] ?? LogoEs;
 </footer>
 
 <style>
-/* === FOOTER ESTILO SCOTT DUNN - VERSIÓN PREMIUM === */
-.luxury-footer {
-  background: #000000;
-  color: #b0b0b0;
-  padding: 64px 5% 32px;
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  margin-top: auto;
-}
 
-.footer-container {
-  max-width: 1400px;
+
+.logos_socios__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  position: relative;
+  left: -50px;
+  gap: 20px;
+  width: 100%;
   margin: 0 auto;
 }
 
-/* Grid principal - 4 columnas */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 48px;
-  margin-bottom: 48px;
-}
-
-/* Columna de marca */
-.footer-brand {
+.partner-logo {
+  min-width: 0;
+  min-height: 104px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer-logo {
-  display: inline-block;
-  text-decoration: none;
-}
 
-.footer-logo-img {
-  width: 190px;
-  height: auto;
-  display: block;
+.partner-logo img {
+  height: 120px;
   filter: brightness(0) invert(1);
-  opacity: 0.85;
-  transition: opacity 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
-.footer-logo-img:hover {
-  opacity: 1;
-}
 
-.footer-description {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #b0b0b0;
-  max-width: 320px;
-  margin: 0;
-}
 
-.footer-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-}
-
-.footer-contact span,
-.footer-contact a {
-  color: #b0b0b0;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-contact a:hover {
-  color: var(--color-verdec, #478a3d);
-}
-
-/* Columnas de enlaces */
-.footer-links h4 {
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: #b0b0b0;
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--color-verdec, #478a3d);
-}
-
-/* Columna de newsletter */
-.footer-newsletter h4 {
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-}
-
-.footer-newsletter p {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #b0b0b0;
-  margin-bottom: 20px;
-}
-
-.newsletter-form {
-  display: flex;
-  margin-bottom: 24px;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 12px 16px;
-  border: none;
-  background: #333;
-  color: white;
-  border-radius: 30px 0 0 30px;
-  outline: none;
-  font-size: 13px;
-  font-family: inherit;
-}
-
-.newsletter-form input::placeholder {
-  color: #888;
-}
-
-.newsletter-form input:focus {
-  background: #3a3a3a;
-}
-
-.newsletter-form button {
-  background: var(--color-verdec, #478a3d);
-  border: none;
-  padding: 0 20px;
-  border-radius: 0 30px 30px 0;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 18px;
-  transition: background 0.2s ease;
-}
-
-.newsletter-form button:hover {
-  background: #2d5a25;
-}
-
-/* Redes sociales */
-.social-links {
-  display: flex;
-  gap: 20px;
-}
-
-.social-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease;
-}
-
-.social-links a:hover {
-  color: var(--color-verdec, #478a3d);
-}
-
-/* Barra inferior */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 32px;
-  border-top: 1px solid #333;
-  font-size: 12px;
-}
-
-.footer-bottom p {
-  margin: 0;
-  color: #888;
-}
-
-.footer-bottom-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-bottom-links a {
-  color: #888;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-bottom-links a:hover {
-  color: var(--color-verdec, #478a3d);
-}
-
-.payment-methods {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.payment-methods span:first-child {
-  color: #888;
-  font-size: 11px;
-}
-
-.payment-methods span:not(:first-child) {
-  background: #333;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 11px;
-  color: #ccc;
-  letter-spacing: 0.5px;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-}
-
-@media (max-width: 768px) {
+/* === FOOTER ESTILO SCOTT DUNN - VERSIÓN PREMIUM === */
   .luxury-footer {
-    padding: 48px 5% 24px;
+    background: #000000;
+    color: #b0b0b0;
+    padding: 64px 5% 32px;
+    font-family: var(--font-body, "DM Sans", sans-serif);
+    margin-top: auto;
   }
-  
+
+  .footer-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  /* Grid principal - 4 columnas */
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: 0.65fr 1fr;
+    gap: 18px;
+    margin-bottom: 48px;
   }
-  
-  .footer-bottom {
+
+  /* Columna de marca */
+  .footer-brand {
+    display: flex;
     flex-direction: column;
-    text-align: center;
-    gap: 16px;
+    gap: 20px;
   }
-  
-  .footer-bottom-links {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
+
+  .footer-logo {
+    display: inline-block;
+    text-decoration: none;
   }
-  
-  .payment-methods {
-    justify-content: center;
+
+  .footer-logo-img {
+    width: 190px;
+    height: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
   }
-  
+
+  .footer-logo-img:hover {
+    opacity: 1;
+  }
+
   .footer-description {
-    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #b0b0b0;
+    max-width: 320px;
+    margin: 0;
   }
-}
 
-@media (max-width: 480px) {
-  .footer-logo-img {
-    width: 160px;
-  }
-  
-  .newsletter-form input {
-    padding: 10px 14px;
-  }
-  
-  .newsletter-form button {
-    padding: 0 16px;
-  }
-  
-  .social-links {
-    justify-content: center;
-  }
-  
-  .footer-bottom-links {
+  .footer-contact {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 8px;
+    font-size: 13px;
   }
-}
 
-/* iPad fix */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .footer-logo-img {
-    width: 170px;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+  .footer-contact span,
+  .footer-contact a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
-}
+
+  .footer-contact a:hover {
+    color: var(--color-verdec, #478a3d);
+  }
+
+  /* Columnas de enlaces */
+  .footer-links h4 {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-verdec, #478a3d);
+  }
+
+  /* Columna de newsletter */
+  .footer-newsletter h4 {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .footer-newsletter p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #b0b0b0;
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 30px 0 0 30px;
+    outline: none;
+    font-size: 13px;
+    font-family: inherit;
+  }
+
+  .newsletter-form input::placeholder {
+    color: #888;
+  }
+
+  .newsletter-form input:focus {
+    background: #3a3a3a;
+  }
+
+  .newsletter-form button {
+    background: var(--color-verdec, #478a3d);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 30px 30px 0;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.2s ease;
+  }
+
+  .newsletter-form button:hover {
+    background: #2d5a25;
+  }
+
+  /* Redes sociales */
+  .social-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--color-verdec, #478a3d);
+  }
+
+  /* Barra inferior */
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 32px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    color: #888;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-bottom-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom-links a:hover {
+    color: var(--color-verdec, #478a3d);
+  }
+
+  .payment-methods {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .payment-methods span:first-child {
+    color: #888;
+    font-size: 11px;
+  }
+
+  .payment-methods span:not(:first-child) {
+    background: #333;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .luxury-footer {
+      padding: 48px 5% 24px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-bottom-links {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .payment-methods {
+      justify-content: center;
+    }
+
+    .footer-description {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-logo-img {
+      width: 160px;
+    }
+
+    .newsletter-form input {
+      padding: 10px 14px;
+    }
+
+    .newsletter-form button {
+      padding: 0 16px;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .footer-bottom-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  /* iPad fix */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .footer-logo-img {
+      width: 170px;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
 </style>
