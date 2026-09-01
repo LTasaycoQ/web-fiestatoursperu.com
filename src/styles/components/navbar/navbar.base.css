@@ -33,12 +33,12 @@
 .nav-container {
   background: transparent;
   position: relative;
+  border-bottom: 1px solid rgba(100, 110, 99, 0.15);
   width: 100%;
 }
 
 .nav-container .scrolled{
   background: #272b2b;
-  border-bottom: 1px solid rgba(71, 138, 61, 0.15);
   position: relative;
   transition: all 1s;
   width: 100%;
