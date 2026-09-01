@@ -356,7 +356,6 @@ body.mobile-menu-open {
 }
 
 #site-header.scrolled .nav-container {
-  background: #25423A;
   backdrop-filter: blur(20px);
 }
 
