@@ -22,10 +22,11 @@
 }
 
 #site-header.scrolled {
-  background: #272b2b;
   backdrop-filter: blur(var(--navbar-blur));
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
+
+
 
 /* ────────────────────────────────────────── */
 /* CONTAINER                                  */
@@ -33,12 +34,10 @@
 .nav-container {
   background: transparent;
   position: relative;
-  border-bottom: 1px solid rgba(100, 110, 99, 0.15);
   width: 100%;
 }
 
 .nav-container .scrolled{
-  background: #272b2b;
   position: relative;
   transition: all 1s;
   width: 100%;

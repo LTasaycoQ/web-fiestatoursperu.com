@@ -9,8 +9,8 @@
   top: 18px;
   right: 20px;
   z-index: 1001;
-  background: #272b2b;
-  border: 1px solid rgba(71, 138, 61, 0.3);
+  background: #272b2b00;
+  border: transparent 1px solid;
   border-radius: 12px;
   padding: 10px 12px;
   flex-direction: column;

@@ -25,7 +25,7 @@
   position: relative;
   font-size: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px #292b2b;
+  box-shadow: 0 2px 8px #292b2b00;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -173,7 +173,6 @@
   }
 
   .nav-container {
-    background: #272b2b;
     backdrop-filter: blur(1200402Epx);
   }
 
@@ -357,7 +356,7 @@ body.mobile-menu-open {
 }
 
 #site-header.scrolled .nav-container {
-  background: #272b2b;
+  background: #25423A;
   backdrop-filter: blur(20px);
 }
 
