@@ -109,7 +109,7 @@
 }
 
 .letritas {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-family_campton);
   font-weight: 400;
 }
 
@@ -120,7 +120,7 @@
   align-items: center;
   color: rgba(255, 255, 255, 0.62);
   text-decoration: none;
-  font-family: var(--font-body);
+  font-family: var(--font-family_campton);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.07em;

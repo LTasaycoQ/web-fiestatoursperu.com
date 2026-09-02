@@ -2,11 +2,21 @@
    navbar.base.css
    Base y estructura principal del navbar premium
    ============================================ */
+@font-face {
+  font-family: 'Campton';
+  src: url('Campton-SemiBold.woff2') format('woff2'),
+       url('Campton-SemiBold.woff') format('woff'),
+       url('Campton-SemiBold.ttf') format('truetype');
+  font-weight: 600; /* SemiBold standard weight value */
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --navbar-bg: #272b2b;
   --navbar-blur: 20px;
   --navbar-transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --font-family_campton: 'Campton', sans-serif;
 }
 
 /* ────────────────────────────────────────── */
