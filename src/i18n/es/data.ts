@@ -73,8 +73,8 @@ export const home: HomeTranslations = {
     }
   ],
 
-  toursTitle: "Viajes que cuentan",
-  toursTitle2: "una historia",
+  toursTitle: "El Perú, a nuestra manera.",
+  toursTitle2: "Experiencias diseñadas para descubrir mucho más.",
   testimoniosEyebrow: "Testimonios",
   testimoniosTitle: "Lo que dicen quienes viajaron con nosotros",
 
