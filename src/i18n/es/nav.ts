@@ -4,7 +4,7 @@ const nav: NavTranslations = {
   destinations: "DESTINOS",
   tours: "ITINERARIOS",
   aboutUs: "NOSOTROS",
-  blog: "BLOGS",
+  blog: "BLOG",
   contact: "CONTACTO",
   languages: "IDIOMAS",
   planBtn1: "COMIENCE A",
