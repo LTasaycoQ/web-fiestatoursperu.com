@@ -67,7 +67,6 @@ const featureIcons = [
      data-aos-duration="1000">
         <div class="about-header">
           <div class="container-sub">
-            <img src={h.logo} alt="Logo" class="about-logo">
             <span style=" font-family: Montserrat, sans-serif;" class="eyebrow-title">{h.preTitle}</span>
             <div class="about-rule">
           </div>
@@ -92,6 +91,11 @@ const featureIcons = [
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
+
+        <div class="about-action__logo">
+                      <img src={h.logo} alt="Logo" class="about-logo">
+
+        </div>
       </div>
     </div>
 
@@ -206,7 +210,7 @@ const featureIcons = [
 
     font-family: "Montserrat", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: clamp(42px, 3.6vw, 47px);
+    font-size: clamp(42px, 3.6vw, 40px);
     line-height: 1.10;
     color: var(--green-dark);
   }
