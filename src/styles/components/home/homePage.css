@@ -1454,12 +1454,13 @@
   align-items: center;
   gap: 20px;
   margin:0px;
-
+  border: 1px solid #4b4b4b;
+  border-radius: 14px;
   height: 60px;
   padding: 15px 35px;
   text-align: center;
-  background-color: #E6B30C;
-  color: rgb(255, 255, 255);
+  background-color: transparent;
+  color: rgb(62, 62, 62);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -1475,9 +1476,9 @@
 
 .about-action__link:hover {
   color: #f6f5f2;
-  gap: 30px;
   transition: all 0.5s;
-  background-color: #dd9726;
+  gap:30px;
+  background-color: #272b2b;
 }
 
 .about-visual {
