@@ -55,6 +55,7 @@
 .section-about {
   background: #ffffff;
   display: flex;
+  align-items: center;
 }
 
 .about-container {
@@ -1440,7 +1441,7 @@
 }
 
 .about-action {
-  width: 85%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
