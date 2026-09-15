@@ -60,156 +60,14 @@ export interface BlogPost {
 
 export const blogPosts: Record<string, BlogPost> = {
 
-  // ─── CRÓNICA PERSONAL: Vinicunca ─────────────────────────────────────────
-  "vinicunca-mi-experiencia": {
-    id: "vinicunca-mi-experiencia",
-    slug: "vinicunca-mi-experiencia",
-    category: "Mis Viajes",
-    categoryKey: "journal",
-    title: "Subí la Montaña de Siete Colores sin poder respirar bien — y no me arrepiento",
-    excerpt: "Eran las 4 AM, hacía frío y mi cabeza latía por la altura. Pero cuando el sol tocó Vinicunca, entendí por qué había venido hasta aquí.",
-    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1772127821/incas-legacy_grfvrl",
-    date: "15 de Mayo, 2026",
-    readTime: "8 min",
-    author: "Luis Tasayco",
-    authorBio: "Viajero, guía de montaña y escritor. Llevo 10 años recorriendo los Andes y todavía me sorprendo.",
-    tags: ["vinicunca", "cusco", "crónica", "montaña", "altura"],
-    toc: [
-      { id: "partida", label: "La salida en la oscuridad" },
-      { id: "camino", label: "El camino que no esperaba" },
-      { id: "cima", label: "Cuando llegué arriba" },
-      { id: "vuelta", label: "El regreso y lo que me llevé" },
-    ],
-    blocks: [
-      // ── Apertura narrativa ─────────────────────────────────────────────
-      {
-        type: "lead",
-        text: "Me dijeron que Vinicunca era «la foto más linda de Perú». Lo que nadie me dijo es que para llegar ahí tienes que madrugar en la oscuridad, caminar con los pulmones a medio gas y convencer a tus piernas de que sigan cuando ya no quieren.",
-      },
-      {
-        type: "paragraph",
-        text: "Llevaba dos días en Cusco aclimatándome. O eso creía. La altitud es tramposa: te deja dormir, te deja comer, incluso te deja caminar por la Plaza de Armas como si nada, y luego te cobra todo de golpe cuando subes a más de 5,000 metros.",
-      },
-
-      // ── Sección 1 ──────────────────────────────────────────────────────
-      { type: "heading2", text: "La salida en la oscuridad", id: "partida" },
-      {
-        type: "moment",
-        time: "3:45 AM",
-        place: "Hotel en Cusco",
-        text: "El teléfono vibró sobre la mesilla. Afuera, la ciudad dormía. Me puse tres capas de ropa intentando no hacer ruido y bajé a recepción, donde el guía ya esperaba con un termo de té de muña y una linterna frontal prestada.",
-      },
-      {
-        type: "paragraph",
-        text: "El camino hasta el punto de inicio tarda casi dos horas en carro. Dormí la mitad del trayecto con la frente pegada a la ventana, viendo pasar comunidades andinas iluminadas solo por una que otra bombilla amarilla.",
-      },
-      {
-        type: "dialogue",
-        speaker: "El guía, Wilber",
-        text: "¿Primera vez que subes a más de 5,000?",
-        response: "Sí. ¿Se nota? —le pregunté. Se rio, pero no respondió. Eso me preocupó un poco.",
-      },
-
-      // ── Foto de ambiente ───────────────────────────────────────────────
-      {
-        type: "image",
-        src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1772127821/cam-cusco_g9sv5e",
-        alt: "Amanecer sobre los cerros antes de llegar a Vinicunca",
-        caption: "El cielo empezaba a abrirse cuando dejamos el carro. Esta foto la tomé todavía con guantes puestos.",
-      },
-
-      // ── Sección 2 ──────────────────────────────────────────────────────
-      { type: "heading2", text: "El camino que no esperaba", id: "camino" },
-      {
-        type: "paragraph",
-        text: "La subida oficial dura entre 45 minutos y una hora y media, dependiendo de cómo te lleve la altura. A mí me llevó mal. Al cuarto de hora, el paso se me acortó solo. No era cansancio muscular — era como si alguien hubiera reducido la cantidad de oxígeno en el aire sin avisarme.",
-      },
-      {
-        type: "feeling",
-        text: "Hay algo extrañamente humillante en tener que parar cada diez pasos en un camino que la gente local recorre corriendo. Y al mismo tiempo, algo liberador: la montaña no te juzga. Solo existe.",
-      },
-      {
-        type: "paragraph",
-        text: "Wilber caminaba a mi lado sin apurarme. En algún momento sacó una hoja de coca del bolsillo y me la ofreció sin decir nada. La mastiqué durante veinte minutos. No sé si fue psicológico, pero el dolor de cabeza bajó un poco.",
-      },
-      {
-        type: "tip",
-        label: "Lo que aprendí",
-        text: "La coca no es magia, pero masticarla te obliga a respirar despacio. Y respirar despacio, resulta, es exactamente lo que necesitas a 4,800 metros.",
-      },
-
-      // ── Galería del camino ─────────────────────────────────────────────
-      {
-        type: "gallery",
-        images: [
-          {
-            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
-            alt: "Vista del valle desde la mitad del camino",
-            caption: "Desde aquí ya se ve el valle de Cusco a lo lejos.",
-          },
-          {
-            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
-            alt: "Llamas en el camino a Vinicunca",
-            caption: "Las llamas no se inmutan. Nos miraron pasar con absoluta indiferencia.",
-          },
-          {
-            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
-            alt: "Primeros colores de Vinicunca asomando",
-            caption: "El momento en que empiezas a ver los primeros colores. Aquí ya no importa el cansancio.",
-          },
-        ],
-      },
-
-      // ── Sección 3 ──────────────────────────────────────────────────────
-      { type: "heading2", text: "Cuando llegué arriba", id: "cima" },
-      {
-        type: "moment",
-        time: "7:12 AM",
-        place: "Cima de Vinicunca, 5,200 m.s.n.m.",
-        text: "Llegué sin saber exactamente cuándo había llegado. De repente, el camino se aplanó y la montaña apareció entera frente a mí. Roja, verde, blanca, amarilla. No dije nada. Creo que no pude.",
-      },
-      {
-        type: "paragraph",
-        text: "Había una pareja de japoneses que se abrazaban en silencio. Una mujer peruana de unos sesenta años que había subido en mula rezaba en voz baja. Wilber sacó su teléfono para tomarme una foto, pero yo le pedí un minuto.",
-      },
-      {
-        type: "feeling",
-        text: "No soy de las personas que lloran frente a paisajes. Pero ese día entendí a quienes sí lo hacen. Hay vistas que te recuerdan que eres pequeño, y en lugar de asustarte, eso te tranquiliza.",
-      },
-      {
-        type: "quote",
-        text: "Aquí la tierra cuenta su historia. Cada color es un tiempo diferente. Tú solo tienes que escuchar.",
-        cite: "Wilber, guía quechua de Pitumarca",
-      },
-      {
-        type: "paragraph",
-        text: "Me quedé en la cima cuarenta y cinco minutos. El frío era brutal — unos −3 °C con viento — pero no quería bajar. Tomé demasiadas fotos, la mayoría pésimas porque me temblaban las manos. Las mejores son las que no tomé: las que solo vi.",
-      },
-
-      // ── Sección 4 ──────────────────────────────────────────────────────
-      { type: "heading2", text: "El regreso y lo que me llevé", id: "vuelta" },
-      {
-        type: "paragraph",
-        text: "La bajada fue rápida y casi festiva. El cuerpo agradece ir hacia abajo. Wilber me contó que su abuelo pastoreaba llamas en esos mismos cerros cuando Vinicunca aún estaba cubierta de nieve y nadie la conocía fuera del distrito.",
-      },
-      {
-        type: "paragraph",
-        text: "Me preguntó qué me había parecido. Le dije que mejor de lo que esperaba. Me respondió que eso siempre pasa con las cosas que cuestan trabajo.",
-      },
-      {
-        type: "feeling",
-        text: "Regresé a Cusco con las rodillas doloridas, una foto de perfil nueva y la sensación clara de que hay lugares en el mundo que no se pueden describir bien. Vinicunca es uno de ellos. Por eso vine a intentarlo de todas formas.",
-      },
-    ],
-  },
 
   // ─── POST INFORMATIVO: Amazon Wildlife Secrets ────────────────────────────
-  "amazon-wildlife-secrets": {
-    id: "amazon-wildlife-secrets",
-    slug: "amazon-wildlife-secrets",
+  "montana-7-colores": {
+    id: "montana-7-colores",
+    slug: "montana-7-colores",
     category: "Naturaleza & Vida Silvestre",
     categoryKey: "nature",
-    title: "La mejor manera de visitar La Montaña de Siete Colores o La Montaña Arcoíris",
+    title: "La mejor manera de visitar La Montaña de Siete Colores o La Montaña Arcoíris.",
     excerpt: "Visitar Vinicunca es uno de los momentos más esperados de un viaje al Perú. La manera en que se vive esta experiencia marca una diferencia profunda.",
     image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1772127821/cam-cusco_g9sv5e",
     date: "15 de Mayo, 2026",
@@ -226,71 +84,90 @@ export const blogPosts: Record<string, BlogPost> = {
     blocks: [
       {
         type: "lead",
-        text: "Vinicunca — la Montaña de Siete Colores — es uno de esos destinos que cambia la manera en que ves el mundo. Ubicada a más de 5,200 metros sobre el nivel del mar, en la cordillera andina del Cusco, su paleta de colores mineral parece pintada a mano por la naturaleza misma.",
+        text: "Visitar La Montaña de Siete Colores o La Montaña Arcoíris (Vinicunca) es uno de los momentos más esperados de un viaje al Perú. Sin embargo, la manera en que se vive esta experiencia marca una diferencia profunda. Optar por un servicio privado, frente a un servicio regular, no es solo una cuestión de comodidad, sino de calidad, seguridad y un disfrute auténtico del entorno andino.",
       },
-      { type: "heading2", text: "¿Por qué tiene siete colores?", id: "colores" },
+      { type: "heading2", text: "Ritmo propio y horarios mejor pensados.", id: "colores" },
       {
         type: "paragraph",
-        text: "La magia cromática de Vinicunca no es artificio ni leyenda: es geología pura. Durante milenios, la erosión fue revelando capas minerales de distintas épocas, cada una con su propia composición química y su propio color.",
+        text: "En un servicio privado, el itinerario se adapta al pasajero, no al grupo. Esto permite salidas estratégicas para evitar las horas de mayor congestión, paradas flexibles durante el trayecto y un ascenso a la montaña a un ritmo adecuado, respetando la aclimatación y el bienestar físico",
       },
+
+
+        { type: "heading2", text: "Guías líderes en Cusco y la región.", id: "colores" },
       {
-        type: "features",
-        items: [
-          { title: "Rosa y rojo", description: "Arcilla roja y limolitas que afloran en los flancos más expuestos al viento andino." },
-          { title: "Blanco nacarado", description: "Cuarzo y arenisca calcárea, residuo de antiguos fondos marinos elevados por tectónica." },
-          { title: "Verde turquesa", description: "Filitas y rocas ricas en magnesio, glauconita y clorita de origen hidrotermal." },
-          { title: "Amarillo mostaza", description: "Calizas con alto contenido de sulfuro de hierro oxidado." },
-        ],
+        type: "paragraph",
+        text: "El tour se realiza con los mejores guías de Cusco, cuidadosamente seleccionados por su experiencia y excelencia en todas las rutas de la región, desde la Montaña de Siete Colores hasta el Valle Sagrado y Machu Picchu. Asignados en privado, ofrecen atención cercana y permanente, explicaciones adaptadas a cada viajero y seguimiento constante ante cualquier señal de cansancio o malestar por la altura, asegurando así una experiencia segura, enriquecedora y memorable.",
       },
+
+
+
+        { type: "heading2", text: "Mayor confort en el transporte", id: "colores" },
+      {
+        type: "paragraph",
+        text: "El traslado se realiza en vehículos privados de alto confort, con asientos amplios y mayor espacio para estirar las piernas, ideales para un recorrido largo y exigente.",
+      },
+
+        { type: "heading2", text: "Tiempo para disfrutar y fotografiar sin prisas.", id: "colores" },
+      {
+        type: "paragraph",
+        text: "El servicio privado permite disponer del tiempo necesario para caminar, descansar y tomar fotografías sin apuros ni presiones de grupo, disfrutando del paisaje con calma y conexión con el entorno.",
+      },
+
+       { type: "heading2", text: "Gastronomía: La mejor opción de la zona", id: "colores" },
+      {
+        type: "paragraph",
+        text: "El desayuno y el almuerzo se realizan en la mejor alternativa gastronómica disponible en la región. Sin ser grandes restaurantes, es lo mejor que ofrece la zona y marca una diferencia clara frente a las opciones básicas utilizadas habitualmente en los servicios regulares.",
+      },
+     
       {
         type: "image",
         src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
         alt: "Vista panorámica de Vinicunca al amanecer",
         caption: "Vista panorámica de Vinicunca — el mejor momento es entre las 7 y las 9 de la mañana, antes de que lleguen los grupos masivos.",
       },
-      { type: "heading2", text: "Por qué elegir un servicio privado", id: "privado" },
-      {
-        type: "paragraph",
-        text: "La caminata a Vinicunca puede vivirse de maneras muy distintas según el servicio que elijas. Un tour regular te integra a grupos de hasta 40 personas que parten y llegan en las mismas ventanas horarias, creando embotellamientos en la cima y reduciendo la experiencia a una foto rápida.",
-      },
-      {
-        type: "quote",
-        text: "El verdadero lujo en Vinicunca no es el precio del tour, sino la libertad de llegar antes del amanecer y tener la montaña para ti.",
-        cite: "Luis Tasayco, Fiesta Tours",
-      },
-      { type: "heading3", text: "Ventajas concretas del servicio privado" },
-      {
-        type: "features",
-        items: [
-          { title: "Horario a medida", description: "Salida entre las 3 y las 4 AM para alcanzar la cima al amanecer, cuando la montaña está vacía y la luz es perfecta." },
-          { title: "Guía dedicado", description: "Un especialista que adapta el ritmo al grupo, explica la geología y conoce los ángulos fotográficos menos transitados." },
-          { title: "Transporte premium", description: "Vehículo exclusivo con calefacción, agua caliente y snacks de altitud incluidos." },
-          { title: "Plan de aclimatación", description: "El guía monitorea la saturación de oxígeno y ajusta el itinerario si detecta signos de soroche." },
-        ],
-      },
-      { type: "heading2", text: "Preparación esencial", id: "prep" },
-      {
-        type: "paragraph",
-        text: "La caminata hasta Vinicunca cubre unos 7 km de ida con un desnivel de 400 metros a más de 4,800 m.s.n.m. No requiere experiencia técnica, pero sí una aclimatación real. Dos noches en Cusco —a 3,400 metros— son el mínimo recomendado.",
-      },
-      {
-        type: "tip",
-        label: "Consejo del guía",
-        text: "La semana anterior al viaje, evita el alcohol y el tabaco. En Cusco, empieza con caminatas cortas el primer día y sube gradualmente. El té de muña o coca ayuda, pero no reemplaza la aclimatación.",
-      },
-      {
-        type: "paragraph",
-        text: "El equipo básico incluye ropa de abrigo por capas (temperatura puede bajar a −5 °C antes del amanecer), botas de senderismo impermeables, protector solar SPF 50+, lentes de sol con protección UV y al menos 2 litros de agua.",
-      },
-      { type: "heading2", text: "La mejor época para ir", id: "epoca" },
-      {
-        type: "paragraph",
-        text: "La temporada seca —de abril a octubre— ofrece cielos más despejados y caminos firmes. Junio, julio y agosto son los meses más visitados; sin un servicio privado que te permita adelantarte a la multitud, la experiencia puede decepcionar.",
-      },
-      {
-        type: "paragraph",
-        text: "La temporada húmeda (noviembre–marzo) transforma el paisaje: la nieve cubre los picos, el verde se intensifica y los colores de la montaña contrastan con mayor dramatismo. Si vas en esta época, un guía experimentado es imprescindible para leer las condiciones del tiempo.",
-      },
+      // { type: "heading2", text: "Por qué elegir un servicio privado", id: "privado" },
+      // {
+      //   type: "paragraph",
+      //   text: "La caminata a Vinicunca puede vivirse de maneras muy distintas según el servicio que elijas. Un tour regular te integra a grupos de hasta 40 personas que parten y llegan en las mismas ventanas horarias, creando embotellamientos en la cima y reduciendo la experiencia a una foto rápida.",
+      // },
+      // {
+      //   type: "quote",
+      //   text: "El verdadero lujo en Vinicunca no es el precio del tour, sino la libertad de llegar antes del amanecer y tener la montaña para ti.",
+      //   cite: "Luis Tasayco, Fiesta Tours",
+      // },
+      // { type: "heading3", text: "Ventajas concretas del servicio privado" },
+      // {
+      //   type: "features",
+      //   items: [
+      //     { title: "Horario a medida", description: "Salida entre las 3 y las 4 AM para alcanzar la cima al amanecer, cuando la montaña está vacía y la luz es perfecta." },
+      //     { title: "Guía dedicado", description: "Un especialista que adapta el ritmo al grupo, explica la geología y conoce los ángulos fotográficos menos transitados." },
+      //     { title: "Transporte premium", description: "Vehículo exclusivo con calefacción, agua caliente y snacks de altitud incluidos." },
+      //     { title: "Plan de aclimatación", description: "El guía monitorea la saturación de oxígeno y ajusta el itinerario si detecta signos de soroche." },
+      //   ],
+      // },
+      // { type: "heading2", text: "Preparación esencial", id: "prep" },
+      // {
+      //   type: "paragraph",
+      //   text: "La caminata hasta Vinicunca cubre unos 7 km de ida con un desnivel de 400 metros a más de 4,800 m.s.n.m. No requiere experiencia técnica, pero sí una aclimatación real. Dos noches en Cusco —a 3,400 metros— son el mínimo recomendado.",
+      // },
+      // {
+      //   type: "tip",
+      //   label: "Consejo del guía",
+      //   text: "La semana anterior al viaje, evita el alcohol y el tabaco. En Cusco, empieza con caminatas cortas el primer día y sube gradualmente. El té de muña o coca ayuda, pero no reemplaza la aclimatación.",
+      // },
+      // {
+      //   type: "paragraph",
+      //   text: "El equipo básico incluye ropa de abrigo por capas (temperatura puede bajar a −5 °C antes del amanecer), botas de senderismo impermeables, protector solar SPF 50+, lentes de sol con protección UV y al menos 2 litros de agua.",
+      // },
+      // { type: "heading2", text: "La mejor época para ir", id: "epoca" },
+      // {
+      //   type: "paragraph",
+      //   text: "La temporada seca —de abril a octubre— ofrece cielos más despejados y caminos firmes. Junio, julio y agosto son los meses más visitados; sin un servicio privado que te permita adelantarte a la multitud, la experiencia puede decepcionar.",
+      // },
+      // {
+      //   type: "paragraph",
+      //   text: "La temporada húmeda (noviembre–marzo) transforma el paisaje: la nieve cubre los picos, el verde se intensifica y los colores de la montaña contrastan con mayor dramatismo. Si vas en esta época, un guía experimentado es imprescindible para leer las condiciones del tiempo.",
+      // },
     ],
   },
 
