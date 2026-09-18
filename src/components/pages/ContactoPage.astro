@@ -77,14 +77,14 @@ const c = t.contacto;
                 <div class="form-group">
                   <label for="nombre">{c.labelName} *</label>
                   <div class="input-wrapper">
-                    <input id="nombre" type="text" name="nombre" placeholder="Tu nombre" required />
+                    <input id="nombre" type="text" name="nombre" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="apellido">Apellido *</label>
                   <div class="input-wrapper">
-                    <input id="apellido" type="text" name="apellido" placeholder="Tu apellido" required />
+                    <input id="apellido" type="text" name="apellido"  required />
                     <span class="input-border"></span>
                   </div>
                 </div>
@@ -95,7 +95,7 @@ const c = t.contacto;
                 <div class="form-group">
                   <label for="email">{c.labelEmail} *</label>
                   <div class="input-wrapper">
-                    <input id="email" type="email" name="email" placeholder="tu@email.com" required />
+                    <input id="email" type="email" name="email" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ const c = t.contacto;
                 <div class="form-group">
                   <label for="telefono">Teléfono *</label>
                   <div class="input-wrapper phone-wrapper">
-                    <input style="padding: 12px 20px;" id="telefono" type="tel" name="telefono" placeholder="912 345 678" required />
+                    <input style="padding: 12px 20px;" id="telefono" type="tel" name="telefono"required />
                     <span class="input-border"></span>
                   </div>
                 </div>
@@ -114,13 +114,13 @@ const c = t.contacto;
                   <label for="telefono">¿Que tipo de experiencia estas buscando?</label>
                   <div class=" phone-wrapper">
                     <select class="input-wrapper_select" name="" id="">
-                    <option value="">Vacaciones de lujo a medida</option>
-                    <option value="">Crucero de Lujo</option>
-                    <option value="">Estancia en un hotel de lujo</option>
+                    <option value="">Vacaciones a medida</option>
+                    <option value="">Crucero en el Amazonas</option>
+                    <option value="">Alojamientos</option>
                     <option value="">Luna de miel / Aniversario</option>
                     <option value="">Familiar / Multigeneracional</option>
                     <option value="">Viajes corporativos</option>
-                    <option value="">OtroS</option>
+                    <option value="">Otros</option>
                   </select>
                   </div>
                   
@@ -131,7 +131,7 @@ const c = t.contacto;
                 <div class="form-group">
                   <label for="text">Fecha aproximada del viaje</label>
                   <div class="input-wrapper">
-                    <input id="email" type="text" name="textdate" placeholder="Por ejemplo, Octubre de 2026" required />
+                    <input id="email" type="text" name="textdate" placeholder="Ej.: Octubre de 2027" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
@@ -148,7 +148,7 @@ const c = t.contacto;
 
 
                <div class="form-group">
-                <label for="telefono">Mensaje</label>
+                <label for="telefono">Cuentanos un poco sobre el viaje que tienes en mente</label>
                 <div class="input-wrapper phone-wrapper">
                   <textarea id="telefono" name="mensaje" required />
                 </div>
@@ -198,17 +198,15 @@ const c = t.contacto;
           </form>
         </div>
 
-        <!-- COLUMNA DERECHA: INFORMACIÓN -->
-        <div class="contact-info-container">
-          <div class="info-card">
+            <div class="info-card" style="background-color: white; border-radius: 30px;">
             <div class="info-header">
-              <h3 class="info-title">{c.infoTitle}</h3>
+              <h3 class="info-title" style="font-size: 27px; color: black;">{c.infoTitle}</h3>
               <div class="info-decoration"></div>
             </div>
             
             <div class="info-details">
               <div class="info-item">
-                <div class="info-icon-wrapper">
+                <div class="info-icon-wrapper" style="background-color: rgb(65, 83, 65);">
                   <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/>
                     <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
@@ -221,7 +219,7 @@ const c = t.contacto;
               </div>
 
               <div class="info-item">
-                <div class="info-icon-wrapper">
+                <div class="info-icon-wrapper" style="background-color: rgb(65, 83, 65);">
                   <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.5"/>
                   </svg>
@@ -233,20 +231,20 @@ const c = t.contacto;
               </div>
 
               <div class="info-item">
-                <div class="info-icon-wrapper">
+                <div class="info-icon-wrapper" style="background-color: rgb(65, 83, 65);">
                   <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/>
                     <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5"/>
                   </svg>
                 </div>
-                <div class="info-content">
+                <div class="info-content" >
                   <span class="info-label">Email</span>
                   <span class="info-text">{c.email}</span>
                 </div>
               </div>
 
               <div class="info-item">
-                <div class="info-icon-wrapper">
+                <div class="info-icon-wrapper" style="background-color: rgb(65, 83, 65);">
                   <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
                     <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="1.5"/>
@@ -273,27 +271,30 @@ const c = t.contacto;
             <div class="social-links">
               <span class="social-label">Síguenos</span>
               <div class="social-icons">
-                <a href="#" class="social-icon" aria-label="Instagram">
+                <a href="https://www.instagram.com/fiestatoursperu/" target="_blank" class="social-icon" aria-label="Instagram">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
                     <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
                     <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
                   </svg>
                 </a>
-                <a href="#" class="social-icon" aria-label="Facebook">
+                <a href="https://www.facebook.com/fiestatoursinternational/?locale=es_LA" target="_blank" class="social-icon" aria-label="Facebook">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="1.5"/>
                   </svg>
                 </a>
-                <a href="#" class="social-icon" aria-label="Twitter">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" stroke="currentColor" stroke-width="1.5"/>
+                <a href="https://www.linkedin.com/company/fiestatoursperu/posts/?feedView=all" target="_blank" class="social-icon" aria-label="Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
                   </svg>
                 </a>
               </div>
             </div>
           </div>
         </div>
+      </div>
+        </div>
+      </div>
       </div>
 
       
@@ -955,7 +956,7 @@ const c = t.contacto;
 }
 
 .info-card {
-  background: #0B1B2B;
+  background: #324632;
   padding: 42px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   height: 100%;
@@ -986,9 +987,9 @@ const c = t.contacto;
 
 .info-title {
   font-size: 26px;
-  font-family:var(--font-ppnue);
+  font-family:var(--font-display);
   font-weight: 500;
-  color: var(--ink);
+  color: #C8A96A;
   margin-bottom: 12px;
 }
 
@@ -1012,7 +1013,7 @@ const c = t.contacto;
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  background: var(--verde-light);
+  background: #C8A96A;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1020,10 +1021,10 @@ const c = t.contacto;
   transition: all 0.3s;
 }
 
-.info-item:hover .info-icon-wrapper { background: var(--verdec); }
+.info-item:hover .info-icon-wrapper { background: #c39a49; }
 .info-item:hover .info-icon { color: white; }
 
-.info-icon { color: var(--verdec); transition: all 0.3s; }
+.info-icon { color: white; transition: all 0.3s; }
 
 .info-content { flex: 1; }
 
@@ -1074,7 +1075,6 @@ const c = t.contacto;
 .social-links {
   margin-top: 32px;
   padding-top: 28px;
-  border-top: 1px solid var(--rule);
 }
 
 .social-label {
