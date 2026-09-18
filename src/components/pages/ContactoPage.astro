@@ -10,7 +10,6 @@ const c = t.contacto;
 ---
 
 <BaseLayout title={c.metaTitle} description={c.metaDesc}>
-  <!-- Hero Section - Estilo cinematográfico como blog -->
   <section class="contact-hero">
     <div class="contact-hero__bg">
       <img
@@ -21,11 +20,11 @@ const c = t.contacto;
     </div>
     <div class="contact-hero__overlay"></div>
     
-    <div class="contact-hero__content"  data-aos="fade-up">
-      <span class="hero-eyebrow">{c.eyebrow}</span>
-      <h1 class="contact-hero__title">{c.heroTitle}</h1>
+    <div class="contact-hero__content" data-aos="fade-up">
+      <span class="hero-eyebrow titulo_pp_nuel">{c.eyebrow}</span>
+      <h1 class="contact-hero__title titulo_font_abril">{c.heroTitle}</h1>
       <div class="hero-rule"></div>
-      <p class="contact-hero__subtitle">Estamos aquí para ayudarte a crear el viaje de tus sueños</p>
+      <p class="contact-hero__subtitle titulo_pp_nuel">Estamos aquí para ayudarte a crear el viaje de tus sueños</p>
     </div>
 
     <div class="contact-hero__scroll" aria-hidden="true">
@@ -35,72 +34,154 @@ const c = t.contacto;
   </section>
 
   <section class="contact-section">
-    <div class="contact-container"  data-aos="fade-up">
-      <div class="contact-section__header">
-        <span class="section-eyebrow">{c.eyebrow}</span>
-        <h2 class="contact-section__title">{c.sectionTitle}</h2>
-        <div class="verde-rule"></div>
-        <p class="contact-section__description">{c.infoBody}</p>
-      </div>
+    <div class="contact-container" data-aos="fade-up">
+      
 
       <div class="contact-grid">
         <div class="contact-form-container">
-          <div class="form-card">
-            <div class="form-header">
-              <h3 class="form-title">Envíanos un mensaje</h3>
-              <p class="form-subtitle">Completa el formulario y te responderemos en menos de 24 horas</p>
+          <form class="contact-form" id="contact-form" novalidate>
+
+            <div class="form-card">
+
+              
+            <div style="display:flex; align-items:center;">
+                <div style="background-color: #C8A96A; width: 34px; height: 1.4px; " />
+                  <span style="padding-left: 15px;font-family:var(--font-ppnue); letter-spacing: 5px; font-size: 12px; font-weight: 600; text-transform: uppercase; color: #C8A96A;">Consulta</span>
             </div>
-            
-            <form class="contact-form" id="contact-form" novalidate>
-              <div class="form-row">
+              <div class="form-section-header">
+                <h3 class="form-section-title">Cuéntanos sobre el Viaje que Imaginas.</h3>
+              </div>
+
+              <div class="privacy-notice">
+                
+                <p>
+                  Cuanto más conozcamos sobre tus planes desde el inicio, mejor podremos crear una propuesta diseñada especialmente para ti. Cada solicitud es revisada personalmente por uno de nuestros asesores de viajes.
+                </p>
+              </div>
+
+              <div class="form-row form-row--three">
+                <!-- <div class="form-group">
+                  <label for="titulo">Título *</label>
+                  <div class="input-wrapper select-wrapper">
+                    <select id="titulo" name="titulo" required>
+                      <option value="" disabled selected>Seleccionar</option>
+                      <option value="Sr.">Sr.</option>
+                      <option value="Sra.">Sra.</option>
+                      <option value="Srta.">Srta.</option>
+                      <option value="Dr.">Dr.</option>
+                      <option value="Dra.">Dra.</option>
+                    </select>
+                    <span class="input-border"></span>
+                  </div>
+                </div> -->
                 <div class="form-group">
-                  <label for="nombre">{c.labelName}</label>
+                  <label for="nombre">{c.labelName} *</label>
                   <div class="input-wrapper">
-                    <input id="nombre" type="text" name="nombre" placeholder="Tu nombre completo" required />
+                    <input id="nombre" type="text" name="nombre" placeholder="Tu nombre" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="email">{c.labelEmail}</label>
+                  <label for="apellido">Apellido *</label>
+                  <div class="input-wrapper">
+                    <input id="apellido" type="text" name="apellido" placeholder="Tu apellido" required />
+                    <span class="input-border"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row form-row--three">
+              <!-- Email -->
+                <div class="form-group">
+                  <label for="email">{c.labelEmail} *</label>
                   <div class="input-wrapper">
                     <input id="email" type="email" name="email" placeholder="tu@email.com" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
-              </div>
 
-              <div class="form-row">
+                <!-- Teléfono -->
                 <div class="form-group">
-                  <label for="destino">{c.labelDest}</label>
-                  <div class="input-wrapper select-wrapper">
-                    <select id="destino" name="destino">
-                      <option value="" disabled selected>{c.placeholderDest}</option>
-                      <option>{c.dest1}</option>
-                      <option>{c.dest2}</option>
-                      <option>{c.dest3}</option>
-                      <option>{c.dest4}</option>
-                      <option>{c.dest5}</option>
-                    </select>
+                  <label for="telefono">Teléfono *</label>
+                  <div class="input-wrapper phone-wrapper">
+                    <input style="padding: 12px 20px;" id="telefono" type="tel" name="telefono" placeholder="912 345 678" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
+               </div>
+
+               <div class="form-group">
+                  <label for="telefono">¿Que tipo de experiencia estas buscando?</label>
+                  <div class=" phone-wrapper">
+                    <select class="input-wrapper_select" name="" id="">
+                    <option value="">Vacaciones de lujo a medida</option>
+                    <option value="">Crucero de Lujo</option>
+                    <option value="">Estancia en un hotel de lujo</option>
+                    <option value="">Luna de miel / Aniversario</option>
+                    <option value="">Familiar / Multigeneracional</option>
+                    <option value="">Viajes corporativos</option>
+                    <option value="">OtroS</option>
+                  </select>
+                  </div>
+                  
+
+                </div>
+
+                 <div class="form-row form-row--three">
                 <div class="form-group">
-                  <label for="viajeros">{c.labelTravelers}</label>
+                  <label for="text">Fecha aproximada del viaje</label>
                   <div class="input-wrapper">
-                    <input id="viajeros" type="number" name="viajeros" placeholder="Número de viajeros" min="1" />
+                    <input id="email" type="text" name="textdate" placeholder="Por ejemplo, Octubre de 2026" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <label for="mensaje">{c.labelMessage}</label>
-                <div class="input-wrapper">
-                  <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu viaje ideal..."></textarea>
-                  <span class="input-border"></span>
+
+                  <div class="form-group">
+                  <label for="text">Viajeros</label>
+                  <div class="input-wrapper">
+                    <input id="email" type="text" name="textdate" placeholder="Ej.: 2 adultos, 2 niños" required />
+                    <span class="input-border"></span>
+                  </div>
+                </div>
+               </div>
+
+
+               <div class="form-group">
+                <label for="telefono">Mensaje</label>
+                <div class="input-wrapper phone-wrapper">
+                  <textarea id="telefono" name="mensaje" required />
                 </div>
               </div>
 
+
+              <!-- <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="consentimiento" name="consentimiento" required />
+                  <span class="checkmark"></span>
+                  <span class="checkbox-text">
+                    Solicitamos tu número para que uno de nuestros especialistas pueda llamarte o enviarte un mensaje de texto para hablar sobre tus planes de viaje. Aplican tarifas estándar. El consentimiento no es una condición de compra. La frecuencia de mensajes varía. Responde STOP para darte de baja. Responde HELP para obtener ayuda. <a href="/politica-privacidad" target="_blank">Política de Privacidad</a> y <a href="/terminos" target="_blank">Términos y Condiciones</a>. Al hacer clic en "Enviar consulta" y enviar este formulario, aceptas recibir mensajes de texto de Fiesta Tours.
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-group video-appointment">
+                <div class="video-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="6" width="13" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M15 10L22 6V18L15 14V10Z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <label class="checkbox-label video-label">
+                  <input type="checkbox" id="video" name="video" />
+                  <span class="checkmark"></span>
+                  <span class="checkbox-text">
+                    Agendar una videollamada. Habla con un especialista sobre tus planes de viaje en una videollamada, sin necesidad de descargar software y en el horario que te convenga.
+                  </span>
+                </label>
+              </div> -->
+              
+              <div class="submit-wrapper">
               <button type="submit" class="submit-btn">
                 <span class="btn-text">{c.submitBtn}</span>
                 <span class="btn-icon">
@@ -109,11 +190,15 @@ const c = t.contacto;
                   </svg>
                 </span>
               </button>
-            </form>
-          </div>
+            </div>
+            </div>
+
+            
+
+          </form>
         </div>
 
-        <!-- INFORMACIÓN -->
+        <!-- COLUMNA DERECHA: INFORMACIÓN -->
         <div class="contact-info-container">
           <div class="info-card">
             <div class="info-header">
@@ -211,69 +296,7 @@ const c = t.contacto;
         </div>
       </div>
 
-      <!-- MAPA - VERSIÓN CORREGIDA -->
-      <div class="map-wrapper">
-        <div class="map-header">
-          <div class="map-header-content">
-            <span class="map-eyebrow">Ubicación</span>
-            <h3 class="map-title">Encuéntranos fácilmente</h3>
-            <div class="verde-rule" style="margin: 0 auto;"></div>
-          </div>
-        </div>
-        
-        <div class="map-card">
-          <div class="map-container">
-            <div class="map-interactive">
-              <iframe 
-                class="map-iframe"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1518840959848!2d-76.99468940000001!3d-12.101752799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7c39527c149%3A0x3f16595a3b9f4fba!2sFiesta%20Tours%20International%20S.A.!5e0!3m2!1ses!2spe!4v1778692602868!5m2!1ses!2spe" 
-                width="100%" 
-                height="400" 
-                style="border:0; display: block;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-              <div class="map-info-card">
-                <div class="map-info-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/>
-                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-                  </svg>
-                </div>
-                <div class="map-info-text">
-                  <strong>Fiesta Tours International S.A.</strong>
-                  <span>San Isidro, Lima - Perú</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="map-footer">
-            <div class="map-direction-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22C12 22 4 16 4 10C4 5 8 2 12 2C16 2 20 5 20 10C20 16 12 22 12 22Z" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-              <span>Calle Los Laureles 350, San Isidro</span>
-            </div>
-            <div class="map-direction-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M2 8L12 13L22 8L12 3L2 8Z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M6 10V16L12 20L18 16V10" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-              <span>Referencia: Frente al Centro Comercial La Aurora</span>
-            </div>
-            <div class="map-direction-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M12 8V12L14 14" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-              <span>Horario de atención: Lun - Vie 9am a 6pm</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </section>
 
@@ -283,24 +306,18 @@ const c = t.contacto;
 
 <style>
 /* ═══════════════════════════════════════════════════════════════ */
-/* CONTACTO.ASTRO - DISEÑO PREMIUM CON TONOS VERDES                */
-/* Fondo blanco puro, hero cinematográfico, diseño moderno         */
+/* VARIABLES                                                       */
 /* ═══════════════════════════════════════════════════════════════ */
-
-/* ── Design tokens (tonos verdes) ─────────────────────────────── */
 :root {
   --verde:       #3e4b3c;
   --verdec:      #478a3d;
   --verde-claro: #5a9a50;
   --verde-light: rgba(62, 75, 60, 0.08);
   --verde-border: rgba(62, 75, 60, 0.12);
-  --verde-gradient: linear-gradient(135deg, var(--verdec), var(--verde));
   --ink:         #1a1a1a;
   --ink-mid:     #2d2d2d;
   --ink-soft:    #6b6b6b;
   --cream:       #ffffff;
-  --cream-mid:   #f8f9f8;
-  --off-white:   #fafbfa;
   --rule:        rgba(0, 0, 0, 0.08);
   --ff-display: 'Cormorant Garamond', Georgia, serif;
   --ff-body:    'DM Sans', system-ui, sans-serif;
@@ -308,7 +325,7 @@ const c = t.contacto;
 }
 
 /* ═══════════════════════════════════════════════════════════════ */
-/* HERO CINEMATOGRÁFICO (estilo blog)                              */
+/* HERO                                                            */
 /* ═══════════════════════════════════════════════════════════════ */
 .contact-hero {
   position: relative;
@@ -324,16 +341,10 @@ const c = t.contacto;
 }
 
 @media (max-width: 768px) {
-  .contact-hero {
-    min-height: 480px;
-  }
+  .contact-hero { min-height: 480px; }
 }
 
-.contact-hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
+.contact-hero__bg { position: absolute; inset: 0; z-index: 0; }
 
 .contact-hero__bg img {
   width: 100%;
@@ -344,9 +355,7 @@ const c = t.contacto;
   transform: scale(1.04);
 }
 
-.contact-hero:hover .contact-hero__bg img {
-  transform: scale(1);
-}
+.contact-hero:hover .contact-hero__bg img { transform: scale(1); }
 
 .contact-hero__overlay {
   position: absolute;
@@ -398,13 +407,11 @@ const c = t.contacto;
 }
 
 .contact-hero__title {
-  font-family: var(--ff-display);
-  font-size: clamp(42px, 6vw, 80px);
-  font-weight: 400;
+  font-size: clamp(42px, 6vw, 70px);
   color: #fff;
+  font-weight: 100;
   line-height: 1.1;
-  margin: 0 0 20px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.00001em;
 }
 
 .hero-rule {
@@ -434,9 +441,7 @@ const c = t.contacto;
   gap: 8px;
 }
 
-@media (max-width: 768px) {
-  .contact-hero__scroll { display: none; }
-}
+@media (max-width: 768px) { .contact-hero__scroll { display: none; } }
 
 .scroll-line {
   display: block;
@@ -463,7 +468,7 @@ const c = t.contacto;
 }
 
 /* ═══════════════════════════════════════════════════════════════ */
-/* CONTACT SECTION - FONDO BLANCO                                  */
+/* CONTACT SECTION                                                 */
 /* ═══════════════════════════════════════════════════════════════ */
 .contact-section {
   background: #FFFFFF;
@@ -471,10 +476,7 @@ const c = t.contacto;
   position: relative;
 }
 
-.contact-container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
+.contact-container { max-width: 1400px; margin: 0 auto; }
 
 .contact-section__header {
   text-align: center;
@@ -492,10 +494,9 @@ const c = t.contacto;
 }
 
 .contact-section__title {
-  font-family: var(--ff-display);
   font-size: clamp(36px, 4.5vw, 52px);
-  font-weight: 400;
   margin-bottom: 20px;
+  font-weight: 100;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
@@ -517,82 +518,178 @@ const c = t.contacto;
 }
 
 /* ═══════════════════════════════════════════════════════════════ */
-/* CONTACT GRID                                                    */
+/* GRID                                                            */
 /* ═══════════════════════════════════════════════════════════════ */
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 60px;
   margin-bottom: 80px;
 }
 
 @media (max-width: 968px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
-/* FORM CARD */
-.contact-form-container {
-  position: relative;
-}
-
-.form-card {
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 42px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-  transition: all 0.4s var(--ease);
-  border: 1px solid var(--verde-border);
-}
-
-.form-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 50px rgba(62, 75, 60, 0.08);
-  border-color: rgba(62, 75, 60, 0.2);
-}
-
-@media (max-width: 768px) {
-  .form-card {
-    padding: 32px;
-  }
-}
-
-.form-header {
-  margin-bottom: 36px;
-  position: relative;
-}
-
-.form-header::after {
-  content: '';
-  position: absolute;
-  bottom: -16px;
-  left: 0;
-  width: 48px;
-  height: 2px;
-  background: var(--verdec);
-}
-
-.form-title {
-  font-size: 26px;
-  font-family: var(--ff-display);
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
-
-.form-subtitle {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
+.contact-form-container { 
+  width: 80%;
+  position: relative; }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
 }
+
+.form-card {
+  background: #ffffff00;
+  padding: 36px 42px;
+  transition: all 0.4s var(--ease);
+}
+
+.form-card:hover {
+  border-color: rgba(62, 75, 60, 0.2);
+}
+
+@media (max-width: 768px) { .form-card { padding: 28px 24px; } }
+
+.form-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.form-section-title {
+  font-size: 37px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: black;
+  margin: 0;
+}
+
+.required-note {
+  font-size: 11px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.privacy-notice {
+  font-family: var(--font-ppnue);
+  display: flex;
+  gap: 12px;
+  border-radius: 10px;
+  margin-bottom: 38px;
+  align-items: center;
+}
+
+.privacy-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--ink);
+  margin-top: 1px;
+}
+
+.privacy-notice p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-mid);
+}
+
+.privacy-notice a {
+  color: var(--verdec);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* Options row (tarjetas de opciones) */
+.options-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 16px;
+  background: #f4f6f4;
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+  .options-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 4px;
+  transition: all 0.2s;
+}
+
+.option-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.option-box {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #aaa;
+  border-radius: 4px;
+  background: #fff;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-card input:checked + .option-box {
+  background: var(--verdec);
+  border-color: var(--verdec);
+}
+
+.option-card input:checked + .option-box::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.option-text {
+  font-size: 14px;
+  color: var(--ink-mid);
+  font-weight: 450;
+}
+
+/* Video appointment */
+.video-appointment {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #f4f6f4;
+  border-radius: 10px;
+  margin-top: 8px;
+  align-items: flex-start;
+}
+
+.video-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--verde);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-label { flex: 1; }
 
 .form-row {
   display: grid;
@@ -600,8 +697,13 @@ const c = t.contacto;
   gap: 24px;
 }
 
+.form-row--three {
+  grid-template-columns:  1fr 1fr;
+}
+
 @media (max-width: 640px) {
-  .form-row {
+  .form-row,
+  .form-row--three {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -611,41 +713,55 @@ const c = t.contacto;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 20px;
 }
+
+.form-card .form-group:last-child { margin-bottom: 0; }
 
 .form-group label {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
+  font-family: var(--font-ppnue);
   text-transform: uppercase;
   color: var(--ink-soft);
   transition: color 0.2s;
 }
 
-.input-wrapper {
-  position: relative;
-  width: 100%;
-}
+.input-wrapper { position: relative; width: 100%; }
 
 .input-wrapper input,
-.input-wrapper textarea,
-.input-wrapper select {
+.input-wrapper textarea{
   width: 100%;
-  padding: 14px 0;
+  padding: 12px 20px;
   font-size: 15px;
   font-weight: 400;
   background: transparent;
-  border: none;
-  border-bottom: 1.5px solid #e5e5e5;
+  border: 1px solid rgb(172, 172, 172);
   color: var(--ink);
   outline: none;
   transition: all 0.3s;
-  font-family: var(--ff-body);
+  font-family: var(--font-ppnue);
+}
+
+
+
+.input-wrapper_select {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  background: transparent;
+  border: 1px solid rgb(172, 172, 172);
+  color: var(--ink);
+  outline: none;
+  transition: all 0.3s;
+  font-family: var(--font-ppnue);
 }
 
 .input-wrapper textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 90px;
 }
 
 .input-wrapper select {
@@ -654,9 +770,7 @@ const c = t.contacto;
   padding-right: 20px;
 }
 
-.select-wrapper {
-  position: relative;
-}
+.select-wrapper { position: relative; }
 
 .select-wrapper::after {
   content: "⌵";
@@ -669,9 +783,7 @@ const c = t.contacto;
   transition: color 0.3s;
 }
 
-.select-wrapper:hover::after {
-  color: var(--verdec);
-}
+.select-wrapper:hover::after { color: var(--verdec); }
 
 .input-border {
   position: absolute;
@@ -695,29 +807,116 @@ const c = t.contacto;
   border-bottom-color: transparent;
 }
 
-.form-group:focus-within label {
-  color: var(--verdec);
+.form-group:focus-within label { color: var(--verdec); }
+
+/* Phone prefix */
+.phone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1.5px solid #e5e5e5;
+  transition: border-color 0.3s;
 }
 
-/* SUBMIT BUTTON */
+.phone-wrapper:focus-within { border-bottom-color: transparent; }
+
+.phone-wrapper .phone-prefix {
+  font-size: 14px;
+  color: var(--ink-mid);
+  font-weight: 500;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+
+.phone-wrapper input {
+  border-bottom: none !important;
+  padding-left: 0;
+  flex: 1;
+}
+
+.phone-wrapper .input-border { bottom: 0; }
+
+/* Checkbox */
+.checkbox-group { margin-top: 4px; }
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-top: 1px;
+  background: #fff;
+}
+
+.checkbox-label input:checked + .checkmark {
+  background: var(--verdec);
+  border-color: var(--verdec);
+}
+
+.checkbox-label input:checked + .checkmark::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.checkbox-text a {
+  color: var(--verdec);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.checkbox-text a:hover { color: var(--verde); }
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* SUBMIT BUTTON (fuera de la tarjeta)                             */
+/* ═══════════════════════════════════════════════════════════════ */
+.submit-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 4px;
+}
+
 .submit-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 14px 32px;
-  background: var(--verdec);
+  padding: 14px 10px;
+  background: rgb(50, 70, 50);
   color: white;
+  width: 100%;
   border: none;
-  border-radius: 40px;
-  font-size: 12px;
+  border-radius: 6px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.4s var(--ease);
-  width: fit-content;
-  margin-top: 12px;
   position: relative;
   overflow: hidden;
 }
@@ -733,63 +932,47 @@ const c = t.contacto;
   transition: left 0.5s;
 }
 
-.submit-btn:hover::before {
-  left: 100%;
-}
+.submit-btn:hover::before { left: 100%; }
 
 .submit-btn:hover {
   background: var(--verde);
   transform: translateY(-2px);
-  gap: 16px;
   box-shadow: 0 10px 25px rgba(62, 75, 60, 0.3);
 }
 
-.btn-icon svg {
-  transition: transform 0.3s;
-}
-
-.submit-btn:hover .btn-icon svg {
-  transform: translateX(4px);
-}
+.btn-icon svg { transition: transform 0.3s; }
+.submit-btn:hover .btn-icon svg { transform: translateX(4px); }
 
 @media (max-width: 640px) {
-  .submit-btn {
-    width: 100%;
-    justify-content: center;
-  }
+  .submit-btn { width: 100%; }
 }
 
-/* INFO CARD */
-.contact-info-container {
-  position: relative;
+/* ═══════════════════════════════════════════════════════════════ */
+/* INFO CARD                                                       */
+/* ═══════════════════════════════════════════════════════════════ */
+.contact-info-container { 
+  position: relative; 
 }
 
 .info-card {
-  background: #FFFFFF;
-  border-radius: 20px;
+  background: #0B1B2B;
   padding: 42px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   height: 100%;
   transition: all 0.4s var(--ease);
   border: 1px solid var(--verde-border);
+  position: sticky;
+  top: 100px;
 }
 
 .info-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 30px 50px rgba(62, 75, 60, 0.08);
   border-color: rgba(62, 75, 60, 0.2);
 }
 
-@media (max-width: 768px) {
-  .info-card {
-    padding: 32px;
-  }
-}
+@media (max-width: 768px) { .info-card { padding: 32px; position: static; } }
 
-.info-header {
-  margin-bottom: 36px;
-  position: relative;
-}
+.info-header { margin-bottom: 36px; position: relative; }
 
 .info-header::after {
   content: '';
@@ -803,7 +986,7 @@ const c = t.contacto;
 
 .info-title {
   font-size: 26px;
-  font-family: var(--ff-display);
+  font-family:var(--font-ppnue);
   font-weight: 500;
   color: var(--ink);
   margin-bottom: 12px;
@@ -823,9 +1006,7 @@ const c = t.contacto;
   transition: all 0.3s;
 }
 
-.info-item:hover {
-  transform: translateX(6px);
-}
+.info-item:hover { transform: translateX(6px); }
 
 .info-icon-wrapper {
   flex-shrink: 0;
@@ -839,22 +1020,12 @@ const c = t.contacto;
   transition: all 0.3s;
 }
 
-.info-item:hover .info-icon-wrapper {
-  background: var(--verdec);
-}
+.info-item:hover .info-icon-wrapper { background: var(--verdec); }
+.info-item:hover .info-icon { color: white; }
 
-.info-item:hover .info-icon {
-  color: white;
-}
+.info-icon { color: var(--verdec); transition: all 0.3s; }
 
-.info-icon {
-  color: var(--verdec);
-  transition: all 0.3s;
-}
-
-.info-content {
-  flex: 1;
-}
+.info-content { flex: 1; }
 
 .info-label {
   display: block;
@@ -874,11 +1045,7 @@ const c = t.contacto;
   font-weight: 450;
 }
 
-/* QUOTE */
-.quote-wrapper {
-  margin: 36px 0;
-  position: relative;
-}
+.quote-wrapper { margin: 36px 0; position: relative; }
 
 .quote-line {
   width: 100%;
@@ -887,10 +1054,7 @@ const c = t.contacto;
   margin-bottom: 24px;
 }
 
-.info-quote {
-  position: relative;
-  padding: 16px 0;
-}
+.info-quote { position: relative; padding: 16px 0; }
 
 .quote-mark {
   color: var(--verdec);
@@ -899,7 +1063,7 @@ const c = t.contacto;
 }
 
 .quote-text {
-  font-family: var(--ff-display);
+  font-family:var(--font-ppnue);
   font-size: 17px;
   font-style: italic;
   line-height: 1.6;
@@ -907,7 +1071,6 @@ const c = t.contacto;
   margin: 0;
 }
 
-/* SOCIAL LINKS */
 .social-links {
   margin-top: 32px;
   padding-top: 28px;
@@ -924,10 +1087,7 @@ const c = t.contacto;
   margin-bottom: 14px;
 }
 
-.social-icons {
-  display: flex;
-  gap: 12px;
-}
+.social-icons { display: flex; gap: 12px; }
 
 .social-icon {
   width: 38px;
@@ -949,20 +1109,13 @@ const c = t.contacto;
 }
 
 /* ═══════════════════════════════════════════════════════════════ */
-/* MAP SECTION - CORREGIDO PARA PANTALLAS GRANDES                   */
+/* MAP                                                             */
 /* ═══════════════════════════════════════════════════════════════ */
-.map-wrapper {
-  margin-top: 40px;
-}
+.map-wrapper { margin-top: 40px; }
 
-.map-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
+.map-header { text-align: center; margin-bottom: 40px; }
 
-.map-header-content {
-  display: inline-block;
-}
+.map-header-content { display: inline-block; }
 
 .map-eyebrow {
   display: inline-block;
@@ -976,7 +1129,7 @@ const c = t.contacto;
 
 .map-title {
   font-size: 26px;
-  font-family: var(--ff-display);
+  font-family: var(--font-ppnue);
   font-weight: 500;
   color: var(--ink);
   margin-bottom: 18px;
@@ -991,32 +1144,14 @@ const c = t.contacto;
   border: 1px solid var(--verde-border);
 }
 
-.map-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 50px rgba(62, 75, 60, 0.1);
-}
+.map-card:hover { box-shadow: 0 30px 50px rgba(62, 75, 60, 0.1); }
 
-.map-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
+.map-container { position: relative; width: 100%; overflow: hidden; }
 
-.map-interactive {
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: 400px;
-}
+.map-interactive { position: relative; width: 100%; height: auto; min-height: 400px; }
 
-.map-iframe {
-  width: 100%;
-  height: 400px;
-  display: block;
-  border: 0;
-}
+.map-iframe { width: 100%; height: 400px; display: block; border: 0; }
 
-/* Tarjeta de información dentro del mapa */
 .map-info-card {
   position: absolute;
   bottom: 20px;
@@ -1031,14 +1166,7 @@ const c = t.contacto;
   z-index: 10;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--verde-border);
-  transition: all 0.3s;
   pointer-events: none;
-}
-
-.map-info-card:hover {
-  transform: translateY(-2px);
-  background: white;
-  border-color: var(--verdec);
 }
 
 .map-info-icon {
@@ -1052,23 +1180,11 @@ const c = t.contacto;
   color: var(--verdec);
 }
 
-.map-info-text {
-  display: flex;
-  flex-direction: column;
-}
+.map-info-text { display: flex; flex-direction: column; }
 
-.map-info-text strong {
-  font-size: 14px;
-  color: var(--ink);
-  margin-bottom: 2px;
-}
+.map-info-text strong { font-size: 14px; color: var(--ink); margin-bottom: 2px; }
+.map-info-text span { font-size: 12px; color: var(--ink-soft); }
 
-.map-info-text span {
-  font-size: 12px;
-  color: var(--ink-soft);
-}
-
-/* Footer del mapa */
 .map-footer {
   padding: 20px 28px;
   background: #fafbfa;
@@ -1080,11 +1196,7 @@ const c = t.contacto;
 }
 
 @media (max-width: 768px) {
-  .map-footer {
-    flex-direction: column;
-    gap: 14px;
-    padding: 18px 24px;
-  }
+  .map-footer { flex-direction: column; gap: 14px; padding: 18px 24px; }
 }
 
 .map-direction-item {
@@ -1096,65 +1208,28 @@ const c = t.contacto;
   transition: all 0.3s;
 }
 
-.map-direction-item svg {
-  flex-shrink: 0;
-  color: var(--verdec);
-  transition: transform 0.3s;
-}
+.map-direction-item svg { flex-shrink: 0; color: var(--verdec); transition: transform 0.3s; }
+.map-direction-item:hover svg { transform: scale(1.1); }
+.map-direction-item:hover { color: var(--verdec); transform: translateX(4px); }
 
-.map-direction-item:hover svg {
-  transform: scale(1.1);
-}
-
-.map-direction-item:hover {
-  color: var(--verdec);
-  transform: translateX(4px);
-}
-
-/* Responsive del mapa */
 @media (max-width: 1200px) {
-  .map-iframe {
-    height: 380px;
-  }
-  .map-container {
-    min-height: 380px;
-  }
+  .map-iframe { height: 380px; }
+  .map-container { min-height: 380px; }
 }
 
 @media (max-width: 768px) {
-  .map-iframe {
-    height: 350px;
-  }
-  .map-container {
-    min-height: 350px;
-  }
-  .map-info-card {
-    bottom: 12px;
-    left: 12px;
-    padding: 8px 16px;
-  }
-  .map-info-icon {
-    width: 30px;
-    height: 30px;
-  }
-  .map-info-text strong {
-    font-size: 12px;
-  }
-  .map-info-text span {
-    font-size: 10px;
-  }
+  .map-iframe { height: 350px; }
+  .map-container { min-height: 350px; }
+  .map-info-card { bottom: 12px; left: 12px; padding: 8px 16px; }
+  .map-info-icon { width: 30px; height: 30px; }
+  .map-info-text strong { font-size: 12px; }
+  .map-info-text span { font-size: 10px; }
 }
 
 @media (max-width: 480px) {
-  .map-iframe {
-    height: 280px;
-  }
-  .map-container {
-    min-height: 280px;
-  }
-  .map-info-card {
-    display: none;
-  }
+  .map-iframe { height: 280px; }
+  .map-container { min-height: 280px; }
+  .map-info-card { display: none; }
 }
 
 /* ══ TOAST ══════════════════════════════════════════════════════ */
@@ -1186,44 +1261,21 @@ const c = t.contacto;
   }
 }
 
-.toast.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
 /* ══ RESPONSIVE AJUSTES FINOS ═══════════════════════════════════ */
 @media (max-width: 1200px) {
-  .contact-section {
-    padding: 70px 5%;
-  }
-  .contact-grid {
-    gap: 48px;
-  }
+  .contact-section { padding: 70px 5%; }
+  .contact-grid { gap: 48px; }
 }
 
 @media (max-width: 480px) {
-  .form-card,
-  .info-card {
-    padding: 24px;
-  }
-  .form-title,
-  .info-title,
-  .map-title {
-    font-size: 22px;
-  }
-  .info-item {
-    gap: 12px;
-  }
-  .info-icon-wrapper {
-    width: 38px;
-    height: 38px;
-  }
-  .quote-text {
-    font-size: 15px;
-  }
-  .contact-section__title {
-    font-size: 32px;
-  }
+  .form-card, .info-card { padding: 24px; }
+  .form-section-title, .info-title, .map-title { font-size: 20px; }
+  .info-item { gap: 12px; }
+  .info-icon-wrapper { width: 38px; height: 38px; }
+  .quote-text { font-size: 15px; }
+  .contact-section__title { font-size: 32px; }
 }
 
 /* ══ REDUCCIÓN DE MOVIMIENTO ════════════════════════════════════ */
@@ -1231,28 +1283,19 @@ const c = t.contacto;
   .contact-hero__bg img,
   .map-iframe,
   .info-item,
-  .social-icon {
-    transition: none !important;
-  }
-  .scroll-line {
-    animation: none !important;
-  }
-  .hero-eyebrow::before {
-    animation: none !important;
-  }
+  .social-icon { transition: none !important; }
+  .scroll-line { animation: none !important; }
+  .hero-eyebrow::before { animation: none !important; }
 }
 
 /* ══ iOS SAFARI FIX ═════════════════════════════════════════════ */
 @supports (-webkit-touch-callout: none) {
-  .contact-hero {
-    min-height: -webkit-fill-available !important;
-  }
+  .contact-hero { min-height: -webkit-fill-available !important; }
 }
 </style>
 
 <script>
   (function() {
-    // Toast helper
     function showToast(message: string) {
       const toast = document.getElementById('toast') as HTMLElement;
       toast.textContent = message;
@@ -1262,17 +1305,33 @@ const c = t.contacto;
       }, 3000);
     }
 
-    // Contact form handler
     const form = document.getElementById('contact-form') as HTMLFormElement;
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        const destino = (document.getElementById('destino') as HTMLSelectElement)?.value;
+        const cuando = (document.querySelector('input[name="cuando"]:checked') as HTMLInputElement)?.value;
+        const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement)?.value;
+        const titulo = (document.getElementById('titulo') as HTMLSelectElement)?.value;
         const nombre = (document.getElementById('nombre') as HTMLInputElement)?.value;
+        const apellido = (document.getElementById('apellido') as HTMLInputElement)?.value;
         const email = (document.getElementById('email') as HTMLInputElement)?.value;
+        const telefono = (document.getElementById('telefono') as HTMLInputElement)?.value;
+        const consentimiento = (document.getElementById('consentimiento') as HTMLInputElement)?.checked;
         
-        if (!nombre || !email) {
-          showToast('Por favor, completa los campos obligatorios');
+        if (!destino || !cuando || !mensaje) {
+          showToast('Por favor, completa tu información de viaje');
+          return;
+        }
+        
+        if (!titulo || !nombre || !apellido || !email || !telefono) {
+          showToast('Por favor, completa todos tus datos personales');
+          return;
+        }
+        
+        if (!consentimiento) {
+          showToast('Debes aceptar los términos y condiciones para continuar');
           return;
         }
         
@@ -1299,29 +1358,5 @@ const c = t.contacto;
         }, 1500);
       });
     }
-
-    // Fullscreen para el mapa
-    const fullscreenBtn = document.getElementById('fullscreen-map');
-    const mapCard = document.querySelector('.map-card') as HTMLElement;
-    
-    if (fullscreenBtn && mapCard) {
-      fullscreenBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-          mapCard.requestFullscreen().catch(err => {
-            showToast(`Error: ${err.message}`);
-          });
-          showToast('Presiona ESC para salir de pantalla completa');
-        } else {
-          document.exitFullscreen();
-        }
-      });
-    }
-
-    // Actualizar mensaje al salir de fullscreen
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) {
-        // Opcional: mostrar mensaje al salir
-      }
-    });
   })();
 </script>

@@ -1,12 +1,12 @@
 ---
-import '@styles/components/navbar/navbar.base.css';
-import '@styles/components/navbar/navbar.topbar.css';
-import '@styles/components/navbar/navbar.dropdown.css';
-import '@styles/components/navbar/navbar.mobile.css';
-import '@styles/components/navbar/navbar.responsive.css';
-import { navRoutes, languages } from '@lib/nav';
-import { switchLocalePath, localePath } from '@i18n';
-import type { Locale, Translations } from '@i18n';
+import "@styles/components/navbar/navbar.base.css";
+import "@styles/components/navbar/navbar.topbar.css";
+import "@styles/components/navbar/navbar.dropdown.css";
+import "@styles/components/navbar/navbar.mobile.css";
+import "@styles/components/navbar/navbar.responsive.css";
+import { navRoutes, languages } from "@lib/nav";
+import { switchLocalePath, localePath } from "@i18n";
+import type { Locale, Translations } from "@i18n";
 
 interface Props {
   lang: Locale;
@@ -18,12 +18,12 @@ const currentPath = Astro.url.pathname;
 
 function isActive(path: string): boolean {
   const full = localePath(lang, path);
-  return currentPath === full || currentPath.startsWith(full + '/');
+  return currentPath === full || currentPath.startsWith(full + "/");
 }
 
-import LogoEs from '../../assets/log-png.png?url';
-import LogoEn from '../../assets/log-png.png?url';
-import LogoPt from '../../assets/log-png.png?url';
+import LogoEs from "../../assets/log-png.png?url";
+import LogoEn from "../../assets/log-png.png?url";
+import LogoPt from "../../assets/log-png.png?url";
 
 const logos: Record<string, string> = {
   es: LogoEs,
@@ -33,8 +33,8 @@ const logos: Record<string, string> = {
 
 const logo = logos[lang] ?? LogoEs;
 
-const phoneDisplay = '+51 984 123 456';
-const phoneHref = 'tel:+51984123456';
+const phoneDisplay = "+51 984 123 456";
+const phoneHref = "tel:+51984123456";
 
 function getNavTranslation(key: string): string {
   const nav = t.nav as unknown as Record<string, string>;
@@ -43,45 +43,50 @@ function getNavTranslation(key: string): string {
 ---
 
 <header id="site-header">
-
-
   <div class="nav-container" style="font-size: 15px;">
+    <div class="nav-inner-content">
+      <a
+        href={localePath(lang, "/")}
+        class="logo"
+        aria-label="Fiesta Tours Perú - Inicio"
+      >
+        <div class="logo-wrapper">
+          <img
+            src={logo}
+            alt="Fiesta Tours Perú"
+            class="logo-image"
+            loading="eager"
+            width="180"
+            height="48"
+            decoding="sync"
+          />
+        </div>
+      </a>
 
-      <div class="nav-inner-content">
-
-        <a
-          href={localePath(lang, '/')}
-          class="logo"
-          aria-label="Fiesta Tours Perú - Inicio"
-         >
-          <div class="logo-wrapper">
-            <img
-              src={logo}
-              alt="Fiesta Tours Perú"
-              class="logo-image"
-              loading="eager"
-              width="180"
-              height="48"
-              decoding="sync"
-            />
-          </div>
-        </a>
-
-        <nav class="nav-links letritas" aria-label="Menú principal">
-          {navRoutes.map((route) => (
-            <div class:list={['nav-item-wrapper', route.children ? 'has-dropdown' : '']}>
-
+      <nav class="nav-links letritas" aria-label="Menú principal">
+        {
+          navRoutes.map((route) => (
+            <div
+              class:list={[
+                "nav-item-wrapper",
+                route.children ? "has-dropdown" : "",
+              ]}
+            >
               <a
                 href={localePath(lang, route.path)}
-                class:list={[
-                  'nav-link',
-                  isActive(route.path) && 'active' 
-                ]}
+                class:list={["nav-link", isActive(route.path) && "active"]}
               >
-                <span class="nav-link-text  letritas letritas">{getNavTranslation(route.key)}</span>
+                <span class="nav-link-text  letritas letritas">
+                  {getNavTranslation(route.key)}
+                </span>
                 {route.children && (
                   <svg class="chevron" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
                   </svg>
                 )}
               </a>
@@ -102,80 +107,181 @@ function getNavTranslation(key: string): string {
                   </div>
                 </div>
               )}
-
             </div>
-          ))}
-        </nav>
-        <div style="display:flex; justify-content:center; align-items:center" class="cont_extras">
-            <a href="mailto:info@fiestatoursperu.com"  style="color: white; margin-right: 20px; text-style: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 7l9 6l9 -6" /></svg>
-            </a>
+          ))
+        }
+      </nav>
+      <div
+        style="display:flex; justify-content:center; gap: 20px; align-items:center; transition: all 2s;"
+        class="cont_extras"
+      >
+        <a href={localePath(lang, "/informacion")} class="cta-button letrita">
+          <span class="cta-text letritas">
+            {getNavTranslation("planBtn1")}
+            {getNavTranslation("planBtn2")}</span
+          >
+        </a>
+
+        <a class="telefono-menu_nav" href="#" style="margin-left: 20px;">
+          <span class="numero_telefono">(+51) 982 836 947</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-telephone"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+            ></path>
+          </svg>
+        </a>
+
+        <a
+          href="mailto:info@fiestatoursperu.com"
+          style="color: white; margin-right: 20px; text-style: none; display:flex; align-items: center; justify-content:center;"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-mail"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"
+            ></path><path d="M3 7l9 6l9 -6"></path></svg
+          >
+        </a>
+
+        <div>
+          <style>
+            .telefono-menu_nav {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+
+              color: white;
+              animation: aparecerDesdeIzquierda 0.6s ease-out forwards;
+
+              font-family: var(--font-ppnue);
+            }
+
+            .numero_telefono {
+              display: none;
+
+            }
+
+            .telefono-menu_nav:hover {
+              transition: all 0.2s;
+              color:green;
 
 
-            <a href={localePath(lang, '/informacion')} class="cta-button letrita" >
-            <span class="cta-text letritas"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
-          </a>
+              .numero_telefono {
+                display: block;
 
-          <div>
+              }
+            }
 
+            .animacion-telefono {
+              opacity: 0;
 
+            }
 
-         <div style="padding-left: 30px;">
-            <ul class="top-bar-languages" style="position:relative; list-style: none;">
-              {languages.filter(l => lang === l.code).map((l) => (
-                <li class="top-bar-lang-item current-lang" style="position: relative;">
-                  
-                  <span class="top-bar-lang-link letritas active" id="language_define" style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; cursor:pointer;">
-                    {l.code}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="transition-transform duration-300">
-                      <path d="M15.6462 10.945C15.8415 11.1403 15.8415 11.4569 15.6462 11.6521L12.1107 15.1877C11.94 15.3584 11.6764 15.3805 11.4823 15.2526L11.4036 15.1877L7.86805 11.6521C7.67279 11.4569 7.67279 11.4036 7.86805 10.945C8.06333 10.75 8.37997 10.7499 8.57516 10.945L11.7571 14.127L14.9391 10.945C15.1343 10.7499 15.4509 10.75 15.6462 10.945Z" fill="#4D4D4D" stroke-width="1"></path>
-                    </svg>
-                  </span>
-                  
-                  <ul id="menu_language" style="display:none; flex-direction: column; gap: 10px; background-color:rgb(0, 0, 0); position: absolute; top: 40px; right:0px; padding:10px; border-radius: 10px; width: 80px; text-align: center; z-index: 50;">
-                    {languages.filter(l => lang !== l.code).map((otherLang) => (
-                      <li class="dropdown-item" style="list-style: none;">
-                        <a href={switchLocalePath(Astro.url, otherLang.code)} class="top-bar-lang-link" style="color: white; text-decoration: none;">
-                          {otherLang.code_pais}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+          </style>
 
-                </li>
-              ))}
+          <div style="padding-left: 30px;">
+            <ul
+              class="top-bar-languages"
+              style="position:relative; list-style: none;"
+            >
+              {
+                languages
+                  .filter((l) => lang === l.code)
+                  .map((l) => (
+                    <li
+                      class="top-bar-lang-item current-lang"
+                      style="position: relative;"
+                    >
+                      <span
+                        class="top-bar-lang-link letritas active"
+                        id="language_define"
+                        style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; cursor:pointer;"
+                      >
+                        {l.code}
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="transition-transform duration-300"
+                        >
+                          <path
+                            d="M15.6462 10.945C15.8415 11.1403 15.8415 11.4569 15.6462 11.6521L12.1107 15.1877C11.94 15.3584 11.6764 15.3805 11.4823 15.2526L11.4036 15.1877L7.86805 11.6521C7.67279 11.4569 7.67279 11.4036 7.86805 10.945C8.06333 10.75 8.37997 10.7499 8.57516 10.945L11.7571 14.127L14.9391 10.945C15.1343 10.7499 15.4509 10.75 15.6462 10.945Z"
+                            fill="#4D4D4D"
+                            stroke-width="1"
+                          />
+                        </svg>
+                      </span>
+
+                      <ul
+                        id="menu_language"
+                        style="display:none; flex-direction: column; gap: 10px; background-color:rgb(0, 0, 0); position: absolute; top: 40px; right:0px; padding:10px; border-radius: 10px; width: 80px; text-align: center; z-index: 50;"
+                      >
+                        {languages
+                          .filter((l) => lang !== l.code)
+                          .map((otherLang) => (
+                            <li class="dropdown-item" style="list-style: none;">
+                              <a
+                                href={switchLocalePath(
+                                  Astro.url,
+                                  otherLang.code,
+                                )}
+                                class="top-bar-lang-link"
+                                style="color: white; text-decoration: none;"
+                              >
+                                {otherLang.code_pais}
+                              </a>
+                            </li>
+                          ))}
+                      </ul>
+                    </li>
+                  ))
+              }
             </ul>
 
             <script>
-              document.getElementById('language_define')?.addEventListener('click', function(e) {
-                e.stopPropagation(); 
-                const language_modal = document.getElementById('menu_language');
-                if (language_modal) {
-                  const isHidden = language_modal.style.display === 'none' || language_modal.style.display === '';
-                  language_modal.style.display = isHidden ? 'flex' : 'none';
-                }
-              });
+              document
+                .getElementById("language_define")
+                ?.addEventListener("click", function (e) {
+                  e.stopPropagation();
+                  const language_modal =
+                    document.getElementById("menu_language");
+                  if (language_modal) {
+                    const isHidden =
+                      language_modal.style.display === "none" ||
+                      language_modal.style.display === "";
+                    language_modal.style.display = isHidden ? "flex" : "none";
+                  }
+                });
 
-              document.addEventListener('click', function() {
-                const language_modal = document.getElementById('menu_language');
-                if (language_modal) language_modal.style.display = 'none';
+              document.addEventListener("click", function () {
+                const language_modal = document.getElementById("menu_language");
+                if (language_modal) language_modal.style.display = "none";
               });
             </script>
           </div>
-
-
-            
-
         </div>
-
-
       </div>
-    
-      
-     
     </div>
   </div>
-
 </header>
 
 <button
@@ -189,38 +295,38 @@ function getNavTranslation(key: string): string {
 </button>
 
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-
   <nav class="mobile-nav">
-    {navRoutes.map((route) => (
-      <div class="mobile-nav-item">
+    {
+      navRoutes.map((route) => (
+        <div class="mobile-nav-item">
+          <button
+            class="mobile-nav-link mobile-parent"
+            data-href={localePath(lang, route.path)}
+          >
+            <span>{getNavTranslation(route.key)}</span>
+            {route.children && (
+              <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+            )}
+          </button>
 
-        <button
-          class="mobile-nav-link mobile-parent"
-          data-href={localePath(lang, route.path)}
-        >
-          <span>{getNavTranslation(route.key)}</span>
           {route.children && (
-            <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none">
-              <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
-            </svg>
+            <div class="mobile-submenu">
+              {route.children.map((child) => (
+                <a href={localePath(lang, child.path)} class="mobile-sublink">
+                  {getNavTranslation(child.key)}
+                </a>
+              ))}
+            </div>
           )}
-        </button>
-
-        {route.children && (
-          <div class="mobile-submenu">
-            {route.children.map((child) => (
-              <a
-                href={localePath(lang, child.path)}
-                class="mobile-sublink"
-              >
-                {getNavTranslation(child.key)}
-              </a>
-            ))}
-          </div>
-        )}
-
-      </div>
-    ))}
+        </div>
+      ))
+    }
   </nav>
 
   <!-- TELÉFONO MOBILE -->
@@ -229,8 +335,10 @@ function getNavTranslation(key: string): string {
       <svg class="phone-icon" viewBox="0 0 24 24" fill="none">
         <path
           d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-        />
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </svg>
       <span>{phoneDisplay}</span>
     </a>
@@ -238,12 +346,27 @@ function getNavTranslation(key: string): string {
 
   <div class="mobile-footer">
     <a href={phoneHref} class="mobile-phone-link">
-     <a href="mailto:luistasayco3030@gmail.com"  style="color: white; margin-right: 20px; text-style: none; display:flex; align-items:center; gap: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 7l9 6l9 -6" /></svg>
-            <span style="font-size: 15px;">info@fiestatoursperu.com</span>
-
-          </a>
-
+      <a
+        href="mailto:luistasayco3030@gmail.com"
+        style="color: white; margin-right: 20px; text-style: none; display:flex; align-items:center; gap: 10px;"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-mail"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"
+          ></path><path d="M3 7l9 6l9 -6"></path></svg
+        >
+        <span style="font-size: 15px;">info@fiestatoursperu.com</span>
+      </a>
     </a>
   </div>
 
@@ -251,234 +374,239 @@ function getNavTranslation(key: string): string {
   <div class="mobile-footer">
     <p class="mobile-section-title">Idioma</p>
     <div class="mobile-language-options">
-      {languages.map((l) => (
-        <a
-          href={switchLocalePath(Astro.url, l.code)}
-          class:list={['mobile-language-option', lang === l.code && 'active']}
-        >
-          <span class="language-flag">{l.flag}</span>
-          <span>{l.label}</span>
-        </a>
-      ))}
+      {
+        languages.map((l) => (
+          <a
+            href={switchLocalePath(Astro.url, l.code)}
+            class:list={["mobile-language-option", lang === l.code && "active"]}
+          >
+            <span class="language-flag">{l.flag}</span>
+            <span>{l.label}</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 
   <!-- CTA dentro del menú mobile, para que siga siendo accesible -->
   <div class="mobile-footer">
-    <a href={localePath(lang, '/informacion')} class="cta-button">
-      <span class="cta-text"> {getNavTranslation('planBtn1')} {getNavTranslation('planBtn2')}</span>
+    <a href={localePath(lang, "/informacion")} class="cta-button">
+      <span class="cta-text">
+        {getNavTranslation("planBtn1")} {getNavTranslation("planBtn2")}</span
+      >
     </a>
   </div>
 </div>
 
 <script is:inline>
-// ─── Estado global ──────────────────────────────────────────────────────────
-let scrollHandlerAttached = false;
-let isMenuOpen = false;
-let scrollPosition = 0;
-let currentToggle = null;
-let currentMenu = null;
+  // ─── Estado global ──────────────────────────────────────────────────────────
+  let scrollHandlerAttached = false;
+  let isMenuOpen = false;
+  let scrollPosition = 0;
+  let currentToggle = null;
+  let currentMenu = null;
 
-// ─── Helpers ────────────────────────────────────────────────────────────────
-function updateActiveLinks() {
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    const normCurrent = currentPath.replace(/\/$/, '') || '/';
-    const normHref = href.replace(/\/$/, '') || '/';
-    const active = normCurrent === normHref || (normHref !== '/' && normCurrent.startsWith(normHref + '/'));
-    link.classList.toggle('active', active);
-  });
-}
+  // ─── Helpers ────────────────────────────────────────────────────────────────
+  function updateActiveLinks() {
+    const currentPath = window.location.pathname;
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const normCurrent = currentPath.replace(/\/$/, "") || "/";
+      const normHref = href.replace(/\/$/, "") || "/";
+      const active =
+        normCurrent === normHref ||
+        (normHref !== "/" && normCurrent.startsWith(normHref + "/"));
+      link.classList.toggle("active", active);
+    });
+  }
 
-function closeMenu(toggle, menu) {
-  if (!toggle || !menu) return;
-  toggle.setAttribute('aria-expanded', 'false');
-  menu.setAttribute('aria-hidden', 'true');
-  menu.classList.remove('is-open');
-  
-  document.body.style.overflow = '';
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.width = '';
-  
-  if (scrollPosition) {
-    window.scrollTo(0, scrollPosition);
+  function closeMenu(toggle, menu) {
+    if (!toggle || !menu) return;
+    toggle.setAttribute("aria-expanded", "false");
+    menu.setAttribute("aria-hidden", "true");
+    menu.classList.remove("is-open");
+
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
+    if (scrollPosition) {
+      window.scrollTo(0, scrollPosition);
+      scrollPosition = 0;
+    }
+
+    isMenuOpen = false;
+  }
+
+  function openMenu(toggle, menu) {
+    if (!toggle || !menu) return;
+
+    // Guardar posición actual
+    scrollPosition = window.scrollY;
+
+    toggle.setAttribute("aria-expanded", "true");
+    menu.setAttribute("aria-hidden", "false");
+    menu.classList.add("is-open");
+
+    // Prevenir scroll del body
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = "100%";
+
+    isMenuOpen = true;
+  }
+
+  // ─── Navegación segura ──────────────────────────────────────────────────────
+  function safeNavigate(href) {
+    if (!href || href === "#") return;
+
+    // Cerrar menú si está abierto
+    if (isMenuOpen && currentToggle && currentMenu) {
+      closeMenu(currentToggle, currentMenu);
+    }
+
+    // Navegación estándar (funciona siempre)
+    window.location.href = href;
+  }
+
+  // ─── Inicializar Navbar ─────────────────────────────────────────────────────
+  function initNavbar() {
+    const toggle = document.getElementById("mobile-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const header = document.getElementById("site-header");
+
+    if (!toggle || !menu || !header) return;
+
+    // Guardar referencias globales
+    currentToggle = toggle;
+    currentMenu = menu;
+
+    // Limpiar estado residual del menú
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.top = "";
+    isMenuOpen = false;
     scrollPosition = 0;
-  }
-  
-  isMenuOpen = false;
-}
 
-function openMenu(toggle, menu) {
-  if (!toggle || !menu) return;
-  
-  // Guardar posición actual
-  scrollPosition = window.scrollY;
-  
-  toggle.setAttribute('aria-expanded', 'true');
-  menu.setAttribute('aria-hidden', 'false');
-  menu.classList.add('is-open');
-  
-  // Prevenir scroll del body
-  document.body.style.overflow = 'hidden';
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollPosition}px`;
-  document.body.style.width = '100%';
-  
-  isMenuOpen = true;
-}
+    // ⚠️ IMPORTANTE: Clonar para eliminar listeners anteriores
+    const newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+    const newMenu = menu.cloneNode(true);
+    menu.parentNode.replaceChild(newMenu, menu);
 
-// ─── Navegación segura ──────────────────────────────────────────────────────
-function safeNavigate(href) {
-  if (!href || href === '#') return;
-  
-  // Cerrar menú si está abierto
-  if (isMenuOpen && currentToggle && currentMenu) {
-    closeMenu(currentToggle, currentMenu);
-  }
-  
-  // Navegación estándar (funciona siempre)
-  window.location.href = href;
-}
+    // Actualizar referencias
+    currentToggle = newToggle;
+    currentMenu = newMenu;
 
-// ─── Inicializar Navbar ─────────────────────────────────────────────────────
-function initNavbar() {
-  const toggle = document.getElementById('mobile-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const header = document.getElementById('site-header');
-  
-  if (!toggle || !menu || !header) return;
-  
-  // Guardar referencias globales
-  currentToggle = toggle;
-  currentMenu = menu;
-  
-  // Limpiar estado residual del menú
-  menu.classList.remove('is-open');
-  menu.setAttribute('aria-hidden', 'true');
-  toggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-  document.body.style.position = '';
-  document.body.style.top = '';
-  isMenuOpen = false;
-  scrollPosition = 0;
-  
-  // ⚠️ IMPORTANTE: Clonar para eliminar listeners anteriores
-  const newToggle = toggle.cloneNode(true);
-  toggle.parentNode.replaceChild(newToggle, toggle);
-  const newMenu = menu.cloneNode(true);
-  menu.parentNode.replaceChild(newMenu, menu);
-  
-  // Actualizar referencias
-  currentToggle = newToggle;
-  currentMenu = newMenu;
-  
-  // ── Mobile toggle ──
-  newToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    const isOpen = newToggle.getAttribute('aria-expanded') === 'true';
-    if (isOpen) {
-      closeMenu(newToggle, newMenu);
-    } else {
-      openMenu(newToggle, newMenu);
-    }
-  });
-  
-  // ── Cerrar al hacer click en enlaces del menú ──
-  newMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href && href !== '#' && !href.startsWith('javascript:')) {
-        e.preventDefault();
-        safeNavigate(href);
-      }
-    });
-  });
-  
-  // ── Mobile dropdowns (con toggle mejorado) ──
-  newMenu.querySelectorAll('.mobile-parent').forEach(btn => {
-    // Clonar para limpiar listeners
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    
-    newBtn.addEventListener('click', (e) => {
+    // ── Mobile toggle ──
+    newToggle.addEventListener("click", (e) => {
       e.preventDefault();
-      e.stopPropagation();
-      
-      const item = newBtn.closest('.mobile-nav-item');
-      if (!item) return;
-      
-      const submenu = item.querySelector('.mobile-submenu');
-      const href = newBtn.dataset.href;
-      
-      if (submenu && submenu.children.length > 0) {
-        // Cerrar otros submenús abiertos
-        newMenu.querySelectorAll('.mobile-nav-item.open').forEach(openItem => {
-          if (openItem !== item) openItem.classList.remove('open');
-        });
-        // Toggle actual
-        item.classList.toggle('open');
-      } else if (href && href !== '#') {
-        safeNavigate(href);
+      const isOpen = newToggle.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        closeMenu(newToggle, newMenu);
+      } else {
+        openMenu(newToggle, newMenu);
       }
     });
-  });
-  
 
-  
-  updateActiveLinks();
-}
+    // ── Cerrar al hacer click en enlaces del menú ──
+    newMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && href !== "#" && !href.startsWith("javascript:")) {
+          e.preventDefault();
+          safeNavigate(href);
+        }
+      });
+    });
 
-// ─── Manejar botón "atrás" del navegador ────────────────────────────────────
-function handlePopState() {
-  if (isMenuOpen && currentToggle && currentMenu) {
-    closeMenu(currentToggle, currentMenu);
+    // ── Mobile dropdowns (con toggle mejorado) ──
+    newMenu.querySelectorAll(".mobile-parent").forEach((btn) => {
+      // Clonar para limpiar listeners
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+
+      newBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const item = newBtn.closest(".mobile-nav-item");
+        if (!item) return;
+
+        const submenu = item.querySelector(".mobile-submenu");
+        const href = newBtn.dataset.href;
+
+        if (submenu && submenu.children.length > 0) {
+          // Cerrar otros submenús abiertos
+          newMenu
+            .querySelectorAll(".mobile-nav-item.open")
+            .forEach((openItem) => {
+              if (openItem !== item) openItem.classList.remove("open");
+            });
+          // Toggle actual
+          item.classList.toggle("open");
+        } else if (href && href !== "#") {
+          safeNavigate(href);
+        }
+      });
+    });
+
+    updateActiveLinks();
   }
-}
 
-// ─── Bootstrap ──────────────────────────────────────────────────────────────
-// Inicializar cuando el DOM esté listo
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initNavbar);
-} else {
-  initNavbar();
-}
-
-// Re-inicializar en cada navegación con View Transitions
-document.addEventListener('astro:page-load', () => {
-  // Limpiar estado residual antes de reinicializar
-  if (isMenuOpen && currentToggle && currentMenu) {
-    closeMenu(currentToggle, currentMenu);
-  }
-  initNavbar();
-});
-
-
-function initNavbarScroll() {
-  const header = document.getElementById('site-header');
-  
-  if (!header) return;
-
-  function checkScroll() {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+  // ─── Manejar botón "atrás" del navegador ────────────────────────────────────
+  function handlePopState() {
+    if (isMenuOpen && currentToggle && currentMenu) {
+      closeMenu(currentToggle, currentMenu);
     }
   }
 
-  // Ejecutar al cargar por si la página ya tiene scroll
-  checkScroll();
-  
-  // Escuchar el evento de scroll
-  window.addEventListener('scroll', checkScroll);
-}
+  // ─── Bootstrap ──────────────────────────────────────────────────────────────
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNavbar);
+  } else {
+    initNavbar();
+  }
 
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initNavbarScroll);
+  // Re-inicializar en cada navegación con View Transitions
+  document.addEventListener("astro:page-load", () => {
+    // Limpiar estado residual antes de reinicializar
+    if (isMenuOpen && currentToggle && currentMenu) {
+      closeMenu(currentToggle, currentMenu);
+    }
+    initNavbar();
+  });
 
-// Escuchar botón atrás
-window.addEventListener('popstate', handlePopState);
+  function initNavbarScroll() {
+    const header = document.getElementById("site-header");
+
+    if (!header) return;
+
+    function checkScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+
+    // Ejecutar al cargar por si la página ya tiene scroll
+    checkScroll();
+
+    // Escuchar el evento de scroll
+    window.addEventListener("scroll", checkScroll);
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", initNavbarScroll);
+
+  // Escuchar botón atrás
+  window.addEventListener("popstate", handlePopState);
 </script>

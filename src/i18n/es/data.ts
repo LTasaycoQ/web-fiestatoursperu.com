@@ -226,7 +226,7 @@ import type { ContactoTranslations } from '@i18n/types';
 export const contacto: ContactoTranslations = {
   metaTitle: 'Contáctanos – Fiesta Tours Perú',
   metaDesc: 'Contacta a Fiesta Tours Perú. Listos para planificar tu viaje ideal.',
-  heroTitle: 'Contáctanos',
+  heroTitle: 'Empieza a planificar tu viaje',
   eyebrow: 'Estamos aquí para ayudarle',
   sectionTitle: 'Su aventura empieza aquí',
   labelName: 'Nombre completo', placeholderName: 'Su nombre completo',
@@ -234,7 +234,7 @@ export const contacto: ContactoTranslations = {
   labelDest: 'Destino de interés', placeholderDest: 'Seleccione un destino...',
   dest1: 'Machu Picchu & Cusco', dest2: 'Amazonía Peruana', dest3: 'Lago Titicaca',
   dest4: 'Líneas de Nazca', dest5: 'Circuito Completo Perú',
-  labelTravelers: 'Número de viajeros', placeholderTravelers: 'Ej: 2',
+  labelTravelers: 'Teléfono', placeholderTravelers: '',
   labelMessage: 'Mensaje o consulta', placeholderMessage: 'Cuéntenos sobre el viaje que tiene en mente...',
   submitBtn: 'Enviar Consulta',
   infoTitle: 'Información de contacto',

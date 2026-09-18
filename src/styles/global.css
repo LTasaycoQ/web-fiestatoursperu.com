@@ -4,6 +4,24 @@
    — Rediseño Premium con Tonos Verdes —
    ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+   @font-face {
+  font-family: "Apris";
+  src: url("/fonts/Apris.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 /* ── TOKENS ── */
 :root {
   /* Colores - Reemplazados dorados por verdes */
@@ -19,8 +37,9 @@
   --color-text-muted:  rgba(255, 255, 255, 0.65);
 
   /* Tipografía */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Roboto', system-ui, sans-serif;
+  --font-display:  "Italiana", sans-serif;
+
+
 
   /* Espaciado */
   --nav-height:   72px;
@@ -34,6 +53,10 @@
   /* Transiciones */
   --transition-fast: 0.18s ease;
   --transition-mid:  0.30s ease;
+
+
+  --font-ppnue: "PP Neue Montreal", ui-sans-serif, system-ui, sans-serif;
+
 }
 
 /* ── RESET ── */
@@ -58,6 +81,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.titulo_font_abril {
+  font-weight: 900;    
+  font-family: 'Apris', serif;
+}
+
+
+.titulo_pp_nuel {
+  font-family: "PP Neue Montreal", ui-sans-serif, system-ui, sans-serif;
+
+}
+
+
 img, video { display: block; max-width: 100%; }
 a { text-decoration: none; }
 button { cursor: pointer; }
@@ -79,10 +115,8 @@ button { cursor: pointer; }
 }
 
 .display-title {
-  font-family: var(--font-display);
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-weight: 100;
+  line-height: 1.02
 }
 
 .verde-rule {

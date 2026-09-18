@@ -69,12 +69,12 @@ const featureIcons = [
           class="container-title"
           style="width: 100%; display:flex; flex-direction: column;"
         >
-          <h2 class="about-title" style=" font-family: Montserrat, sans-serif;">
+          <h2 class="about-title" >
             {h.title}
           </h2>
           <h2
             class="about-title"
-            style="font-size: 40px; font-family: Montserrat, sans-serif; font-weight: 500;"
+            style="font-size: 40px; font-weight: 500;"
           >
             {h.title2}
           </h2>
@@ -104,8 +104,6 @@ const featureIcons = [
             <path d="M5 12h14M13 6l6 6-6 6"></path>
           </svg>
         </a>
-
-        
       </div>
     </div>
 
@@ -396,53 +394,6 @@ const featureIcons = [
     }
   </style>
 
-  <!-- <section class="section-value">
-    <div class="value-container">
-      <div class="value-image-col">
-        <div class="value-image-frame">
-          <img
-            src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1787342173/victor-rodriguez-IhAJpWUKS5s-unsplash_1_zdfbkd"
-            alt="Paisaje de Cusco con montañas y arquitectura inca"
-            loading="lazy"
-            class="value-main-img"
-          />
-         
-        </div>
-      </div>
-
-      <div class="value-content"  data-aos="fade-up"
-     data-aos-duration="1000">
-        <h2 class="value-title">{h.infoTitle}</h2>
-        <div class="value-features">
-          {c.length > 0 && featureIcons.map((icon, i) => (
-            <div class="value-feature" >
-              <div class="feature-icon" >0{c[i]?.id} <span class="line_circle"></span> </div>
-              <div class="feature-text">
-                <h3 style="color: rgb(35, 47, 35);">{c[i]?.title}</h3>
-                <p>{c[i]?.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div  class="container-btn" style="margin-top: 20px; display:flex; align-items:center; justify-content: space-between;">
-          <div class="value-button-wrapper" >
-            <a href={localePath(lang, "/nosotros")} class="btn-value">
-              {h.aboutBtn}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B48932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg>
-            </a>
-          </div>
-          <span style="width: 1px; background: rgb(52, 65, 52); height: 100%;"></span>
-
-          <div>
-            <img style="width: 80px;" src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1780341323/50-esp_jlhihh" alt="image_logo_50_anos" />
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </section>
- -->
-
   <section class="section-tours">
     <div class="tours-inner" data-aos="fade-up" data-aos-duration="1000">
       <div class="tours-header">
@@ -531,17 +482,11 @@ const featureIcons = [
     </div>
   </section>
 
-  <!-- <section class="testimonios">
-      <iframe src="https://issuu.com/ftpweb/docs/mural_da_excel_ncia" style="border:none; width: 100%; height: 1000px;" title="Ejemplo"></iframe>
-
-  </section> -->
-
   <section class="testimonios">
     <div class="testimonios-header" data-reveal="fade-up">
       <h2 class="testimonios-title">
         Lo que dicen <strong>nuestros viajeros</strong>
       </h2>
-      <div class="testimonios-rule"></div>
     </div>
 
     <div class="carousel-wrapper">
@@ -550,15 +495,13 @@ const featureIcons = [
           {
             testimoniosList.map((testimonio) => (
               <div class="testimonial-card">
-                <div class="testimonial-card__inner">
-                  <div class="testimonial-text">
-                    <p>
-                      "
-                      {h.testimonialTexts?.[testimonio.textKey] ??
-                        testimonio.textKey}
-                      "
-                    </p>
-                  </div>
+                <div class="testimonial-card__inner titulo_pp_nuel">
+                  <p class="testimonial-quote ">
+                    "{h.testimonialTexts?.[testimonio.textKey] ?? testimonio.textKey}"
+                  </p>
+                  {/* <span class="testimonial-author">
+                    — {testimonio.author ?? 'Viajero'}
+                  </span> */}
                 </div>
               </div>
             ))
@@ -566,46 +509,202 @@ const featureIcons = [
         </div>
       </div>
 
-      <button class="carousel-nav carousel-prev" aria-label="Anterior">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15 19l-7-7 7-7"></path>
-        </svg>
-      </button>
-      <button class="carousel-nav carousel-next" aria-label="Siguiente">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"
-          ></path>
-        </svg>
-      </button>
+      <!-- Controles: flecha izquierda, guiones, flecha derecha -->
+      <div class="carousel-controls">
+        <button class="carousel-nav carousel-prev" aria-label="Anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
 
-      <div class="carousel-dots">
-        {
-          testimoniosList.map((_, index) => (
-            <button
-              class="carousel-dot"
-              data-dot={index}
-              aria-label={`Ir al testimonio ${index + 1}`}
-            />
-          ))
-        }
+        <div class="carousel-dots">
+          {
+            testimoniosList.map((_, index) => (
+              <button
+                class="carousel-dot"
+                data-dot={index}
+                aria-label={`Ir al testimonio ${index + 1}`}
+              />
+            ))
+          }
+        </div>
+
+        <button class="carousel-nav carousel-next" aria-label="Siguiente">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* TESTIMONIOS - ESTILO "MOMENTS WE'VE CREATED"                    */
+    /* ═══════════════════════════════════════════════════════════════ */
+    .testimonios {
+      background: #f4f1ec;
+      padding: 80px 0 60px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow: hidden;
+    }
+
+    .testimonios-header {
+      text-align: center;
+      margin-bottom: 56px;
+      padding: 0 6%;
+    }
+
+    .testimonios-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 400;
+      color: #2c2c2c;
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+
+    .testimonios-title strong {
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* 👇 AQUÍ CONTROLAS CUÁNTAS TARJETAS SE VEN POR DEFECTO          */
+    /*    (el JS lo recalcula al cargar, pero esto evita el "flash")  */
+    /* ═══════════════════════════════════════════════════════════════ */
+    .testimonial-card {
+      flex: 0 0 20%;        /* 5 tarjetas visibles en pantallas grandes */
+      max-width: 20%;
+      padding: 0 8px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1599px) {
+      .testimonial-card { flex: 0 0 25%; max-width: 25%; }        /* 4 tarjetas */
+    }
+    @media (max-width: 1279px) {
+      .testimonial-card { flex: 0 0 33.3333%; max-width: 33.3333%; } /* 3 tarjetas */
+    }
+    @media (max-width: 1024px) {
+      .testimonial-card { flex: 0 0 50%; max-width: 50%; }         /* 2 tarjetas */
+    }
+    @media (max-width: 640px) {
+      .testimonial-card { flex: 0 0 100%; max-width: 100%; padding: 0 20px; } /* 1 tarjeta */
+    }
+
+    .testimonial-card__inner {
+      background: #ffffff;
+      /* 👇 Si quieres más espacio o menos, toca este padding */
+      padding: 40px 24px 32px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .testimonial-quote {
+      font-size: 19px;
+      line-height: 1.5;
+      color: #3a3a3a;
+      font-weight: 400;
+      font-style: normal;
+      margin: 0 0 28px;
+      max-width: 320px;
+    }
+
+    @media (min-width: 1600px) {
+      .testimonial-quote { font-size: 17px; }
+      .testimonial-author { font-size: 13px; }
+    }
+
+    .testimonial-author {
+      font-size: 14px;
+      color: #8a8a8a;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 44px;
+      padding: 0 6%;
+    }
+
+    .carousel-nav {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: #4a4a4a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease, transform 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    .carousel-nav svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.2;
+    }
+
+    .carousel-nav:hover {
+      color: #1a1a1a;
+      transform: scale(1.15);
+    }
+
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .carousel-dot {
+      width: 24px;
+      height: 2px;
+      background: #c9c3b8;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      border-radius: 0;
+    }
+
+    .carousel-dot.active {
+      background: #4a4a4a;
+      transform: scaleY(1.5);
+    }
+
+    .carousel-dot:hover {
+      background: #8a8a8a;
+    }
+  </style>
 
   <!-- ══ CTA FINAL ══ -->
   <section class="section-cta-final">
@@ -665,13 +764,7 @@ const featureIcons = [
     </div>
   </section>
 
-  <section class="logos_socios" aria-labelledby="partners-title">
-    <!-- <div class="logos_socios__header" data-reveal="fade-up">
-      <span class="eyebrow-title">Confianza que nos respalda</span>
-      <h2 id="partners-title">Socios y asociaciones</h2>
-      <p>Formamos parte de una red que eleva los estándares del turismo en el Perú.</p>
-    </div> -->
-  </section>
+  <section class="logos_socios" aria-labelledby="partners-title"></section>
 </BaseLayout>
 
 <script>
@@ -681,11 +774,18 @@ const featureIcons = [
   let totalSlides = 0;
   let slidesPerView = 1;
 
+  /* ═══════════════════════════════════════════════════════════════ */
+  /* 👇 AQUÍ CONTROLAS CUÁNTAS TARJETAS SE VEN SEGÚN EL ANCHO         */
+  /*    Si quieres MÁS tarjetas en desktop, cambia los números.      */
+  /*    Ej: return 6; si quieres 6 visibles en pantallas grandes.    */
+  /* ═══════════════════════════════════════════════════════════════ */
   function getSlidesPerView(): number {
     const w = window.innerWidth;
-    if (w >= 1024) return 3;
-    if (w >= 768) return 2;
-    return 1;
+    if (w >= 1600) return 5;  // Pantallas muy grandes → 5 visibles
+    if (w >= 1280) return 4;  // Desktop estándar      → 4 visibles
+    if (w >= 1024) return 3;  // Laptop                → 3 visibles
+    if (w >= 768)  return 2;  // Tablet                → 2 visibles
+    return 1;                 // Móvil                 → 1 visible
   }
 
   function getTrack(): HTMLElement | null {
@@ -707,14 +807,20 @@ const featureIcons = [
   function goToSlide(index: number, animate = true): void {
     const track = getTrack();
     if (!track) return;
+
+    // Máximo índice permitido para que el último slide quede visible
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+
     if (index < 0) index = 0;
-    if (index >= totalSlides) index = totalSlides - 1;
+    if (index > maxIndex) index = maxIndex;
+
     currentSlide = index;
     const pct = 100 / slidesPerView;
+
     if (!animate) {
       track.style.transition = "none";
       track.style.transform = `translateX(${-(currentSlide * pct)}%)`;
-      track.getBoundingClientRect(); // forzar reflow Safari
+      track.getBoundingClientRect();
     } else {
       track.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
       track.style.transform = `translateX(${-(currentSlide * pct)}%)`;
@@ -725,7 +831,9 @@ const featureIcons = [
   function nextSlide(): void {
     if (isAnimating) return;
     isAnimating = true;
-    goToSlide(currentSlide + 1 >= totalSlides ? 0 : currentSlide + 1, true);
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+    const next = currentSlide + 1 > maxIndex ? 0 : currentSlide + 1;
+    goToSlide(next, true);
     setTimeout(() => {
       isAnimating = false;
     }, 520);
@@ -734,7 +842,9 @@ const featureIcons = [
   function prevSlide(): void {
     if (isAnimating) return;
     isAnimating = true;
-    goToSlide(currentSlide - 1 < 0 ? totalSlides - 1 : currentSlide - 1, true);
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+    const prev = currentSlide - 1 < 0 ? maxIndex : currentSlide - 1;
+    goToSlide(prev, true);
     setTimeout(() => {
       isAnimating = false;
     }, 520);
@@ -773,25 +883,19 @@ const featureIcons = [
   function addNavListener(btn: HTMLElement, action: () => void): void {
     btn.style.minWidth = "44px";
     btn.style.minHeight = "44px";
-    btn.style.position = "absolute";
-    btn.style.zIndex = "20";
     applyTouchStyles(btn);
 
     let didMove = false;
 
     btn.addEventListener(
       "touchstart",
-      () => {
-        didMove = false;
-      },
+      () => { didMove = false; },
       { passive: true },
     );
 
     btn.addEventListener(
       "touchmove",
-      () => {
-        didMove = true;
-      },
+      () => { didMove = true; },
       { passive: true },
     );
 
@@ -850,16 +954,12 @@ const featureIcons = [
 
         dot.addEventListener(
           "touchstart",
-          () => {
-            dotMoved = false;
-          },
+          () => { dotMoved = false; },
           { passive: true },
         );
         dot.addEventListener(
           "touchmove",
-          () => {
-            dotMoved = true;
-          },
+          () => { dotMoved = true; },
           { passive: true },
         );
         dot.addEventListener(
@@ -871,9 +971,7 @@ const featureIcons = [
               isAnimating = true;
               goToSlide(idx, true);
               startAutoPlay();
-              setTimeout(() => {
-                isAnimating = false;
-              }, 520);
+              setTimeout(() => { isAnimating = false; }, 520);
             }
           },
           { passive: false },
@@ -883,9 +981,7 @@ const featureIcons = [
             isAnimating = true;
             goToSlide(idx, true);
             startAutoPlay();
-            setTimeout(() => {
-              isAnimating = false;
-            }, 520);
+            setTimeout(() => { isAnimating = false; }, 520);
           }
         });
       });
@@ -960,7 +1056,6 @@ const featureIcons = [
     startAutoPlay();
   }
 
-  // Punto de entrada único: esperar a que todo esté cargado
   document.body.style.overflowX = "hidden";
   document.documentElement.style.overflowX = "hidden";
 
