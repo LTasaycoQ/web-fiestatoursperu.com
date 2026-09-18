@@ -526,6 +526,9 @@ const c = t.contacto;
   gap: 60px;
   margin-bottom: 80px;
 }
+.contact-form-container { 
+  width: 80%;
+  position: relative; }
 
 @media (max-width: 1100px) {
     .contact-grid {
@@ -533,20 +536,16 @@ const c = t.contacto;
     flex-direction: column;
 
   }
-
-
   .contact-form-container { 
-  width: 100%;
-}
+    width: 100%;
+  }
 }
 
 @media (max-width: 968px) {
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
-.contact-form-container { 
-  width: 80%;
-  position: relative; }
+
 
 .contact-form {
   display: flex;
