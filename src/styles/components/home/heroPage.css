@@ -94,10 +94,10 @@
 }
 
 .hero__title {
-  font-size: clamp(48px, 6vw, 60px);
+  font-size: clamp(30px, 6vw, 45px);
   color: #fff;
   margin-bottom: 22px;  font-family: var(--font-ppnue);
-
+  font-weight: 500;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 

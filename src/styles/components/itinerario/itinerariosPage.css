@@ -103,7 +103,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--color-verdec);
+  background: #F1CF64;
   flex-shrink: 0;
   animation: heroDotPulse 2.4s ease-in-out infinite;
 }
@@ -126,7 +126,7 @@
 .rec-hero__title em {
   font-style: normal;
   font-weight: 500;
-  color: var(--color-verdec);
+  color: #F1CF64;
 }
 @media (max-width: 768px) {
   .rec-hero__title {
@@ -173,8 +173,8 @@
   align-items: center;
   gap: 10px;
   padding: 14px 36px;
-  background: var(--color-verdec);
-  color: #fff;
+  background: #F1CF64;
+  color: #222222;
   font-family: var(--font-ppnue);
   font-size: 11px;
   font-weight: 600;
@@ -185,9 +185,9 @@
   transition: background var(--transition-fast), transform 0.2s ease, box-shadow 0.2s ease;
 }
 .rec-hero__btn-primary:hover {
-  background: var(--color-verde);
+  background: #d2b659;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(71,138,61,0.35);
+  box-shadow: 0 8px 24px #f1d06470;
 }
 .rec-hero__btn-primary svg {
   transition: transform 0.3s;
@@ -338,8 +338,8 @@
 }
 
 .rec-intro__text {
-  font-family: var(--font-display);
-  font-size: clamp(18px, 2vw, 24px);
+  font-family: var(--font-ppnue);
+  font-size: clamp(18px, 2vw, 22px);
   font-weight: 300;
   line-height: 1.65;
   color: var(--color-dark);
