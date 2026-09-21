@@ -93,7 +93,6 @@
   font-family: var(--font-ppnue);
   text-align: start;
   max-width: 800px;
-  margin: 0 auto;
 }
 
 .about-text {
@@ -103,7 +102,7 @@
   color: rgb(8, 8, 8);
   font-weight: 300;
   
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 
@@ -572,7 +571,7 @@
 
 .tour-name {
   font-family: var(--font-ppnue);
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 300;
   color: var(--color-darker);
   line-height: 1.2;

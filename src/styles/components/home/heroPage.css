@@ -98,19 +98,18 @@
   color: #fff;
   margin-bottom: 22px;  font-family: var(--font-ppnue);
 
-    font-weight: ;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle {
   font-family: var(--font-ppnue);
-  font-size: clamp(10px, 1.5vw, 14px);
+  font-size: 14px;
   font-weight: 300;
   letter-spacing: clamp(0.15em, 2vw, -0.45px);
   text-transform: uppercase;
   color: rgb(221, 221, 221);
   text-align: end;
-  border-top: 3px solid rgba(255, 174, 0, 0.76);
+  border-top: 1px solid rgba(255, 174, 0, 0.76);
   padding-top: 18px;
   margin-bottom: 28px;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
