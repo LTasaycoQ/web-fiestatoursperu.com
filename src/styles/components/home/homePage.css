@@ -825,15 +825,16 @@
 
 .cta-final-inner {
   position: relative;
+  font-family: var(--font-ppnue);
   z-index: 1;
   max-width: 700px;
   margin: 0 auto;
 }
 
 .cta-final-title {
-  font-family: var(--font-display);
+  font-family: var(--font-ppnue);
   font-size: clamp(40px, 6vw, 76px);
-  font-weight: 300;
+  font-weight: 500;
   color: var(--color-verde);
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -841,7 +842,7 @@
 }
 
 .cta-final-title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--color-verdec, #5ab94e);
 }
 

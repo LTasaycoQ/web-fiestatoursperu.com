@@ -114,9 +114,9 @@
 
 /* Title */
 .rec-hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(46px, 6.5vw, 100px);
-  font-weight: 300;
+  font-family: var(--font-ppnue);
+  font-size: clamp(46px, 6.5vw, 60px);
+  font-weight: 500;
   line-height: 1.06;
   letter-spacing: -0.025em;
   color: #fff;
@@ -125,7 +125,7 @@
 }
 .rec-hero__title em {
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-verdec);
 }
 @media (max-width: 768px) {
@@ -508,7 +508,6 @@
 /* Tour Card */
 .tour-card {
   background: #fff;
-  border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   display: block;
@@ -773,7 +772,7 @@
 }
 
 .rec-cta__title {
-  font-family: var(--font-display);
+  font-family: var(--font-ppnue);
   font-size: clamp(30px, 4vw, 52px);
   font-weight: 500;
   color: var(--color-dark);

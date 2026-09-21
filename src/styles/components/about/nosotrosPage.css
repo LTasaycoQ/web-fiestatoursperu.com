@@ -110,7 +110,7 @@
 }
 
 .rec-hero__title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(46px, 6.5vw, 100px);
   font-weight: 300;
   line-height: 1.06;
