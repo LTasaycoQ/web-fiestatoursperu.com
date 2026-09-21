@@ -29,24 +29,6 @@
   --font-family_montserrat: Montserrat, Helvetica, Arial, sans-serif;
 }
 
-/* ══════════════════════════════════════════
-   EYEBROW
-══════════════════════════════════════════ */
-.eyebrow-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--color-verde);
-  display: inline-block;
-  margin-bottom: 15px;
-  font-family: "Montserrat", sans-serif
-;
-}
-
-.eyebrow-title--light {
-  color: rgba(0, 0, 0, 0.65);
-}
 
 
 /* ══════════════════════════════════════════
@@ -93,11 +75,11 @@
 
 .about-title {
   text-transform: uppercase;
-  font-family: var(--font-display);
+  font-family: var(--font-ppnue);
   font-size: clamp(22px, 4.5vw, 40px);
   font-weight: 300;
   color: var(--color-darker);
-  line-height: 1.15;
+  line-height: 1.25;
   text-align: start;
   width: 100%;
   margin: 0 auto;
@@ -108,17 +90,20 @@
   font-style: italic;
 }
 .about-content {
+  font-family: var(--font-ppnue);
   text-align: start;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .about-text {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
-    color: rgb(8, 8, 8);
-
+  font-size: 16px;
+  letter-spacing: -0.55px;
+  font-family:  var(--font-ppnue);
+  color: rgb(8, 8, 8);
   font-weight: 300;
-  margin-bottom: 5px;
+  
+  margin-bottom: 14px;
 }
 
 
@@ -438,13 +423,12 @@
 }
 
 .tours-title {
-  font-family: var(--font-family_montserrat);
-  font-size: clamp(30px, 3.5vw, 40px);
+  font-family: var(--font-ppnue);
+  font-size: clamp(30px, 3.5vw, 35px);
   font-weight: 300;
   color: var(--color-darker);
   line-height: 1.15;
   letter-spacing: -0.025em;
-  margin: 0;
 }
 
 .tours-title em {
@@ -497,11 +481,8 @@
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  border-radius: var(--radius-card);
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: var(--shadow-card);
   transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
   will-change: transform;
 }
@@ -513,13 +494,12 @@
 .tour-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
 }
 
 .tour-img-wrap img {
   width: 100%;
-  height: 100%;
+  height: 250px;
   object-fit: cover;
   transition: transform 0.7s var(--ease-smooth);
 }
@@ -560,6 +540,7 @@
 .tour-body {
   padding: 22px 22px 20px;
   display: flex;
+  font-family: var(--font-ppnue);
   flex-direction: column;
   gap: 10px;
   flex: 1;
@@ -580,7 +561,7 @@
   border-radius: 40px;
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.01em;
   color: var(--color-verde);
 }
 
@@ -590,14 +571,14 @@
 }
 
 .tour-name {
-  font-family: var(--font-display);
+  font-family: var(--font-ppnue);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--color-darker);
   line-height: 1.2;
   margin: 0;
   transition: color 0.2s ease;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.35px;
 }
 
 .tour-card:hover .tour-name {
@@ -1446,7 +1427,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-ppnue);
   margin-top: 42px;
 }
 
@@ -1458,13 +1439,13 @@
   border: 1px solid #4b4b4b;
   border-radius: 14px;
   height: 60px;
-  padding: 15px 35px;
+  padding: 25px;
   text-align: center;
   background-color: transparent;
   color: rgb(62, 62, 62);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.5px;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s ease, gap 0.3s ease;

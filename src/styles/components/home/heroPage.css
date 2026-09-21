@@ -96,17 +96,19 @@
 .hero__title {
   font-size: clamp(48px, 6vw, 60px);
   color: #fff;
-  margin-bottom: 22px;
+  margin-bottom: 22px;  font-family: var(--font-ppnue);
+
+    font-weight: ;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle {
-  font-size: clamp(10px, 1.5vw, 12px);
-  font-weight: 600;
-  letter-spacing: clamp(0.15em, 2vw, 0.25em);
+  font-family: var(--font-ppnue);
+  font-size: clamp(10px, 1.5vw, 14px);
+  font-weight: 300;
+  letter-spacing: clamp(0.15em, 2vw, -0.45px);
   text-transform: uppercase;
   color: rgb(221, 221, 221);
-  line-height: 2;
   text-align: end;
   border-top: 3px solid rgba(255, 174, 0, 0.76);
   padding-top: 18px;
@@ -119,6 +121,7 @@
   padding: clamp(10px, 2vw, 14px) clamp(18px, 3vw, 24px);
   background: rgba(0, 0, 0, 0.678);
   color: #fff;
+  font-family: var(--font-ppnue);
   font-size: clamp(9px, 1.8vw, 11px);
   border-radius: 7px;
   font-weight: 600;

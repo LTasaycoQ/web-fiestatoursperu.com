@@ -7,7 +7,7 @@ export const home: HomeTranslations = {
   heroTitle2: "Experiencias",
   heroTitle3: "Auténticas",
   heroSubtitle:
-    "Desde 1975, diseñamos experiencias inolvidables para quienes desean \n descubrir el Perú con la confianza de verdaderos expertos.",
+    "Desde 1976, diseñamos experiencias inolvidables para quienes desean \n descubrir el Perú con la confianza de verdaderos expertos.",
   heroCta: "Planifique su viaje",
   whyEyebrow: "¿Por qué elegir Fiesta Tours Perú?",
   whyTitle: "50 años haciendo lo imposible, posible",
