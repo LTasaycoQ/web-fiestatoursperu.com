@@ -2,6 +2,16 @@
 import type { Tour } from './data.types';
 
 export const toursData: Tour[] = [
+    {
+    id: "majestad-inca",
+    title: "Ocho Noches Inolvidables en un Viaje a Través del Tiempo",
+    category: "grupos",
+    difficultyLevel: 2,
+    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/mapi-portada_vvfhnw",
+    link: "/itinerarios/majestad-inca",
+    descriptionKey: "majestad_inca_desc",
+    tagKey: "tag_grupos"
+  },
   {
     id: "peru-espectacular",
     title: "Perú Espectacular",
@@ -62,14 +72,5 @@ export const toursData: Tour[] = [
     descriptionKey: "peru_esencial_desc",
     tagKey: "tag_grupos"
   },
-  {
-    id: "majestad-inca",
-    title: "Majestad Inca",
-    category: "grupos",
-    difficultyLevel: 2,
-    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/mapi-portada_vvfhnw",
-    link: "/itinerarios/majestad-inca",
-    descriptionKey: "majestad_inca_desc",
-    tagKey: "tag_grupos"
-  }
+
 ];

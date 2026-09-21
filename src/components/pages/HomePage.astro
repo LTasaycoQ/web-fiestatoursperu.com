@@ -69,13 +69,10 @@ const featureIcons = [
           class="container-title"
           style="width: 100%; display:flex; flex-direction: column;"
         >
-          <h2 class="about-title" >
+          <h2 class="about-title">
             {h.title}
           </h2>
-          <h2
-            class="about-title"
-            style="font-size: 40px; font-weight: 500;"
-          >
+          <h2 class="about-title" style="font-size: 40px; font-weight: 500;">
             {h.title2}
           </h2>
         </div>
@@ -113,11 +110,11 @@ const featureIcons = [
         loading="lazy"
         src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1788194432/v3_grtpb8.png"
         alt="Paisaje peruano"
-        loading="lazy"
       />
     </div>
   </section>
 
+  <!-- ══ WORKFLOW ══ -->
   <section class="workflow">
     <br /><br /><br />
     <div class="workflow-top">
@@ -192,7 +189,6 @@ const featureIcons = [
       font-family: var(--font-ppnue);
     }
 
-
     .workflow-top {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
@@ -230,7 +226,7 @@ const featureIcons = [
       letter-spacing: -1.15px;
       font-family: var(--font-ppnue);
       font-weight: 300;
-      font-size: clamp(42px, 3.6vw, 40px);
+      font-size: clamp(32px, 3.6vw, 40px);
       line-height: 1.1;
       color: var(--green-dark);
     }
@@ -319,7 +315,7 @@ const featureIcons = [
 
     .stat-number {
       display: block;
-      font-family: var(--font-ppnue)
+      font-family: var(--font-ppnue);
       font-size: 34px;
       font-weight: 400;
       color: var(--gold);
@@ -331,7 +327,6 @@ const featureIcons = [
       font-size: 20px;
       font-weight: 400;
       font-family: var(--font-ppnue);
-      color: rgb(40, 141, 40);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--green-dark);
@@ -346,6 +341,7 @@ const featureIcons = [
       font-weight: 300;
       line-height: 1.5;
     }
+
     @media (max-width: 1240px) {
       .workflow-image img {
         padding-left: 100px;
@@ -401,8 +397,9 @@ const featureIcons = [
     }
   </style>
 
-  <section class="section-tours">
-    <div class="tours-inner" data-aos="fade-up" data-aos-duration="1000">
+  <!-- ══ TOURS ══ -->
+  <section class="section-tours" id="tours-section">
+    <div class="tours-inner">
       <div class="tours-header">
         <div class="tours-header-left">
           <span class="eyebrow-title">{h.toursEyebrow}</span>
@@ -411,6 +408,27 @@ const featureIcons = [
             <em>{h.toursTitle2}</em>
           </h2>
         </div>
+
+        <a
+          href={localePath(lang, "/itinerarios")}
+          class="tours-header-btn"
+          aria-label="Ver todos los itinerarios"
+        >
+          <span style="font-family: var(--font-ppnue);">Ver todos los tours</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
 
       <div class="tours-grid">
@@ -445,7 +463,6 @@ const featureIcons = [
                       {tour.days} Días / {tour.nights} Noches
                     </span>
                   )}
-                 
                 </div>
                 <h3 class="tour-name">{tour.title}</h3>
                 <div class="tour-cta-row">
@@ -474,6 +491,76 @@ const featureIcons = [
     </div>
   </section>
 
+  <style>
+    /* ─── Header: título a la izquierda, botón a la derecha ─── */
+    .tours-header {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .tours-header-left {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .tours-header-btn {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 10px;
+      padding:12px;
+      border-bottom: 1.5px solid #12271b;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      color: #12271b;
+      background: transparent;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      cursor: pointer;
+      visibility: visible !important;
+      opacity: 1 !important;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        gap 0.3s ease;
+    }
+
+    .tours-header-btn svg {
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      stroke: currentColor;
+    }
+
+    .tours-header-btn:hover {
+      color: #324b40;
+      transform: translateY(-2px);
+      gap: 14px;
+    }
+
+    .tours-header-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 768px) {
+      .tours-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .tours-header-btn {
+        align-self: flex-start;
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+    }
+  </style>
+
   <section class="testimonios">
     <div class="testimonios-header" data-reveal="fade-up">
       <h2 class="testimonios-title">
@@ -482,6 +569,7 @@ const featureIcons = [
     </div>
 
     <div class="carousel-wrapper">
+    
       <div class="carousel-container" id="testimoniosCarousel">
         <div class="carousel-track">
           {
@@ -491,9 +579,6 @@ const featureIcons = [
                   <p class="testimonial-quote ">
                     "{h.testimonialTexts?.[testimonio.textKey] ?? testimonio.textKey}"
                   </p>
-                  {/* <span class="testimonial-author">
-                    — {testimonio.author ?? 'Viajero'}
-                  </span> */}
                 </div>
               </div>
             ))
@@ -501,38 +586,39 @@ const featureIcons = [
         </div>
       </div>
 
-      <div class="carousel-controls">
+     
+    </div>
+
+    <div class="carousel-controls">
+
         <button class="carousel-nav carousel-prev" aria-label="Anterior">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
 
-        <div class="carousel-dots">
-          {
-            testimoniosList.map((_, index) => (
-              <button
-                class="carousel-dot"
-                data-dot={index}
-                aria-label={`Ir al testimonio ${index + 1}`}
-              />
-            ))
-          }
-        </div>
 
-        <button class="carousel-nav carousel-next" aria-label="Siguiente">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
+      <div class="carousel-dots">
+        {
+          testimoniosList.map((_, index) => (
+            <button
+              class="carousel-dot"
+              data-dot={index}
+              aria-label={`Ir al testimonio ${index + 1}`}
+            />
+          ))
+        }
       </div>
+       <button class="carousel-nav carousel-next" aria-label="Siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
     </div>
   </section>
 
   <style>
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* TESTIMONIOS - ESTILO "MOMENTS WE'VE CREATED"                    */
-    /* ═══════════════════════════════════════════════════════════════ */
     .testimonios {
       background: #f4f1ec;
       padding: 80px 0 60px;
@@ -563,6 +649,8 @@ const featureIcons = [
     .carousel-wrapper {
       position: relative;
       width: 100%;
+      padding: 0 80px; 
+      box-sizing: border-box;
     }
 
     .carousel-container {
@@ -576,33 +664,28 @@ const featureIcons = [
       will-change: transform;
     }
 
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* 👇 AQUÍ CONTROLAS CUÁNTAS TARJETAS SE VEN POR DEFECTO          */
-    /*    (el JS lo recalcula al cargar, pero esto evita el "flash")  */
-    /* ═══════════════════════════════════════════════════════════════ */
     .testimonial-card {
-      flex: 0 0 20%;        /* 5 tarjetas visibles en pantallas grandes */
+      flex: 0 0 20%;
       max-width: 20%;
       padding: 0 8px;
       box-sizing: border-box;
     }
 
     @media (max-width: 1599px) {
-      .testimonial-card { flex: 0 0 25%; max-width: 25%; }        /* 4 tarjetas */
+      .testimonial-card { flex: 0 0 25%; max-width: 25%; }
     }
     @media (max-width: 1279px) {
-      .testimonial-card { flex: 0 0 33.3333%; max-width: 33.3333%; } /* 3 tarjetas */
+      .testimonial-card { flex: 0 0 33.3333%; max-width: 33.3333%; }
     }
     @media (max-width: 1024px) {
-      .testimonial-card { flex: 0 0 50%; max-width: 50%; }         /* 2 tarjetas */
+      .testimonial-card { flex: 0 0 50%; max-width: 50%; }
     }
     @media (max-width: 640px) {
-      .testimonial-card { flex: 0 0 100%; max-width: 100%; padding: 0 20px; } /* 1 tarjeta */
+      .testimonial-card { flex: 0 0 100%; max-width: 100%; padding: 0 20px; }
     }
 
     .testimonial-card__inner {
       background: #ffffff;
-      /* 👇 Si quieres más espacio o menos, toca este padding */
       padding: 40px 24px 32px;
       min-height: 240px;
       display: flex;
@@ -636,38 +719,45 @@ const featureIcons = [
       letter-spacing: 0.02em;
     }
 
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      margin-top: 44px;
-      padding: 0 6%;
-    }
-
     .carousel-nav {
-      background: none;
       border: none;
-      padding: 8px;
+      border-radius: 50%;
+      padding: 12px;
       cursor: pointer;
       color: #4a4a4a;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: color 0.3s ease, transform 0.3s ease;
-      min-width: 44px;
-      min-height: 44px;
+      width: 48px;
+      height: 48px;
+      transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+      z-index: 10;
     }
 
     .carousel-nav svg {
       width: 22px;
       height: 22px;
-      stroke-width: 1.2;
+      stroke-width: 1.5;
     }
 
     .carousel-nav:hover {
       color: #1a1a1a;
-      transform: scale(1.15);
+    }
+
+
+    @media (max-width: 768px) {
+      .carousel-wrapper { padding: 0 50px; }
+      .carousel-nav { width: 40px; height: 40px; padding: 8px; }
+    }
+
+   
+    .carousel-controls {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 44px;
+      padding: 0 6%;
     }
 
     .carousel-dots {
@@ -703,8 +793,7 @@ const featureIcons = [
       <div class="cta-final-grain"></div>
     </div>
     <div class="cta-final-inner" data-aos="fade-up" data-aos-duration="1000">
-      <span class="eyebrow-title eyebrow-title--light">¿Listo para viajar?</span
-      >
+      <span class="eyebrow-title eyebrow-title--light">¿Listo para viajar?</span>
       <h3 class="cta-final-title">
         Tu próxima aventura<br /><em>te está esperando</em>
       </h3>
@@ -765,18 +854,13 @@ const featureIcons = [
   let totalSlides = 0;
   let slidesPerView = 1;
 
-  /* ═══════════════════════════════════════════════════════════════ */
-  /* 👇 AQUÍ CONTROLAS CUÁNTAS TARJETAS SE VEN SEGÚN EL ANCHO         */
-  /*    Si quieres MÁS tarjetas en desktop, cambia los números.      */
-  /*    Ej: return 6; si quieres 6 visibles en pantallas grandes.    */
-  /* ═══════════════════════════════════════════════════════════════ */
   function getSlidesPerView(): number {
     const w = window.innerWidth;
-    if (w >= 1600) return 5;  // Pantallas muy grandes → 5 visibles
-    if (w >= 1280) return 4;  // Desktop estándar      → 4 visibles
-    if (w >= 1024) return 3;  // Laptop                → 3 visibles
-    if (w >= 768)  return 2;  // Tablet                → 2 visibles
-    return 1;                 // Móvil                 → 1 visible
+    if (w >= 1600) return 5;
+    if (w >= 1280) return 4;
+    if (w >= 1024) return 3;
+    if (w >= 768)  return 2;
+    return 1;
   }
 
   function getTrack(): HTMLElement | null {
@@ -799,7 +883,6 @@ const featureIcons = [
     const track = getTrack();
     if (!track) return;
 
-    // Máximo índice permitido para que el último slide quede visible
     const maxIndex = Math.max(0, totalSlides - slidesPerView);
 
     if (index < 0) index = 0;
@@ -813,6 +896,7 @@ const featureIcons = [
       track.style.transform = `translateX(${-(currentSlide * pct)}%)`;
       track.getBoundingClientRect();
     } else {
+      // ⏱️ VELOCIDAD del deslizamiento (debe coincidir con el CSS .carousel-track)
       track.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
       track.style.transform = `translateX(${-(currentSlide * pct)}%)`;
     }
@@ -851,7 +935,7 @@ const featureIcons = [
     stopAutoPlay();
     autoPlayTimer = setInterval(() => {
       if (!isAnimating) nextSlide();
-    }, 5000);
+    }, 3000);
   }
 
   function stopAutoPlay(): void {

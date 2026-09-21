@@ -122,7 +122,7 @@ function getNavTranslation(key: string): string {
           >
         </a>
 
-        <a class="telefono-menu_nav" href="#" style="margin-left: 20px;">
+        <a class="telefono-menu_nav" href={phoneHref} style="margin-left: 20px;">
           <span class="numero_telefono">(+51) 982 836 947</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +140,7 @@ function getNavTranslation(key: string): string {
 
         <a
           href="mailto:info@fiestatoursperu.com"
-          style="color: white; text-style: none; display:flex; align-items: center; justify-content:center;"
+          style="color: white; text-decoration: none; display:flex; align-items: center; justify-content:center;"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -160,12 +160,10 @@ function getNavTranslation(key: string): string {
         </a>
 
         <a href="https://intranet.fiestatoursperu.com" style="display: flex; align-items: center; justify-content: center;">
-
           <svg width="25" height="25" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                <path fill="transparent" stroke="white"  d="M5 26.25V25C5 20.8579 8.35786 17.5 12.5 17.5H17.5C21.6421 17.5 25 20.8579 25 25V26.25" stroke-width="2" stroke-linecap="round"></path>
-                <path fill="transparent" stroke="white"  d="M15 13.75C12.2386 13.75 10 11.5114 10 8.75C10 5.98857 12.2386 3.75 15 3.75C17.7614 3.75 20 5.98857 20 8.75C20 11.5114 17.7614 13.75 15 13.75Z" stroke-width="2" stroke-linecap="round"></path>
-              </svg>
-
+            <path fill="transparent" stroke="white"  d="M5 26.25V25C5 20.8579 8.35786 17.5 12.5 17.5H17.5C21.6421 17.5 25 20.8579 25 25V26.25" stroke-width="2" stroke-linecap="round"></path>
+            <path fill="transparent" stroke="white"  d="M15 13.75C12.2386 13.75 10 11.5114 10 8.75C10 5.98857 12.2386 3.75 15 3.75C17.7614 3.75 20 5.98857 20 8.75C20 11.5114 17.7614 13.75 15 13.75Z" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
         </a>
         
         <div>
@@ -174,33 +172,40 @@ function getNavTranslation(key: string): string {
               display: flex;
               gap: 10px;
               align-items: center;
-
               color: white;
-              animation: aparecerDesdeIzquierda 0.6s ease-out forwards;
-
               font-family: var(--font-ppnue);
+              text-decoration: none;
+              animation: aparecerDesdeIzquierda 0.6s ease-out forwards;
             }
 
             .numero_telefono {
-              display: none;
-
+              display: inline-block;
+              max-width: 0;
+              opacity: 0;
+              overflow: hidden;
+              white-space: nowrap;
+              transform: translateX(-8px);
+              transition:
+                max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease,
+                transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
             .telefono-menu_nav:hover {
-              transition: all 0.2s;
               color: white;
+              transition: color 0.2s ease;
+            }
 
-
-              .numero_telefono {
-                display: block;
-
-              }
+            .telefono-menu_nav:hover .numero_telefono {
+              max-width: 200px;
+              opacity: 1;
+              transform: translateX(0);
             }
 
             .animacion-telefono {
               opacity: 0;
-
             }
+
 
           </style>
 
@@ -222,6 +227,8 @@ function getNavTranslation(key: string): string {
                         id="language_define"
                         style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; cursor:pointer;"
                       >
+                        <img src={l.image} alt="logo_badera_idioma" class="logo_bandera">
+
                         {l.code}
                         <svg
                           width="24"
@@ -242,20 +249,23 @@ function getNavTranslation(key: string): string {
 
                       <ul
                         id="menu_language"
-                        style="display:none; flex-direction: column; gap: 10px; background-color:rgb(0, 0, 0); position: absolute; top: 40px; right:0px; padding:10px; border-radius: 10px; width: 80px; text-align: center; z-index: 50;"
+                        style="display:none; flex-direction: column; gap: 10px; background-color:rgb(0, 0, 0); position: absolute; top: 40px; right:0px; padding:10px; border-radius: 10px; width: 110px; text-align: center; z-index: 50;"
                       >
                         {languages
                           .filter((l) => lang !== l.code)
                           .map((otherLang) => (
-                            <li class="dropdown-item" style="list-style: none;">
+                            <li class="dropdown-item" style="list-style: none; display:flex; align-items: start; justify-content: start;">
                               <a
                                 href={switchLocalePath(
                                   Astro.url,
                                   otherLang.code,
                                 )}
                                 class="top-bar-lang-link"
-                                style="color: white; text-decoration: none;"
+                                style="color: white; text-decoration: none; margin-bottom: 10px;"
                               >
+              
+                                <img style="margin-right: 10px;" class="logo_bandera" src={otherLang.image} alt="logo_ idioma" />
+
                                 {otherLang.code_pais}
                               </a>
                             </li>
@@ -357,7 +367,7 @@ function getNavTranslation(key: string): string {
     <a href={phoneHref} class="mobile-phone-link">
       <a
         href="mailto:luistasayco3030@gmail.com"
-        style="color: white; margin-right: 20px; text-style: none; display:flex; align-items:center; gap: 10px;"
+        style="color: white; margin-right: 20px; text-decoration: none; display:flex; align-items:center; gap: 10px;"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -379,7 +389,7 @@ function getNavTranslation(key: string): string {
     </a>
   </div>
 
-  <!-- LANGUAGE SWITCHER MOBILE -->
+  <!-- LANGUAGE SWITCHER MOBILE (con banderas desde Cloudinary) -->
   <div class="mobile-footer">
     <p class="mobile-section-title">Idioma</p>
     <div class="mobile-language-options">
@@ -389,7 +399,15 @@ function getNavTranslation(key: string): string {
             href={switchLocalePath(Astro.url, l.code)}
             class:list={["mobile-language-option", lang === l.code && "active"]}
           >
-            <span class="language-flag">{l.flag}</span>
+            <img
+              src={l.image}
+              
+              alt={`Bandera ${l.label}`}
+              class="language-flag-img"
+              width="24"
+              height="18"
+              loading="lazy"
+            />
             <span>{l.label}</span>
           </a>
         ))
@@ -407,6 +425,37 @@ function getNavTranslation(key: string): string {
   </div>
 </div>
 
+<style>
+
+
+
+.logo_bandera{
+  width: 14px;
+  
+}
+
+         
+  .language-flag-img {
+    display: inline-block;
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+  }
+
+  .mobile-language-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-language-option.active {
+    font-weight: 600;
+  }
+</style>
+
 <script is:inline>
   // ─── Estado global ──────────────────────────────────────────────────────────
   let scrollHandlerAttached = false;
@@ -415,7 +464,6 @@ function getNavTranslation(key: string): string {
   let currentToggle = null;
   let currentMenu = null;
 
-  // ─── Helpers ────────────────────────────────────────────────────────────────
   function updateActiveLinks() {
     const currentPath = window.location.pathname;
     document.querySelectorAll(".nav-link").forEach((link) => {
@@ -451,15 +499,12 @@ function getNavTranslation(key: string): string {
 
   function openMenu(toggle, menu) {
     if (!toggle || !menu) return;
-
-    // Guardar posición actual
     scrollPosition = window.scrollY;
 
     toggle.setAttribute("aria-expanded", "true");
     menu.setAttribute("aria-hidden", "false");
     menu.classList.add("is-open");
 
-    // Prevenir scroll del body
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollPosition}px`;
@@ -468,20 +513,14 @@ function getNavTranslation(key: string): string {
     isMenuOpen = true;
   }
 
-  // ─── Navegación segura ──────────────────────────────────────────────────────
   function safeNavigate(href) {
     if (!href || href === "#") return;
-
-    // Cerrar menú si está abierto
     if (isMenuOpen && currentToggle && currentMenu) {
       closeMenu(currentToggle, currentMenu);
     }
-
-    // Navegación estándar (funciona siempre)
     window.location.href = href;
   }
 
-  // ─── Inicializar Navbar ─────────────────────────────────────────────────────
   function initNavbar() {
     const toggle = document.getElementById("mobile-toggle");
     const menu = document.getElementById("mobile-menu");
@@ -489,11 +528,9 @@ function getNavTranslation(key: string): string {
 
     if (!toggle || !menu || !header) return;
 
-    // Guardar referencias globales
     currentToggle = toggle;
     currentMenu = menu;
 
-    // Limpiar estado residual del menú
     menu.classList.remove("is-open");
     menu.setAttribute("aria-hidden", "true");
     toggle.setAttribute("aria-expanded", "false");
@@ -503,17 +540,14 @@ function getNavTranslation(key: string): string {
     isMenuOpen = false;
     scrollPosition = 0;
 
-    // ⚠️ IMPORTANTE: Clonar para eliminar listeners anteriores
     const newToggle = toggle.cloneNode(true);
     toggle.parentNode.replaceChild(newToggle, toggle);
     const newMenu = menu.cloneNode(true);
     menu.parentNode.replaceChild(newMenu, menu);
 
-    // Actualizar referencias
     currentToggle = newToggle;
     currentMenu = newMenu;
 
-    // ── Mobile toggle ──
     newToggle.addEventListener("click", (e) => {
       e.preventDefault();
       const isOpen = newToggle.getAttribute("aria-expanded") === "true";
@@ -524,7 +558,6 @@ function getNavTranslation(key: string): string {
       }
     });
 
-    // ── Cerrar al hacer click en enlaces del menú ──
     newMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", (e) => {
         const href = link.getAttribute("href");
@@ -535,9 +568,9 @@ function getNavTranslation(key: string): string {
       });
     });
 
-    // ── Mobile dropdowns (con toggle mejorado) ──
+
+
     newMenu.querySelectorAll(".mobile-parent").forEach((btn) => {
-      // Clonar para limpiar listeners
       const newBtn = btn.cloneNode(true);
       btn.parentNode.replaceChild(newBtn, btn);
 
@@ -552,13 +585,11 @@ function getNavTranslation(key: string): string {
         const href = newBtn.dataset.href;
 
         if (submenu && submenu.children.length > 0) {
-          // Cerrar otros submenús abiertos
           newMenu
             .querySelectorAll(".mobile-nav-item.open")
             .forEach((openItem) => {
               if (openItem !== item) openItem.classList.remove("open");
             });
-          // Toggle actual
           item.classList.toggle("open");
         } else if (href && href !== "#") {
           safeNavigate(href);
@@ -569,24 +600,19 @@ function getNavTranslation(key: string): string {
     updateActiveLinks();
   }
 
-  // ─── Manejar botón "atrás" del navegador ────────────────────────────────────
   function handlePopState() {
     if (isMenuOpen && currentToggle && currentMenu) {
       closeMenu(currentToggle, currentMenu);
     }
   }
 
-  // ─── Bootstrap ──────────────────────────────────────────────────────────────
-  // Inicializar cuando el DOM esté listo
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initNavbar);
   } else {
     initNavbar();
   }
 
-  // Re-inicializar en cada navegación con View Transitions
   document.addEventListener("astro:page-load", () => {
-    // Limpiar estado residual antes de reinicializar
     if (isMenuOpen && currentToggle && currentMenu) {
       closeMenu(currentToggle, currentMenu);
     }
@@ -606,16 +632,11 @@ function getNavTranslation(key: string): string {
       }
     }
 
-    // Ejecutar al cargar por si la página ya tiene scroll
     checkScroll();
-
-    // Escuchar el evento de scroll
     window.addEventListener("scroll", checkScroll);
   }
 
-  // Inicializar cuando el DOM esté listo
   document.addEventListener("DOMContentLoaded", initNavbarScroll);
 
-  // Escuchar botón atrás
   window.addEventListener("popstate", handlePopState);
 </script>
