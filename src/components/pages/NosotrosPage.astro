@@ -33,9 +33,6 @@ const icons: Record<string, string> = {
 
 <BaseLayout fullscreen={true} title={`Nosotros — Fiesta Tours Perú`} description="Conoce a Fiesta Tours Perú, operadora de turismo receptivo de lujo especializada desde 1976.">
 
-  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
-  <!-- HERO - FULL SCREEN (como itinerarios)                                      -->
-  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
   <section class="rec-hero">
     <div class="rec-hero__bg">
       <img
@@ -47,7 +44,6 @@ const icons: Record<string, string> = {
     </div>
     <div class="rec-hero__overlay"></div>
 
-    <div class="rec-hero__vert-line"></div>
 
     <div class="rec-hero__container"  data-aos="fade-right">
       <div class="rec-hero__eyebrow">
@@ -56,7 +52,7 @@ const icons: Record<string, string> = {
       </div>
 
       <h1 class="rec-hero__title">
-        {n.heroTitleLine1 || "La empresa"}<br/>
+        {n.heroTitleLine1 || "La empresa"}
         <em>{n.heroTitleLine2 || "Detrás del viaje"}</em><br/>
         {n.heroTitleLine3 || "perfecto."}
       </h1>
