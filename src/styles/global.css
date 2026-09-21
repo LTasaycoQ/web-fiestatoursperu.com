@@ -84,7 +84,7 @@ body {
 
 .titulo_font_abril {
   font-weight: 900;    
-  font-family: 'Apris', serif;
+  font-family: var(--font-ppnue);
 }
 
 
