@@ -158,7 +158,7 @@ export const about: AboutTranslations = {
   // Why section (incentivos)
   whyEyebrow: "¿Por qué Fiesta Tours Perú?",
   whyTitle: "Excelencia a tu<br/>medida",
-  whyBody: "Somos una empresa altamente capacitada para recibir a sus clientes con estándares de excelencia. Guías bilingües, flota propia y un equipo apasionado por el lujo.",
+  whyBody: "Cada experiencia es diseñada a la medida, combinando conocimiento del destino, atención al detalle y un servicio personalizado que garantiza una operación eficiente y memorable.",
   
   // Razones section
   razonesEyebrow: "Por qué elegirnos",
