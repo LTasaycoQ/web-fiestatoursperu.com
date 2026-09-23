@@ -122,7 +122,6 @@ export const about: AboutTranslations = {
   empresaText1: "Since 1976, Fiesta Tours Perú has been a strategic partner for travel agencies, tour operators and event organizers from around the world seeking to offer exceptional experiences in Peru. With nearly five decades of experience, we specialize in receptive tourism, incentive travel, congresses, conventions and tailor-made experiences, designing programs that reflect the cultural, historical and natural richness of our country.",
   empresaText2: "Our experience allows us to serve from individual travelers and family groups to corporate programs, incentives, special events and high-end experiences, always with a personalized approach and flawless execution.",
   empresaText3: "Over the years we have built a solid reputation based on trust, operational efficiency, rapid response capacity and an ongoing commitment to quality. These values have allowed us to establish lasting relationships with clients and business partners from major international markets.",
-  empresaText4: "Today, as we approach our 50th anniversary, we continue to innovate and strengthen our value proposition to remain one of the leading receptive tourism companies in Peru. More than organizing trips, we create memorable experiences that connect each visitor with the authentic essence of Peru.",
   statYearsLabel: "Years of successful operations",
   statUstoALabel: "Most prestigious association in the global tourism sector",
   statRankLabel: "Leader in luxury receptive tourism in Latin America",

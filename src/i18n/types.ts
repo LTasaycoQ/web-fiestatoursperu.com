@@ -152,7 +152,6 @@ export interface AboutTranslations {
   empresaText1: string;
   empresaText2: string;
   empresaText3: string;
-  empresaText4: string;
   statYearsLabel: string;
   statUstoALabel: string;
   statRankLabel: string;

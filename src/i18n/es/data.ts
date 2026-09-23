@@ -138,7 +138,7 @@ export const about: AboutTranslations = {
   heroTitleLine1: "La empresa",
   heroTitleLine2: "Detrás del",
   heroTitleLine3: "Viaje perfecto.",
-  heroSubtitle: "Operadora de turismo receptivo de lujo — especializada en el mercado más exigente de América Latina.",
+  heroSubtitle: "DMC y operadora de turismo receptivo especializada en crear experiencias excepcionales y personalizadas en el Perú para nuestros socios internacionales.",
   heroBtnPrimary: "Descubrir más",
   heroBtnSecondary: "Contactar expertos",
   
@@ -148,10 +148,9 @@ export const about: AboutTranslations = {
   // Empresa section
   empresaEyebrow: "La Empresa",
   empresaTitle: "50 años de experiencia, confianza y excelencia",
-  empresaText1: "Desde 1976, Fiesta Tours Perú ha sido un socio estratégico para agencias de viajes, tour operadores y organizadores de eventos de todo el mundo que buscan ofrecer experiencias excepcionales en Perú. Con casi cinco décadas de trayectoria, nos especializamos en turismo receptivo, viajes de incentivo, congresos, convenciones y experiencias a medida, diseñando programas que reflejan la riqueza cultural, histórica y natural de nuestro país.",
-  empresaText2: "Nuestra experiencia nos permite atender desde viajeros individuales y grupos familiares hasta programas corporativos, incentivos, eventos especiales y experiencias de alto nivel, siempre con un enfoque personalizado y una ejecución impecable.",
-  empresaText3: "A lo largo de los años hemos construido una sólida reputación basada en la confianza, la eficiencia operativa, la rápida capacidad de respuesta y el compromiso permanente con la calidad. Estos valores nos han permitido establecer relaciones duraderas con clientes y socios comerciales de los principales mercados internacionales.",
-  empresaText4: "Hoy, mientras nos acercamos a nuestro 50° aniversario, continuamos innovando y fortaleciendo nuestra propuesta de valor para seguir siendo una de las empresas líderes del turismo receptivo en Perú. Más que organizar viajes, creamos experiencias memorables que conectan a cada visitante con la esencia auténtica del Perú.",
+  empresaText1: "Desde 1976, Fiesta Tours Perú es un socio estratégico para agencias de viajes, tour operadores y organizadores de eventos de todo el mundo que buscan ofrecer experiencias excepcionales en Perú. Durante 50 años, nos hemos especializado en turismo receptivo, viajes de incentivo, congresos, convenciones y programas a medida.",
+  empresaText2: "Nuestra trayectoria combina profundo conocimiento del destino, eficiencia operativa, atención personalizada y una sólida capacidad de respuesta, permitiéndonos atender desde viajeros individuales y grupos hasta programas corporativos y eventos especiales.",
+  empresaText3: "Hoy celebramos 50 años de experiencia y confianza, mirando hacia el futuro con la misma pasión por el Perú y el compromiso de crear experiencias auténticas, memorables y cuidadosamente diseñadas.",
   statYearsLabel: "Años de operaciones exitosas",
   statUstoALabel: "Asociación más prestigiosa del sector turístico mundial",
   statRankLabel: "Referente de turismo receptivo de lujo en América Latina",
