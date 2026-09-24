@@ -44,7 +44,7 @@ const icons: Record<string, string> = {
   <section class="inc-hero">
     <div class="inc-hero__bg">
       <img
-        src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1800&q=85&auto=format&fit=crop"
+        src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1778686533/iStock-2170572054_asyynl.jpg" style="  transform: scaleX(-1);"
         alt="" aria-hidden="true" fetchpriority="high"
       />
     </div>
@@ -59,7 +59,7 @@ const icons: Record<string, string> = {
         <br>
         <em style="color: #AF8A44; font-style: normal;">de grandes historias</em>
       </h1>
-      <p class="inc-hero__sub">
+      <p class="inc-hero__sub" style="font-size: 17px;">
         Desde la costa del Pacifico hasta los Andes y la Amazonia,
         conocemos el Perú <br> en profundidad y diseñamos experiencias que combinan
         cultura, naturaleza, gastronomía y momentos <br> extraordinarios.
@@ -219,6 +219,7 @@ const icons: Record<string, string> = {
 .inc-hero__bg { position: absolute; inset: 0; }
 .inc-hero__bg img {
   width: 100%; height: 100%; object-fit: cover;
+  object-position: bottom ;
   transform: scale(1.04); transition: transform 12s ease;
 }
 .inc-hero:hover .inc-hero__bg img { transform: scale(1); }
