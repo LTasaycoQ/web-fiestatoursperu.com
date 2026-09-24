@@ -13,7 +13,7 @@
 .tour-hero {
   position: relative;
   min-height: 100vh;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,6 +111,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+  font-family: var(--font-ppnue);
   margin-bottom: 32px;
   transition: all 0.3s;
 }
@@ -422,13 +423,13 @@
 }
 
 .itinerary-subtitle {
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   font-family: var(--font-ppnue);
   gap: 5px;
   justify-content: center;
-  color: #9a9996;
+  color: #6d6a64;
   letter-spacing: 0.05em;
 }
 
