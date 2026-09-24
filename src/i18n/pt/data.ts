@@ -346,17 +346,52 @@ export const incentivos: IncentivosTranslations = {
   },
 
   experienceTranslations: {
-    experience_inca_title: "Desafio Inca",
-    experience_inca_desc:
-      "Team building na Trilha Inca com Machu Picchu como objetivo final.",
-    experience_gastronomy_title: "Sabores do Peru",
-    experience_gastronomy_desc:
-      "Aulas com chefs renomados e jantares privados.",
-    experience_wellness_title: "Retiro Executivo",
-    experience_wellness_desc:
-      "Programa corporativo de bem-estar na Amazônia."
+    "experience_lima_title": "LIMA",
+    "experience_lima_desc": "La puerta de entrada al Perú.",
+    "experience_lima_cta": "Descubrir Lima",
+
+    "experience_cusco_title": "CUSCO",
+    "experience_cusco_desc": "El corazón de los Andes.",
+    "experience_cusco_cta": "Descubrir Cusco",
+
+    "experience_valle_title": "VALLE SAGRADO",
+    "experience_valle_desc": "Paisajes que cuentan historias.",
+    "experience_valle_cta": "Descubrir el Valle Sagrado",
+
+    "experience_machu_title": "MACHU PICCHU",
+    "experience_machu_desc": "Una maravilla que trasciende el viaje.",
+    "experience_machu_cta": "Vivir Machu Picchu",
+
+    "experience_puno_title": "PUNO",
+    "experience_puno_desc": "El lago de los Andes.",
+    "experience_puno_cta": "Descubrir Puno",
+
+    "experience_arequipa_title": "AREQUIPA",
+    "experience_arequipa_desc": "Entre volcanes y tradiciones.",
+    "experience_arequipa_cta": "Descubrir Arequipa",
+
+    "experience_ica_title": "ICA, PARACAS & NAZCA",
+    "experience_ica_desc": "Desierto, océano y misterio.",
+    "experience_ica_cta": "Descubrir la Costa Sur",
+
+    "experience_amazonia_title": "AMAZONÍA",
+    "experience_amazonia_desc": "La naturaleza en su máxima expresión.",
+    "experience_amazonia_cta": "Descubrir la Amazonía",
   },
 
+  categoryCta: "Conocer más",
+  categoryTranslations: {
+    "category_culture_title": "CULTURA & PATRIMONIO",
+    "category_culture_desc": "Descubra la historia y las tradiciones que han dado forma al Perú.",
+    "category_gastronomy_title": "GASTRONOMÍA",
+    "category_gastronomy_desc": "Sabores, mercados y restaurantes que revelan la diversidad del país.",
+    "category_nature_title": "NATURALEZA & AVENTURA",
+    "category_nature_desc": "De los Andes a la Amazonía, experiencias para conectar con paisajes extraordinarios.",
+    "category_luxury_title": "LUJO & EXPERIENCIAS PRIVADAS",
+    "category_luxury_desc": "Momentos diseñados a medida, con atención personalizada y acceso a experiencias especiales.",
+    "category_trains_title": "TRENES & GRANDES VIAJES",
+    "category_trains_desc": "Viajes extraordinarios a través de algunos de los paisajes más espectaculares del Perú."
+  },
   statTranslations: {
     stat_programs: "Programas realizados",
     stat_satisfaction: "Satisfação do cliente",

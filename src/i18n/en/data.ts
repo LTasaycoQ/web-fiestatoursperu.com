@@ -271,14 +271,53 @@ export const incentivos: IncentivosTranslations = {
     "feature_support_desc": "We travel with awareness, minimizing our environmental impact, supporting local communities and promoting sustainable practices that preserve Peru's heritage for future generations."
   },
 
-  // ✅ EXPERIENCE TRANSLATIONS
+
   experienceTranslations: {
-    "experience_inca_title": "Inca Challenge",
-    "experience_inca_desc": "Team building on the Inca Trail with leadership experts. Machu Picchu as the ultimate goal.",
-    "experience_gastronomy_title": "Flavors of Peru",
-    "experience_gastronomy_desc": "Classes with renowned chefs, local markets and private dinners at historic haciendas.",
-    "experience_wellness_title": "Executive Retreat",
-    "experience_wellness_desc": "Corporate wellness program in the Amazon. Full disconnection and team reconnection."
+    "experience_lima_title": "LIMA",
+    "experience_lima_desc": "La puerta de entrada al Perú.",
+    "experience_lima_cta": "Descubrir Lima",
+
+    "experience_cusco_title": "CUSCO",
+    "experience_cusco_desc": "El corazón de los Andes.",
+    "experience_cusco_cta": "Descubrir Cusco",
+
+    "experience_valle_title": "VALLE SAGRADO",
+    "experience_valle_desc": "Paisajes que cuentan historias.",
+    "experience_valle_cta": "Descubrir el Valle Sagrado",
+
+    "experience_machu_title": "MACHU PICCHU",
+    "experience_machu_desc": "Una maravilla que trasciende el viaje.",
+    "experience_machu_cta": "Vivir Machu Picchu",
+
+    "experience_puno_title": "PUNO",
+    "experience_puno_desc": "El lago de los Andes.",
+    "experience_puno_cta": "Descubrir Puno",
+
+    "experience_arequipa_title": "AREQUIPA",
+    "experience_arequipa_desc": "Entre volcanes y tradiciones.",
+    "experience_arequipa_cta": "Descubrir Arequipa",
+
+    "experience_ica_title": "ICA, PARACAS & NAZCA",
+    "experience_ica_desc": "Desierto, océano y misterio.",
+    "experience_ica_cta": "Descubrir la Costa Sur",
+
+    "experience_amazonia_title": "AMAZONÍA",
+    "experience_amazonia_desc": "La naturaleza en su máxima expresión.",
+    "experience_amazonia_cta": "Descubrir la Amazonía",
+  },
+
+  categoryCta: "Conocer más",
+  categoryTranslations: {
+    "category_culture_title": "CULTURA & PATRIMONIO",
+    "category_culture_desc": "Descubra la historia y las tradiciones que han dado forma al Perú.",
+    "category_gastronomy_title": "GASTRONOMÍA",
+    "category_gastronomy_desc": "Sabores, mercados y restaurantes que revelan la diversidad del país.",
+    "category_nature_title": "NATURALEZA & AVENTURA",
+    "category_nature_desc": "De los Andes a la Amazonía, experiencias para conectar con paisajes extraordinarios.",
+    "category_luxury_title": "LUJO & EXPERIENCIAS PRIVADAS",
+    "category_luxury_desc": "Momentos diseñados a medida, con atención personalizada y acceso a experiencias especiales.",
+    "category_trains_title": "TRENES & GRANDES VIAJES",
+    "category_trains_desc": "Viajes extraordinarios a través de algunos de los paisajes más espectaculares del Perú."
   },
 
   // ✅ STATS TRANSLATIONS
