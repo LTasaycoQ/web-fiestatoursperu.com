@@ -64,7 +64,7 @@ const icons: Record<string, string> = {
         conocemos el Perú <br> en profundidad y diseñamos experiencias que combinan
         cultura, naturaleza, gastronomía y momentos <br> extraordinarios.
       </p>
-      <a href="#destinos" class="btn-primary" style="background-color: #F1CF64; color: rgb(255, 255, 255); font-family: var(--font-ppnue);">
+      <a href="#destinos" class="btn-primary" style="background-color: #F1CF64; color: rgb(86, 86, 86); font-family: var(--font-ppnue);">
           EXPLORA NUESTROS DESTINOS
       </a>
     </div>
@@ -127,7 +127,7 @@ const icons: Record<string, string> = {
             <span class="verde-rule" style="margin: 0; width: 40px; background: #d9c9a3;"></span>
           </div>
 
-            <h2 data-aos="fade-right" class="display-title" style="font-family: var(--font-ppnue); max-width: 520px;font-size: 40px; font-weight: 500; ">
+            <h2 data-aos="fade-right" class="display-title" style="font-family: var(--font-ppnue); max-width: 620px;font-size: 40px; font-weight: 500; ">
           Más que destinos, <br>
           <em style="font-style: normal;font-family: var(--font-ppnue);">experiencias que conectan el Perú</em>
         </h2>
@@ -137,6 +137,8 @@ const icons: Record<string, string> = {
         Diseñamos programas que combinan lo mejor de nuestros destinos para crear experiencias únicas, adaptadas a los intereses de sus clientes.
       </p>
     </div>
+
+    <br>
 
     <div class="inc-cats__grid" data-aos="fade-up">
       {incentivosCategories.map((cat) => (
@@ -225,7 +227,10 @@ const icons: Record<string, string> = {
 .inc-hero:hover .inc-hero__bg img { transform: scale(1); }
 .inc-hero__overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(160deg, rgba(15,8,2,.72) 0%, rgba(26,18,8,.55) 50%, rgba(15,8,2,.80) 100%);
+  background: linear-gradient(160deg,
+   rgba(15, 8, 2, 0.787) 0%, 
+  rgba(26, 18, 8, 0.631) 50%,
+   rgba(15, 8, 2, 0.83) 100%);
 }
 .inc-hero__content {
   position: relative; z-index: 2; width: 100%; max-width: 1700px; padding: 0 24px;
