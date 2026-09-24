@@ -18,7 +18,7 @@ const peruEspectacularDays: DiaItinerario[] = [
       "Lima, una ciudad que vive, donde el pasado se mezcla con el presente. Donde los palacios, monasterios y conventos coloniales existen en asombrosa armonía con modernas edificaciones y las más impresionantes y milenarias huacas Pre-incas. Ya sea en el zaguán de una vieja casona o en la profundidad de una lúgubre catacumba.",
       "Lima, la ciudad de los reyes te espera, para deslumbrarte con su magia y embriagarte con su sabor.",
     ],
-    itinerarioImage: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/banner-about-us3_w9sapa",
+    itinerarioImage: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1772817243/2_14_11zon_pkazjm.webp",
     location: "lima",
     lat: CITY_COORDS.lima.lat,
     lng: CITY_COORDS.lima.lng,
@@ -45,6 +45,8 @@ const peruEspectacularDays: DiaItinerario[] = [
       "Alguna vez el centro de la civilización Inca; Cusco sigue cautivando a sus visitantes, viviendo en sus recuerdos por mucho, mucho tiempo.",
     ],
     location: "cusco",
+    itinerarioImage: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/luxury-train_i18flh",
+
     lat: CITY_COORDS.cusco.lat,
     lng: CITY_COORDS.cusco.lng,
   },

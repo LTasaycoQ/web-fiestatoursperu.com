@@ -397,15 +397,18 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  font-family: var(--font-ppnue);
   color: var(--color-verdec, #478a3d);
   display: block;
   margin-bottom: 16px;
 }
 
 .itinerary-title {
-  font-family: var(--font-display, 'Cormorant Garamond', serif);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 300;
+  font-family: var(--font-ppnue);
+
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 400;
+  letter-spacing: -1px;
   color: var(--color-dark, #1a1510);
   margin: 0 0 20px;
 }
@@ -419,13 +422,17 @@
 
 .itinerary-subtitle {
   font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-ppnue);
+  gap: 5px;
+  justify-content: center;
   color: #9a9996;
   letter-spacing: 0.05em;
 }
 
 .itinerary-grid {
   display: grid;
-  grid-template-columns: 1fr 420px;
   gap: 60px;
   align-items: start;
 }
@@ -435,29 +442,31 @@
   align-items: center;
   margin-top: 20px;
   gap: 12px;
+  background-color: #529149;
+  font-family: var(--font-ppnue);
   padding: 10px 24px;
-  border: 1.5px solid var(--color-verdec, #478a3d);
   border-radius: 50px;
   margin-bottom: 32px;
   transition: all 0.4s;
+  color: white;
   cursor: pointer;
 }
 
 .location-pin__icon {
-  color: var(--color-verdec, #478a3d);
+  color:  #f7fbf6;
 }
 
 .location-pin__text {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-dark, #1a1510);
+    color:  #f7fbf6;
 }
 
 .location-pin.is-active {
-  background: var(--color-verdec, #478a3d);
-  border-color: var(--color-verdec, #478a3d);
+  background: var(--color-verdec, #fefefe);
+  border-color: var(--color-verdec, #fbfffb);
 }
 
 .location-pin.is-active .location-pin__icon,
@@ -472,16 +481,6 @@
   position: relative;
 }
 
-.days-timeline::before {
-  content: "";
-  position: absolute;
-  left: 28px;
-  top: 40px;
-  bottom: 40px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--color-verdec, #478a3d), transparent);
-  opacity: 0.2;
-}
 
 .day-card {
   background: #ffffff;
@@ -508,17 +507,19 @@
 }
 
 .day-card__number {
-  background: linear-gradient(135deg, #3e4b3c 0%, #8a453d 100%);
+  background: #F1CF64;
+  color: black;
+  font-family: var(--font-ppnue);
+  letter-spacing: -0.15px;
   padding: 6px 18px;
   border-radius: 40px;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
 }
 
 .day-card__title {
+  font-family: var(--font-ppnue);
   font-size: 22px;
   font-weight: 600;
   color: var(--color-dark, #1a1510);
@@ -528,7 +529,9 @@
 
 .day-card__description {
   font-size: 15px;
+  width: 80%;
   line-height: 1.7;
+  font-family: var(--font-ppnue);
   color: #6b6a68;
   margin-bottom: 24px;
 }

@@ -1,0 +1,219 @@
+---
+import { Image } from "astro:assets";
+import TurismoCuida from '@assets/logos-Respaldo/TURISMOCUIDA.png';
+import FondoSection from '@assets/FondoSectionNosotros.jpg';
+import Sernanp from '@assets/logos-Respaldo/SERNANP.png';
+const fondoUrl = "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2070&auto=format&fit=crop";
+---
+
+<section class="aliados">
+  
+  <div class="aliados__container">
+    
+    <div class="aliados__title-wrap">
+      <span class="aliados__line"></span>
+      <h2 class="aliados__title">Aliados en nuestro compromiso</h2>
+      <span class="aliados__line"></span>
+    </div>
+
+    <div class="aliados__logos">
+      
+      <div class="aliados__logo-item">
+        <Image style='width: 250px; height: auto;' src={TurismoCuida} alt="">
+      </div> 
+      <div class="aliados__divider"></div>
+      <div class="aliados__logo-item">
+           <Image style='width:  250px; height: auto;' src={Sernanp} alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 20px;">
+    <div style="width: 300px; height: 400px; background-color: green;">
+        <img src="" alt="">
+    </div>
+    <div style="width: 300px; height: 400px; background-color: green;"></div>
+    <div style="width: 300px; height: 400px; background-color: green;"></div>
+  </div>
+
+</section>
+
+<style>
+  .aliados {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    padding: 50px;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+
+  .aliados__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .aliados__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .aliados__container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 950px;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aliados__title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 35px;
+  }
+
+  .aliados__line {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #c99b2d;
+  }
+
+  .aliados__title {
+    font-family: sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    color: #325926;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .aliados__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    flex-wrap: wrap;
+  }
+
+  .aliados__logo-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .aliados__logo-icon {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+  }
+
+  .aliados__logo-text {
+    text-align: left;
+    line-height: 1.15;
+  }
+
+  .aliados__logo-text strong {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: #2d5016;
+    font-weight: 700;
+  }
+
+  .aliados__logo-text span {
+    display: block;
+    font-family: sans-serif;
+    font-size: 11px;
+    color: #555;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  .aliados__divider {
+    width: 1px;
+    height: 70px;
+    background-color: #999;
+  }
+
+  .aliados__sernanp-mock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .aliados__sernanp-text {
+    text-align: left;
+    line-height: 1.1;
+  }
+
+  .aliados__sernanp-text strong {
+    display: block;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+  }
+
+  .aliados__sernanp-text span {
+    display: block;
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666;
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
+  }
+
+  .aliados__sernanp-text small {
+    display: block;
+    font-family: sans-serif;
+    font-size: 9px;
+    color: #555;
+    line-height: 1.3;
+  }
+
+
+  @media (max-width: 768px) {
+    .aliados__title {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      white-space: normal;
+    }
+    
+    .aliados__line {
+      width: 30px;
+    }
+
+    .aliados__logos {
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .aliados__divider {
+      width: 60px;
+      height: 1px;
+    }
+
+    .aliados__overlay {
+      width: 250%;  
+      height: 250%;
+    }
+  }
+</style>

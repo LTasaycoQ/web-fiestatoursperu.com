@@ -1,26 +1,39 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { localePath, useTranslations, type Locale } from '@i18n/index';
-import { nosotrosFeatures, nosotrosRazones, nosotrosStats } from 'src/data/nosotros';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { localePath, useTranslations, type Locale } from "@i18n/index";
+import {
+  nosotrosFeatures,
+  nosotrosRazones,
+  nosotrosStats,
+} from "src/data/nosotros";
 import "@styles/components/about/nosotrosPage.css";
+import { Image } from "astro:assets";
+import CoverIndex from "../../assets/cover-index.webp";
 
-interface Props { lang: Locale }
+import AliadosNosotros from '../sections/AliadosNosotro.astro';
+
+
+interface Props {
+  lang: Locale;
+}
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const n = t.about;
 
-const features = nosotrosFeatures.map(feature => ({
+const features = nosotrosFeatures.map((feature) => ({
   icon: feature.icon,
   title: n.featureTranslations[feature.titleKey] || "",
   desc: n.featureTranslations[feature.descKey] || "",
-  badge: feature.badge
+  badge: feature.badge,
 }));
 
-const razones = nosotrosRazones.map(razon => n.razonTranslations[razon.key] || "");
+const razones = nosotrosRazones.map(
+  (razon) => n.razonTranslations[razon.key] || "",
+);
 
-const stats = nosotrosStats.map(stat => ({
+const stats = nosotrosStats.map((stat) => ({
   num: stat.num,
-  label: n[stat.labelKey as keyof typeof n] || ""
+  label: n[stat.labelKey as keyof typeof n] || "",
 }));
 
 const icons: Record<string, string> = {
@@ -31,8 +44,11 @@ const icons: Record<string, string> = {
 };
 ---
 
-<BaseLayout fullscreen={true} title={`Nosotros — Fiesta Tours Perú`} description="Conoce a Fiesta Tours Perú, operadora de turismo receptivo de lujo especializada desde 1976.">
-
+<BaseLayout
+  fullscreen={true}
+  title={`Nosotros — Fiesta Tours Perú`}
+  description="Conoce a Fiesta Tours Perú, operadora de turismo receptivo de lujo especializada desde 1976."
+>
   <section class="rec-hero">
     <div class="rec-hero__bg">
       <img
@@ -44,8 +60,7 @@ const icons: Record<string, string> = {
     </div>
     <div class="rec-hero__overlay"></div>
 
-
-    <div class="rec-hero__container"  data-aos="fade-right">
+    <div class="rec-hero__container" data-aos="fade-right">
       <div class="rec-hero__eyebrow">
         <span class="rec-hero__dot"></span>
         <span>{n.heroBadge || "DESDE 1976 · 50+ AÑOS DE EXCELENCIA"}</span>
@@ -53,27 +68,32 @@ const icons: Record<string, string> = {
 
       <h1 class="rec-hero__title">
         {n.heroTitleLine1 || "La empresa"}
-        <em>{n.heroTitleLine2 || "Detrás del viaje"}</em><br/>
+        <em>{n.heroTitleLine2 || "Detrás del viaje"}</em><br />
         {n.heroTitleLine3 || "perfecto."}
       </h1>
 
       <p class="rec-hero__subtitle">
-        {n.heroSubtitle || "Operadora de turismo receptivo de lujo — especializada en el mercado más exigente de América Latina."}
+        {
+          n.heroSubtitle ||
+            "Operadora de turismo receptivo de lujo — especializada en el mercado más exigente de América Latina."
+        }
       </p>
 
       <div class="rec-hero__actions">
         <a href="#descubrir" class="rec-hero__btn-primary">
           {n.heroBtnPrimary || "Descubrir más"}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path
+              d="M12 5v14M5 12l7 7 7-7"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"></path>
           </svg>
         </a>
         <a href={localePath(lang, "/contacto")} class="rec-hero__btn-ghost">
           {n.heroBtnSecondary || "Contactar expertos"}
         </a>
       </div>
-
-     
     </div>
 
     <div class="rec-hero__scroll">
@@ -86,15 +106,32 @@ const icons: Record<string, string> = {
   <!-- EMPRESA / HISTORIA                                                          -->
   <!-- ═══════════════════════════════════════════════════════════════════════════ -->
   <section class="section ns-empresa" id="descubrir">
-    <div class="ns-grid-empresa"  data-aos="fade-up">
+    <div class="ns-grid-empresa" data-aos="fade-up">
       <div class="ns-empresa__text">
         <span class="eyebrow-tag">{n.empresaEyebrow || "LA EMPRESA"}</span>
-        <h2 class="display-h2" set:html={n.empresaTitle || "Más de cuatro décadas<br>creando lo extraordinario."}></h2>
+        <h2
+          class="display-h2"
+          set:html={n.empresaTitle ||
+            "Más de cuatro décadas<br>creando lo extraordinario."}
+        />
         <div class="verde-stroke"></div>
         <div class="prose-stack">
-          <p set:html={n.empresaText1 || "<strong>Fiesta Tours Perú</strong> nace en 1976 con una misión clara: mostrar la grandeza del Perú al mundo."}></p>
-          <p>{n.empresaText2 || "Con más de cuatro décadas de experiencia, nos hemos consolidado como operadores de turismo receptivo de lujo para el mercado más exigente de América Latina y el mundo."}</p>
-          <p>{n.empresaText3 || "Nuestro equipo está formado por profesionales apasionados que conocen cada rincón del Perú como nadie más."}</p>
+          <p
+            set:html={n.empresaText1 ||
+              "<strong>Fiesta Tours Perú</strong> nace en 1976 con una misión clara: mostrar la grandeza del Perú al mundo."}
+          />
+          <p>
+            {
+              n.empresaText2 ||
+                "Con más de cuatro décadas de experiencia, nos hemos consolidado como operadores de turismo receptivo de lujo para el mercado más exigente de América Latina y el mundo."
+            }
+          </p>
+          <p>
+            {
+              n.empresaText3 ||
+                "Nuestro equipo está formado por profesionales apasionados que conocen cada rincón del Perú como nadie más."
+            }
+          </p>
         </div>
       </div>
     </div>
@@ -104,75 +141,272 @@ const icons: Record<string, string> = {
   <!-- WHY / FEATURES - VALORES                                                    -->
   <!-- ═══════════════════════════════════════════════════════════════════════════ -->
   <section class="section ns-why">
-    <div class="ns-inner"  data-aos="fade-up">
+    <div class="ns-inner" data-aos="fade-up">
       <div class="ns-why__head">
         <span class="eyebrow-tag">{n.whyEyebrow || "VALORES"}</span>
-        <h2 class="display-h2" set:html={n.whyTitle || "Por qué<br>elegirnos"}></h2>
+        <h2
+          class="display-h2"
+          set:html={n.whyTitle || "Por qué<br>elegirnos"}
+        />
         <div class="verde-stroke"></div>
-        <p class="section-lead">{n.whyBody || "Cuatro pilares que definen nuestra forma de viajar"}</p>
+        <p class="section-lead">
+          {n.whyBody || "Cuatro pilares que definen nuestra forma de viajar"}
+        </p>
       </div>
 
       <div class="features-quad">
-        {features.map((f, idx) => (
-          <div class="fcard">
-            <div class="fcard__head">
-              <span class="fcard__idx">0{idx + 1}</span>
-              <div class="fcard__icon" set:html={icons[f.icon] || icons.medal} />
+        {
+          features.map((f, idx) => (
+            <div class="fcard">
+              <div class="fcard__head">
+                <span class="fcard__idx">0{idx + 1}</span>
+                <div
+                  class="fcard__icon"
+                  set:html={icons[f.icon] || icons.medal}
+                />
+              </div>
+              <h3 class="fcard__title">{f.title}</h3>
+              <p class="fcard__desc">{f.desc}</p>
+              {f.badge && <span class="fcard__badge">{f.badge}</span>}
             </div>
-            <h3 class="fcard__title">{f.title}</h3>
-            <p class="fcard__desc">{f.desc}</p>
-            {f.badge && <span class="fcard__badge">{f.badge}</span>}
-          </div>
-        ))}
+          ))
+        }
       </div>
 
       <div class="ns-why__cta">
-        <a href={localePath(lang, '/destinos')} class="cta-primary">
+        <a href={localePath(lang, "/destinos")} class="cta-primary">
           <span>Explorar nuestros destinos</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 12H19M19 12L13 6M19 12L13 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
           </svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
-  <!-- RAZONES PARA VIAJAR A PERÚ                                                  -->
-  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section ns-razones" >
-    <div class="ns-inner"  data-aos="fade-up">
-      <header class="ns-header">
-        <span class="eyebrow-tag">{n.razonesEyebrow || "POR QUÉ PERÚ"}</span>
-        <h2 class="display-h2" set:html={n.razonesTitle || "Razones para<br>enamorarte"}></h2>
-        <div class="verde-stroke"></div>
-      </header>
+  <section class="rec-hero" style="height: 650px;">
+    <div class="rec-hero__bg">
+      <Image
+        src={CoverIndex}
+        alt="Machu Picchu al amanecer"
+        aria-hidden="true"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="rec-hero__overlay_section"></div>
 
-      <div class="razones-grid">
-        {razones.map((r, i) => (
-          <div class="ritem">
-            <span class="ritem__n">{String(i + 1).padStart(2, '0')}</span>
-            <p class="ritem__text">{r}</p>
-          </div>
-        ))}
+    <div
+      class="rec-hero__container"
+      style=" display: flex; align-items:start; flex-direction: column; margin-top: -40px;"
+      data-aos="fade-right"
+    >
+      <div
+        class="rec-hero__eyebrow"
+        style="display: flex;flex-direction: column; justify-content: start; align-items: start;"
+      >
+        <span style="color: rgb(218, 172, 19); letter-spacing: 0.6em;"
+          >NUESTRO COMPROMISO</span
+        >
+        <span
+          class=""
+          style="background-color: rgb(218, 172, 19); width: 70px; height:1px;"
+        ></span>
+      </div>
+
+      <h1 class="rec-hero__title">
+        Viajar para
+        <em>Conservar</em>
+      </h1>
+
+      <p class="rec-hero__subtitle">
+        Durante 50 años hemos tenido el privilegio de mostrar el Perú al mundo.
+        Hoy, ese privilegio tambien implica una responsabilidad: proteger sus
+        paisajes, su patrimonio y las comunidades que mantienen viva nuestra
+        cultura.
+        <br />
+        Promovemos un turismo responsable y sostenible como parte de nuestra manera
+        de operar y somos parte de Turismo Cuida, sumándonos a iniciativas que buscan
+        generar un impacto positivo a través del turismo.
+        <br />
+        Asimismo, trabajamos vinculados al SERNANP, contribuyendo a la valoración
+        y conservación de las áreas naturales protegidas del Perú.
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="rec-hero"
+    style="height: max-content; background-color: #F5F4F0;"
+  >
+    <div
+      class="rec-hero__container"
+      style="text-align: center; gap: 30px; font-family: var(--font-ppnue); display: flex; align-items:start;margin-top: -40px;"
+      data-aos="fade-right"
+    >
+      <div
+        style="color: black; display:flex; border-right: 1px solid #B19065; padding-right: 51px; flex-direction: column; justify-content: center; align-items:center;"
+      >
+        <svg
+          width="50px"
+          height="50px"
+          viewBox="0 0 1024 1024"
+          class="icon"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#B19065"
+          stroke="#B19065"
+          stroke-width="8.192"
+          ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
+            ><path
+              d="M973.312 330.752c-7.168-94.72-22.016-188.928-41.984-282.112-1.536-6.144-5.632-8.192-10.24-8.192-2.56-0.512-5.12 0-7.68 1.536-36.864 20.992-73.728 42.496-111.616 61.44-35.328 17.92-72.704 32.256-108.032 51.2-65.024 34.304-123.392 79.872-174.592 132.608-48.128 49.152-91.648 105.984-113.664 171.52-12.288 36.864-15.36 75.264-15.872 113.664v7.68c-80.384-108.032-204.8-178.176-339.456-189.952-10.752-1.024-13.824 11.776-8.192 18.432-0.512 1.024-0.512 2.048-0.512 3.072-3.584 76.288-6.656 154.112-0.512 230.4 4.608 59.904 23.552 115.2 60.416 163.328 73.216 95.232 200.704 138.24 318.464 123.392 1.024 0 1.536-0.512 2.048-0.512 6.144 1.024 13.312-2.56 13.824-10.752 2.048-20.48-0.512-39.936-5.12-59.392 11.264 21.504 25.088 41.984 42.496 59.904 2.56 3.072 6.144 4.608 11.264 3.072 36.864-12.288 73.728-22.528 112.128-28.672 36.864-5.632 72.704-13.312 107.008-27.648 64-25.6 120.832-66.048 169.472-114.688 47.616-47.616 81.408-107.52 95.232-173.568 17.408-78.336 10.752-165.888 5.12-245.76zM140.288 539.136c65.024 43.52 116.736 102.912 166.4 162.304 48.128 57.344 109.056 125.44 107.52 204.8-112.64 12.288-233.472-28.672-301.056-122.368-36.352-50.176-49.152-107.008-51.712-167.936-2.56-67.072-1.536-134.656 1.536-202.24 132.096 15.872 253.44 92.16 324.608 204.8 0 25.6 0 51.2 1.536 76.288 2.56 36.352 7.68 72.192 18.432 107.008-20.48-37.888-49.152-72.704-75.264-103.936-54.272-65.536-110.08-130.048-181.248-178.176-11.776-8.192-23.04 11.776-10.752 19.456z m813.056-13.312c-4.096 70.144-32.256 141.824-80.384 193.536-45.568 49.152-99.328 90.624-160.768 118.784-37.376 16.896-76.8 26.624-117.248 32.768-32.768 5.12-64 12.8-95.744 22.528-9.728-60.928 8.704-121.344 31.232-177.664 11.776-29.184 23.552-56.832 29.184-88.064 1.536-8.192 2.56-15.872 4.096-23.552 75.264-28.672 146.432-91.136 230.912-79.36 14.336 2.048 20.48-19.968 6.144-22.016-87.552-12.288-155.648 43.52-231.936 74.752 2.56-10.752 5.12-22.016 9.216-32.768 37.888-111.616 126.464-195.072 215.552-267.776 11.264-9.216-4.608-25.088-15.872-15.872-92.672 75.264-181.76 162.304-221.184 277.504-5.632 16.384-9.216 33.28-12.288 50.176-2.56 3.072-3.072 7.168-2.048 10.752-2.048 10.24-3.584 19.968-5.632 30.208-6.144 31.744-20.48 60.928-32.256 91.136-20.48 53.248-34.304 108.544-28.16 165.376-40.96-51.712-57.856-117.248-62.976-182.784-2.048-28.672-2.56-57.344-2.048-85.504 0.512-1.536 0.512-2.56 0-4.096 0-8.704 0-16.896 0.512-25.6 0.512-38.4 1.024-76.8 12.288-113.664 19.456-66.048 63.488-123.392 111.104-172.032 48.128-49.152 102.912-92.16 163.328-125.44 35.84-19.456 74.24-34.304 111.104-52.736 35.328-17.408 69.12-36.864 103.424-56.32 30.72 150.016 49.664 304.64 40.448 457.728z"
+              fill="#B19065"></path></g
+          ></svg
+        >
+
+        <span style="font-size: 30px;">Conservación</span>
+        <span
+          class="line"
+          style="width: 40px; height: 2px; background-color: #B19065;"></span>
+        <br />
+        <p>
+          Valoramos y protegemos nuestros espacios naturales para que las
+          futuras generaciones también puedan disfrutarlos.
+        </p>
+      </div>
+      <div
+        style="color: black; display:flex; flex-direction: column; border-right: 1px solid #B19065; padding-right: 51px; justify-content: center; align-items:center;"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          fill=" #B19065"
+          class="bi bi-people"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"
+          ></path>
+        </svg>
+
+        <span style="font-size: 30px;">Comunidades</span>
+        <span
+          class="line"
+          style="width: 40px; height: 2px; background-color: #B19065;"></span>
+        <br />
+        <p>
+          Trabajamos con actores y proveedores locales, generando oportunidades
+          y valor en los destinos que visitamos
+        </p>
+      </div>
+      <div
+        style="color: black; display:flex; flex-direction: column; justify-content: center; align-items:center;"
+      >
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="50px"
+          height="50px"
+          viewBox="0 0 24 24"
+          xml:space="preserve"
+          fill="#B19065"
+          stroke="#B19065"
+          stroke-width="0.8160000000000001"
+          ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+            <g id="Guides">
+              <g id="_x32_0_px_2_"> </g>
+              <g id="_x32_0px"> </g>
+              <g id="_x34_0px"> </g>
+              <g id="_x34_4_px"> </g>
+              <g id="_x34_8px">
+                <g id="_x31_6px"> </g>
+                <g id="square_4px">
+                  <g id="_x32_8_px">
+                    <g id="square_4px_2_"> </g>
+                    <g id="square_4px_3_"> </g>
+                    <g id="square_4px_1_"> </g>
+                    <g id="_x32_4_px_2_"> </g>
+                    <g id="_x31_2_px"> </g>
+                  </g>
+                </g>
+              </g>
+              <g id="Icons"> </g>
+              <g id="_x32_0_px"> </g>
+              <g id="square_6px"> <g id="_x31_2_PX"> </g> </g>
+              <g id="_x33_6_px">
+                <g id="_x33_2_px">
+                  <g id="_x32_8_px_1_">
+                    <g id="square_6px_1_"> </g>
+                    <g id="_x32_0_px_1_">
+                      <g id="_x31_2_PX_2_"> </g>
+                      <g id="_x34_8_px">
+                        <g id="_x32_4_px"> </g>
+                        <g id="_x32_4_px_1_"> </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g id="_x32_0_px_3_"> </g>
+              <g id="_x32_0_px_4_"> </g>
+              <g id="New_Symbol_8"> <g id="_x32_4_px_3_"> </g> </g>
+            </g>
+            <g id="Artboard"> </g>
+            <g id="Free_Icons">
+              <g>
+                <polygon
+                  style="fill:none;stroke:#B19065;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="7.5,11.5 12.5,23.5 2.5,23.5 "></polygon>
+                <polyline
+                  style="fill:none;stroke:#B19065;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="10.422,18.514 16,5.5 23.5,23.5 12.5,23.5 "></polyline>
+                <polyline
+                  style="fill:none;stroke:#B19065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="0.5,3.5 2.5,1.5 4.5,3.5 6.5,1.5 8.5,3.5 10.5,1.5 12.5,3.5 "
+                ></polyline>
+                <polyline
+                  style="fill:none;stroke:#B19065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="0.5,7.5 2.5,5.5 4.5,7.5 6.5,5.5 8.5,7.5 "></polyline>
+                <polyline
+                  style="fill:none;stroke:#B19065;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="12.999,12.5 14.5,14 16,12.5 17.5,14 18.941,12.559 "
+                ></polyline>
+              </g>
+            </g>
+          </g></svg
+        >
+        <span style="font-size: 30px;">Turismo Responsable</span>
+        <span
+          class="line"
+          style="width: 40px; height: 2px; background-color: #B19065;"></span>
+        <br />
+        <p>
+          Diseñamos experiencias que respetan nuestro patrimonio natural y
+          cultural, en armonía con cada destino.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
-  <!-- CIERRE / CALL TO ACTION                                                     -->
-  <!-- ═══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section ns-cierre">
-    <div class="cierre-content"  data-aos="fade-up">
-      <div class="cierre-ornament" aria-hidden="true">
-        <span class="orn-line"></span>
-        <span class="orn-gem">◆</span>
-        <span class="orn-line"></span>
-      </div>
-      <blockquote class="cierre-quote">{n.cierreQuote || "Cada viaje es una historia que merece ser vivida"}</blockquote>
-      <p class="cierre-firma">Atentamente, <strong>Fiesta Tours Perú</strong></p>
-      <a href={localePath(lang, "/contacto")} class="cta-primary cta-white">{n.cierreBtn || "Planifica tu experiencia"}</a>
-    </div>
-  </section>
+
+
+  <AliadosNosotros />
 
 </BaseLayout>
