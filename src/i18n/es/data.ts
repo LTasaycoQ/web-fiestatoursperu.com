@@ -278,17 +278,54 @@ export const incentivos: IncentivosTranslations = {
     "feature_support_desc": "Viajamos con conciencia, minimizando nuestro impacto ambiental, apoyando comunidades locales y promoviendo prácticas sostenibles que preservan el patrimonio del Perú para las generaciones futuras."
   },
 
-  // ✅ TRADUCCIONES DE EXPERIENCIAS
   experienceTranslations: {
-    "experience_inca_title": "Défi Inca",
-    "experience_inca_desc": "Team building en el Camino Inca con expertos en liderazgo. Machu Picchu como objetivo final.",
-    "experience_gastronomy_title": "Saveurs du Pérou",
-    "experience_gastronomy_desc": "Clases con chefs reconocidos, mercados locales y cenas privadas en haciendas históricas.",
-    "experience_wellness_title": "Retraite Executive",
-    "experience_wellness_desc": "Programa de bienestar corporativo en la Amazonía. Desconexión total y reconexión con el equipo."
+    "experience_lima_title": "LIMA",
+    "experience_lima_desc": "La puerta de entrada al Perú.",
+    "experience_lima_cta": "Descubrir Lima",
+
+    "experience_cusco_title": "CUSCO",
+    "experience_cusco_desc": "El corazón de los Andes.",
+    "experience_cusco_cta": "Descubrir Cusco",
+
+    "experience_valle_title": "VALLE SAGRADO",
+    "experience_valle_desc": "Paisajes que cuentan historias.",
+    "experience_valle_cta": "Descubrir el Valle Sagrado",
+
+    "experience_machu_title": "MACHU PICCHU",
+    "experience_machu_desc": "Una maravilla que trasciende el viaje.",
+    "experience_machu_cta": "Vivir Machu Picchu",
+
+    "experience_puno_title": "PUNO",
+    "experience_puno_desc": "El lago de los Andes.",
+    "experience_puno_cta": "Descubrir Puno",
+
+    "experience_arequipa_title": "AREQUIPA",
+    "experience_arequipa_desc": "Entre volcanes y tradiciones.",
+    "experience_arequipa_cta": "Descubrir Arequipa",
+
+    "experience_ica_title": "ICA, PARACAS & NAZCA",
+    "experience_ica_desc": "Desierto, océano y misterio.",
+    "experience_ica_cta": "Descubrir la Costa Sur",
+
+    "experience_amazonia_title": "AMAZONÍA",
+    "experience_amazonia_desc": "La naturaleza en su máxima expresión.",
+    "experience_amazonia_cta": "Descubrir la Amazonía",
   },
 
-  // ✅ TRADUCCIONES DE STATS
+  categoryCta: "Conocer más",
+  categoryTranslations: {
+    "category_culture_title": "CULTURA & PATRIMONIO",
+    "category_culture_desc": "Descubra la historia y las tradiciones que han dado forma al Perú.",
+    "category_gastronomy_title": "GASTRONOMÍA",
+    "category_gastronomy_desc": "Sabores, mercados y restaurantes que revelan la diversidad del país.",
+    "category_nature_title": "NATURALEZA & AVENTURA",
+    "category_nature_desc": "De los Andes a la Amazonía, experiencias para conectar con paisajes extraordinarios.",
+    "category_luxury_title": "LUJO & EXPERIENCIAS PRIVADAS",
+    "category_luxury_desc": "Momentos diseñados a medida, con atención personalizada y acceso a experiencias especiales.",
+    "category_trains_title": "TRENES & GRANDES VIAJES",
+    "category_trains_desc": "Viajes extraordinarios a través de algunos de los paisajes más espectaculares del Perú."
+  },
+
   statTranslations: {
     "stat_programs": "Programas ejecutados",
     "stat_satisfaction": "Satisfacción cliente",
@@ -326,7 +363,6 @@ export const recorridos: RecorridosTranslations = {
   ctaBtn1: "Crear itinerario personalizado",
   ctaBtn2: "Contactar asesor",
 
-  // ✅ TRADUCCIONES DE TOURS
   tourDescriptions: {
     "peru_espectacular_desc": "Lima, Cusco, Valle Sagrado y Machu Picchu con pernocte en el Valle",
     "peru_magico_desc": "Lima, Valle Sagrado, Machu Picchu y Cusco con pernocte en el Valle y en Aguas Calientes",
@@ -337,7 +373,6 @@ export const recorridos: RecorridosTranslations = {
     "majestad_inca_desc": "Un viaje de 8 Noches por el Sagrado Legado de Machu Pichu y del Imperio de Pachacútec",
   },
 
-  // ✅ TRADUCCIONES DE TAGS
   tagTranslations: {
     "tag_lujo": "Lujo",
     "tag_aventura": "Aventura",
@@ -346,7 +381,6 @@ export const recorridos: RecorridosTranslations = {
     "tag_grupos": "Grupos"
   },
 
-  // ✅ TRADUCCIONES DE DIFICULTAD
   difficultyTranslations: {
     1: "Fácil",
     2: "Moderado",
@@ -378,14 +412,12 @@ export const hoteles: HotelesTranslations = {
   cat4Title: "Lodges en la Selva",
   cat4Desc: "Lujo inmersivo en plena Amazonía",
 
-  // Textos de UI
   cardCta: "Ver hotel",
   ctaEyebrow: "¿Necesita asesoría?",
   ctaTitle: "Le ayudamos a elegir el alojamiento perfecto",
   ctaBtn1: "Consultar disponibilidad",
   ctaBtn2: "Hablar con asesor",
 
-  // TRADUCCIONES DE DESCRIPCIONES DE HOTELES
   hotelDescriptions: {
     "hotel_el_pardo_desc": "Diseño contemporáneo con alma peruana en el corazón de Miraflores.",
     "hotel_crowne_plaza_desc": "Vistas al Pacífico, spa de clase mundial y la mejor ubicación.",
@@ -393,7 +425,6 @@ export const hoteles: HotelesTranslations = {
     "hotel_inkaterra_amazon_desc": "Lodge de lujo en Madre de Dios. Biodiversidad única y confort excepcional."
   },
 
-  // TRADUCCIONES DE TAGS
   tagTranslations: {
     "business": "Negocios",
     "spa": "Spa",
