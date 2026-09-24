@@ -61,8 +61,8 @@ const icons: Record<string, string> = {
       </h1>
       <p class="inc-hero__sub">
         Desde la costa del Pacifico hasta los Andes y la Amazonia,
-        conocemos el Perú en profundidad y diseñamos experiencias que combinan
-        cultura, naturaleza, gastronomía y momentos extraordinarios.
+        conocemos el Perú <br> en profundidad y diseñamos experiencias que combinan
+        cultura, naturaleza, gastronomía y momentos <br> extraordinarios.
       </p>
       <a href={localePath(lang, '/contacto')} class="btn-primary">
           EXPLORA NUESTROS DESTINOS
@@ -87,7 +87,7 @@ const icons: Record<string, string> = {
         </h2>
       </div>
       
-      <p style="width: 42%; min-width: 280px; font-family: var(--font-ppnue);font-size: 16px; color: rgb(62, 62, 62); font-size: 15px; line-height: 1.65; margin: 0;">
+      <p style="width: 42%; min-width: 280px; font-family: var(--font-ppnue);font-size: 18px; color: rgb(62, 62, 62); font-size: 15px; line-height: 1.65; margin: 0;">
         Cada destino en el Perú ofrece un mundo de posibilidades. Combinamos nuestro profundo conocimiento del territorio con una red de aliados de primer nivel para crear experiencias auténticas y memorables para sus clientes.
       </p>
     </div>
@@ -101,10 +101,9 @@ const icons: Record<string, string> = {
 
             <div class="exp-card__content">
               <div class="exp-card__header">
-                <span class="exp-card__num">{String(idx + 1).padStart(2, '0')}</span>
-                <h4 class="exp-card__title">{e.title}</h4>
+                <h4 class="exp-card__title" style="font-size: 18px;">{e.title}</h4>
               </div>
-              <p class="exp-card__desc">{e.desc}</p>
+              <p class="exp-card__desc"  style="font-size: 15px;">{e.desc}</p>
               {/* <a href={localePath(lang, '/contacto')} class="exp-card__cta">
                 {e.cta} <span>&rarr;</span>
               </a> */}
@@ -134,7 +133,7 @@ const icons: Record<string, string> = {
         </h2>
       </div>
       
-      <p style="width: 40%; min-width: 280px; font-family: var(--font-ppnue); color: #3a3a3a; font-size: 17px; line-height: 1.65; margin: 0; padding-top: 16px;">
+      <p style="width: 40%; min-width: 280px; font-family: var(--font-ppnue); color: #3a3a3a; font-size: 18px; line-height: 1.65; margin: 0; padding-top: 16px;">
         Diseñamos programas que combinan lo mejor de nuestros destinos para crear experiencias únicas, adaptadas a los intereses de sus clientes.
       </p>
     </div>
