@@ -16,7 +16,7 @@ const t = useTranslations(lang);
 const h = t.home;
 const c = t.home.content ?? [];
 
-const toursHome = toursData.slice(0, 3).map((tour) => {
+const toursHome = toursData.slice(1, 4).map((tour) => {
   const itinerario = itinerariosData[tour.id];
   const durationDays = itinerario?.days.length ?? 0;
   const durationNights = durationDays > 0 ? durationDays - 1 : 0;
