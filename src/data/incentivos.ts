@@ -102,35 +102,35 @@ export const incentivosStats: IncentivoStat[] = [
 export const incentivosCategories = [
   {
     id: 1,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1772812868/sacsayhuaman-cusco_ulhk25.webp",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1772812868/sacsayhuaman-cusco_ulhk25.webp",
     icon: "medal",
     titleKey: "category_culture_title",
     descKey: "category_culture_desc"
   },
   {
     id: 2,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1790285404/iStock-1433151734_nuomkw.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1790285404/iStock-1433151734_nuomkw.jpg",
     icon: "compass",
     titleKey: "category_gastronomy_title",
     descKey: "category_gastronomy_desc"
   },
   {
     id: 3,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1790284914/iStock-865821532_ovhpme.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1790284914/iStock-865821532_ovhpme.jpg",
     icon: "leaf",
     titleKey: "category_nature_title",
     descKey: "category_nature_desc"
   },
   {
     id: 4,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1790285109/iStock-2238961149_rxdhg0.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1790288691/plj01.CIlgZlSf_Z1hq7Wc_jpgnfv.png",
     icon: "diamond",
     titleKey: "category_luxury_title",
     descKey: "category_luxury_desc"
   },
   {
     id: 5,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1790284988/HRB_Peru_Ext-0340_kttdun.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1790284988/HRB_Peru_Ext-0340_kttdun.jpg",
     icon: "rails",
     titleKey: "category_trains_title",
     descKey: "category_trains_desc"

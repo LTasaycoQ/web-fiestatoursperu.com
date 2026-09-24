@@ -159,24 +159,56 @@ const icons: Record<string, string> = {
     </div>
   </section>
 
-  <section class="inc-cta">
-    <div class="inc-cta__bg" style="background-image:linear-gradient(rgba(0, 0, 0, 0.634)), url(https://res.cloudinary.com/dlgeap8h0/image/upload/v1789594184/cusco-3544704_ksafcb.jpg); background-size: cover; background-repeat: no-repeat; " aria-hidden="true"></div>
+<section class="inc-cta">
+  <img 
+    src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1790288751/iStock-1454581645_uwxcap.jpg" 
+    alt="" 
+    class="inc-cta__bg"
+    aria-hidden="true"
+  />
+    <div class="hero_overlay" style="background-color: #0e0b09a4; position:absolute; inset: 0; z-index: -1 width: 100%; height: 100%;"></div>
 
-    <div class="inc-cta__inner" style="display:flex; justify-content: space-between; align-items: center; max-width: 1700px;" data-aos="fade-up">
-      <div style="display: flex; flex-direction: column; text-align: start;">
-        <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 500;">¿Listo para diseñar el viaje perfecto</h2>
-        <span style="font-size: 17px; font-family: var(--font-ppnue); ">Nuestro equipo esta listo para crear el programa ideal para sus clientes</span>
-      </div>
-      <div class="cta-actions">
-        <a href={localePath(lang, '/contacto')} class="btn-primary">Contactanos</a>
-      </div>
+  <div class="inc-cta__inner" style="display:flex; justify-content: space-between; align-items: center; max-width: 1700px;" data-aos="fade-up">
+    <div style="display: flex; flex-direction: column; text-align: start;">
+      <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 500;">¿Listo para diseñar el viaje perfecto?</h2>
+      <span style="font-size: 17px; font-family: var(--font-ppnue); ">Nuestro equipo esta listo para crear el programa ideal.</span>
     </div>
-  </section>
+    <div class="cta-actions">
+      <a href={localePath(lang, '/contacto')} class="btn-primary">Contactanos</a>
+    </div>
+  </div>
+</section>
 
+<style>
+  .inc-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .inc-cta__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    z-index: 0;
+  }
+
+  .inc-cta__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.634);
+  }
+
+  .inc-cta__inner {
+    position: relative;
+  }
+</style>
 </BaseLayout>
 
 <style>
-/* ── Variables ── */
 :root {
   --verde: var(--color-verde, #3e4b3c);
   --verdec: var(--color-verdec, #478a3d);
@@ -244,7 +276,7 @@ const icons: Record<string, string> = {
   margin: 12px 0; letter-spacing: -0.01em;
 }
 .inc-hero__sub {
-  font-size: 14px; line-height: 1.9;
+   line-height: 1.9;
   color: rgba(255,255,255,.72);
   text-align: start; font-weight: 300;
   font-family: var(--font-ppnue);

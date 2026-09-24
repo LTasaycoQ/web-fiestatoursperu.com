@@ -13,7 +13,7 @@
 }
 
 :root {
-  --navbar-bg: #272b2b;
+  --navbar-bg: #2a2b27;
   --navbar-blur: 20px;
   --navbar-transition: cubic-bezier(0.4, 0, 0.2, 1);
   --font-family_campton: 'Campton', sans-serif;
