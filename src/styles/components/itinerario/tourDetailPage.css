@@ -13,7 +13,7 @@
 .tour-hero {
   position: relative;
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,14 +95,14 @@
 .tour-hero__container {
   position: relative;
   z-index: 2;
-  max-width: 1300px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 120px 64px 80px;
   width: 100%;
 }
 
 .back-link {
-  display: inline-flex;
+  display:flex;
   align-items: center;
   gap: 8px;
   color: rgba(255, 255, 255, 0.6);
@@ -116,21 +116,20 @@
 }
 
 .back-link:hover {
-  color: var(--color-verdec, #478a3d);
+  color: #F1CF64;
   gap: 12px;
 }
 
 .tour-hero__badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 24px;
 }
 
 .tour-hero__badge-dot {
   width: 8px;
   height: 8px;
-  background: var(--color-verdec, #478a3d);
+  background: #F1CF64;
   border-radius: 50%;
   animation: pulseGreen 2s ease-in-out infinite;
 }
@@ -153,9 +152,9 @@
 }
 
 .tour-hero__title {
-  font-family: var(--font-display, 'Cormorant Garamond', serif);
-  font-size: clamp(42px, 6vw, 80px);
-  font-weight: 400;
+  font-family: var(--font-ppnue);
+  font-size: clamp(42px, 6vw, 60px);
+  font-weight: 500;
   color: #ffffff;
   line-height: 1.1;
   margin: 0 0 24px;
@@ -173,12 +172,12 @@
 .tour-hero__divider-line {
   width: 50px;
   height: 1px;
-  background: var(--color-verdec, #478a3d);
+  background:#F1CF64;
   opacity: 0.5;
 }
 
 .tour-hero__divider-icon {
-  color: var(--color-verdec, #478a3d);
+  color: #F1CF64;
   font-size: 8px;
   opacity: 0.7;
 }
@@ -188,6 +187,7 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
+  font-family: var(--font-ppnue);
   max-width: 560px;
   margin: 0 0 40px;
 }
@@ -201,6 +201,7 @@
 .tour-hero__meta-item {
   display: flex;
   align-items: center;
+  font-family: var(--font-ppnue);
   gap: 10px;
   font-size: 13px;
   font-weight: 500;
@@ -213,7 +214,7 @@
 }
 
 .tour-hero__meta-item svg {
-  color: var(--color-verdec, #478a3d);
+  color: #F1CF64;
 }
 
 /* ────────────────────────────────────────────────────────────────────── */

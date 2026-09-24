@@ -105,12 +105,14 @@ const mapWaypoints: Waypoint[] = itinerario.locations
               stroke-linecap="round"></path>
           </svg>
           Todos los tours
+
+
+               <div class="tour-hero__badge">
+          <span class="tour-hero__badge-dot"></span>
+        </div>
         </a>
 
-        <div class="tour-hero__badge">
-          <span class="tour-hero__badge-dot"></span>
-          <span class="tour-hero__badge-text">{tag}</span>
-        </div>
+   
 
         <h1 class="tour-hero__title">
           {tour.title}
@@ -145,16 +147,13 @@ const mapWaypoints: Waypoint[] = itinerario.locations
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
-            <span>{itinerario.bestSeason}</span>
+            <span>Todo el año</span>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════ -->
-  <!-- ITINERARIO                                                              -->
-  <!-- ═══════════════════════════════════════════════════════════════════════ -->
   <section class="itinerary-section">
     <div class="itinerary-container">
       <div class="itinerary-header" data-aos="fade-up">
@@ -171,7 +170,6 @@ const mapWaypoints: Waypoint[] = itinerario.locations
       </div>
 
       <div class="itinerary-grid">
-        <!-- COLUMNA IZQUIERDA: DÍAS -->
         <div class="itinerary-days">
           {
             itinerario.locations.map((loc) => {
