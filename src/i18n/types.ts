@@ -325,6 +325,7 @@ export interface HotelesTranslations {
 // INCENTIVOS TRANSLATIONS
 // ─────────────────────────
 export interface IncentivosTranslations {
+[x: string]: any;
   metaTitle: string;
   metaDesc: string;
   heroEyebrow: string;
