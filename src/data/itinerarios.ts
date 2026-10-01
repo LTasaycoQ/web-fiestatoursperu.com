@@ -693,8 +693,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Perú Espectacular",
     duration: "7 días / 6 noches",
     locations: [
-      { name: "Lima", icon: "🏙️" },
-      { name: "Cusco", icon: "🏔️" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: peruEspectacularDays,
     optionalActivities: [
@@ -755,8 +755,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Perú Mágico",
     duration: "7 días / 6 noches",
     locations: [
-      { name: "Lima", icon: "🏔️" },
-      { name: "Cusco", icon: "🌄" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: peruMagicoDays,
     optionalActivities: [
@@ -805,8 +805,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Perú de Maravilla",
     duration: "8 días / 7 noches",
     locations: [
-      { name: "Lima", icon: "🏛️" },
-      { name: "Cusco", icon: "🏔️" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: peruMaravillaDays,
     optionalActivities: [
@@ -854,8 +854,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Perú en Jeans",
     duration: "4 días / 3 noches",
     locations: [
-      { name: "Lima", icon: "🏛️" },
-      { name: "Cusco", icon: "🏔️" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: peruJeansDays,
     optionalActivities: [
@@ -904,8 +904,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Perú Express",
     duration: "5 días / 4 noches",
     locations: [
-      { name: "Lima", icon: "🏛️" },
-      { name: "Cusco", icon: "🏔️" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: peruExpressDays,
     optionalActivities: [
@@ -954,8 +954,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Perú Esencial",
     duration: "6 días / 5 noches",
     locations: [
-      { name: "Lima", icon: "🏛️" },
-      { name: "Cusco", icon: "🏔️" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: peruEsencialDays,
     optionalActivities: [
@@ -1004,8 +1004,8 @@ export const itinerariosData: Record<string, Itinerario> = {
     title: "Majestad Inca",
     duration: "6 días / 5 noches",
     locations: [
-      { name: "Lima", icon: "🏛️" },
-      { name: "Cusco", icon: "🏔️" },
+      { name: "Lima", icon: "" },
+      { name: "Cusco", icon: "" },
     ],
     days: majestadInca,
     priceFrom: 1299,
