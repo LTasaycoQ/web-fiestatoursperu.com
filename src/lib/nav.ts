@@ -23,6 +23,7 @@ export const navRoutes: NavRoute[] = [
     ],
     */
   },
+  { key: 'mice', path: '/mice' },
   { key: 'blog', path: '/blog' },
   { key: 'contact', path: '/contacto' },
 ];
