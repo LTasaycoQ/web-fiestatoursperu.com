@@ -18,7 +18,7 @@ export const toursData: Tour[] = [
     title: "Perú Mágico",
     category: "aventura",
     difficultyLevel: 3,
-    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/Titicaca-Lake-portada2_jfbusw",
+    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1790968460/shutterstock_189368555_euvwdq.jpg",
     link: "/itinerarios/peru-magico",
     descriptionKey: "peru_magico_desc",
     tagKey: "tag_aventura"
@@ -38,7 +38,7 @@ export const toursData: Tour[] = [
     title: "Perú en Jeans",
     category: "familias",
     difficultyLevel: 1,
-    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/luxury-train_i18flh",
+    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1790967932/iStock-1250693922_mns4ru.jpg",
     link: "/itinerarios/peru-jeans",
     descriptionKey: "peru_jeans_desc",
     tagKey: "tag_familias"

@@ -258,7 +258,6 @@ const mapWaypoints: Waypoint[] = itinerario.locations
       
       </div>
 
-      <!-- ACORDEÓN MOBILE -->
       <div class="mobile-accordion" id="mobileAccordion">
         {
           itinerario.locations.map((loc, locIdx) => {
@@ -287,17 +286,14 @@ const mapWaypoints: Waypoint[] = itinerario.locations
                   </div>
                 </button>
                 <div class={`mobile-location__content ${isFirst ? "is-open" : ""}`}>
-                  {img && (
-                    <div class="mobile-location__image">
-                      <img src={img} alt={loc.name} loading="lazy" />
-                    </div>
-                  )}
+                 
                   <div class="mobile-days">
                     {locationDays.map((day) => (
                       <div class="mobile-day">
                         <div class="mobile-day__header">
                           <span class="mobile-day__number">Día {day.day}</span>
                           <h4 class="mobile-day__title">{day.title}</h4>
+                        
                         </div>
 
                         {/* ── DESCRIPCIÓN COMO PÁRRAFOS (MOBILE) ── */}
@@ -305,6 +301,9 @@ const mapWaypoints: Waypoint[] = itinerario.locations
                           {day.description.map((paragraph) => (
                             <p>{paragraph}</p>
                           ))}
+                          <div style="width: 100%; height: 200px; margin-top: 10px; border-radius: 10px; overflow: hidden;">
+                            <img style="width: 100%; height: 100%; object-fit:cover;" src={day.itinerarioImage} alt={day.title} />
+                          </div>
                         </div>
 
                         {day.activities && day.activities.length > 0 && (
@@ -329,81 +328,12 @@ const mapWaypoints: Waypoint[] = itinerario.locations
         }
       </div>
 
+      </div>
+      </section>
+
       {/* ACTIVIDADES OPCIONALES */}
-      {itinerario.optionalActivities && itinerario.optionalActivities.length > 0 && (
-        <section class="optional-section">
-          <div class="optional-section__header" data-aos="fade-right">
-            <div class="optional-section__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
-              </svg>
-            </div>
-            <div>
-              <span class="optional-section__kicker">Mejora tu experiencia</span>
-              <h2 class="optional-section__title">Actividades Opcionales</h2>
-            </div>
-          </div>
-          <p data-aos="fade-right" class="optional-section__subtitle">Complementa tu viaje con estas experiencias únicas disponibles durante tu estadía</p>
+     
 
-          <div class="optional-grid" data-aos="fade-up">
-            {itinerario.optionalActivities.map((opt) => {
-              const isMealOptions = opt.mealOptions && opt.mealOptions.length > 0;
-              
-              return (
-                <div class={`optional-card ${isMealOptions ? 'optional-card--meal-options' : ''}`}>
-                  {isMealOptions ? (
-                    <div class="optional-card__content meal-options-layout">
-                      {opt.image && opt.image !== "" && (
-                        <div class="optional-card__image">
-                          <img src={opt.image} alt={opt.title} loading="lazy" />
-                        </div>
-                      )}
-                      <div class="optional-card__text-wrapper">
-                        <h3 class="optional-card__title">{opt.title}</h3>
-                        <div class="meal-options-container">
-                          <p class="meal-options-description">{opt.description}</p>
-                          <ul class="meal-options-list">
-                            {opt.mealOptions!.map((meal: any) => (
-                              <li class="meal-option-item">
-                                <span class="meal-option-name">{typeof meal === 'string' ? meal : meal.name}</span>
-                                {typeof meal !== 'string' && meal.type && (<span class="meal-option-badge">{meal.type}</span>)}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <>
-                      {opt.image && opt.image !== "" && (
-                        <div class="optional-card__image">
-                          <img src={opt.image} alt={opt.title} loading="lazy" />
-                        </div>
-                      )}
-                      <div class="optional-card__content">
-                        <h3 class="optional-card__title">{opt.title}</h3>
-                        <div class="optional-card__text-wrapper">
-                          <p class="optional-card__description" data-description-id={opt.id}>{opt.description}</p>
-                          <button class="optional-card__read-more" data-read-more-id={opt.id} type="button">
-                            <span class="read-more-text">Leer más</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
-    </div>
-  </section>
-
-  <!-- INCLUYE / NO INCLUYE -->
   <section class="includes-section">
     <div class="includes-container">
       <div class="includes-header"  data-aos="fade-up">
@@ -478,18 +408,10 @@ const mapWaypoints: Waypoint[] = itinerario.locations
         </div>
       </div>
       
-      <div class="includes-badge">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span>¿Necesitas información específica sobre algún servicio? </span>
-        <a href={localePath(lang, "/contacto")}>Contáctanos →</a>
-      </div>
+     
     </div>
   </section>
 
-  <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="cta-final__pattern"></div>
     <div class="cta-final__container">
@@ -499,13 +421,13 @@ const mapWaypoints: Waypoint[] = itinerario.locations
           ¿Listo para vivir esta<span>experiencia única?</span>
         </h2>
         <div class="cta-final__buttons">
-          <a href={localePath(lang, "/planificador")} class="btn-primary">
+          <a href={localePath(lang, "/contacto")} class="btn-primary">
             Personalizar viaje
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </a>
-          <a href={localePath(lang, "/contacto")} class="btn-secondary">Consultar disponibilidad</a>
+          <a href="mailto:info@fiestatoursperu.com" class="btn-secondary">Consultar disponibilidad</a>
         </div>
       </div>
     </div>
