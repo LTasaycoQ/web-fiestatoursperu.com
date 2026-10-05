@@ -1,7 +1,7 @@
 ---
 // src/components/pages/Evento.astro
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { localePath } from "@i18n/index";
+import { useTranslations } from "@i18n/index";
 import type { Locale } from "@i18n/index";
 import "@styles/components/itinerario/itinerariosPage.css";
 import { incentivosExperiences } from "src/data/incentivos";
@@ -10,47 +10,19 @@ interface Props {
   lang: Locale;
 }
 const { lang } = Astro.props;
-
-const ui = {
-  metaTitle: "Amazon Journal — Stories from the River",
-  metaDesc: "Dispatches, guides and nature notes from deep inside the Peruvian Amazon.",
-  heroEyebrow: "Amazon Journal",
-  heroTitle: "Stories from\nthe River",
-  heroSubtitle: "Field notes, travel guides and wonder from deep inside the Peruvian Amazon.",
-  readLabel: "min read",
-  readMore: "Read story",
-  loadMore: "Load more stories",
-  catAll: "All",
-  catNature: "Nature & Wildlife",
-  catTravel: "Travel & Culture",
-  catGuide: "Travel Guide",
-  catSustain: "Sustainability",
-  catCulture: "Culture & Food",
-  nlEyebrow: "Stay in the story",
-  nlTitle: "Dispatches from the Amazon, delivered to your inbox.",
-  nlBody: "Field notes, seasonal guides and exclusive voyage offers — no more than twice a month.",
-  nlName: "Your name",
-  nlEmail: "Email address",
-  nlBtn: "Subscribe",
-  nlPrivacy: "No spam, ever. Unsubscribe at any time.",
-  nlSuccess: "Thank you! Watch your inbox for the first dispatch.",
-  ctaEyebrow: "Ready for the river?",
-  ctaTitle: "Turn these stories into your own.",
-  ctaBtn1: "Explore our cruises",
-  ctaBtn2: "Talk to an expert",
-};
+const i = useTranslations(lang).incentivos;
 
 const escenarios = [
-  { label: "Locaciones históricas", image: incentivosExperiences[0].img },
-  { label: "Espacios exclusivos", image: incentivosExperiences[1].img },
-  { label: "Incentivos en la naturaleza", image: incentivosExperiences[2].img },
-  { label: "Experiencias únicas", image: incentivosExperiences[3].img },
+  { label: i.miceScenarioLabels?.[0] ?? "", image: incentivosExperiences[0].img },
+  { label: i.miceScenarioLabels?.[1] ?? "", image: incentivosExperiences[1].img },
+  { label: i.miceScenarioLabels?.[2] ?? "", image: incentivosExperiences[2].img },
+  { label: i.miceScenarioLabels?.[3] ?? "", image: incentivosExperiences[3].img },
 ];
 
 
 ---
 
-<BaseLayout fullscreen={true} title={ui.metaTitle} description={ui.metaDesc}>
+<BaseLayout fullscreen={true} title={i.miceMetaTitle} description={i.miceMetaDescription}>
 
   <section class="blog-hero">
     <div class="blog-hero__bg">
@@ -64,12 +36,12 @@ const escenarios = [
     <div class="blog-hero__overlay"></div>
 
     <div class="blog-hero__content"  data-aos="fade-right">
-      <p class="hero-eyebrow">Reuniones . Incentivos . Congresos . Eventos</p>
+      <p class="hero-eyebrow">{i.miceHeroEyebrow}</p>
       <div class="hero-rule"></div>
-      <h1 class="blog-hero__title">MICE</h1>
-      <p style="font-size: 24px; font-weight: 100;">Donde los negocios se convierten en experiencias</p>
+      <h1 class="blog-hero__title">{i.miceHeroTitle}</h1>
+      <p style="font-size: 24px; font-weight: 100;">{i.miceHeroSubtitle}</p>
       <div class="hero-rule"></div>
-      <p class="blog-hero__sub">Diseñamos y operamos experiencias corporativas en Perú, combinando conocimiento local, excelencia operativa y creatividad para entregar eventos que inspiran, conectan y generan un impacto duradero.</p>
+      <p class="blog-hero__sub">{i.miceHeroDescription}</p>
     
         
     </div>
@@ -86,26 +58,26 @@ const escenarios = [
     <div class="trust-bar__inner"  data-aos="fade-up">
       <div class="trust-bar__item" style="height: 270px; min-width: 250px; padding: 20px; border-radius: 8px; display:flex; flex-direction:column; align-items:center; justify-content:center; justify-content:start; align-items:center;">
         <svg width="64px" height="64px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.288"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M16 19C18.7629 19 21 16.7629 21 14C21 11.2371 18.7629 9 16 9C13.2371 9 11 11.2371 11 14C11 16.7629 13.2371 19 16 19ZM16 21C19.8675 21 23 17.8675 23 14C23 10.1325 19.8675 7 16 7C12.1325 7 9 10.1325 9 14C9 17.8675 12.1325 21 16 21Z" fill="#b28e3e"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.76618 28.0846C5.14556 28.6486 5 29.0826 5 29.4V33H27V29.4C27 29.0826 26.8544 28.6486 26.2338 28.0846C25.6009 27.5095 24.6268 26.9511 23.3932 26.4645C20.924 25.4906 17.9234 25 16 25C14.0766 25 11.076 25.4906 8.60682 26.4645C7.37322 26.9511 6.39908 27.5095 5.76618 28.0846ZM16 23C11.6612 23 3 25.144 3 29.4V35H29V29.4C29 25.144 20.3387 23 16 23Z" fill="#b28e3e"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M35 21C36.6579 21 38 19.6579 38 18C38 16.3421 36.6579 15 35 15C33.3421 15 32 16.3421 32 18C32 19.6579 33.3421 21 35 21ZM35 23C37.7625 23 40 20.7625 40 18C40 15.2375 37.7625 13 35 13C32.2375 13 30 15.2375 30 18C30 20.7625 32.2375 23 35 23Z" fill="#b28e3e"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M28 33H43V30.3333C43 30.1329 42.9211 29.8399 42.5037 29.429C42.0689 29.0009 41.3774 28.5654 40.4657 28.1758C38.6335 27.3929 36.401 27 35 27C33.5989 27 31.3665 27.3929 29.5343 28.1758C28.8492 28.4686 28.2884 28.7873 27.8674 29.1093C27.672 28.4546 27.2808 27.8736 26.8304 27.389C29.0493 25.799 32.7681 25 35 25C38.3375 25 45 26.7867 45 30.3333V33V35H43H28V33Z" fill="#b28e3e"></path> </g></svg>
-        <strong style="font-weight: 700;">REUNIONES</strong>
-        <span style="font-size: 17px;">Reuniones y encuentros corporativos diseñados alrededor de los objetivos de caada organizacion</span>
+        <strong style="font-weight: 700;">{i.miceMeetingsTitle}</strong>
+        <span style="font-size: 17px;">{i.miceMeetingsDescription}</span>
       </div>
       <div class="trust-bar__divider"></div>
       <div class="trust-bar__item" style="min-width: 250px; padding: 20px; border-radius: 8px;height: 250px;">
           <svg fill="#B08C3A" height="59px" width="59px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M104.06,85.21c-1.187-2.33-3.488-3.886-6.091-4.121l-27.07-2.443l-17.89-20.464c-1.721-1.969-4.33-2.916-6.915-2.506 c-2.582,0.409-4.773,2.116-5.801,4.52L29.604,85.186L4.613,95.875c-2.404,1.028-4.111,3.219-4.52,5.801 c-0.409,2.582,0.537,5.194,2.506,6.915l20.464,17.89l2.443,27.07c0.235,2.604,1.792,4.904,4.121,6.091 c1.087,0.554,2.27,0.828,3.451,0.828c1.351,0,2.701-0.36,3.898-1.076l23.337-13.935l26.5,6.041 c2.549,0.582,5.218-0.188,7.068-2.036c1.849-1.848,2.619-4.518,2.037-7.067l-6.041-26.5l13.935-23.337 C105.154,90.316,105.247,87.54,104.06,85.21z M74.374,116.306l4.03,17.68l-17.68-4.03c-1.905-0.434-3.908-0.118-5.588,0.885 l-15.57,9.296l-1.63-18.06c-0.176-1.949-1.096-3.754-2.569-5.041l-13.653-11.935l16.673-7.132c1.799-0.77,3.231-2.202,4.001-4.001 l7.132-16.673l11.935,13.653c1.288,1.473,3.092,2.393,5.041,2.569l18.061,1.63l-9.296,15.57 C74.257,112.397,73.939,114.398,74.374,116.306z"></path> </g> </g> <g> <g> <path d="M324.774,52.061c-0.802-2.489-2.826-4.391-5.358-5.037l-36.927-9.421l-20.2-32.318c-1.386-2.217-3.813-3.567-6.428-3.574 c-0.007,0-0.013,0-0.02,0c-2.607,0-5.033,1.335-6.427,3.539l-20.371,32.208l-36.977,9.223c-2.537,0.633-4.57,2.524-5.386,5.008 c-0.815,2.484-0.296,5.213,1.374,7.225l24.339,29.328l-2.654,38.017c-0.182,2.609,0.989,5.127,3.099,6.669 c2.111,1.542,4.868,1.893,7.296,0.927l35.412-14.084l35.337,14.272c0.919,0.371,1.885,0.554,2.847,0.554 c1.576,0,3.138-0.49,4.454-1.44c2.119-1.531,3.303-4.044,3.135-6.653l-2.452-38.031l24.494-29.196 C325.041,57.275,325.575,54.55,324.774,52.061z M285.256,81.035c-1.257,1.498-1.888,3.424-1.762,5.376l1.87,29.003l-26.948-10.884 c-0.912-0.369-1.88-0.554-2.848-0.554c-0.954,0-1.908,0.179-2.809,0.538l-27.006,10.741l2.025-28.992 c0.136-1.952-0.486-3.88-1.734-5.386l-18.561-22.365l28.2-7.035c1.898-0.473,3.54-1.66,4.587-3.313l15.534-24.563l15.404,24.646 c1.036,1.659,2.672,2.854,4.568,3.338l28.161,7.184L285.256,81.035z"></path> </g> </g> <g> <g> <path d="M510.235,118.878l-17.413-20.869l1.82-27.119c0.175-2.609-1.002-5.124-3.118-6.661c-2.116-1.537-4.873-1.88-7.298-0.906 l-25.229,10.111l-25.229-10.111c-2.427-0.974-5.184-0.632-7.298,0.906c-2.115,1.537-3.293,4.052-3.118,6.661l1.82,27.119 l-17.413,20.869c-1.675,2.007-2.201,4.735-1.393,7.222c0.808,2.486,2.837,4.384,5.371,5.023l26.354,6.649l14.467,23.011 c1.392,2.214,3.823,3.557,6.438,3.557c2.615,0,5.046-1.343,6.437-3.557l14.468-23.011l26.354-6.649 c2.535-0.639,4.563-2.537,5.371-5.024C512.436,123.613,511.91,120.885,510.235,118.878z M473.227,123.771 c-1.897,0.479-3.536,1.669-4.578,3.325l-9.653,15.352l-9.652-15.352c-1.041-1.657-2.681-2.848-4.578-3.325l-17.583-4.436 l11.618-13.922c1.253-1.502,1.88-3.429,1.749-5.382l-1.215-18.093l16.832,6.746c1.816,0.728,3.842,0.728,5.657,0l16.832-6.746 l-1.215,18.093c-0.131,1.952,0.496,3.879,1.749,5.382l11.618,13.923L473.227,123.771z"></path> </g> </g> <g> <g> <path d="M381.95,176.546h-23.008v-11.792c0-4.199-3.405-7.604-7.604-7.604H153.231c-4.199,0-7.604,3.405-7.604,7.604v11.792 H122.62c-32.254,0-58.495,26.241-58.495,58.495s26.241,58.495,58.495,58.495h24.718c7.302,40.287,37.307,72.764,76.235,83.659 v53.108c0,8.763-7.129,15.892-15.892,15.892c-4.199,0-7.604,3.405-7.604,7.604v14.398h-11.708c-4.199,0-7.604,3.405-7.604,7.604 v26.885c0,4.199,3.405,7.604,7.604,7.604h127.74c4.199,0,7.604-3.405,7.604-7.604V475.8c0-4.199-3.405-7.604-7.604-7.604h-10.835 v-14.398c0-4.199-3.405-7.604-7.604-7.604h-0.784c-8.763,0-15.892-7.129-15.892-15.892v-53.107 c38.931-10.894,68.938-43.372,76.239-83.66h24.717c32.254,0,58.495-26.241,58.495-58.495 C440.445,202.787,414.204,176.546,381.95,176.546z M122.62,278.33L122.62,278.33c-23.868-0.001-43.287-19.419-43.287-43.288 c0-23.868,19.418-43.287,43.287-43.287h23.008v82.713c0,1.294,0.031,2.579,0.077,3.862H122.62z M160.835,172.358h182.9v13.87 h-182.9V172.358z M297.67,483.404h10.835v11.677h-0.001H195.973v-11.677h11.708H297.67z M290.066,460.649v7.547h-74.781v-7.734 c13.485-3.4,23.496-15.633,23.496-30.16v-48.514h27.005v48.514C265.785,445.109,276.187,457.532,290.066,460.649z M343.735,274.467c0,50.426-41.025,91.45-91.45,91.45c-50.425,0-91.449-41.024-91.449-91.45v-73.031h182.9V274.467z M381.95,278.329h-23.085c0.046-1.283,0.077-2.568,0.077-3.862v-82.713h23.008c23.868,0,43.287,19.418,43.287,43.287 S405.819,278.329,381.95,278.329z"></path> </g> </g> </g></svg>
-        <strong style="font-weight: 700;">INCENTIVOS</strong>
-         <span style="font-size: 17px;">Experiencias memorables que reconocen, motivan y conectan a los equipos</span>
+        <strong style="font-weight: 700;">{i.miceIncentivesTitle}</strong>
+         <span style="font-size: 17px;">{i.miceIncentivesDescription}</span>
       </div>
       <div class="trust-bar__divider"></div>
       <div class="trust-bar__item" style="min-width: 250px; padding: 20px; border-radius: 8px;height: 250px;">
        <svg fill="#B08C3A" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 327.117 327.117" xml:space="preserve" width="50px" height="50px"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M316.058,28.503h-305V231.35h113.018l-49.669,88.42l13.078,7.347l28.449-50.645h92.893l28.449,50.645l13.078-7.347 l-49.669-88.42h115.373L316.058,28.503L316.058,28.503z M200.401,261.472H124.36l16.921-30.122h42.2L200.401,261.472z M301.058,216.35h-275V43.503h275V216.35z"></path> <polygon points="107.344,130.438 143.237,166.331 195.494,114.075 225.91,144.491 279.548,90.854 268.94,80.248 225.91,123.278 195.494,92.861 143.237,145.118 107.344,109.225 47.569,168.998 58.177,179.604 "></polygon> <rect x="124.391" width="78.334" height="15"></rect> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </g> </g></svg>
-          <strong style="font-weight: 700;">CONGRESOS</strong>
-         <span style="font-size: 17px;">Operacion integral para congresos, conveciones y grupos profesionales</span>
+          <strong style="font-weight: 700;">{i.miceCongressTitle}</strong>
+         <span style="font-size: 17px;">{i.miceCongressDescription}</span>
       </div>
       <div class="trust-bar__divider"></div>
       <div class="trust-bar__item" style="min-width: 250px; padding: 20px; border-radius: 8px; height: 250px;">
         <svg fill="#B08C3A" height="50px" width="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 462.921 462.921" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 462.921 462.921"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="m450.932,424.488c-1.072-4-5.182-6.378-9.186-5.303l-7.727,2.07c-10.448,2.799-21.363,1.362-30.732-4.046-9.364-5.407-16.064-14.136-18.866-24.58 0,0-0.001-0.003-0.001-0.004l-32.595-122.192c14.982-5.81 27.235-16.614 34.959-31.013 8.918-16.624 10.52-35.628 4.51-53.511l-58.93-175.346c-2.601-7.741-10.813-12.15-18.704-10.034l-78.21,20.956c-1.437,0.385-2.772,0.967-3.99,1.704-1.218-0.736-2.552-1.319-3.989-1.704l-78.209-20.955c-7.888-2.113-16.104,2.294-18.705,10.033l-58.93,175.347c-6.01,17.882-4.408,36.886 4.51,53.51 7.724,14.4 19.977,25.205 34.959,31.014l-32.595,122.192c0,0 0,0.003-0.001,0.004-2.802,10.444-9.502,19.173-18.866,24.58-9.368,5.408-20.284,6.845-30.731,4.046-0.002,0-0.003,0-0.005-0.001l-7.723-2.069c-4.003-1.075-8.114,1.303-9.186,5.303-1.072,4.001 1.302,8.114 5.303,9.186l100.447,26.914c0.003,0.001 0.006,0.002 0.009,0.003 0.001,0 0.002,0 0.004,0.001l7.724,2.07c0.65,0.175 1.304,0.258 1.946,0.258 3.312,0 6.342-2.21 7.239-5.561 1.072-4.001-1.302-8.114-5.303-9.186l-7.737-2.073c-10.445-2.801-19.176-9.502-24.583-18.867-5.408-9.369-6.846-20.283-4.046-30.732v-0.001l.003-.008 32.59-122.173c3.442,0.532 6.89,0.805 10.323,0.805 12.393,0 24.57-3.45 35.443-10.188 16.036-9.937 26.925-25.596 30.662-44.088l29.447-145.727 29.447,145.727c3.737,18.492 14.626,34.15 30.662,44.088 10.874,6.739 23.05,10.188 35.443,10.188 3.432,0 6.881-0.273 10.323-0.805l32.59,122.173c0.001,0.002 0.002,0.005 0.003,0.007v0.001c2.8,10.449 1.362,21.363-4.046,30.732-5.407,9.365-14.138,16.066-24.583,18.867l-7.737,2.073c-4.001,1.071-6.375,5.185-5.303,9.186 0.897,3.351 3.928,5.561 7.239,5.561 0.643,0 1.296-0.083 1.946-0.258l7.724-2.07c0.001,0 0.002,0 0.004-0.001 0.003-0.001 0.006-0.002 0.009-0.003l92.719-24.844h0.001l7.726-2.07c4.003-1.072 6.377-5.185 5.305-9.186zm-366.884,10.244c0.305,0.527 0.629,1.039 0.948,1.554l-19.44-5.209c0.529-0.283 1.055-0.575 1.578-0.877 4.217-2.435 8.029-5.369 11.397-8.709 1.248,4.577 3.083,9.025 5.517,13.241zm79.402-182.547c-12.478,7.732-27.159,9.898-41.34,6.101-0.003-0.001-0.007-0.002-0.01-0.003-0.001,0-0.003,0-0.004-0.001-14.176-3.803-25.803-13.019-32.741-25.952-6.939-12.937-8.186-27.725-3.509-41.64l6.67-19.847c6.248-0.65 9.986-3.219 12.813-5.167 2.587-1.781 3.885-2.676 7.357-2.676 3.474,0 4.771,0.895 7.358,2.677 3.262,2.246 7.728,5.323 15.867,5.323 8.134,0 12.596-3.079 15.854-5.327 2.579-1.779 3.874-2.673 7.334-2.673 3.458,0 4.753,0.894 7.33,2.673 3.258,2.248 7.719,5.327 15.852,5.327 7.875,0 12.303-2.885 15.534-5.109l-10.505,51.985c-2.907,14.391-11.381,26.575-23.86,34.309zm60.5-215.628l-22.577,111.728c-5.625,0.811-9.098,3.203-11.762,5.042-2.577,1.779-3.871,2.673-7.329,2.673s-4.753-0.894-7.33-2.673c-3.258-2.248-7.719-5.327-15.852-5.327s-12.595,3.079-15.854,5.327c-2.579,1.779-3.874,2.673-7.335,2.673-3.473,0-4.771-0.895-7.357-2.676-3.262-2.247-7.729-5.324-15.868-5.324-6.567,0-10.742,2.003-13.823,3.957l45.913-136.615c0.083-0.25 0.351-0.396 0.604-0.323l78.209,20.956c0.254,0.068 0.413,0.323 0.361,0.582zm15.383-.582l78.211-20.956c0.042-0.012 0.086-0.017 0.128-0.017 0.21,0 0.404,0.133 0.474,0.341l45.913,136.614c-3.081-1.954-7.255-3.957-13.823-3.957-8.14,0-12.606,3.077-15.868,5.324-2.587,1.781-3.885,2.676-7.357,2.676-3.46,0-4.755-0.894-7.334-2.673-3.259-2.248-7.721-5.327-15.854-5.327s-12.594,3.079-15.852,5.327c-2.577,1.779-3.872,2.673-7.33,2.673s-4.752-0.894-7.329-2.673c-2.664-1.839-6.137-4.231-11.762-5.042l-22.578-111.729c-0.053-0.257 0.107-0.513 0.361-0.581zm60.139,216.21c-12.479-7.733-20.953-19.918-23.861-34.309l-10.505-51.986c3.231,2.225 7.659,5.11 15.534,5.11 8.133,0 12.594-3.079 15.852-5.327 2.577-1.779 3.872-2.673 7.33-2.673 3.461,0 4.756,0.894 7.335,2.673 3.259,2.248 7.721,5.327 15.854,5.327 8.14,0 12.605-3.077 15.867-5.323 2.587-1.782 3.885-2.677 7.358-2.677s4.771,0.895 7.357,2.676c2.828,1.948 6.565,4.517 12.812,5.167l6.67,19.847c4.677,13.915 3.431,28.704-3.509,41.641-6.938,12.934-18.565,22.148-32.741,25.951-0.001,0-0.003,0-0.004,0.001-0.003,0.001-0.007,0.002-0.01,0.003-14.18,3.798-28.861,1.633-41.339-6.101zm79.402,182.547c2.434-4.217 4.269-8.665 5.517-13.241 3.368,3.339 7.181,6.274 11.397,8.709 0.522,0.302 1.049,0.594 1.578,0.877l-19.44,5.209c0.319-0.515 0.643-1.026 0.948-1.554z"></path> </g> </g></svg>
-        <strong  style="font-weight: 700;">EVENTOS ESPECIALES</strong>
-         <span style="font-size: 17px;">Eventos únicos que combinan produccion, logistica y escenarios extraordinarios en todo el Perú</span>
+        <strong  style="font-weight: 700;">{i.miceSpecialEventsTitle}</strong>
+         <span style="font-size: 17px;">{i.miceSpecialEventsDescription}</span>
       </div>
     </div>
   </section>
@@ -117,10 +89,10 @@ const escenarios = [
   <section class="scenarios-section" style="background-color: #0D2519; width: 100%;">
     <div class="scenarios-section__inner">
       <div class="scenarios-copy">
-        <p class="scenarios-copy__eyebrow">Escenarios únicos<br />para ideas extraordinarias</p>
+        <p class="scenarios-copy__eyebrow">{i.miceScenariosEyebrow}</p>
         <span class="scenarios-copy__rule" aria-hidden="true"></span>
-        <h2>El Perú como escenario de grandes ideas</h2>
-        <p>Desde ciudades históricas hasta paisajes inigualables, ofrecemos locaciones únicas y experiencias auténticas que transforman cualquier evento en algo inolvidable.</p>
+        <h2>{i.miceScenariosTitle}</h2>
+        <p>{i.miceScenariosDescription}</p>
         <br>
         <br>
         <br>
@@ -162,12 +134,12 @@ const escenarios = [
     <div style="display: flex; flex-direction: column; text-align: start;">
 
       <div>
-          <p class="hero-eyebrow" style="font-size: 15px; color: #B28E3E;">MÁS QUE UN EVENTO</p>
+          <p class="hero-eyebrow" style="font-size: 15px; color: #B28E3E;">{i.miceCtaEyebrow}</p>
 
           <div class="hero-rule" style="margin-top: -20px; background-color: #B28E3E;"></div>
           </div>
-        <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 700; font-size: 40px; line-height: 1.2; color: #0E251B;">Creamos conexiones que <br> que trascienden.</h2>
-        <span style=" margin-top: 20px; font-size: 16px; font-family: var(--font-ppnue); width: 400px; color: #272727;">Eventos que inspiran personas. fortalecen relaciones y dejan un impacto positivo.</span>
+        <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 700; font-size: 40px; line-height: 1.2; color: #0E251B;">{i.miceCtaTitle}</h2>
+        <span style=" margin-top: 20px; font-size: 16px; font-family: var(--font-ppnue); width: 400px; color: #272727;">{i.miceCtaDescription}</span>
     </div>
     
   </div>

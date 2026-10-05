@@ -30,6 +30,8 @@ const stats = incentivosStats.map(stat => ({
   label: i.statTranslations[stat.labelKey] || ""
 }));
 
+const categoryTranslations = i.categoryTranslations as Record<string, string>;
+
 const icons: Record<string, string> = {
   medal: `<svg width="64px" height="64px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#b08c3a" stroke="#b08c3a" stroke-width="0.192"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="icomoon-ignore"> </g> <path d="M26.995 12.046h4.258l-15.457-9.152-15.049 9.152h3.857v15.994h-2.132v1.066h26.656v-1.066h-2.133v-15.994zM4.553 10.98l11.25-6.842 11.556 6.842h-22.807zM5.67 28.040v-15.994h3.199v15.994h-3.199zM9.935 28.040v-15.994h3.199v15.994h-3.199zM14.2 28.040v-15.994h3.199v15.994h-3.199zM18.465 28.040v-15.994h3.199v15.994h-3.199zM22.73 28.040v-15.994h3.199v15.994h-3.199z" fill="#b08c3a"> </path> </g></svg>`,
   compass: `<svg height="64px" width="64px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-25.6 -25.6 563.20 563.20" xml:space="preserve" fill="#d89e51" stroke="#d89e51" stroke-width="13.824000000000002"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffffff;} </style> <g> <path class="st0" d="M203.364,2.333c-11.788,0-19.73,9.352-19.73,20.873v99.422c0,11.306-5.814,16.714-14.728,16.714 c-8.142,0-12.945-6.717-12.945-14.692L155.517,21.37C155.517,8.338,144.144,0,133.59,0c-10.558,0-21.926,8.338-21.926,21.37V124.65 c0,7.976-5.252,14.692-13.395,14.692c-8.903,0-14.721-5.408-14.721-16.714V23.206c0-11.521-7.943-20.873-19.731-20.873 c-11.797,0.02-18.08,10.173-19.359,20.131c-1.279,9.967-7.825,81.147-8.542,126.64c-0.727,45.504,31.216,72.117,49.414,80.571 c12.442,5.779,21.448,18.207,21.448,33.154L99.334,512h68.509l-7.444-249.171c0-14.946,9-27.374,21.443-33.154 c18.202-8.454,50.146-35.067,49.423-80.571c-0.722-45.493-7.258-116.673-8.547-126.64C221.434,12.506,215.157,2.353,203.364,2.333z "></path> <path class="st0" d="M378.422,3.935c-47.398,0-97.68,50.57-97.68,130.008c0,45.504,34.389,82.446,49.424,95.732 c14.702,13.004,21.448,18.207,21.448,33.154L344.17,512h68.509l-7.449-249.171c0-14.946,6.756-20.15,21.458-33.154 c15.014-13.287,49.408-50.228,49.408-95.732C476.097,54.505,425.82,3.935,378.422,3.935z"></path> </g> </g></svg>`,
@@ -39,7 +41,7 @@ const icons: Record<string, string> = {
 };
 ---
 
-<BaseLayout fullscreen={true} title={i.metaTitle} description={i.metaDesc}>
+<BaseLayout fullscreen={true} title={i.destinationsMetaTitle} description={i.destinationsMetaDescription}>
 
   <section class="inc-hero">
     <div class="inc-hero__bg">
@@ -51,21 +53,19 @@ const icons: Record<string, string> = {
     <div class="inc-hero__overlay"></div>
     <div class="inc-hero__content" data-aos="fade-up">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <p class="eyebrow-light" style="margin-bottom: 0px; color: #F1CF64; font-family: var(--font-ppnue);">Destinos</p>
+        <p class="eyebrow-light" style="margin-bottom: 0px; color: #F1CF64; font-family: var(--font-ppnue);">{i.destinationsEyebrow}</p>
         <span style="width: 50px; height: 1px; background-color: #F1CF64; margin: 0px;" />
       </div>
       <h1 class="inc-hero__title">
-        Perú; un país
+        {i.destinationsTitle}
         <br>
-        <em style="color: #F1CF64; font-style: normal;">de grandes historias</em>
+        <em style="color: #F1CF64; font-style: normal;">{i.destinationsTitleEmphasis}</em>
       </h1>
       <p class="inc-hero__sub" style="font-size: 17px;">
-        Desde la costa del Pacifico hasta los Andes y la Amazonia,
-        conocemos el Perú <br> en profundidad y diseñamos experiencias que combinan
-        cultura, naturaleza, gastronomía y momentos <br> extraordinarios.
+        {i.destinationsHeroDescription}
       </p>
       <a href="#destinos" class="btn-primary" style="background-color: #F1CF64; color: rgb(86, 86, 86); font-family: var(--font-ppnue);">
-          EXPLORA NUESTROS DESTINOS
+          {i.destinationsExploreButton}
       </a>
     </div>
   </section>
@@ -77,18 +77,18 @@ const icons: Record<string, string> = {
      
       <div id="destinos">
          <div style="display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto;">
-          <p data-aos="fade-right" class="eyebrow" style="margin-bottom: 0px; color:rgb(201, 163, 92); font-family: var(--font-ppnue); font-size: 14px;">NUESTROS DESTINOS</p>
+          <p data-aos="fade-right" class="eyebrow" style="margin-bottom: 0px; color:rgb(201, 163, 92); font-family: var(--font-ppnue); font-size: 14px;">{i.destinationsSectionEyebrow}</p>
           <span class="verde-rule"></span>
         </div>
 
         <h2 data-aos="fade-right" class="display-title" style="font-size: 40px; font-weight: 500; color::var(--color-darker); margin: 0;">
-          Lugares extraordinarios, <br>
-          <em style="color: rgb(201, 163, 92); font-style: normal;">experiencias únicas</em>
+          {i.destinationsSectionTitle} <br>
+          <em style="color: rgb(201, 163, 92); font-style: normal;">{i.destinationsSectionTitleEmphasis}</em>
         </h2>
       </div>
       
       <p style="width: 42%; min-width: 280px; font-family: var(--font-ppnue);font-size: 17px; color: rgb(62, 62, 62);  line-height: 1.65; margin: 0;">
-        Cada destino en el Perú ofrece un mundo de posibilidades. Combinamos nuestro profundo conocimiento del territorio con una red de aliados de primer nivel para crear experiencias auténticas y memorables para sus clientes.
+        {i.destinationsSectionDescription}
       </p>
     </div>
 
@@ -122,19 +122,19 @@ const icons: Record<string, string> = {
       <div>
          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; max-width: 1500px; margin-left: auto; margin-right: auto;">
             <p data-aos="fade-right" class="eyebrow" style="margin: 0; color: #b08c3a; letter-spacing: 0.25em;font-size: 14px;">
-              EXPERIENCIAS
+              {i.destinationsExperiencesEyebrow}
             </p>
             <span class="verde-rule" style="margin: 0; width: 40px; background: #d9c9a3;"></span>
           </div>
 
             <h2 data-aos="fade-right" class="display-title" style="font-family: var(--font-ppnue); max-width: 620px;font-size: 40px; font-weight: 500; ">
-          Más que destinos, <br>
-          <em style="font-style: normal;font-family: var(--font-ppnue);">experiencias que conectan el Perú</em>
+          {i.destinationsExperiencesTitle} <br>
+          <em style="font-style: normal;font-family: var(--font-ppnue);">{i.destinationsExperiencesTitleEmphasis}</em>
         </h2>
       </div>
       
       <p style="width: 40%; min-width: 280px; font-family: var(--font-ppnue); color: #3a3a3a; font-size: 18px; line-height: 1.65; margin: 0; padding-top: 16px;">
-        Diseñamos programas que combinan lo mejor de nuestros destinos para crear experiencias únicas, adaptadas a los intereses de sus clientes.
+        {i.destinationsExperiencesDescription}
       </p>
     </div>
 
@@ -148,8 +148,8 @@ const icons: Record<string, string> = {
           </div>
           <div class="cat-card__body">
             <div class="cat-card__icon" set:html={icons[cat.icon] || icons.medal} />
-            <h4 class="cat-card__title" style="font-family: var(--font-ppnue); font-size: 17px;">{i.categoryTranslations[cat.titleKey] || ""}</h4>
-            <p class="cat-card__desc" style="font-family: var(--font-ppnue); font-size: 15px;">{i.categoryTranslations[cat.descKey] || ""}</p>
+            <h4 class="cat-card__title" style="font-family: var(--font-ppnue); font-size: 17px;">{categoryTranslations[cat.titleKey] || ""}</h4>
+            <p class="cat-card__desc" style="font-family: var(--font-ppnue); font-size: 15px;">{categoryTranslations[cat.descKey] || ""}</p>
             {/* <a href={localePath(lang, '/contacto')} class="cat-card__cta">
               {i.categoryCta || "Conocer más"} <span>&rarr;</span>
             </a> */}
@@ -170,11 +170,11 @@ const icons: Record<string, string> = {
 
   <div class="inc-cta__inner" style="display:flex; justify-content: space-between; align-items: center; max-width: 1700px;" data-aos="fade-up">
     <div style="display: flex; flex-direction: column; text-align: start;">
-      <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 500;">¿Listo para diseñar el viaje perfecto?</h2>
-      <span style="font-size: 17px; font-family: var(--font-ppnue); ">Nuestro equipo esta listo para crear el programa ideal.</span>
+      <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 500;">{i.destinationsCtaTitle}</h2>
+      <span style="font-size: 17px; font-family: var(--font-ppnue); ">{i.destinationsCtaDescription}</span>
     </div>
     <div class="cta-actions">
-      <a href={localePath(lang, '/contacto')} class="btn-primary">Contactanos</a>
+      <a href={localePath(lang, '/contacto')} class="btn-primary">{i.destinationsContactButton}</a>
     </div>
   </div>
 </section>

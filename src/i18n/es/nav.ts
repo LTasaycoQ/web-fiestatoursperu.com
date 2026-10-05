@@ -18,6 +18,9 @@ const nav: NavTranslations = {
   hotelsMachuPicchu: "Hoteles en Machu Picchu",
   jungleLodges: "Lodges en la Selva",
   mobileServices: "Servicios",
+  homeLabel: "Inicio",
+  mainMenuLabel: "Menú principal",
+  openMenuLabel: "Abrir menú",
 };
 
 export default nav;

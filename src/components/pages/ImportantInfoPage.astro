@@ -7,11 +7,149 @@ interface Props {
   lang: Locale;
 }
 const { lang } = Astro.props;
+
+const copy = {
+  es: {
+    metaTitle: "Información importante para su viaje | Peru Luxury Journeys",
+    metaDescription: "Lea estas disposiciones para preparar su itinerario de viaje a Machu Picchu.",
+    eyebrow: "Información importante",
+    title: "Prepare su viaje<br />con anticipación",
+    trainTitle: "1. Compra anticipada de trenes y entradas",
+    trainIntro: "Para garantizar el mejor horario posible, los boletos de tren a <strong>Machu Picchu</strong> deben comprarse con la mayor anticipación. Cuanto antes recibamos el prepago, más opciones tendrán los pasajeros para elegir su itinerario <strong>(se recomienda un mínimo de 60 días antes de la partida)</strong>.",
+    priorityTitle: "⚠️ PRIORIDAD CRÍTICA PARA SU RESERVA",
+    priorityIntro: "Debido a la altísima demanda y a la disponibilidad estrictamente limitada de las entradas a la ciudadela y de los espacios ferroviarios, es indispensable recibir un adelanto para proceder con la compra inmediata.",
+    scheduleLabel: "Sincronización:",
+    scheduleText: "Los horarios de tren y los turnos de ingreso a Machu Picchu deben reservarse juntos para asegurar una conexión adecuada en el itinerario.",
+    guaranteeLabel: "Garantía:",
+    guaranteeText: "Tenga en cuenta que solo la emisión del boleto físico asegura su espacio.",
+    requirementsTitle: "2. Requisitos obligatorios para la emisión",
+    requirementsIntro: "Necesitamos la siguiente información exacta para emitir sus pases de viaje:",
+    requiredColumn: "Dato requerido",
+    specificationColumn: "Especificación",
+    requiredRows: [
+      ["Nombres completos", "Tal como aparecen en su documento de identidad"],
+      ["Número de pasaporte", "Debe estar vigente durante las fechas del viaje"],
+      ["Nacionalidad", "Para fines de regulaciones migratorias y ferroviarias"],
+      ["Fecha de nacimiento", "DD / MM / AAAA"],
+    ],
+    secureRegistration: "Registrar datos de forma segura →",
+    bookingTitle: "3. Detalles y estado de su reserva",
+    conceptColumn: "Concepto",
+    serviceColumn: "Detalle del servicio",
+    bookingRows: [
+      ["Alimentación", "Incluye desayunos diarios y las comidas indicadas en su itinerario."],
+      ["Servicios", "Tours privados operados con un guía especializado."],
+      ["Vuelos internos", "Operados y gestionados íntegramente por la agencia."],
+      ["Documentación", "Adjuntamos el detalle de su reserva para que lo revise."],
+    ],
+    paymentTitle: "4. Fecha límite de pago total y cancelaciones",
+    paymentIntro: "Para evitar que los operadores de servicios cancelen automáticamente la reserva, es obligatorio facilitar los siguientes datos antes de la fecha límite indicada en su orden:",
+    checklist: [
+      "Constancia del pago del expediente.",
+      "Detalle de vuelos internacionales (incluido el código localizador).",
+      "Copia legible de los pasaportes.",
+      "Número de WhatsApp del contacto principal.",
+      "Restricciones o preferencias alimentarias (alergias o régimen especial).",
+    ],
+    policyLabel: "Nota sobre las políticas de cambios:",
+    policyText: "Cualquier modificación o cancelación posterior a la emisión está sujeta a penalidades administrativas y hoteleras de hasta el 100 % de la tarifa.",
+  },
+  en: {
+    metaTitle: "Important travel information | Peru Luxury Journeys",
+    metaDescription: "Read these guidelines to prepare your Machu Picchu travel itinerary.",
+    eyebrow: "Important information",
+    title: "Prepare for your trip<br />in advance",
+    trainTitle: "1. Book train tickets and entry passes early",
+    trainIntro: "To secure the best available departure time, train tickets to <strong>Machu Picchu</strong> should be purchased as early as possible. The sooner we receive your deposit, the more itinerary options passengers will have <strong>(we recommend booking at least 60 days before departure)</strong>.",
+    priorityTitle: "⚠️ CRITICAL BOOKING PRIORITY",
+    priorityIntro: "Due to exceptionally high demand and strictly limited availability for citadel entry tickets and train seats, an advance payment is required so we can proceed with the purchase immediately.",
+    scheduleLabel: "Coordination:",
+    scheduleText: "Train times and Machu Picchu entry slots must be booked together to ensure a smooth connection in your itinerary.",
+    guaranteeLabel: "Guarantee:",
+    guaranteeText: "Please note that your place is secured only once the physical ticket has been issued.",
+    requirementsTitle: "2. Mandatory information for ticket issuance",
+    requirementsIntro: "We require the following exact information to issue your travel passes:",
+    requiredColumn: "Required information",
+    specificationColumn: "Specification",
+    requiredRows: [
+      ["Full name", "Exactly as it appears on your identity document"],
+      ["Passport number", "Must be valid for the dates of travel"],
+      ["Nationality", "Required for immigration and railway regulations"],
+      ["Date of birth", "DD / MM / YYYY"],
+    ],
+    secureRegistration: "Submit your details securely →",
+    bookingTitle: "3. Booking details and status",
+    conceptColumn: "Item",
+    serviceColumn: "Service details",
+    bookingRows: [
+      ["Meals", "Includes daily breakfasts and the meals specified in your itinerary."],
+      ["Services", "Private tours led by a specialist guide."],
+      ["Domestic flights", "Fully operated and managed by the agency."],
+      ["Documents", "We provide an itemized booking statement for your review."],
+    ],
+    paymentTitle: "4. Final payment deadline and cancellations",
+    paymentIntro: "To prevent service operators from automatically cancelling your booking, you must provide the following information before the deadline stated in your order:",
+    checklist: [
+      "Proof of payment for the booking file.",
+      "International flight details, including the booking reference.",
+      "A legible copy of each passport.",
+      "A WhatsApp number for the primary contact.",
+      "Dietary restrictions or preferences (allergies or special diets).",
+    ],
+    policyLabel: "Changes policy:",
+    policyText: "Any change or cancellation requested after ticket issuance is subject to administrative and hotel penalties of up to 100% of the fare.",
+  },
+  pt: {
+    metaTitle: "Informações importantes para sua viagem | Peru Luxury Journeys",
+    metaDescription: "Leia estas orientações para preparar seu roteiro de viagem a Machu Picchu.",
+    eyebrow: "Informações importantes",
+    title: "Prepare sua viagem<br />com antecedência",
+    trainTitle: "1. Compre passagens de trem e ingressos com antecedência",
+    trainIntro: "Para garantir o melhor horário disponível, as passagens de trem para <strong>Machu Picchu</strong> devem ser compradas com a maior antecedência possível. Quanto antes recebermos o pagamento antecipado, mais opções de roteiro os passageiros terão <strong>(recomendamos pelo menos 60 dias antes da partida)</strong>.",
+    priorityTitle: "⚠️ PRIORIDADE CRÍTICA PARA SUA RESERVA",
+    priorityIntro: "Devido à altíssima procura e à disponibilidade estritamente limitada de ingressos para a cidadela e de assentos nos trens, é necessário um pagamento antecipado para que possamos efetuar a compra imediatamente.",
+    scheduleLabel: "Sincronização:",
+    scheduleText: "Os horários dos trens e as entradas para Machu Picchu devem ser reservados em conjunto para garantir uma conexão adequada no roteiro.",
+    guaranteeLabel: "Garantia:",
+    guaranteeText: "Observe que seu lugar só estará garantido após a emissão do bilhete físico.",
+    requirementsTitle: "2. Dados obrigatórios para a emissão",
+    requirementsIntro: "Precisamos das seguintes informações exatas para emitir seus passes de viagem:",
+    requiredColumn: "Dado obrigatório",
+    specificationColumn: "Especificação",
+    requiredRows: [
+      ["Nome completo", "Exatamente como consta no documento de identidade"],
+      ["Número do passaporte", "Deve estar válido durante as datas da viagem"],
+      ["Nacionalidade", "Necessária para as normas migratórias e ferroviárias"],
+      ["Data de nascimento", "DD / MM / AAAA"],
+    ],
+    secureRegistration: "Enviar dados com segurança →",
+    bookingTitle: "3. Detalhes e situação da reserva",
+    conceptColumn: "Item",
+    serviceColumn: "Detalhes do serviço",
+    bookingRows: [
+      ["Alimentação", "Inclui café da manhã diário e as refeições indicadas no roteiro."],
+      ["Serviços", "Passeios privados acompanhados por um guia especializado."],
+      ["Voos domésticos", "Totalmente operados e gerenciados pela agência."],
+      ["Documentação", "Enviamos o demonstrativo detalhado da reserva para sua conferência."],
+    ],
+    paymentTitle: "4. Prazo para pagamento integral e cancelamentos",
+    paymentIntro: "Para evitar o cancelamento automático da reserva pelos operadores de serviços, é obrigatório fornecer os seguintes dados antes do prazo indicado em sua ordem:",
+    checklist: [
+      "Comprovante de pagamento do processo.",
+      "Detalhes dos voos internacionais, incluindo o localizador da reserva.",
+      "Cópia legível dos passaportes.",
+      "Número de WhatsApp do contato principal.",
+      "Restrições ou preferências alimentares (alergias ou dieta especial).",
+    ],
+    policyLabel: "Observação sobre a política de alterações:",
+    policyText: "Qualquer alteração ou cancelamento após a emissão está sujeito a multas administrativas e hoteleiras de até 100% da tarifa.",
+  },
+}[lang];
 ---
 
 <BaseLayout 
-  title="Información Importante para su Viaje | Peru Luxury Journeys" 
-  description="Por favor, lea atentamente las siguientes disposiciones para garantizar su itinerario de viaje a Machu Picchu"
+  title={copy.metaTitle} 
+  description={copy.metaDescription}
 >
   <style>
     /* ═══════════════════════════════════════════════════════════════════
@@ -734,8 +872,8 @@ const { lang } = Astro.props;
   <div class="info-hero">
     <div class="info-hero__overlay"></div>
     <div class="info-hero__content" data-reveal="fade-up">
-      <span class="info-hero__eyebrow">Información Importante</span>
-      <h1 class="info-hero__title">Prepare su viaje<br />con anticipación</h1>
+      <span class="info-hero__eyebrow">{copy.eyebrow}</span>
+      <h1 class="info-hero__title" set:html={copy.title}></h1>
       <div class="info-hero__rule"></div>
     </div>
   </div>
@@ -746,76 +884,70 @@ const { lang } = Astro.props;
       
       <!-- Sección 1 -->
       <div class="info-section" data-reveal="fade-up">
-        <h2>1. Compra Anticipada de Trenes y Entradas</h2>
-        <p>Para garantizar el mejor horario posible, la compra de boletos de tren a <strong>Machu Picchu</strong> debe efectuarse con la mayor anticipación. Mientras más pronto recibamos el pre-pago, más beneficiados serán los pasajeros en su asignación de itinerarios <strong>(se recomienda un mínimo de 60 días antes de su partida)</strong>.</p>
+        <h2>{copy.trainTitle}</h2>
+        <p set:html={copy.trainIntro}></p>
         
         <div class="critical-notice">
-          <h3>⚠️ PRIORIDAD CRÍTICA PARA SU RESERVA</h3>
-          <p>Debido a la altísima demanda y la disponibilidad estrictamente limitada de las entradas a la Ciudadela y los espacios ferroviarios, es indispensable un adelanto financiero para proceder con la compra inmediata.</p>
+          <h3>{copy.priorityTitle}</h3>
+          <p>{copy.priorityIntro}</p>
           <ul>
-            <li><strong>Sincronización:</strong> Los horarios de tren y los turnos de ingreso a Machu Picchu deben reservarse en conjunto para asegurar la perfecta conexión de su itinerario.</li>
-            <li><strong>Garantía:</strong> Tenga en cuenta que <em>solo la emisión del boleto físico asegura su espacio</em>.</li>
+            <li><strong>{copy.scheduleLabel}</strong> {copy.scheduleText}</li>
+            <li><strong>{copy.guaranteeLabel}</strong> <em>{copy.guaranteeText}</em></li>
           </ul>
         </div>
       </div>
 
       <!-- Sección 2 -->
       <div class="info-section" data-reveal="fade-up" data-delay="100">
-        <h2>2. Requisitos de Emisión Obligatorios</h2>
-        <p>Requerimos que nos facilite la siguiente información exacta para la emisión segura de sus pases de viaje:</p>
+        <h2>{copy.requirementsTitle}</h2>
+        <p>{copy.requirementsIntro}</p>
         
         <table class="info-table">
           <thead>
             <tr>
-              <th>Dato Requerido</th>
-              <th>Especificación</th>
+              <th>{copy.requiredColumn}</th>
+              <th>{copy.specificationColumn}</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td data-label="Dato Requerido"><strong>Nombres completos</strong></td><td data-label="Especificación">Tal como aparecen en su documento de identidad</td></tr>
-            <tr><td data-label="Dato Requerido"><strong>Número de pasaporte</strong></td><td data-label="Especificación">Debe estar vigente para las fechas del viaje</td></tr>
-            <tr><td data-label="Dato Requerido"><strong>Nacionalidad</strong></td><td data-label="Especificación">Para fines de regulaciones migratorias y ferroviarias</td></tr>
-            <tr><td data-label="Dato Requerido"><strong>Fecha de nacimiento</strong></td><td data-label="Especificación">DD / MM / AAAA</td></tr>
+            {copy.requiredRows.map(([label, detail]) => (
+              <tr><td data-label={copy.requiredColumn}><strong>{label}</strong></td><td data-label={copy.specificationColumn}>{detail}</td></tr>
+            ))}
           </tbody>
         </table>
 
         <div class="btn-container">
           <a href="https://fiestatoursperu.com/paxdata" class="btn-action" target="_blank" rel="noopener noreferrer">
-            Registrar Datos de Forma Segura →
+            {copy.secureRegistration}
           </a>
         </div>
       </div>
 
       <!-- Sección 3 -->
       <div class="info-section" data-reveal="fade-up" data-delay="200">
-        <h2>3. Detalles y Estado de su Reserva</h2>
+        <h2>{copy.bookingTitle}</h2>
         <table class="info-table">
           <thead>
-            <tr><th>Concepto</th><th>Detalle del Servicio</th></tr>
+            <tr><th>{copy.conceptColumn}</th><th>{copy.serviceColumn}</th></tr>
           </thead>
           <tbody>
-            <tr><td data-label="Concepto"><strong>Alimentación</strong></td><td data-label="Detalle">Incluye desayunos diarios y las comidas especificadas en su itinerario.</td></tr>
-            <tr><td data-label="Concepto"><strong>Servicios</strong></td><td data-label="Detalle">Tours privados operados con un guía especializado.</td></tr>
-            <tr><td data-label="Concepto"><strong>Vuelos internos</strong></td><td data-label="Detalle">Completamente operados y gestionados por la agencia.</td></tr>
-            <tr><td data-label="Concepto"><strong>Documentación</strong></td><td data-label="Detalle">Adjuntamos la liquidación detallada de su reserva para su revisión.</td></tr>
+            {copy.bookingRows.map(([label, detail]) => (
+              <tr><td data-label={copy.conceptColumn}><strong>{label}</strong></td><td data-label={copy.serviceColumn}>{detail}</td></tr>
+            ))}
           </tbody>
         </table>
       </div>
 
       <!-- Sección 4 -->
       <div class="info-section" data-reveal="fade-up" data-delay="300">
-        <h2>4. Fecha Límite de Pago Total y Cancelaciones</h2>
-        <p>Para evitar la <strong>cancelación automática de la reserva</strong> por parte de los operadores de servicios, es de carácter obligatorio facilitar los siguientes datos antes de la fecha límite señalada en su orden:</p>
+        <h2>{copy.paymentTitle}</h2>
+        <p>{copy.paymentIntro}</p>
         
         <ul>
-          <li>Constancia del pago del file.</li>
-          <li>Detalle de vuelos internacionales (incluyendo código localizador).</li>
-          <li>Copia legible de los pasaportes.</li>
-          <li>Número de WhatsApp de contacto principal.</li>
-          <li>Restricciones o preferencias alimenticias (alergias, régimen especial).</li>
+          {copy.checklist.map((item) => <li>{item}</li>)}
         </ul>
 
-        <p><em>Nota sobre Políticas de Cambios:</em> Cualquier modificación o cancelación posterior a la emisión está sujeta a penalidades administrativas y hoteleras de hasta el 100% de la tarifa.</p>
+        <p><em>{copy.policyLabel}</em> {copy.policyText}</p>
       </div>
 
       <!-- Footer de página -->

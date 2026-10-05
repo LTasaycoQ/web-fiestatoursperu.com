@@ -85,6 +85,25 @@ export const home: HomeTranslations = {
   toursEyebrow: "ITINERÁRIOS SELECIONADOS",
   aboutBtn: "SAIBA MAIS SOBRE NÓS",
   toursBtn: "VER TODOS OS TOURS",
+  historyLink: "Conheça nossa história",
+  workflowEyebrow: "Nossa forma de trabalhar",
+  workflowTitle: "Mais do que conhecer o Peru.",
+  workflowTitleEmphasis: "Sabemos como torná-lo extraordinário.",
+  workflowDescription: "Abrimos as portas para um Peru autêntico, combinando experiências únicas, conhecimento local e uma operação impecável em cada detalhe. As grandes viagens ficam na memória não apenas pelos lugares visitados, mas pelo que sentimos, pelas histórias que descobrimos e pelas pessoas que encontramos pelo caminho.",
+  workflow1Title: "Cada viagem, sob medida",
+  workflow1Description: "Cada itinerário começa com a compreensão do viajante. Criamos experiências alinhadas aos seus interesses, ritmo e expectativas.",
+  workflow2Title: "Conhecemos o Peru de verdade",
+  workflow2Description: "Nossos anos no destino nos deram conhecimento direto sobre rotas, horários, fornecedores e experiências fora dos circuitos tradicionais.",
+  workflow3Title: "Experiência e cuidado em cada detalhe",
+  workflow3Description: "Nossa equipe acompanha cada etapa da viagem e coordena todos os detalhes para que nossos parceiros e seus passageiros viajem com tranquilidade.",
+  tourAll: "Ver todos os tours",
+  durationDays: "Dias",
+  durationNights: "Noites",
+  viewItinerary: "Ver itinerário",
+  closingTitle: "Sua próxima aventura está esperando",
+  closingSubtitle: "Converse com nossos consultores — 50 anos de experiência a seu serviço.",
+  quoteButton: "Solicitar orçamento personalizado",
+  imagePeruAlt: "Paisagem peruana",
 
   testimonialTexts: {
     testimonial_john_tavera:
@@ -157,6 +176,18 @@ export const about: AboutTranslations = {
   // Cierre section
   cierreQuote: "Confiamos que você nos dará a oportunidade de atendê-lo.",
   cierreBtn: "Planeje sua experiência",
+  pageMetaDescription: "Conheça a Fiesta Tours Perú, operadora de turismo receptivo de luxo que cria experiências excepcionais desde 1976.",
+  scrollLabel: "Role a página",
+  exploreDestinations: "Explore nossos destinos",
+  commitmentEyebrow: "NOSSO COMPROMISSO",
+  commitmentTitle: "Viajar para\npreservar",
+  commitmentDescription: "Há 50 anos, temos o privilégio de apresentar o Peru ao mundo. Esse privilégio também traz uma responsabilidade: proteger suas paisagens, seu patrimônio e as comunidades que mantêm nossa cultura viva. Promovemos o turismo responsável e sustentável e apoiamos iniciativas que geram impacto positivo. Também trabalhamos com o SERNANP para contribuir com a conservação das áreas naturais protegidas do Peru.",
+  conservationTitle: "Conservação",
+  conservationDescription: "Valorizamos e protegemos os espaços naturais para que as próximas gerações também possam aproveitá-los.",
+  communitiesTitle: "Comunidades",
+  communitiesDescription: "Trabalhamos com pessoas e fornecedores locais, gerando oportunidades e valor nos destinos que visitamos.",
+  responsibleTourismTitle: "Turismo responsável",
+  responsibleTourismDescription: "Criamos experiências que respeitam o patrimônio natural e cultural e estão em harmonia com cada destino.",
   
   // Features translations
   featureTranslations: {
@@ -297,6 +328,31 @@ export const contacto: ContactoTranslations = {
 
   quote:
     '"Quando seus clientes exigem excelência, a Fiesta Tours Perú entrega o extraordinário."',
+  pageTitle: 'Comece a planejar sua viagem',
+  pageSubtitle: 'Estamos aqui para ajudar você a criar a viagem dos seus sonhos.',
+  scrollLabel: 'Fale conosco',
+  formEyebrow: 'Solicitação',
+  formTitle: 'Conte-nos sobre a viagem que você imagina.',
+  formDescription: 'Quanto mais soubermos sobre seus planos desde o início, melhor poderemos criar uma proposta especialmente para você. Cada solicitação é analisada pessoalmente por um de nossos consultores de viagem.',
+  labelLastName: 'Sobrenome',
+  labelPhone: 'Telefone',
+  experienceQuestion: 'Que tipo de experiência você está procurando?',
+  experienceOptions: ['Férias personalizadas', 'Cruzeiro na Amazônia', 'Hospedagem', 'Lua de mel / Aniversário', 'Viagem em família / multigeracional', 'Viagem corporativa', 'Outros'],
+  labelDate: 'Data aproximada da viagem',
+  dateExample: 'Ex.: outubro de 2027',
+  travelersExample: 'Ex.: 2 adultos, 2 crianças',
+  messagePrompt: 'Conte um pouco sobre a viagem que você tem em mente',
+  addressLabel: 'Endereço',
+  phoneLabel: 'Telefone',
+  emailLabel: 'E-mail',
+  hoursLabel: 'Horário',
+  followLabel: 'Siga-nos',
+  toastTravel: 'Preencha as informações da viagem.',
+  toastPersonal: 'Preencha todos os seus dados pessoais.',
+  toastTerms: 'Você precisa aceitar os termos e condições para continuar.',
+  toastEmail: 'Digite um endereço de e-mail válido.',
+  toastSending: 'Enviando...',
+  toastSuccess: 'Mensagem enviada com sucesso! Em breve entraremos em contato.',
 };
 
 
@@ -307,6 +363,45 @@ export const incentivos: IncentivosTranslations = {
   metaTitle: "Viagens de Incentivo no Peru | Fiesta Tours",
   metaDesc:
     "Programas corporativos de incentivo únicos no Peru.",
+  destinationsMetaTitle: "Destinos do Peru | Fiesta Tours",
+  destinationsMetaDescription: "Descubra destinos extraordinários do Peru e experiências culturais, naturais, gastronômicas e únicas.",
+  destinationsEyebrow: "Destinos",
+  destinationsTitle: "Peru, um país",
+  destinationsTitleEmphasis: "de grandes histórias",
+  destinationsHeroDescription: "Do litoral do Pacífico aos Andes e à Amazônia, conhecemos profundamente o Peru e criamos experiências que combinam cultura, natureza, gastronomia e momentos extraordinários.",
+  destinationsExploreButton: "Explore nossos destinos",
+  destinationsSectionEyebrow: "Nossos destinos",
+  destinationsSectionTitle: "Lugares extraordinários,",
+  destinationsSectionTitleEmphasis: "experiências únicas",
+  destinationsSectionDescription: "Cada destino do Peru oferece um mundo de possibilidades. Combinamos nosso profundo conhecimento local com uma rede de parceiros de alto nível para criar experiências autênticas e memoráveis para seus viajantes.",
+  destinationsExperiencesEyebrow: "Experiências",
+  destinationsExperiencesTitle: "Mais que destinos,",
+  destinationsExperiencesTitleEmphasis: "experiências que conectam você ao Peru",
+  destinationsExperiencesDescription: "Combinamos o melhor de nossos destinos para criar experiências únicas, adaptadas aos interesses dos seus viajantes.",
+  destinationsCtaTitle: "Pronto para planejar a viagem perfeita?",
+  destinationsCtaDescription: "Nossa equipe está pronta para criar o programa ideal para você.",
+  destinationsContactButton: "Fale conosco",
+  miceMetaTitle: "Eventos MICE no Peru | Reuniões, Incentivos e Congressos | Fiesta Tours",
+  miceMetaDescription: "Planejamos e realizamos reuniões, viagens de incentivo, congressos e eventos corporativos em todo o Peru.",
+  miceHeroEyebrow: "Reuniões · Incentivos · Congressos · Eventos",
+  miceHeroTitle: "MICE",
+  miceHeroSubtitle: "Onde os negócios se transformam em experiências",
+  miceHeroDescription: "Criamos e realizamos experiências corporativas no Peru, unindo conhecimento local, excelência operacional e criatividade para produzir eventos que inspiram, conectam e deixam um impacto duradouro.",
+  miceMeetingsTitle: "REUNIÕES",
+  miceMeetingsDescription: "Reuniões e encontros corporativos planejados de acordo com os objetivos de cada organização.",
+  miceIncentivesTitle: "INCENTIVOS",
+  miceIncentivesDescription: "Experiências memoráveis que reconhecem, motivam e conectam equipes.",
+  miceCongressTitle: "CONGRESSOS",
+  miceCongressDescription: "Planejamento completo de congressos, convenções e grupos profissionais.",
+  miceSpecialEventsTitle: "EVENTOS ESPECIAIS",
+  miceSpecialEventsDescription: "Eventos únicos que combinam produção, logística e cenários extraordinários em todo o Peru.",
+  miceScenariosEyebrow: "Cenários únicos\npara ideias extraordinárias",
+  miceScenariosTitle: "O Peru como cenário para grandes ideias",
+  miceScenariosDescription: "De cidades históricas a paisagens incomparáveis, oferecemos locais exclusivos e experiências autênticas que tornam qualquer evento inesquecível.",
+  miceScenarioLabels: ["Locais históricos", "Espaços exclusivos", "Incentivos em meio à natureza", "Experiências únicas"],
+  miceCtaEyebrow: "MAIS QUE UM EVENTO",
+  miceCtaTitle: "Criamos conexões que vão além.",
+  miceCtaDescription: "Eventos que inspiram pessoas, fortalecem relacionamentos e deixam um impacto positivo.",
 
   heroEyebrow: "Viagens corporativas de alto impacto",
   heroTitle: "Incentivos que\ntransformam equipes",
@@ -347,54 +442,54 @@ export const incentivos: IncentivosTranslations = {
 
   experienceTranslations: {
     "experience_lima_title": "LIMA",
-    "experience_lima_desc": "La puerta de entrada al Perú.",
-    "experience_lima_cta": "Descubrir Lima",
+    "experience_lima_desc": "A porta de entrada para o Peru.",
+    "experience_lima_cta": "Conheça Lima",
 
     "experience_cusco_title": "CUSCO",
-    "experience_cusco_desc": "El corazón de los Andes.",
-    "experience_cusco_cta": "Descubrir Cusco",
+    "experience_cusco_desc": "O coração dos Andes.",
+    "experience_cusco_cta": "Conheça Cusco",
 
-    "experience_valle_title": "VALLE SAGRADO",
-    "experience_valle_desc": "Paisajes que cuentan historias.",
-    "experience_valle_cta": "Descubrir el Valle Sagrado",
+    "experience_valle_title": "VALE SAGRADO",
+    "experience_valle_desc": "Paisagens que contam histórias.",
+    "experience_valle_cta": "Conheça o Vale Sagrado",
 
     "experience_machu_title": "MACHU PICCHU",
-    "experience_machu_desc": "Una maravilla que trasciende el viaje.",
-    "experience_machu_cta": "Vivir Machu Picchu",
+    "experience_machu_desc": "Uma maravilha que transcende a viagem.",
+    "experience_machu_cta": "Conheça Machu Picchu",
 
     "experience_puno_title": "PUNO",
-    "experience_puno_desc": "El lago de los Andes.",
-    "experience_puno_cta": "Descubrir Puno",
+    "experience_puno_desc": "O lago dos Andes.",
+    "experience_puno_cta": "Conheça Puno",
 
     "experience_arequipa_title": "AREQUIPA",
-    "experience_arequipa_desc": "Entre volcanes y tradiciones.",
-    "experience_arequipa_cta": "Descubrir Arequipa",
+    "experience_arequipa_desc": "Entre vulcões e tradições.",
+    "experience_arequipa_cta": "Conheça Arequipa",
 
     "experience_ica_title": "ICA, PARACAS & NAZCA",
-    "experience_ica_desc": "Desierto, océano y misterio.",
-    "experience_ica_cta": "Descubrir la Costa Sur",
+    "experience_ica_desc": "Deserto, oceano e mistério.",
+    "experience_ica_cta": "Conheça a Costa Sul",
 
-    "experience_amazonia_title": "AMAZONÍA",
-    "experience_amazonia_desc": "La naturaleza en su máxima expresión.",
-    "experience_amazonia_cta": "Descubrir la Amazonía",
+    "experience_amazonia_title": "AMAZÔNIA",
+    "experience_amazonia_desc": "A natureza em sua máxima expressão.",
+    "experience_amazonia_cta": "Conheça a Amazônia",
   },
 
-  categoryCta: "Conocer más",
+  categoryCta: "Saiba mais",
   categoryTranslations: {
-    "category_culture_title": "CULTURA & PATRIMONIO",
-    "category_culture_desc": "Descubra la historia y las tradiciones que han dado forma al Perú.",
-    "category_gastronomy_title": "GASTRONOMÍA",
-    "category_gastronomy_desc": "Sabores, mercados y restaurantes que revelan la diversidad del país.",
-    "category_nature_title": "NATURALEZA & AVENTURA",
-    "category_nature_desc": "De los Andes a la Amazonía, experiencias para conectar con paisajes extraordinarios.",
-    "category_luxury_title": "LUJO & EXPERIENCIAS PRIVADAS",
-    "category_luxury_desc": "Momentos diseñados a medida, con atención personalizada y acceso a experiencias especiales.",
-    "category_trains_title": "TRENES & GRANDES VIAJES",
-    "category_trains_desc": "Viajes extraordinarios a través de algunos de los paisajes más espectaculares del Perú."
+    "category_culture_title": "CULTURA & PATRIMÔNIO",
+    "category_culture_desc": "Descubra a história e as tradições que moldaram o Peru.",
+    "category_gastronomy_title": "GASTRONOMIA",
+    "category_gastronomy_desc": "Sabores, mercados e restaurantes que revelam a diversidade do país.",
+    "category_nature_title": "NATUREZA & AVENTURA",
+    "category_nature_desc": "Dos Andes à Amazônia, experiências para se conectar com paisagens extraordinárias.",
+    "category_luxury_title": "LUXO & EXPERIÊNCIAS PRIVATIVAS",
+    "category_luxury_desc": "Momentos sob medida, atendimento personalizado e acesso a experiências especiais.",
+    "category_trains_title": "TRENS & GRANDES VIAGENS",
+    "category_trains_desc": "Viagens extraordinárias por algumas das paisagens mais espetaculares do Peru."
   },
   statTranslations: {
     stat_programs: "Programas realizados",
-    stat_satisfaction: "Satisfação do cliente",
+    stat_satisfaction: "Satisfação dos clientes",
     stat_fortune500: "Empresas Fortune 500",
     stat_participants: "Participantes motivados"
   },
@@ -417,6 +512,56 @@ export const recorridos: RecorridosTranslations = {
   heroTitle: "Itinerários criados\npara viajantes exigentes",
   heroSubtitle:
     "Cada itinerário é único, cada experiência é inesquecível",
+  listHeroEyebrow: "Coleção exclusiva · mais de 50 anos de excelência",
+  listHeroTitle: "Experiências que\natravessam o tempo",
+  listHeroSubtitle: "Conheça uma coleção exclusiva de viagens idealizadas com meio século de experiência, criando momentos inesquecíveis em cada canto do Peru.",
+  exploreTours: "Explorar tours",
+  talkToExpert: "Falar com um especialista",
+  philosophyLabel: "Nossa filosofia",
+  philosophyText: "Cada viagem que criamos é uma obra-prima construída com décadas de conhecimento local, guias certificados e atenção aos detalhes — fruto de meio século de paixão.",
+  collectionLabel: "Coleção exclusiva",
+  collectionTitle: "Experiências criadas com",
+  yearsExpertise: "50 anos de experiência",
+  daysUnit: "Dias",
+  nightsUnit: "Noites",
+  discoverExperience: "Descobrir esta experiência",
+  certifiedGuides: "Guias certificados",
+  certifiedGuidesDesc: "Profissionais licenciados",
+  safeTravel: "Viagens seguras",
+  safeTravelDesc: "Cobertura e assistência 24 horas",
+  customItineraries: "Itinerários personalizados",
+  customItinerariesDesc: "Criados para cada viajante",
+  guaranteedQuality: "Qualidade garantida",
+  satisfactionDesc: "98% de satisfação comprovada",
+  readyForAdventure: "Pronto para a aventura?",
+  expertCtaTitle: "Deixe nossos especialistas",
+  expertCtaEmphasis: "criarem sua viagem perfeita",
+  personalTravelDesc: "Cada detalhe, cada momento, cada lembrança — personalizado para você.",
+  contactAdvisor: "Falar com um consultor",
+  yearsExcellence: "anos de\nexcelência",
+  backToTours: "Todos os tours",
+  yearRound: "O ano todo",
+  dayLabel: "Dia",
+  daysLabel: "Dias",
+  itineraryActivities: "Atividades em destaque",
+  activitiesLabel: "Atividades:",
+  travelDetails: "Detalhes da viagem",
+  includesTitle: "O que está incluído na sua experiência",
+  includedLabel: "Incluído",
+  excludedLabel: "Não incluído",
+  servicesLabel: "serviços",
+  exceptionsLabel: "exceções",
+  guaranteedServices: "Todos os serviços são garantidos",
+  availabilityDetails: "Consulte disponibilidade e detalhes",
+  experienceCta: "Pronto para viver esta experiência única?",
+  readMore: "Ler mais",
+  readLess: "Ler menos",
+  locations: {
+    "lima": "Lima",
+    "cusco": "Cusco",
+    "valle-sagrado": "Vale Sagrado",
+    "machu-picchu": "Machu Picchu"
+  },
 
   filterAll: "Todos",
   filterClassic: "Luxo",
@@ -434,16 +579,30 @@ export const recorridos: RecorridosTranslations = {
   ctaBtn2: "Falar com um consultor",
 
   tourDescriptions: {
-    tour_grande_desc:
-      "Lima, Cusco, Machu Picchu e Lago Titicaca. A experiência completa do Peru.",
-    tour_aventura_desc:
-      "Exploração ativa pelas montanhas e paisagens do Peru.",
-    tour_cultural_desc:
-      "História, tradição e patrimônio cultural peruano.",
-    tour_familia_desc:
-      "Experiências pensadas para viajar com crianças.",
-    tour_grupal_desc:
-      "A viagem ideal para grupos organizados."
+    peru_espectacular_desc:
+      "Descubra os destaques do Peru, de Lima e Cusco a Machu Picchu e ao Vale Sagrado.",
+    peru_magico_desc:
+      "Uma viagem inesquecível pelas paisagens mais icônicas e pelos tesouros culturais do Peru.",
+    peru_maravilla_desc:
+      "Explore a história, as tradições vivas e o extraordinário patrimônio do Peru.",
+    peru_jeans_desc:
+      "Uma viagem descontraída pelo Peru, pensada para famílias e viajantes de todas as idades.",
+    peru_express_desc:
+      "Conheça os principais destaques do Peru em uma viagem curta e cuidadosamente planejada.",
+    peru_esencial_desc:
+      "Uma introdução especial aos destinos mais marcantes do Peru.",
+    "majestad_inca_desc":
+      "Oito noites inesquecíveis através do tempo, explorando o legado do Império Inca."
+  },
+
+  tourTitles: {
+    "peru-espectacular": "Peru Espetacular",
+    "peru-magico": "Peru Mágico",
+    "peru-maravilla": "Peru Maravilhoso",
+    "peru-jeans": "Peru de Jeans",
+    "peru-express": "Peru Express",
+    "peru-esencial": "Peru Essencial",
+    "majestad-inca": "Oito Noites Inesquecíveis Através do Tempo"
   },
 
   tagTranslations: {
@@ -456,9 +615,9 @@ export const recorridos: RecorridosTranslations = {
 
   // ✅ DIFFICULTY TRANSLATIONS
   difficultyTranslations: {
-    1: "Easy",
-    2: "Moderate",
-    3: "High"
+    1: "Fácil",
+    2: "Moderada",
+    3: "Alta"
   }
 };
 
@@ -490,10 +649,10 @@ export const hoteles: HotelesTranslations = {
   ctaBtn2: "Falar com assessor",
    // TRADUCCIONES DE DESCRIPCIONES DE HOTELES
   hotelDescriptions: {
-    "hotel_el_pardo_desc": "Diseño contemporáneo con alma peruana en el corazón de Miraflores.",
-    "hotel_crowne_plaza_desc": "Vistas al Pacífico, spa de clase mundial y la mejor ubicación.",
-    "hotel_inkaterra_casona_desc": "Mansión del siglo XVI restaurada con autenticidad en la Plaza de las Nazarenas.",
-    "hotel_inkaterra_amazon_desc": "Lodge de lujo en Madre de Dios. Biodiversidad única y confort excepcional."
+    "hotel_el_pardo_desc": "Design contemporâneo com alma peruana no coração de Miraflores.",
+    "hotel_crowne_plaza_desc": "Vista para o Oceano Pacífico, spa de classe mundial e localização privilegiada.",
+    "hotel_inkaterra_casona_desc": "Mansão do século XVI restaurada com autenticidade na Plaza de las Nazarenas.",
+    "hotel_inkaterra_amazon_desc": "Lodge de luxo em Madre de Dios, com biodiversidade única e conforto excepcional."
   },
 
   // TRADUCCIONES DE TAGS
@@ -540,16 +699,16 @@ export const cruceros: CrucerosTranslations = {
   ctaTitle: "Reserve seu cruzeiro pelo Amazonas",
   ctaBtn1: "Ver datas disponíveis",
   ctaBtn2: "Solicitar informações",
-  durationFormat: "",
+  durationFormat: "{nights} noites",
   cruiseDescriptions: {
-    "cruise_amazon_desc": "Iquitos como punto de partida. Navegue hasta los afluentes más remotos del Amazonas con naturalistas a bordo.",
-    "cruise_pacaya_desc": "Reserva Nacional Pacaya-Samiria, el 'Espejo de cielo'. Fauna explosiva y comunidades ribeñas.",
-    "cruise_titicaca_desc": "El lago navegable más alto del mundo en catamarán de lujo. Uros, Amantaní y Taquile."
+    "cruise_amazon_desc": "Partindo de Iquitos, navegue pelos afluentes mais remotos do Amazonas com naturalistas a bordo.",
+    "cruise_pacaya_desc": "Explore a Reserva Nacional Pacaya-Samiria, o 'Espelho do Céu', com fauna exuberante e comunidades ribeirinhas.",
+    "cruise_titicaca_desc": "Navegue pelo lago mais alto do mundo em um catamarã de luxo e conheça Uros, Amantaní e Taquile."
   },
 
   tagTranslations: {
-    "tag_amazonico": "🌿 Amazónico",
+    "tag_amazonico": "🌿 Amazônico",
     "tag_premium": "💎 Premium",
-    "tag_altiplanico": "🏔️ Altiplánico"
+    "tag_altiplanico": "🏔️ Altiplânico"
   }
 };

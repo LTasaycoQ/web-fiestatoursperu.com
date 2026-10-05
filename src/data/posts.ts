@@ -56,6 +56,16 @@ export interface BlogPost {
   authorBio?: string;
   image: string;
   tags?: string[];
+  translations?: Partial<Record<"en" | "pt", BlogPostTranslation>>;
+}
+
+export interface BlogPostTranslation {
+  category: string;
+  title: string;
+  excerpt: string;
+  date?: string;
+  blocks: ContentBlock[];
+  toc?: { id: string; label: string }[];
 }
 
 export const blogPosts: Record<string, BlogPost> = {
@@ -71,10 +81,110 @@ export const blogPosts: Record<string, BlogPost> = {
     excerpt: "Visitar Vinicunca es uno de los momentos más esperados de un viaje al Perú. La manera en que se vive esta experiencia marca una diferencia profunda.",
     image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1778863905/secun2_v0xlkr.jpg",
     date: "15 de Mayo, 2026",
-    readTime: "8 min",
+    readTime: "8",
     author: "Jesús Lopez",
     authorBio: "Especialista en viajes de lujo y alta montaña con más de 10 años explorando destinos andinos exclusivos.",
     tags: ["montaña", "aventura", "cusco", "naturaleza", "vinicunca", "trekking"],
+    translations: {
+      en: {
+        category: "Nature & Wildlife",
+        title: "The best way to visit Rainbow Mountain",
+        excerpt: "Visiting Vinicunca is one of the most anticipated moments of a trip to Peru. How you experience it makes all the difference.",
+        date: "May 15, 2026",
+        toc: [
+          { id: "colores", label: "Why does it have seven colors?" },
+          { id: "privado", label: "Why choose a private service?" },
+          { id: "prep", label: "Essential preparation" },
+          { id: "epoca", label: "The best time to visit" },
+        ],
+        blocks: [
+          {
+            type: "lead",
+            text: "Visiting Rainbow Mountain (Vinicunca) is one of the most anticipated moments of a trip to Peru. But how you experience it makes all the difference. Choosing a private service over a standard group tour is about more than comfort: it means better quality, greater safety and a more authentic way to enjoy the Andean landscape.",
+          },
+          { type: "heading2", text: "Set your own pace and choose better departure times.", id: "colores" },
+          {
+            type: "paragraph",
+            text: "With a private service, the itinerary is tailored to you, not to a group. Strategic departure times help avoid peak crowds, while flexible stops and a steady ascent support proper acclimatization and physical comfort.",
+          },
+          { type: "heading2", text: "Leading guides in Cusco and the region.", id: "colores" },
+          {
+            type: "paragraph",
+            text: "Your tour is led by outstanding guides from Cusco, carefully selected for their experience and expertise on routes across the region, from Rainbow Mountain to the Sacred Valley and Machu Picchu. Working exclusively with your party, they provide attentive service, tailor their explanations to each traveler and monitor signs of fatigue or altitude discomfort, making the experience safer, more enriching and memorable.",
+          },
+          { type: "heading2", text: "Greater comfort on the road", id: "colores" },
+          {
+            type: "paragraph",
+            text: "Travel in a comfortable private vehicle with spacious seats and extra room to stretch your legs—ideal for a long and demanding journey.",
+          },
+          { type: "heading2", text: "Time to enjoy and take photos without rushing.", id: "colores" },
+          {
+            type: "paragraph",
+            text: "A private service gives you the time you need to walk, rest and take photos without the pressure of a group schedule, so you can enjoy the landscape at your own pace and connect with your surroundings.",
+          },
+          { type: "heading2", text: "Dining: the best option in the area", id: "colores" },
+          {
+            type: "paragraph",
+            text: "Breakfast and lunch are served at the best dining option available in the region. They may not be large restaurants, but they are the best the area has to offer and a clear step up from the basic options often used on standard tours.",
+          },
+          {
+            type: "image",
+            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
+            alt: "Panoramic view of Vinicunca at sunrise",
+            caption: "A panoramic view of Vinicunca—the best time to visit is between 7 and 9 a.m., before the larger groups arrive.",
+          },
+        ],
+      },
+      pt: {
+        category: "Natureza e vida selvagem",
+        title: "A melhor maneira de visitar a Montanha das Sete Cores",
+        excerpt: "Visitar Vinicunca é um dos momentos mais esperados de uma viagem ao Peru. A forma como você vive essa experiência faz toda a diferença.",
+        date: "15 de maio de 2026",
+        toc: [
+          { id: "colores", label: "Por que a montanha tem sete cores?" },
+          { id: "privado", label: "Por que escolher um serviço privado?" },
+          { id: "prep", label: "Preparativos essenciais" },
+          { id: "epoca", label: "A melhor época para visitar" },
+        ],
+        blocks: [
+          {
+            type: "lead",
+            text: "Visitar a Montanha das Sete Cores (Vinicunca) é um dos momentos mais esperados de uma viagem ao Peru. Porém, a forma como você vive essa experiência faz toda a diferença. Escolher um serviço privado em vez de um passeio regular não é apenas uma questão de conforto: significa mais qualidade, segurança e uma maneira autêntica de aproveitar a paisagem andina.",
+          },
+          { type: "heading2", text: "No seu ritmo e com horários mais bem planejados.", id: "colores" },
+          {
+            type: "paragraph",
+            text: "Em um serviço privado, o roteiro se adapta ao passageiro, e não ao grupo. Isso permite saídas estratégicas para evitar os horários mais movimentados, paradas flexíveis durante o percurso e uma subida em ritmo adequado, respeitando a aclimatação e o bem-estar físico.",
+          },
+          { type: "heading2", text: "Guias de referência em Cusco e na região.", id: "colores" },
+          {
+            type: "paragraph",
+            text: "O passeio é conduzido por excelentes guias de Cusco, escolhidos cuidadosamente por sua experiência e conhecimento das rotas da região, da Montanha das Sete Cores ao Vale Sagrado e Machu Picchu. Atendendo seu grupo em caráter privado, eles oferecem atenção próxima, explicações adaptadas a cada viajante e acompanhamento constante diante de sinais de cansaço ou mal-estar causado pela altitude, tornando a experiência segura, enriquecedora e inesquecível.",
+          },
+          { type: "heading2", text: "Mais conforto no transporte", id: "colores" },
+          {
+            type: "paragraph",
+            text: "O trajeto é feito em veículo privado e confortável, com assentos amplos e mais espaço para esticar as pernas, ideal para um percurso longo e exigente.",
+          },
+          { type: "heading2", text: "Tempo para aproveitar e fotografar sem pressa.", id: "colores" },
+          {
+            type: "paragraph",
+            text: "O serviço privado oferece o tempo necessário para caminhar, descansar e tirar fotos sem correria nem pressão do grupo, permitindo apreciar a paisagem com calma e conexão com o ambiente.",
+          },
+          { type: "heading2", text: "Gastronomia: a melhor opção da região", id: "colores" },
+          {
+            type: "paragraph",
+            text: "O café da manhã e o almoço são servidos na melhor opção gastronômica disponível na região. Não são grandes restaurantes, mas representam o melhor que o local oferece e fazem uma clara diferença em relação às opções básicas dos passeios regulares.",
+          },
+          {
+            type: "image",
+            src: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1778863872/principal_fxuk5f",
+            alt: "Vista panorâmica de Vinicunca ao amanhecer",
+            caption: "Vista panorâmica de Vinicunca — o melhor horário é entre 7h e 9h da manhã, antes da chegada dos grandes grupos.",
+          },
+        ],
+      },
+    },
     toc: [
       { id: "colores", label: "¿Por qué tiene siete colores?" },
       { id: "privado", label: "Por qué elegir servicio privado" },
@@ -174,10 +284,16 @@ export const blogPosts: Record<string, BlogPost> = {
  
 };
 
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts[slug];
+function localizePost(post: BlogPost, lang: "es" | "en" | "pt"): BlogPost {
+  const translation = lang === "es" ? undefined : post.translations?.[lang];
+  return translation ? { ...post, ...translation } : post;
 }
 
-export function getAllBlogPosts(): BlogPost[] {
-  return Object.values(blogPosts);
+export function getBlogPostBySlug(slug: string, lang: "es" | "en" | "pt" = "es"): BlogPost | undefined {
+  const post = blogPosts[slug];
+  return post ? localizePost(post, lang) : undefined;
+}
+
+export function getAllBlogPosts(lang: "es" | "en" | "pt" = "es"): BlogPost[] {
+  return Object.values(blogPosts).map((post) => localizePost(post, lang));
 }

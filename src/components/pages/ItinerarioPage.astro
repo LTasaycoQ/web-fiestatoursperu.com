@@ -19,6 +19,7 @@ const tours = toursData.map(tour => {
   const durationNights = durationDays > 0 ? durationDays - 1 : 0;
   return {
     ...tour,
+    title: r.tourTitles?.[tour.id] ?? tour.title,
     tag: r.tagTranslations[tour.tagKey] || tour.tagKey,
     description: r.tourDescriptions[tour.descriptionKey] || "",
     durationDays,
@@ -60,27 +61,26 @@ function cloudinaryOptimize(url: string, width: number): string {
 
       <div class="rec-hero__eyebrow">
         <span class="rec-hero__dot"></span>
-        <span>Colección exclusiva · 50+ años de excelencia</span>
+        <span>{r.listHeroEyebrow}</span>
       </div>
 
       <h1 class="rec-hero__title">
-        Experiencias que<br/>
-        <em>trascienden el tiempo</em>
+        <span style="white-space: pre-line">{r.listHeroTitle}</span>
       </h1>
 
       <p class="rec-hero__subtitle titulo_pp_nuel">
-        Descubra una colección exclusiva de viajes diseñados con la expertise de medio siglo creando momentos inolvidables en cada rincón del Perú.
+        {r.listHeroSubtitle}
       </p>
 
       <div class="rec-hero__actions">
         <a href="#tours-section" class="rec-hero__btn-primary ">
-          Explorar tours
+          {r.exploreTours}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </a>
         <a href={localePath(lang, "/contacto")} class="rec-hero__btn-ghost">
-          Hablar con un experto
+          {r.talkToExpert}
         </a>
       </div>
 
@@ -95,9 +95,9 @@ function cloudinaryOptimize(url: string, width: number): string {
 
   <section class="rec-intro">
     <div class="rec-intro__inner"  data-aos="fade-up">
-      <span class="rec-intro__label">Nuestra filosofía</span>
+      <span class="rec-intro__label">{r.philosophyLabel}</span>
       <p class="rec-intro__text" >
-        Cada recorrido que diseñamos es una obra maestra construida sobre décadas de conocimiento local, guías certificados y atención al detalle que solo medio siglo de pasión puede ofrecer.
+        {r.philosophyText}
       </p>
     </div>
   </section>
@@ -110,11 +110,11 @@ function cloudinaryOptimize(url: string, width: number): string {
         <div class="tours-header__left">
           <div style="display: flex; height: auto; width: 100%; align-items: center;">
             <div style="background-color: rgb(206, 172, 86); width: 30px; height: 1px;" ></div>
-            <span class="tours-kicker">Colección exclusiva</span>
+            <span class="tours-kicker">{r.collectionLabel}</span>
           </div>
           <h2 class="tours-title">
-            Experiencias diseñadas con<br/>
-            <strong>50 años de expertise</strong>
+            {r.collectionTitle}<br/>
+            <strong>{r.yearsExpertise}</strong>
           </h2>
         </div>
       </div>
@@ -156,9 +156,9 @@ function cloudinaryOptimize(url: string, width: number): string {
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
                     <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                   </svg>
-                  {tour.durationDays} {tour.durationDays === 1 ? 'Día' : 'Días'}
+                  {tour.durationDays} {r.daysUnit}
                   {tour.durationNights > 0 && (
-                    <> / {tour.durationNights} {tour.durationNights === 1 ? ' Noche' : ' Noches'}</>
+                    <> / {tour.durationNights} {r.nightsUnit}</>
                   )}
                 </span>
               </div>
@@ -168,7 +168,7 @@ function cloudinaryOptimize(url: string, width: number): string {
 
               <div class="tour-card__footer">
                 <span class="tour-card__link">
-                  Descubrir experiencia
+                  {r.discoverExperience}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                   </svg>
@@ -192,32 +192,32 @@ function cloudinaryOptimize(url: string, width: number): string {
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        <strong>Guías certificados</strong>
-        <span>Profesionales con licencia oficial</span>
+        <strong>{r.certifiedGuides}</strong>
+        <span>{r.certifiedGuidesDesc}</span>
       </div>
       <div class="trust-bar__divider"></div>
       <div class="trust-bar__item" >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        <strong>Viajes seguros</strong>
-        <span>Cobertura y asistencia 24/7</span>
+        <strong>{r.safeTravel}</strong>
+        <span>{r.safeTravelDesc}</span>
       </div>
       <div class="trust-bar__divider"></div>
       <div class="trust-bar__item">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        <strong>Itinerarios a medida</strong>
-        <span>Diseñados para cada viajero</span>
+        <strong>{r.customItineraries}</strong>
+        <span>{r.customItinerariesDesc}</span>
       </div>
       <div class="trust-bar__divider"></div>
       <div class="trust-bar__item" >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="1.5"/>
         </svg>
-        <strong>Calidad garantizada</strong>
-        <span>98% de satisfacción comprobada</span>
+        <strong>{r.guaranteedQuality}</strong>
+        <span>{r.satisfactionDesc}</span>
       </div>
     </div>
   </section>
@@ -226,17 +226,17 @@ function cloudinaryOptimize(url: string, width: number): string {
   <section class="rec-cta">
     <div class="rec-cta__inner"  data-aos="fade-up">
       <div class="rec-cta__content">
-        <span class="rec-cta__kicker">¿Listo para la aventura?</span>
+        <span class="rec-cta__kicker">{r.readyForAdventure}</span>
         <h2 class="rec-cta__title">
-          Deja que nuestros expertos<br/>
-          <span>diseñen tu viaje perfecto</span>
+          {r.expertCtaTitle}<br/>
+          <span>{r.expertCtaEmphasis}</span>
         </h2>
         <p class="rec-cta__text" >
-          Cada detalle, cada momento, cada recuerdo — personalizado para ti.
+          {r.personalTravelDesc}
         </p>
         <div class="rec-cta__buttons">
           <a href={localePath(lang, "/contacto")} class="rec-cta__btn-primary">
-            Contactar asesor
+            {r.contactAdvisor}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
@@ -250,7 +250,7 @@ function cloudinaryOptimize(url: string, width: number): string {
         <div class="rec-cta__img-accent"></div>
         <div class="rec-cta__img-badge">
           <span class="rec-cta__badge-num">50+</span>
-          <span class="rec-cta__badge-label">años de<br/>excelencia</span>
+          <span class="rec-cta__badge-label">{r.yearsExcellence}</span>
         </div>
       </div>
     </div>

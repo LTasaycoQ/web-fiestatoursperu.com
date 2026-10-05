@@ -48,7 +48,7 @@ function getNavTranslation(key: string): string {
       <a
         href={localePath(lang, "/")}
         class="logo"
-        aria-label="Fiesta Tours Perú - Inicio"
+        aria-label={`Fiesta Tours Perú - ${getNavTranslation("homeLabel")}`}
       >
         <div class="logo-wrapper">
           <img
@@ -63,7 +63,7 @@ function getNavTranslation(key: string): string {
         </div>
       </a>
 
-      <nav class="nav-links letritas" aria-label="Menú principal">
+      <nav class="nav-links letritas" aria-label={getNavTranslation("mainMenuLabel")}>
         {
           navRoutes.map((route) => (
             <div
@@ -307,7 +307,7 @@ function getNavTranslation(key: string): string {
 <button
   id="mobile-toggle"
   class="mobile-toggle"
-  aria-label="Abrir menú"
+  aria-label={getNavTranslation("openMenuLabel")}
   aria-expanded="false"
   aria-controls="mobile-menu"
 >

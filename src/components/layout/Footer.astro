@@ -29,7 +29,7 @@ import LogoEs from "../../assets/log-png.png";
               decoding="async"
             />
           </a>
-          <p class="footer-description">50 años creando experiencias de viajes inolvidables</p>
+          <p class="footer-description">{t.footer.brandTagline}</p>
 
           <div class="footer-contact">
             <span class="footer-contact__item">
@@ -83,16 +83,16 @@ import LogoEs from "../../assets/log-png.png";
           }
 
           <div class="footer-newsletter">
-            <h4>Inspírate</h4>
-            <p>Suscríbete para recibir ofertas exclusivas y novedades.</p>
+            <h4>{t.footer.newsletterTitle}</h4>
+            <p>{t.footer.newsletterDescription}</p>
             <form class="newsletter-form" action="/subscribe" method="POST">
               <input
                 type="email"
-                placeholder="Tu correo electrónico"
-                aria-label="Correo para newsletter"
+                placeholder={t.footer.newsletterPlaceholder}
+                aria-label={t.footer.newsletterLabel}
                 required
               />
-              <button type="submit" aria-label="Suscribirse">→</button>
+              <button type="submit" aria-label={t.footer.subscribeLabel}>→</button>
             </form>
 
             <div class="social-links">
@@ -141,7 +141,7 @@ import LogoEs from "../../assets/log-png.png";
 
     <!-- Barra inferior -->
     <div class="footer-bottom">
-      <p>© {new Date().getFullYear()} Fiesta Tours Perú. Todos los derechos reservados.</p>
+      <p>© {new Date().getFullYear()} Fiesta Tours Perú. {t.footer.rightsReserved}</p>
       <div class="footer-bottom-links">
         {
           footerLegal.map((link) => (
@@ -152,7 +152,7 @@ import LogoEs from "../../assets/log-png.png";
         }
       </div>
       <div class="payment-methods">
-        <span>Pago seguro con:</span>
+        <span>{t.footer.securePayment}</span>
         <span>Visa</span>
         <span>Mastercard</span>
         <span>Amex</span>

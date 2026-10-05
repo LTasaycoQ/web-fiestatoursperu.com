@@ -33,6 +33,14 @@ const footer: FooterTranslations = {
 
   reclamaciones: '📋 Livro de reclamações',
   privacidad: 'Política de privacidade',
+  newsletterTitle: 'Inspire-se',
+  newsletterDescription: 'Inscreva-se para receber ofertas exclusivas e novidades.',
+  newsletterPlaceholder: 'Seu endereço de e-mail',
+  newsletterLabel: 'E-mail para receber novidades',
+  subscribeLabel: 'Inscrever-se',
+  rightsReserved: 'Todos os direitos reservados.',
+  securePayment: 'Pagamento seguro com:',
+  brandTagline: 'Há 50 anos criando experiências de viagem inesquecíveis.',
 };
 
 export default footer;

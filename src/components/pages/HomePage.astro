@@ -22,6 +22,7 @@ const toursHome = toursData.slice(1, 4).map((tour) => {
   const durationNights = durationDays > 0 ? durationDays - 1 : 0;
   return {
     ...tour,
+    title: t.recorridos.tourTitles?.[tour.id] ?? tour.title,
     tag: t.recorridos.tagTranslations[tour.tagKey] || tour.tagKey,
     days: durationDays,
     nights: durationNights,
@@ -84,7 +85,7 @@ const featureIcons = [
 
       <div class="about-action">
         <a href={localePath(lang, "/nosotros")} class="about-action__link">
-          Descubra nuestra historia
+          {h.historyLink}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -108,7 +109,7 @@ const featureIcons = [
         style="box-shadow: rgba(0, 0, 0, 0.333) 10px 10px 20px 0px;"
         loading="lazy"
         src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1788194432/v3_grtpb8.png"
-        alt="Paisaje peruano"
+        alt={h.imagePeruAlt}
       />
     </div>
   </section>
@@ -120,60 +121,44 @@ const featureIcons = [
       <div class="workflow-image">
         <img
           src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1788208661/84cda2e0-5dd4-482b-97e7-ae648a35eb20_cuiub5"
-          alt="Encuentro con pobladores locales en los Andes peruanos"
+          alt={h.imagePeruAlt}
           loading="lazy"
         />
       </div>
 
       <div class="workflow-text">
-        <span class="eyebrow-title">Nuestra forma de trabajar</span>
+        <span class="eyebrow-title">{h.workflowEyebrow}</span>
         <div class="workflow-rule"></div>
 
         <h2 class="workflow-title">
-          Más que conocer el Perú.
+          {h.workflowTitle}
           <strong style="font-weight: 500; color: rgb(51, 71, 51);"
-            >Sabemos cómo hacerlo extraordinario.</strong
+            >{h.workflowTitleEmphasis}</strong
           >
         </h2>
 
         <div class="workflow-rule"></div>
 
         <p class="workflow-desc">
-          Abrimos las puertas a un Perú auténtico, combinando experiencias
-          únicas, conocimiento local y una operación impecable en cada detalle.
-          <br />
-          Porque los grandes viajes no se recuerdan solo por los lugares que visitamos,
-          sino por lo que sentimos, las historias que descubrimos y las personas que
-          encontramos en el camino.
+          {h.workflowDescription}
         </p>
       </div>
     </div>
 
     <div class="workflow-stats">
       <article class="stat-item">
-        <h3 class="stat-title">Diseñamos cada viaje a medida</h3>
-        <p class="stat-desc">
-          Cada itinerario nace de entender al viajero. Diseñamos experiencias
-          que responden a sus intereses, ritmo y expectativas.
-        </p>
+        <h3 class="stat-title">{h.workflow1Title}</h3>
+        <p class="stat-desc">{h.workflow1Description}</p>
       </article>
 
       <article class="stat-item">
-        <h3 class="stat-title">Conocemos el Perú de verdad</h3>
-        <p class="stat-desc">
-          Nuestros años en el destino nos permiten conocer rutas, tiempos,
-          proveedores y experiencias que no siempre aparecen en los circuitos
-          tradicionales.
-        </p>
+        <h3 class="stat-title">{h.workflow2Title}</h3>
+        <p class="stat-desc">{h.workflow2Description}</p>
       </article>
 
       <article class="stat-item">
-        <h3 class="stat-title">Operamos con experiencia y cuidado</h3>
-        <p class="stat-desc">
-          Nuestro equipo acompaña cada etapa del viaje, coordinando cada detalle
-          para que nuestros socios y sus pasajeros puedan viajar con
-          tranquilidad.
-        </p>
+        <h3 class="stat-title">{h.workflow3Title}</h3>
+        <p class="stat-desc">{h.workflow3Description}</p>
       </article>
     </div>
     <br /><br /><br />
@@ -411,9 +396,9 @@ const featureIcons = [
         <a
           href={localePath(lang, "/itinerarios")}
           class="tours-header-btn"
-          aria-label="Ver todos los itinerarios"
+          aria-label={h.tourAll}
         >
-          <span style="font-family: var(--font-ppnue);">Ver todos los tours</span>
+          <span style="font-family: var(--font-ppnue);">{h.tourAll}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -459,13 +444,13 @@ const featureIcons = [
                         <circle cx="12" cy="12" r="10" />
                         <polyline points="12 6 12 12 16 14" />
                       </svg>
-                      {tour.days} Días / {tour.nights} Noches
+                      {tour.days} {h.durationDays} / {tour.nights} {h.durationNights}
                     </span>
                   )}
                 </div>
                 <h3 class="tour-name">{tour.title}</h3>
                 <div class="tour-cta-row">
-                  <span class="tour-link-label">Ver itinerario</span>
+                  <span class="tour-link-label">{h.viewItinerary}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -792,14 +777,11 @@ const featureIcons = [
       <div class="cta-final-grain"></div>
     </div>
     <div class="cta-final-inner" data-aos="fade-up" data-aos-duration="1000">
-      <span class="eyebrow-title eyebrow-title--light">¿Listo para viajar?</span>
+      <span class="eyebrow-title eyebrow-title--light">{h.ctaEyebrow}</span>
       <h3 class="cta-final-title">
-        Tu próxima aventura<br /><em>te está esperando</em>
+        {h.closingTitle}
       </h3>
-      <p class="cta-final-sub">
-        Habla con nuestros asesores — 50 años de experiencia al servicio de tu
-        viaje ideal
-      </p>
+      <p class="cta-final-sub">{h.closingSubtitle}</p>
       <div class="cta-final-actions">
         <a
           href="https://wa.link/xv7a9b"
@@ -820,10 +802,10 @@ const featureIcons = [
               d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.1 1.523 5.827L0 24l6.341-1.502A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.785 9.785 0 01-5.007-1.375l-.36-.214-3.727.883.936-3.619-.235-.372A9.783 9.783 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"
             ></path>
           </svg>
-          WhatsApp directo
+          {h.ctaBtn2}
         </a>
         <a href={localePath(lang, "/planificador")} class="btn-cta-secondary">
-          Cotización personalizada
+          {h.quoteButton}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"

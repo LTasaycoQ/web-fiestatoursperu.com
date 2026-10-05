@@ -10,38 +10,103 @@ interface Props {
 }
 const { lang } = Astro.props;
 
-const allPosts = getAllBlogPosts();
+const allPosts = getAllBlogPosts(lang);
 const featuredPost = allPosts[0];
 const allRegularPosts = allPosts.slice(1);
 
-const ui = {
-  metaTitle: "Amazon Journal — Stories from the River",
-  metaDesc: "Dispatches, guides and nature notes from deep inside the Peruvian Amazon.",
-  heroEyebrow: "Amazon Journal",
-  heroTitle: "Stories from\nthe River",
-  heroSubtitle: "Field notes, travel guides and wonder from deep inside the Peruvian Amazon.",
-  readLabel: "min read",
-  readMore: "Read story",
-  loadMore: "Load more stories",
-  catAll: "All",
-  catNature: "Nature & Wildlife",
-  catTravel: "Travel & Culture",
-  catGuide: "Travel Guide",
-  catSustain: "Sustainability",
-  catCulture: "Culture & Food",
-  nlEyebrow: "Stay in the story",
-  nlTitle: "Dispatches from the Amazon, delivered to your inbox.",
-  nlBody: "Field notes, seasonal guides and exclusive voyage offers — no more than twice a month.",
-  nlName: "Your name",
-  nlEmail: "Email address",
-  nlBtn: "Subscribe",
-  nlPrivacy: "No spam, ever. Unsubscribe at any time.",
-  nlSuccess: "Thank you! Watch your inbox for the first dispatch.",
-  ctaEyebrow: "Ready for the river?",
-  ctaTitle: "Turn these stories into your own.",
-  ctaBtn1: "Explore our cruises",
-  ctaBtn2: "Talk to an expert",
+const uiByLang = {
+  es: {
+    metaTitle: "Blog — Historias y consejos de viaje por Perú",
+    metaDesc: "Historias, guías de viaje y consejos para descubrir los destinos del Perú.",
+    heroEyebrow: "Blog de viajes",
+    heroTitle: "Destinos, experiencias y consejos para tu próxima aventura en Perú",
+    heroSubtitle: "Historias, guías de viaje y recomendaciones para descubrir el Perú.",
+    readLabel: "de lectura",
+    readMore: "Leer historia",
+    loadMore: "Ver más historias",
+    catAll: "Todos",
+    catNature: "Naturaleza y vida silvestre",
+    catTravel: "Viajes y cultura",
+    catGuide: "Guía de viaje",
+    catSustain: "Sostenibilidad",
+    catCulture: "Cultura y gastronomía",
+    nlEyebrow: "Sigue explorando",
+    nlTitle: "Historias y novedades de viaje en tu correo.",
+    nlBody: "Consejos, guías de temporada y ofertas exclusivas, como máximo dos veces al mes.",
+    nlName: "Tu nombre",
+    nlEmail: "Correo electrónico",
+    nlBtn: "Suscribirme",
+    nlPrivacy: "Sin spam. Puedes cancelar la suscripción cuando quieras.",
+    nlSuccess: "¡Gracias! Pronto recibirás nuestra primera publicación.",
+    ctaEyebrow: "¿Listo para viajar?",
+    ctaTitle: "Convierte estas historias en tu próxima aventura.",
+    ctaBtn1: "Explorar nuestros viajes",
+    ctaBtn2: "Hablar con un experto",
+    featured: "Historia destacada",
+    scroll: "Desplazar",
+  },
+  en: {
+    metaTitle: "Travel Journal — Stories and tips from Peru",
+    metaDesc: "Stories, travel guides and tips for discovering Peru's destinations.",
+    heroEyebrow: "Travel journal",
+    heroTitle: "Destinations, experiences and tips for your next Peruvian adventure",
+    heroSubtitle: "Stories, travel guides and recommendations to help you discover Peru.",
+    readLabel: "min read",
+    readMore: "Read story",
+    loadMore: "Load more stories",
+    catAll: "All",
+    catNature: "Nature & Wildlife",
+    catTravel: "Travel & Culture",
+    catGuide: "Travel Guide",
+    catSustain: "Sustainability",
+    catCulture: "Culture & Food",
+    nlEyebrow: "Stay inspired",
+    nlTitle: "Travel stories and updates, delivered to your inbox.",
+    nlBody: "Tips, seasonal guides and exclusive offers—no more than twice a month.",
+    nlName: "Your name",
+    nlEmail: "Email address",
+    nlBtn: "Subscribe",
+    nlPrivacy: "No spam. Unsubscribe at any time.",
+    nlSuccess: "Thank you! Look out for our first story in your inbox.",
+    ctaEyebrow: "Ready to travel?",
+    ctaTitle: "Turn these stories into your next adventure.",
+    ctaBtn1: "Explore our trips",
+    ctaBtn2: "Talk to an expert",
+    featured: "Featured story",
+    scroll: "Scroll",
+  },
+  pt: {
+    metaTitle: "Blog de viagens — Histórias e dicas do Peru",
+    metaDesc: "Histórias, guias e dicas de viagem para descobrir os destinos do Peru.",
+    heroEyebrow: "Blog de viagens",
+    heroTitle: "Destinos, experiências e dicas para sua próxima aventura no Peru",
+    heroSubtitle: "Histórias, guias de viagem e recomendações para você descobrir o Peru.",
+    readLabel: "min de leitura",
+    readMore: "Ler história",
+    loadMore: "Ver mais histórias",
+    catAll: "Todas",
+    catNature: "Natureza e vida selvagem",
+    catTravel: "Viagens e cultura",
+    catGuide: "Guia de viagem",
+    catSustain: "Sustentabilidade",
+    catCulture: "Cultura e gastronomia",
+    nlEyebrow: "Continue inspirado",
+    nlTitle: "Histórias e novidades de viagem no seu e-mail.",
+    nlBody: "Dicas, guias sazonais e ofertas exclusivas, no máximo duas vezes por mês.",
+    nlName: "Seu nome",
+    nlEmail: "E-mail",
+    nlBtn: "Inscrever-se",
+    nlPrivacy: "Sem spam. Cancele a inscrição quando quiser.",
+    nlSuccess: "Obrigado! Em breve você receberá nossa primeira publicação.",
+    ctaEyebrow: "Pronto para viajar?",
+    ctaTitle: "Transforme estas histórias na sua próxima aventura.",
+    ctaBtn1: "Explore nossas viagens",
+    ctaBtn2: "Fale com um especialista",
+    featured: "História em destaque",
+    scroll: "Role a página",
+  },
 };
+const ui = uiByLang[lang];
 
 const categories = [
   ui.catAll,
@@ -65,14 +130,14 @@ const categories = [
 
     <div class="blog-hero__content"  data-aos="fade-right">
       <p class="hero-eyebrow">{ui.heroEyebrow}</p>
-      <h1 class="blog-hero__title">Destinos, experiencias y consejos para tu próxima aventura en Perú</h1>
+      <h1 class="blog-hero__title">{ui.heroTitle}</h1>
       <div class="hero-rule"></div>
       <p class="blog-hero__sub">{ui.heroSubtitle}</p>
     </div>
 
     <div class="blog-hero__scroll" aria-hidden="true">
       <span class="scroll-line"></span>
-      <span class="scroll-label">Scroll</span>
+      <span class="scroll-label">{ui.scroll}</span>
     </div>
   </section>
 
@@ -111,7 +176,7 @@ const categories = [
       <div class="blog-featured__inner">
         <div  data-aos="fade-right" class="section-label">
           <span class="section-label__line"></span>
-          <span class="section-label__text">Featured Story</span>
+          <span class="section-label__text">{ui.featured}</span>
         </div>
         <a
           href={localePath(lang, `/blog/${featuredPost.slug}`)}
@@ -235,7 +300,7 @@ const categories = [
         <div class="nl-fields">
           <div class="nl-field">
             <label for="nl-name">{ui.nlName}</label>
-            <input type="text" id="nl-name" name="name" autocomplete="given-name" placeholder="Your name" required />
+            <input type="text" id="nl-name" name="name" autocomplete="given-name" placeholder={ui.nlName} required />
           </div>
           <div class="nl-field">
             <label for="nl-email">{ui.nlEmail}</label>

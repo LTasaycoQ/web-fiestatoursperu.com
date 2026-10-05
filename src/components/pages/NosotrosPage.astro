@@ -46,14 +46,14 @@ const icons: Record<string, string> = {
 
 <BaseLayout
   fullscreen={true}
-  title={`Nosotros — Fiesta Tours Perú`}
-  description="Conoce a Fiesta Tours Perú, operadora de turismo receptivo de lujo especializada desde 1976."
+  title={`${n.heroTitleLine1} — Fiesta Tours Perú`}
+  description={n.pageMetaDescription}
 >
   <section class="rec-hero">
     <div class="rec-hero__bg">
       <img
         src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1800&q=85&auto=format&fit=crop"
-        alt="Machu Picchu al amanecer"
+        alt={n.heroTitleLine3}
         aria-hidden="true"
         fetchpriority="high"
       />
@@ -63,25 +63,24 @@ const icons: Record<string, string> = {
     <div class="rec-hero__container" data-aos="fade-right">
       <div class="rec-hero__eyebrow">
         <span class="rec-hero__dot"></span>
-        <span>{n.heroBadge || "DESDE 1976 · 50+ AÑOS DE EXCELENCIA"}</span>
+        <span>{n.heroBadge}</span>
       </div>
 
       <h1 class="rec-hero__title">
-        {n.heroTitleLine1 || "La empresa"}
-        <em>{n.heroTitleLine2 || "Detrás del viaje"}</em><br />
-        {n.heroTitleLine3 || "perfecto."}
+        {n.heroTitleLine1}
+        <em>{n.heroTitleLine2}</em><br />
+        {n.heroTitleLine3}
       </h1>
 
       <p class="rec-hero__subtitle">
         {
-          n.heroSubtitle ||
-            "Operadora de turismo receptivo de lujo — especializada en el mercado más exigente de América Latina."
+          n.heroSubtitle
         }
       </p>
 
       <div class="rec-hero__actions">
         <a href="#descubrir" class="rec-hero__btn-primary">
-          {n.heroBtnPrimary || "Descubrir más"}
+          {n.heroBtnPrimary}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 5v14M5 12l7 7 7-7"
@@ -91,14 +90,14 @@ const icons: Record<string, string> = {
           </svg>
         </a>
         <a href={localePath(lang, "/contacto")} class="rec-hero__btn-ghost">
-          {n.heroBtnSecondary || "Contactar expertos"}
+          {n.heroBtnSecondary}
         </a>
       </div>
     </div>
 
     <div class="rec-hero__scroll">
       <div class="rec-hero__scroll-line"></div>
-      <span>Scroll</span>
+      <span>{n.scrollLabel}</span>
     </div>
   </section>
 
@@ -108,28 +107,24 @@ const icons: Record<string, string> = {
   <section class="section ns-empresa" id="descubrir">
     <div class="ns-grid-empresa" data-aos="fade-up">
       <div class="ns-empresa__text">
-        <span class="eyebrow-tag">{n.empresaEyebrow || "LA EMPRESA"}</span>
+        <span class="eyebrow-tag">{n.empresaEyebrow}</span>
         <h2
           class="display-h2"
-          set:html={n.empresaTitle ||
-            "Más de cuatro décadas<br>creando lo extraordinario."}
+          set:html={n.empresaTitle}
         />
         <div class="verde-stroke"></div>
         <div class="prose-stack">
           <p
-            set:html={n.empresaText1 ||
-              "<strong>Fiesta Tours Perú</strong> nace en 1976 con una misión clara: mostrar la grandeza del Perú al mundo."}
+            set:html={n.empresaText1}
           />
           <p>
             {
-              n.empresaText2 ||
-                "Con más de cuatro décadas de experiencia, nos hemos consolidado como operadores de turismo receptivo de lujo para el mercado más exigente de América Latina y el mundo."
+              n.empresaText2
             }
           </p>
           <p>
             {
-              n.empresaText3 ||
-                "Nuestro equipo está formado por profesionales apasionados que conocen cada rincón del Perú como nadie más."
+              n.empresaText3
             }
           </p>
         </div>
@@ -143,14 +138,14 @@ const icons: Record<string, string> = {
   <section class="section ns-why">
     <div class="ns-inner" data-aos="fade-up">
       <div class="ns-why__head">
-        <span class="eyebrow-tag">{n.whyEyebrow || "VALORES"}</span>
+        <span class="eyebrow-tag">{n.whyEyebrow}</span>
         <h2
           class="display-h2"
-          set:html={n.whyTitle || "Por qué<br>elegirnos"}
+          set:html={n.whyTitle}
         />
         <div class="verde-stroke"></div>
         <p class="section-lead">
-          {n.whyBody || "Cuatro pilares que definen nuestra forma de viajar"}
+          {n.whyBody}
         </p>
       </div>
 
@@ -175,7 +170,7 @@ const icons: Record<string, string> = {
 
       <div class="ns-why__cta">
         <a href={localePath(lang, "/destinos")} class="cta-primary">
-          <span>Explorar nuestros destinos</span>
+          <span>{n.exploreDestinations}</span>
           <svg
             width="16"
             height="16"
@@ -215,7 +210,7 @@ const icons: Record<string, string> = {
         style="display: flex;flex-direction: column; justify-content: start; align-items: start;"
       >
         <span style="color: #F1CF64; letter-spacing: 0.4em;"
-          >NUESTRO COMPROMISO</span
+          >{n.commitmentEyebrow}</span
         >
         <span
           class=""
@@ -224,22 +219,11 @@ const icons: Record<string, string> = {
       </div>
 
       <h1 class="rec-hero__title">
-        Viajar para
-        <em>Conservar</em>
+        <span style="white-space: pre-line">{n.commitmentTitle}</span>
       </h1>
 
       <p class="rec-hero__subtitle">
-        Durante 50 años hemos tenido el privilegio de mostrar el Perú al mundo.
-        Hoy, ese privilegio tambien implica una responsabilidad: proteger sus
-        paisajes, su patrimonio y las comunidades que mantienen viva nuestra
-        cultura.
-        <br />
-        Promovemos un turismo responsable y sostenible como parte de nuestra manera
-        de operar y somos parte de Turismo Cuida, sumándonos a iniciativas que buscan
-        generar un impacto positivo a través del turismo.
-        <br />
-        Asimismo, trabajamos vinculados al SERNANP, contribuyendo a la valoración
-        y conservación de las áreas naturales protegidas del Perú.
+        {n.commitmentDescription}
       </p>
     </div>
   </section>
@@ -275,14 +259,13 @@ const icons: Record<string, string> = {
           ></svg
         >
 
-        <span style="font-size: 30px;">Conservación</span>
+        <span style="font-size: 30px;">{n.conservationTitle}</span>
         <span
           class="line"
           style="width: 40px; height: 2px; background-color: #B19065;"></span>
         <br />
         <p>
-          Valoramos y protegemos nuestros espacios naturales para que las
-          futuras generaciones también puedan disfrutarlos.
+          {n.conservationDescription}
         </p>
       </div>
       <div
@@ -302,14 +285,13 @@ const icons: Record<string, string> = {
           ></path>
         </svg>
 
-        <span style="font-size: 30px;">Comunidades</span>
+        <span style="font-size: 30px;">{n.communitiesTitle}</span>
         <span
           class="line"
           style="width: 40px; height: 2px; background-color: #B19065;"></span>
         <br />
         <p>
-          Trabajamos con actores y proveedores locales, generando oportunidades
-          y valor en los destinos que visitamos
+          {n.communitiesDescription}
         </p>
       </div>
       <div
@@ -392,14 +374,13 @@ const icons: Record<string, string> = {
             </g>
           </g></svg
         >
-        <span style="font-size: 30px;">Turismo Responsable</span>
+        <span style="font-size: 30px;">{n.responsibleTourismTitle}</span>
         <span
           class="line"
           style="width: 40px; height: 2px; background-color: #B19065;"></span>
         <br />
         <p>
-          Diseñamos experiencias que respetan nuestro patrimonio natural y
-          cultural, en armonía con cada destino.
+          {n.responsibleTourismDescription}
         </p>
       </div>
     </div>

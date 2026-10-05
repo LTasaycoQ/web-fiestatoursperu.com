@@ -22,6 +22,9 @@ export interface NavTranslations {
   hotelsMachuPicchu: string;
   jungleLodges: string;
   mobileServices: string;
+  homeLabel?: string;
+  mainMenuLabel?: string;
+  openMenuLabel?: string;
 }
 
 // ─────────────────────────
@@ -83,6 +86,25 @@ export interface HomeTranslations {
   toursEyebrow?: string;
   aboutBtn?: string;
   toursBtn?: string;
+  historyLink?: string;
+  workflowEyebrow?: string;
+  workflowTitle?: string;
+  workflowTitleEmphasis?: string;
+  workflowDescription?: string;
+  workflow1Title?: string;
+  workflow1Description?: string;
+  workflow2Title?: string;
+  workflow2Description?: string;
+  workflow3Title?: string;
+  workflow3Description?: string;
+  tourAll?: string;
+  durationDays?: string;
+  durationNights?: string;
+  viewItinerary?: string;
+  closingTitle?: string;
+  closingSubtitle?: string;
+  quoteButton?: string;
+  imagePeruAlt?: string;
 }
 
 export interface Content {
@@ -177,6 +199,18 @@ export interface AboutTranslations {
   
   // Tag translations
   tagTranslations: Record<string, string>;
+  pageMetaDescription?: string;
+  scrollLabel?: string;
+  exploreDestinations?: string;
+  commitmentEyebrow?: string;
+  commitmentTitle?: string;
+  commitmentDescription?: string;
+  conservationTitle?: string;
+  conservationDescription?: string;
+  communitiesTitle?: string;
+  communitiesDescription?: string;
+  responsibleTourismTitle?: string;
+  responsibleTourismDescription?: string;
 }
 
 // ─────────────────────────
@@ -219,6 +253,31 @@ export interface ContactoTranslations {
   email: string;
   hours: string;
   quote: string;
+  pageTitle?: string;
+  pageSubtitle?: string;
+  scrollLabel?: string;
+  formEyebrow?: string;
+  formTitle?: string;
+  formDescription?: string;
+  labelLastName?: string;
+  labelPhone?: string;
+  experienceQuestion?: string;
+  experienceOptions?: string[];
+  labelDate?: string;
+  dateExample?: string;
+  travelersExample?: string;
+  messagePrompt?: string;
+  addressLabel?: string;
+  phoneLabel?: string;
+  emailLabel?: string;
+  hoursLabel?: string;
+  followLabel?: string;
+  toastTravel?: string;
+  toastPersonal?: string;
+  toastTerms?: string;
+  toastEmail?: string;
+  toastSending?: string;
+  toastSuccess?: string;
 }
 
 // ─────────────────────────
@@ -238,6 +297,14 @@ export interface FooterTranslations {
   desc: string;
   reclamaciones: string;
   privacidad: string;
+  newsletterTitle?: string;
+  newsletterDescription?: string;
+  newsletterPlaceholder?: string;
+  newsletterLabel?: string;
+  subscribeLabel?: string;
+  rightsReserved?: string;
+  securePayment?: string;
+  brandTagline?: string;
 }
 
 // ─────────────────────────
@@ -283,9 +350,55 @@ export interface RecorridosTranslations {
   ctaBtn1: string;
   ctaBtn2: string;
   tourDescriptions: Record<string, string>;
+  tourTitles?: Record<string, string>;
   tagTranslations: Record<string, string>;
   difficultyTranslations: Record<number, string>;
   featuredItinerary?: FeaturedItinerary;
+  listHeroEyebrow?: string;
+  listHeroTitle?: string;
+  listHeroSubtitle?: string;
+  exploreTours?: string;
+  talkToExpert?: string;
+  philosophyLabel?: string;
+  philosophyText?: string;
+  collectionLabel?: string;
+  collectionTitle?: string;
+  yearsExpertise?: string;
+  daysUnit?: string;
+  nightsUnit?: string;
+  discoverExperience?: string;
+  certifiedGuides?: string;
+  certifiedGuidesDesc?: string;
+  safeTravel?: string;
+  safeTravelDesc?: string;
+  customItineraries?: string;
+  customItinerariesDesc?: string;
+  guaranteedQuality?: string;
+  satisfactionDesc?: string;
+  readyForAdventure?: string;
+  expertCtaTitle?: string;
+  expertCtaEmphasis?: string;
+  personalTravelDesc?: string;
+  contactAdvisor?: string;
+  yearsExcellence?: string;
+  backToTours?: string;
+  yearRound?: string;
+  dayLabel?: string;
+  daysLabel?: string;
+  itineraryActivities?: string;
+  activitiesLabel?: string;
+  travelDetails?: string;
+  includesTitle?: string;
+  includedLabel?: string;
+  excludedLabel?: string;
+  servicesLabel?: string;
+  exceptionsLabel?: string;
+  guaranteedServices?: string;
+  availabilityDetails?: string;
+  experienceCta?: string;
+  readMore?: string;
+  readLess?: string;
+  locations?: Record<string, string>;
 }
 
 export interface HoteleSucursales {
@@ -343,6 +456,45 @@ export interface IncentivosTranslations {
   ctaTitle: string;
   ctaBtn1: string;
   ctaBtn2: string;
+  miceMetaTitle?: string;
+  miceMetaDescription?: string;
+  miceHeroEyebrow?: string;
+  miceHeroTitle?: string;
+  miceHeroSubtitle?: string;
+  miceHeroDescription?: string;
+  miceMeetingsTitle?: string;
+  miceMeetingsDescription?: string;
+  miceIncentivesTitle?: string;
+  miceIncentivesDescription?: string;
+  miceCongressTitle?: string;
+  miceCongressDescription?: string;
+  miceSpecialEventsTitle?: string;
+  miceSpecialEventsDescription?: string;
+  miceScenariosEyebrow?: string;
+  miceScenariosTitle?: string;
+  miceScenariosDescription?: string;
+  miceScenarioLabels?: string[];
+  miceCtaEyebrow?: string;
+  miceCtaTitle?: string;
+  miceCtaDescription?: string;
+  destinationsMetaTitle?: string;
+  destinationsMetaDescription?: string;
+  destinationsEyebrow?: string;
+  destinationsTitle?: string;
+  destinationsTitleEmphasis?: string;
+  destinationsHeroDescription?: string;
+  destinationsExploreButton?: string;
+  destinationsSectionEyebrow?: string;
+  destinationsSectionTitle?: string;
+  destinationsSectionTitleEmphasis?: string;
+  destinationsSectionDescription?: string;
+  destinationsExperiencesEyebrow?: string;
+  destinationsExperiencesTitle?: string;
+  destinationsExperiencesTitleEmphasis?: string;
+  destinationsExperiencesDescription?: string;
+  destinationsCtaTitle?: string;
+  destinationsCtaDescription?: string;
+  destinationsContactButton?: string;
   featureTranslations: Record<string, string>;
   experienceTranslations: Record<string, string>;
   statTranslations: Record<string, string>;
