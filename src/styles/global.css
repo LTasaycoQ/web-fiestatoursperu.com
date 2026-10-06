@@ -72,7 +72,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-ppnue);
   background: var(--color-darker);
   color: #fff;
   overflow-x: hidden;

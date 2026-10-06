@@ -539,7 +539,7 @@ export interface ItineraryDay {
   hotel?: string;
   meals?: string;
   mapLocation?: string;
-  itinerarioImage?: string;
+  itinerarioImage?: string[];
   location?: "lima" | "cusco" | "valle-sagrado" | "machu-picchu";
   lat?: number;
   lng?: number;
@@ -567,7 +567,7 @@ export interface DiaItinerario {
   description: string;
   activities: string[];
   accommodation?: string;
-  itinerarioImage?: string;
+  itinerarioImage?: string[];
   location: CityLocation;
   lat?: number;
   lng?: number;

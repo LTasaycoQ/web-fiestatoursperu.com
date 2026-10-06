@@ -70,7 +70,7 @@ export interface DiaItinerario {
   activities?: string[];
   accommodation?: string;
   meals?: string[];
-  itinerarioImage?: string;
+  itinerarioImage?: string[];
   location?: string;   // ← necesario para groupDaysByLocation
   lat?: number;
   lng?: number;

@@ -5,6 +5,7 @@ import type { Locale } from "@i18n/index";
 import Maps from "@components/sections/Maps.astro";
 import "@styles/components/itinerario/tourDetailPage.css";
 import { toursData } from "src/data/tours";
+import { translateItineraryData } from "src/data/itinerarioTranslations";
 import {
   getItinerarioByTourId,
   groupDaysByLocation,
@@ -20,7 +21,10 @@ const t = useTranslations(lang);
 const r = t.recorridos;
 
 const tour = toursData.find((t) => t.id === tourId);
-const itinerario = getItinerarioByTourId(tourId);
+const sourceItinerario = getItinerarioByTourId(tourId);
+const itinerario = sourceItinerario
+  ? translateItineraryData(sourceItinerario, lang)
+  : null;
 
 if (!tour || !itinerario) {
   return Astro.redirect(`/${lang}/itinerarios`);
@@ -68,7 +72,7 @@ const mapWaypoints: Waypoint[] = itinerario.locations
       lng: dayWithCoords.lng!,
       zoom: 12,
       color: locationColors[idx % locationColors.length] ?? "#3e4b3c",
-      image: dayWithImage?.itinerarioImage ?? tour.image ?? "",
+      image: dayWithImage?.itinerarioImage?.[0] ?? tour.image ?? "",
       desc: `${loc.icon} ${r.locations?.[key] ?? loc.name}`,
     };
   })
@@ -202,16 +206,19 @@ const mapWaypoints: Waypoint[] = itinerario.locations
                         </div>
 
                         
-                        <div style="display: flex; align-items: center; ">
-                          <div class="day-card__description" style="padding-right: 80px;">
+                        <div class="day-card__media-layout">
+                          <div class="day-card__description">
                             {day.description.map((paragraph) => (
                               <p>{paragraph}</p>
                             ))}
-                            
                           </div>
-                          <div style="width: 30%; height: 300px; ">
-                              <img style="width: 100%; height: 100%;object-fit: cover;border-radius: 10px;" src={day.itinerarioImage} alt="">
+                          {day.itinerarioImage && day.itinerarioImage.length > 0 && (
+                            <div class="day-card__gallery">
+                              {day.itinerarioImage.map((image, imageIndex) => (
+                                <img src={image} alt={`${day.title} ${imageIndex + 1}`} loading="lazy" />
+                              ))}
                             </div>
+                          )}
                         </div>
                         {day.activities && day.activities.length > 0 && (
                           <div class="day-card__activities">
@@ -298,14 +305,17 @@ const mapWaypoints: Waypoint[] = itinerario.locations
                         
                         </div>
 
-                        {/* ── DESCRIPCIÓN COMO PÁRRAFOS (MOBILE) ── */}
                         <div class="mobile-day__description">
                           {day.description.map((paragraph) => (
                             <p>{paragraph}</p>
                           ))}
-                          <div style="width: 100%; height: 200px; margin-top: 10px; border-radius: 10px; overflow: hidden;">
-                            <img style="width: 100%; height: 100%; object-fit:cover;" src={day.itinerarioImage} alt={day.title} />
-                          </div>
+                          {day.itinerarioImage && day.itinerarioImage.length > 0 && (
+                            <div class="mobile-day__gallery">
+                              {day.itinerarioImage.map((image, imageIndex) => (
+                                <img src={image} alt={`${day.title} ${imageIndex + 1}`} loading="lazy" />
+                              ))}
+                            </div>
+                          )}
                         </div>
 
                         {day.activities && day.activities.length > 0 && (
