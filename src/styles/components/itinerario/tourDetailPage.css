@@ -472,7 +472,7 @@
 }
 
 .location-pin.is-active {
-  background-color: transparent;
+  background-color: #F6F9F5;
   border: 1px solid rgba(235, 235, 235, 0.932);
 }
 
