@@ -445,11 +445,12 @@
   justify-content: start;
   margin-top: 20px;
   width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.089) 0px 2px 8px 0px;
   gap: 12px;
-  background-color: transparent;
+  background-color: #FFFFFF;
   font-family: var(--font-ppnue);
   padding: 10px 34px;
-  border-radius: 5px;
+  border-radius: 20px;
   border: 1px solid rgba(235, 235, 235, 0.932);
   margin-bottom: 32px;
   transition: all 0.4s;
@@ -513,8 +514,8 @@
 }
 
 .day-card__number {
-  background: rgba(51, 70, 48, 0.856);
-  color: rgb(241, 240, 240);
+  background: #ebc450;
+  color: rgb(59, 68, 62);
   font-family: var(--font-ppnue);
   letter-spacing: -0.15px;
   padding: 6px 30px;
