@@ -441,15 +441,16 @@
 
 .location-pin {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
   margin-top: 20px;
+  width: 100%;
   gap: 12px;
   background-color: transparent;
   font-family: var(--font-ppnue);
   padding: 10px 34px;
-  border-radius: 10px;
-  border: 1px solid rgba(62, 75, 60, 0.932);
+  border-radius: 5px;
+  border: 1px solid rgba(235, 235, 235, 0.932);
   margin-bottom: 32px;
   transition: all 0.4s;
   color: #262929;
@@ -471,7 +472,7 @@
 
 .location-pin.is-active {
   background-color: transparent;
-  border: 1px solid rgba(62, 75, 60, 0.932);
+  border: 1px solid rgba(235, 235, 235, 0.932);
 }
 
 .location-pin.is-active .location-pin__icon,
@@ -517,7 +518,7 @@
   font-family: var(--font-ppnue);
   letter-spacing: -0.15px;
   padding: 6px 30px;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
