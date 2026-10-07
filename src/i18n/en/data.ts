@@ -292,6 +292,7 @@ export const contacto: ContactoTranslations = {
   toastEmail: 'Please enter a valid email address.',
   toastSending: 'Sending...',
   toastSuccess: 'Message sent successfully! We will contact you soon.',
+  toastRequestError: 'Could not send your message. Please try again.',
 };
 
 // ─── INCENTIVES EN ───

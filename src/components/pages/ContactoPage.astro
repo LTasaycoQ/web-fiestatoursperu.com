@@ -53,6 +53,7 @@ const c = t.contacto;
             data-toast-email={c.toastEmail}
             data-toast-sending={c.toastSending}
             data-toast-success={c.toastSuccess}
+            data-toast-error={c.toastRequestError}
           >
 
             <div class="form-card">
@@ -139,7 +140,7 @@ const c = t.contacto;
                 <div class="form-group">
                   <label for="fecha">{c.labelDate}</label>
                   <div class="input-wrapper">
-                    <input id="fecha" type="text" name="fecha" placeholder={c.dateExample} required />
+                    <input id="fecha" type="date" name="fecha" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
@@ -148,7 +149,7 @@ const c = t.contacto;
                   <div class="form-group">
                   <label for="viajeros">{c.labelTravelers}</label>
                   <div class="input-wrapper">
-                    <input id="viajeros" type="text" name="viajeros" placeholder={c.travelersExample} required />
+                    <input id="viajeros" type="text" name="viajeros" placeholder="2" required />
                     <span class="input-border"></span>
                   </div>
                 </div>
@@ -1323,9 +1324,10 @@ const c = t.contacto;
 </style>
 
 <script>
-  (function() {
+  (function() {-
     function showToast(message: string) {
-      const toast = document.getElementById('toast') as HTMLElement;
+      const toast = document.getElementById('toast');
+      if (!toast) return;
       toast.textContent = message;
       toast.classList.add('show');
       setTimeout(() => {
@@ -1337,53 +1339,51 @@ const c = t.contacto;
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const destino = (document.getElementById('destino') as HTMLSelectElement)?.value;
-        const cuando = (document.querySelector('input[name="cuando"]:checked') as HTMLInputElement)?.value;
-        const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement)?.value;
-        const titulo = (document.getElementById('titulo') as HTMLSelectElement)?.value;
-        const nombre = (document.getElementById('nombre') as HTMLInputElement)?.value;
-        const apellido = (document.getElementById('apellido') as HTMLInputElement)?.value;
-        const email = (document.getElementById('email') as HTMLInputElement)?.value;
-        const telefono = (document.getElementById('telefono') as HTMLInputElement)?.value;
-        const consentimiento = (document.getElementById('consentimiento') as HTMLInputElement)?.checked;
-        
-        if (!destino || !cuando || !mensaje) {
-          showToast(form.dataset.toastTravel ?? '');
+        if (!form.reportValidity()) {
           return;
         }
-        
-        if (!titulo || !nombre || !apellido || !email || !telefono) {
-          showToast(form.dataset.toastPersonal ?? '');
-          return;
-        }
-        
-        if (!consentimiento) {
-          showToast(form.dataset.toastTerms ?? '');
-          return;
-        }
-        
-        if (!email.includes('@')) {
-          showToast(form.dataset.toastEmail ?? '');
-          return;
-        }
-        
+
+        const formData = new FormData(form);
+        const payload = {
+          nombre: String(formData.get('nombre') ?? '').trim(),
+          apellido: String(formData.get('apellido') ?? '').trim(),
+          email: String(formData.get('email') ?? '').trim(),
+          telefono: String(formData.get('telefono') ?? '').trim(),
+          textExperience: String(formData.get('experiencia') ?? '').trim(),
+          fecha: String(formData.get('fecha') ?? ''),
+          pasajeros: String(formData.get('viajeros') ?? '').trim(),
+          descripcion: String(formData.get('mensaje') ?? '').trim(),
+        };
         const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
         const originalText = submitBtn?.innerHTML;
-        
+
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.innerHTML = `<span class="btn-text">${form.dataset.toastSending ?? ''}</span>`;
         }
-        
-        setTimeout(() => {
+
+        try {
+          const response = await fetch('https://organic-florencia-fiesta-tours-f2514923.koyeb.app/fiestatoursperu', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error(`Contact API returned ${response.status}`);
+          }
+
           showToast(form.dataset.toastSuccess ?? '');
           form.reset();
+        } catch (error) {
+          console.error('Could not submit the contact form:', error);
+          showToast(form.dataset.toastError ?? '');
+        } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText || '';
           }
-        }, 1500);
+        }
       });
     }
   })();

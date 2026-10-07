@@ -264,7 +264,7 @@ export const contacto: ContactoTranslations = {
   labelDest: 'Destino de interés', placeholderDest: 'Seleccione un destino...',
   dest1: 'Machu Picchu & Cusco', dest2: 'Amazonía Peruana', dest3: 'Lago Titicaca',
   dest4: 'Líneas de Nazca', dest5: 'Circuito Completo Perú',
-  labelTravelers: 'Teléfono', placeholderTravelers: '',
+  labelTravelers: 'Número de viajeros', placeholderTravelers: '',
   labelMessage: 'Mensaje o consulta', placeholderMessage: 'Cuéntenos sobre el viaje que tiene en mente...',
   submitBtn: 'Enviar Consulta',
   infoTitle: 'Información de contacto',
@@ -299,6 +299,7 @@ export const contacto: ContactoTranslations = {
   toastEmail: 'Por favor, ingresa un email válido.',
   toastSending: 'Enviando...',
   toastSuccess: '¡Mensaje enviado con éxito! Te contactaremos pronto.',
+  toastRequestError: 'No se pudo enviar el mensaje. Inténtalo de nuevo.',
 };
 
 // ─── INCENTIVOS ES ───

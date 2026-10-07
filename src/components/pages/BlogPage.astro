@@ -295,6 +295,7 @@ const categories = [
       <form
         class="newsletter-form"
         id="nl-form"
+        data-basic-lead-form
         novalidate
       >
         <div class="nl-fields">
@@ -311,7 +312,6 @@ const categories = [
           <button type="submit" class="btn-primary" id="nl-submit">{ui.nlBtn}</button>
           <p class="nl-privacy">{ui.nlPrivacy}</p>
         </div>
-        <p class="nl-success" id="nl-success" aria-live="polite" hidden>✦ {ui.nlSuccess}</p>
       </form>
     </div>
   </section>
@@ -1614,31 +1614,6 @@ button { cursor: pointer; }
           filterPosts(category);
         });
       });
-
-      // ========== NEWSLETTER ==========
-      const form = document.getElementById("nl-form") as HTMLFormElement | null;
-      const successMsg = document.getElementById("nl-success");
-      const submitBtn = document.getElementById("nl-submit") as HTMLButtonElement | null;
-
-      if (form) {
-        form.addEventListener("submit", (e: Event) => {
-          e.preventDefault();
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
-          if (submitBtn) submitBtn.disabled = true;
-          
-          setTimeout(() => {
-            form.reset();
-            if (successMsg) successMsg.hidden = false;
-            setTimeout(() => {
-              if (successMsg) successMsg.hidden = true;
-              if (submitBtn) submitBtn.disabled = false;
-            }, 3500);
-          }, 700);
-        });
-      }
 
       // ========== LOAD MORE ==========
       const loadMoreBtn = document.getElementById("load-more") as HTMLButtonElement | null;

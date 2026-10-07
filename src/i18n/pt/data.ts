@@ -353,6 +353,7 @@ export const contacto: ContactoTranslations = {
   toastEmail: 'Digite um endereço de e-mail válido.',
   toastSending: 'Enviando...',
   toastSuccess: 'Mensagem enviada com sucesso! Em breve entraremos em contato.',
+  toastRequestError: 'Não foi possível enviar sua mensagem. Tente novamente.',
 };
 
 

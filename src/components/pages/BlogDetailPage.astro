@@ -308,10 +308,11 @@ const tagLabels: Record<string, Record<string, string>> = {
         <p class="detail-newsletter__desc">
           {ui.newsletterDescription}
         </p>
-        <form class="detail-newsletter__form" id="newsletterForm" novalidate>
+        <form class="detail-newsletter__form" id="newsletterForm" data-basic-lead-form novalidate>
           <div class="nl-form-group">
             <input
               type="email"
+              name="email"
               required
               placeholder={ui.email}
               class="detail-newsletter__input"
