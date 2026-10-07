@@ -440,22 +440,25 @@
 }
 
 .location-pin {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
   gap: 12px;
-  background-color: #529149;
+  background-color: transparent;
   font-family: var(--font-ppnue);
-  padding: 10px 24px;
-  border-radius: 50px;
+  padding: 10px 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(62, 75, 60, 0.932);
   margin-bottom: 32px;
   transition: all 0.4s;
-  color: white;
+  color: #262929;
   cursor: pointer;
 }
 
 .location-pin__icon {
-  color:  #f7fbf6;
+  color:  #262929;
+  margin-top: 6px;
 }
 
 .location-pin__text {
@@ -463,17 +466,17 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-    color:  #f7fbf6;
+    color:  #262929;
 }
 
 .location-pin.is-active {
-  background: var(--color-verdec, #fefefe);
-  border-color: var(--color-verdec, #fbfffb);
+  background-color: transparent;
+  border: 1px solid rgba(62, 75, 60, 0.932);
 }
 
 .location-pin.is-active .location-pin__icon,
 .location-pin.is-active .location-pin__text {
-  color: #ffffff;
+  color: #262929;
 }
 
 .days-timeline {
@@ -509,12 +512,12 @@
 }
 
 .day-card__number {
-  background: #F1CF64;
-  color: black;
+  background: rgba(51, 70, 48, 0.856);
+  color: rgb(241, 240, 240);
   font-family: var(--font-ppnue);
   letter-spacing: -0.15px;
-  padding: 6px 18px;
-  border-radius: 40px;
+  padding: 6px 30px;
+  border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
