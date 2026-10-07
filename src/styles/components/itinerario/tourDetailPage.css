@@ -536,9 +536,9 @@
 
 .day-card__media-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 38%);
-  align-items: start;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 30%);
+  align-items: center;
+  gap: 120px;
 }
 
 .day-card__description {
@@ -558,7 +558,7 @@
 
 .day-card__gallery img {
   width: 100%;
-  height: 420px;
+  height: 300px;
   object-fit: cover;
   border-radius: 8px;
 }
