@@ -58,7 +58,7 @@ export const toursData: Tour[] = [
     title: "Perú Esencial",
     category: "grupos",
     difficultyLevel: 2,
-    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_png,q_auto/v1771514450/mapi-portada_vvfhnw",
+    image: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1791499184/WhatsApp_Image_2026-10-08_at_17.38.18_ne23mq.jpg",
     link: "/itinerarios/peru-esencial",
     descriptionKey: "peru_esencial_desc",
     tagKey: "tag_grupos"
