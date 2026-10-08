@@ -13,7 +13,7 @@ const c = t.contacto;
   <section class="contact-hero">
     <div class="contact-hero__bg">
       <img
-        src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1789775761/610a5497-f224-4955-8a1f-75bd86499c24_ke2nkj.jpg"
+        src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1791417747/fbf227a3-39d3-4db2-a72a-7798ead32e94_wc0vw1.jpg"
         alt={c.pageSubtitle}
         fetchpriority="high"
       />
@@ -337,7 +337,11 @@ const c = t.contacto;
 }
 
 @media (max-width: 768px) {
-  .contact-hero { min-height: 480px; }
+  .contact-hero { height: 40vh; min-height: 380px; }
+
+  .contact-hero__bg img {
+    object-position: center 30%;
+  }
 }
 
 .contact-hero__bg { position: absolute; inset: 0; z-index: 0; }
