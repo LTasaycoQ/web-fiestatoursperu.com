@@ -92,7 +92,7 @@
 .about-content {
   font-family: var(--font-ppnue);
   text-align: center;
-  max-width: 800px;
+  max-width: 1200px;
 }
 
 .about-text {
@@ -1293,7 +1293,7 @@
 
 .about-content {
   width: 100%;
-  max-width: 750px;
+  max-width: 950px;
   margin: 0;
 }
 
