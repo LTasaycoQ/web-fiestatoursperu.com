@@ -65,8 +65,8 @@ export const home: HomeTranslations = {
     }
   ],
 
-  toursTitle: "Trips that tell",
-  toursTitle2: "a story",
+  toursTitle: "Peru, our way.",
+  toursTitle2: "Experiences designed to discover so much more.",
   testimoniosEyebrow: "Testimonials",
   testimoniosTitle: "What those who traveled with us say",
 

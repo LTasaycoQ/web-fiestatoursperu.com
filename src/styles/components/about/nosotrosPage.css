@@ -96,13 +96,6 @@
 }
 
 
-@media (max-width: 768px) {
-  .rec-hero__container {
-    padding: 80px 24px 60px;
-    text-align: center;
-  }
-}
-
 .rec-hero__eyebrow {
   display: inline-flex;
   align-items: center;
@@ -117,7 +110,19 @@
 }
 
 @media (max-width: 768px) {
-  .rec-hero__eyebrow { justify-content: center; }
+  .rec-hero__container {
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+
+ 
+}
+
+
+@media (max-width: 768px) {
+  .rec-hero__eyebrow { justify-content: center; background-color: green; width: 100%;}
+
 }
 
 .rec-hero__dot {

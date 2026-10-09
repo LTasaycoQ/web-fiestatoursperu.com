@@ -77,8 +77,8 @@ export const home: HomeTranslations = {
     }
   ],
 
-  toursTitle: "Viagens que contam",
-  toursTitle2: "uma história",
+  toursTitle: "O Peru, do nosso jeito",
+  toursTitle2: "Experiências criadas para descobrir muito mais.",
   testimoniosEyebrow: "Depoimentos",
   testimoniosTitle: "O que dizem aqueles que viajaram conosco",
   
