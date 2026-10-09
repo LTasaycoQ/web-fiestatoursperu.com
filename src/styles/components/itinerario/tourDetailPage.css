@@ -384,7 +384,7 @@
 }
 
 .itinerary-container {
-  max-width: 1800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -565,7 +565,9 @@
 
 .day-card__description p {
   margin: 0;
+  font-size: 15px;
 }
+
 
 .day-card__description p + p {
   margin-top: 12px;
