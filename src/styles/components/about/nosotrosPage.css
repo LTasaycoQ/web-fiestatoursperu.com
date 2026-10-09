@@ -121,7 +121,7 @@
 
 
 @media (max-width: 768px) {
-  .rec-hero__eyebrow { justify-content: center; background-color: green; width: 100%;}
+  .rec-hero__eyebrow { justify-content: center; width: 100%;}
 
 }
 
@@ -165,7 +165,7 @@
 }
 
 .rec-hero__subtitle {
-  font-size: 16px;
+  font-size: 19px;
   font-family: var(--font-ppnue);
   font-weight: 300;
   line-height: 1.8;
@@ -176,7 +176,7 @@
 
 @media (max-width: 768px) {
   .rec-hero__subtitle {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 100%;
     margin: 0 auto 36px;
     text-align: center;
