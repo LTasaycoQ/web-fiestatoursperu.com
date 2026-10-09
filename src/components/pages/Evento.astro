@@ -6,7 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { useTranslations } from "@i18n/index";
 import type { Locale } from "@i18n/index";
 import "@styles/components/itinerario/itinerariosPage.css";
-import { incentivosExperiences } from "src/data/incentivos";
+import { miceFeatures } from "src/data/eventMice";
 
 interface Props {
   lang: Locale;
@@ -14,12 +14,6 @@ interface Props {
 const { lang } = Astro.props;
 const i = useTranslations(lang).incentivos;
 
-const escenarios = [
-  { label: i.miceScenarioLabels?.[0] ?? "", image: incentivosExperiences[0].img },
-  { label: i.miceScenarioLabels?.[1] ?? "", image: incentivosExperiences[1].img },
-  { label: i.miceScenarioLabels?.[2] ?? "", image: incentivosExperiences[2].img },
-  { label: i.miceScenarioLabels?.[3] ?? "", image: incentivosExperiences[3].img },
-];
 
 
 ---
@@ -42,7 +36,7 @@ const escenarios = [
       <p class="hero-eyebrow">{i.miceHeroEyebrow}</p>
       <div class="hero-rule"></div>
       <h1 class="blog-hero__title" style="font-family: var(--font-playfair); font-weight: 500; font-style: normal;">{i.miceHeroTitle}</h1>
-      <p style="font-family: var(--font-aktiv) font-weight: 400; font-style: normal; font-size: 24px;">{i.miceHeroSubtitle}</p>
+      <p style="font-family: var(--font-aktiv) font-weight: 400; font-style: normal; font-size: clamp(20px, 3vw, 29px);">{i.miceHeroSubtitle}</p>
       <div class="hero-rule"></div>
       <p class="blog-hero__sub" style="font-family: var(--font-aktiv) font-weight: 400; font-style: normal;">{i.miceHeroDescription}</p>
     
@@ -103,9 +97,9 @@ const escenarios = [
         <br>
       </div>
       <div class="scenarios-grid">
-        {escenarios.map((escenario) => (
+        {miceFeatures.map((mice) => (
           <figure class="scenarios-grid__item">
-            <img src={escenario.image} alt={escenario.label} loading="lazy" />
+            <img src={mice.img} alt="imagen_test" loading="lazy" />
           </figure>
         ))}
       </div>
@@ -771,8 +765,8 @@ button { cursor: pointer; }
 }
 
 .blog-hero__title {
-  font-family: var(--font-ppnue);
-  font-size: 110px;
+  font-family: var(--font-playfair);
+  font-size: clamp(54px, 8vw, 110px);
   font-weight: 500;
   color: #fff;
   line-height: 1.04;
@@ -782,7 +776,7 @@ button { cursor: pointer; }
   white-space: pre-line;
 }
 @media (max-width: 768px) {
-  .blog-hero__title { font-size: clamp(36px, 9vw, 56px); margin: 0 auto 22px; }
+  .blog-hero__title {  margin: 0 auto 22px; }
 }
 
 .hero-rule {
@@ -794,7 +788,7 @@ button { cursor: pointer; }
 @media (max-width: 768px) { .hero-rule { margin: 0 auto 24px; } }
 
 .blog-hero__sub {
-  font-size: 14px;
+  font-size: clamp(16px, 2.5vw, 19px);
   line-height: 1.9;
   color: rgba(255,255,255,0.62);
   max-width: 460px;
@@ -1066,7 +1060,7 @@ button { cursor: pointer; }
 .meta-dot { color: rgba(0,0,0,0.18); font-size: 11px; }
 
 .featured-card__title {
-  font-family: var(--font-ppnue);
+  font-family: var(--font-playfair);
   font-size: clamp(26px, 2.8vw, 40px);
   font-weight: 400;
   color: var(--ink);

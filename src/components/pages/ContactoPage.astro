@@ -27,7 +27,7 @@ const c = t.contacto;
       <div class="hero-rule"></div>
       </div>
       <div style="display:flex; align-items:start; justify-content: start;">
-      <p class="contact-hero__subtitle titulo_pp_nuel">{c.pageSubtitle}</p>
+      <p class="contact-hero__subtitle ">{c.pageSubtitle}</p>
         </div>
     </div>
 
@@ -192,7 +192,7 @@ const c = t.contacto;
               
               <div class="submit-wrapper">
               <button type="submit" class="submit-btn">
-                <span class="btn-text">{c.submitBtn}</span>
+                <span class="btn-text" style="font-family: var(--font-ppnue);">{c.submitBtn}</span>
                 <span class="btn-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -426,7 +426,7 @@ const c = t.contacto;
 }
 
 .contact-hero__subtitle {
-  font-size: 15px;
+  font-size: clamp(16px, 1.2vw, 19px);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
   margin: 0 auto;
@@ -597,7 +597,7 @@ const c = t.contacto;
 .form-section-title {
   font-size: 36px;
   line-height: 60px;
-  font-family: var(--font-ppnue);
+  font-family: var(--font-playfair);
   font-weight: 300;
   font-style: normal;
   color: rgb(17, 17, 17);
@@ -1015,7 +1015,7 @@ const c = t.contacto;
 
 .info-title {
   font-size: 28px;
-  font-family:var(--font-ppnue);
+  font-family:var(--font-playfair);
   font-weight: 300;
   letter-spacing: -0.40px;
   color: #30483a;

@@ -833,7 +833,7 @@
 
 .cta-final-title {
   font-family: var(--font-playfair);
-  font-size: clamp(40px, 6vw, 76px);
+  font-size: clamp(40px, 6vw, 68px);
   font-weight: 500;
   color: var(--color-verde);
   line-height: 1.08;

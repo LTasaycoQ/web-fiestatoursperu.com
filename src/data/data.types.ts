@@ -29,12 +29,22 @@ export interface IncentivoFeature {
   badge?: string;
 }
 
+
+
+
 export interface IncentivoExperience {
   tagKey: string;
   titleKey: string;
   descKey: string;
   img: string;
 }
+
+
+export interface MiceExperience {
+  tagKey: string;
+  img: string;
+}
+
 
 export interface IncentivoStat {
   num: string;

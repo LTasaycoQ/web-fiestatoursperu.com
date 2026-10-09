@@ -1,4 +1,5 @@
 ---
+
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/sections/Hero.astro";
 import { useTranslations, localePath } from "@i18n/index";
@@ -78,7 +79,7 @@ const featureIcons = [
   </section>
 
 
-  <section class="section-about">
+  <!-- <section class="section-about">
     <div class="about-container" style="align-items: start; justify-content: space-around;" data-aos="fade-up" data-aos-duration="1000">
       <div class="about-header">
         <div class="container-sub"></div>
@@ -130,7 +131,7 @@ const featureIcons = [
       />
     </div>
   </section>
-
+ -->
 
 
   
@@ -824,7 +825,7 @@ const featureIcons = [
           </svg>
           {h.ctaBtn2}
         </a>
-        <a href={localePath(lang, "/planificador")} class="btn-cta-secondary">
+        <a href={localePath(lang, "/contacto")} class="btn-cta-secondary">
           {h.quoteButton}
           <svg
             xmlns="http://www.w3.org/2000/svg"

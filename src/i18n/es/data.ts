@@ -3,7 +3,7 @@ import type { HomeTranslations } from "@i18n/types";
 
 export const home: HomeTranslations = {
   heroEyebrow: "CELEBRAMOS 50 AÑOS DESCUBRIENDO EL PERÚ",
-  heroTitle: "VIAJES EXCEPCIONALES",
+  heroTitle: "Viajes Excepcionales",
   heroTitle2: "Experiencias",
   heroTitle3: "Auténticas",
   heroSubtitle:

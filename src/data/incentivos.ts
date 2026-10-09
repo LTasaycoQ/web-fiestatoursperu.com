@@ -28,7 +28,7 @@ export const incentivosFeatures: IncentivoFeature[] = [
 export const incentivosExperiences = [
   {
     id: 1,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1791501586/WhatsApp_Image_2026-10-08_at_18.16.04_1_fdxb18.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1789593744/iStock-1091870010_vszoap.jpg",
     tagKey: "tag_adventure",
     titleKey: "experience_lima_title",
     descKey: "experience_lima_desc",
@@ -36,7 +36,7 @@ export const incentivosExperiences = [
   },
   {
     id: 2,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1791501848/WhatsApp_Image_2026-10-08_at_18.16.04_3_lrkuww.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1789594243/35012987295_9b5523806a_o_cjtoks.jpg",
     tagKey: "tag_adventure",
     titleKey: "experience_cusco_title",
     descKey: "experience_cusco_desc",
@@ -44,7 +44,7 @@ export const incentivosExperiences = [
   },
   {
     id: 3,
-    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1791501579/WhatsApp_Image_2026-10-08_at_18.16.04_gvhl33.jpg",
+    img: "https://res.cloudinary.com/dlgeap8h0/image/upload/v1789594404/014428_hj8vbm.jpg",
     tagKey: "tag_adventure",
     titleKey: "experience_valle_title",
     descKey: "experience_valle_desc",
