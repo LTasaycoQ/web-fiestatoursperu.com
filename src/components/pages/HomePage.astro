@@ -61,26 +61,43 @@ const featureIcons = [
     ctaHref={localePath(lang, "/planificador")}
   />
 
+
+   <section class="section-about"  style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="about-container"  style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 40px;">
+      <div class="about-header" data-reveal="fade-up" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img src={h.logo} alt="Logo" class="about-logo">
+        <span class="eyebrow-title">{h.preTitle}</span>
+        <h2 class="about-title" style="font-weight: 600px;">{h.title}</h2>
+        <div class="about-rule"></div>
+      </div>
+      <div class="about-content">
+        <p class="about-text" style="color: rgb(80, 80, 80); padding-bottom: 20px;" data-reveal="fade-up" data-delay="100">{h.description}</p>
+        <p class="about-text about-text--highlight" data-reveal="fade-up" data-delay="200">{h.description2}</p>
+      </div>
+    </div>
+  </section>
+
+
   <section class="section-about">
-    <div class="about-container" data-aos="fade-up" data-aos-duration="1000">
+    <div class="about-container" style="align-items: start; justify-content: space-around;" data-aos="fade-up" data-aos-duration="1000">
       <div class="about-header">
         <div class="container-sub"></div>
         <div
           class="container-title"
           style="width: 100%; display:flex; flex-direction: column;"
         >
-          <h2 class="about-title">
+          <h2 class="about-title about-title__feature" style="font-weight: 500;align-items:start; text-align: start;">
             {h.title}
           </h2>
-          <h2 class="about-title" style="font-size: 40px; font-weight: 500;">
+          <h2 class="about-title  about-title__feature" style="font-weight: 500;align-items:start; text-align: start;">
             {h.title2}
           </h2>
         </div>
       </div>
-      <div class="about-content">
-        <p class="about-text">{h.description}</p>
-        <p class="about-text">{h.description2}</p>
-        <p class="about-text">{h.description3}</p>
+      <div class="about-content" style="align-items: start; justify-content: start; text-align: start; font-size: 11px;">
+        <p class="about-text" style="font-size: 16.4px;">{h.description}</p>
+        <p class="about-text" style="font-size: 16.4px;">{h.description2}</p>
+        <p class="about-text" style="font-size: 16.4px;">{h.description3}</p>
       </div>
 
       <div class="about-action">
@@ -113,6 +130,10 @@ const featureIcons = [
       />
     </div>
   </section>
+
+
+
+  
 
   <!-- ══ WORKFLOW ══ -->
   <section class="workflow" style="background-color: #F1F1F1;">
@@ -208,9 +229,9 @@ const featureIcons = [
       display: flex;
       flex-direction: column;
       letter-spacing: -1.15px;
-      font-family: var(--font-ppnue);
+      font-family: var(--font-playfair);
       font-weight: 300;
-      font-size: clamp(32px, 3.6vw, 40px);
+      font-size: 40px;
       line-height: 1.1;
       color: var(--green-dark);
     }
@@ -229,7 +250,7 @@ const featureIcons = [
       margin: 26px 0 36px;
       color: black;
       font-family: var(--font-ppnue);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 300;
       letter-spacing: -0.60px;
       line-height: 1.8;
@@ -309,8 +330,8 @@ const featureIcons = [
     .stat-title {
       margin: 0 0 14px;
       font-size: 20px;
-      font-weight: 400;
-      font-family: var(--font-ppnue);
+      font-weight: 600;
+      font-family: var(--font-playfair);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--green-dark);
@@ -321,7 +342,7 @@ const featureIcons = [
       max-width: 300px;
       color: black;
       letter-spacing: -0.25px;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 300;
       line-height: 1.5;
     }
@@ -476,7 +497,6 @@ const featureIcons = [
   </section>
 
   <style>
-    /* ─── Header: título a la izquierda, botón a la derecha ─── */
     .tours-header {
       display: flex !important;
       justify-content: space-between;
@@ -539,13 +559,13 @@ const featureIcons = [
 
       .tours-header-btn {
         align-self: flex-start;
-        padding: 10px 18px;
-        font-size: 13px;
+        background-color: rgba(75, 110, 35, 0.281); width:100%;       
+        font-size: 15px;
       }
     }
   </style>
 
-  <section class="testimonios"  style="background-color: #F1F1F1;">
+  <!-- <section class="testimonios"  style="background-color: #F1F1F1;">
     <div class="testimonios-header" data-reveal="fade-up">
       <h2 class="testimonios-title">
         Lo que dicen <strong>nuestros viajeros</strong>
@@ -600,7 +620,7 @@ const featureIcons = [
       </button>
 
     </div>
-  </section>
+  </section> -->
 
   <style>
     .testimonios {
