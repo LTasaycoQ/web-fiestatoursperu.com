@@ -1,5 +1,7 @@
 ---
 // src/components/pages/Evento.astro
+import { localePath } from "@i18n";
+
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { useTranslations } from "@i18n/index";
 import type { Locale } from "@i18n/index";
@@ -112,34 +114,24 @@ const escenarios = [
 
 
   <section class="inc-cta">
-  <!-- <img 
-    src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1790288751/iStock-1454581645_uwxcap.jpg" 
-    alt="" 
-    class="inc-cta__bg"
-    aria-hidden="true"
-  />
-    <div class="hero_overlay" style="background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.767) 20%,
-    rgba(0, 0, 0, 0.582) 55%,
-    rgba(0, 0, 0, 0.37) 80%
-  ); position:absolute; inset: 0; z-index: -1 width: 100%; height: 100%;"></div> -->
+ 
+    <div class="hero_overlay" style=" position:absolute; inset: 0; z-index: -1 width: 100%; height: 100%;"></div> -->
 
-  <div class="inc-cta__inner" style="display:flex; justify-content: space-around; align-items: center; max-width: 1400px;" data-aos="fade-up">
+  <div class="inc-cta__inner" style="display:flex; justify-content: center; align-items: center; max-width: 1400px;" data-aos="fade-up">
     
     
-      <div style="width: 610px; height: 450px; display: flex; justify-content: center; align-items: center;">
-        <img style="object-fit: cover; width: 100%; height: 100%;" src="https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1772812868/sacsayhuaman-cusco_ulhk25.webp" alt="">
-      </div>
-    <div style="display: flex; flex-direction: column; text-align: start;">
+    <div style="display: flex; flex-direction: column; text-align: center; justify-content:center; align-items:center;">
 
-      <div>
+      <div style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
           <p class="hero-eyebrow" style="font-size: 15px; color: #B28E3E;">{i.miceCtaEyebrow}</p>
 
           <div class="hero-rule" style="margin-top: -20px; background-color: #B28E3E;"></div>
           </div>
-        <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 700; font-size: 40px; line-height: 1.2; color: #0E251B;">{i.miceCtaTitle}</h2>
-        <span style=" margin-top: 20px; font-size: 16px; font-family: var(--font-ppnue); width: 400px; color: #272727;">{i.miceCtaDescription}</span>
+        <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 700; font-size: 40px; line-height: 1.2; color: #0E251B; text-align:center;">{i.miceCtaTitle}</h2>
+        <span style="text-align:center; margin-top: 20px; font-size: 16px; font-family: var(--font-ppnue); color: #272727;">{i.miceCtaDescription}</span>
+
+        <a style="margin-top: 30px;background-color: #B28E3E;text-style: none; color:white; padding: 8px 50px; border-radius: 10px; align-items:center; width: max-content; text-align:center;" href={localePath(lang, "/contacto")}>{i.textContact}</a>
+
     </div>
     
   </div>

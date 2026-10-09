@@ -426,6 +426,8 @@ export const incentivos: IncentivosTranslations = {
   ctaBtn1: "Solicitar proposta",
   ctaBtn2: "Falar com um especialista",
 
+  textContact: "Entre em contato conosco",
+
   featureTranslations: {
     feature_50_years_title: "50 Anos de Experiência",
     feature_50_years_desc:

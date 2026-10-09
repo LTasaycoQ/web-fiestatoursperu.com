@@ -464,6 +464,7 @@ export interface IncentivosTranslations {
   miceHeroSubtitle?: string;
   miceHeroDescription?: string;
   miceMeetingsTitle?: string;
+  textContact?: string;
   miceMeetingsDescription?: string;
   miceIncentivesTitle?: string;
   miceIncentivesDescription?: string;
