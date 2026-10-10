@@ -57,9 +57,10 @@ export const home: HomeTranslations = {
   preTitle: "50 ANOS DE EXPERIÊNCIA",
   title: "Conhecemos o Peru",
   title2: "Criamos experiências que permanecem.",
-  description: "A Fiesta Tours Peru nasceu da convicção de que o Peru é um dos destinos mais fascinantes do mundo — e, 50 anos depois, essa convicção continua nos impulsionando com a mesma energia do primeiro dia. Como DMC com meio século de trajetória, conhecemos cada canto, cada rota e cada história deste país extraordinário, colocando todo esse conhecimento a serviço de experiências que superam expectativas.",
-  description2: "Desenhamos tours culturais e históricos, rotas de aventura e natureza, circuitos nacionais e pacotes totalmente personalizados, todos guiados por um compromisso inegociável com a excelência e a qualidade. A aventura está apenas começando — e qualidade não é uma promessa: é a nossa tradição de cinco décadas.",
-  description3: "Durante cinco décadas, construímos relações de confiança com nossos parceiros e fornecedores, transformando cada itinerário em uma experiência cuidadosamente planejada, autêntica e memorável.",
+  description: "Desde 1976, na Fiesta Tours Peru, compartilhamos nossa paixão pelo Peru com o mundo. Ao longo de cinco décadas, transformamos nosso conhecimento do destino, nossa experiência operacional e nossa paixão pelo atendimento em experiências de viagem criadas para inspirar e conectar culturas.",
+  description2: "Como Destination Management Company (DMC), trabalhamos em parceria com agências de turismo atacadistas e profissionais do turismo internacional, oferecendo roteiros personalizados, experiências culturais, aventuras, experiências em meio à natureza e propostas de luxo nos principais destinos do Peru.",
+  description3: "50 anos de experiência. Um profundo conhecimento do destino. O compromisso de continuar criando experiências extraordinárias.",
+  
   infoTitle: "Mais do que conhecer o Peru.",
   infoTitle2: "Sabemos como torná-lo extraordinário",
   infoDescription: "Criamos experiências autênticas, conhecemos o destino e cuidamos de cada detalhe.",

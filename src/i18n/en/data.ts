@@ -45,9 +45,11 @@ export const home: HomeTranslations = {
   preTitle: "50 YEARS OF EXPERIENCE",
   title: "We know Peru",
   title2: "We create experiences that last.",
-  description: "Fiesta Tours Peru was born from the conviction that Peru is one of the most fascinating destinations in the world — and 50 years later, that conviction continues to drive us with the same energy as on the very first day. As a DMC with half a century of experience, we know every corner, every route, and every story of this extraordinary country, and we place all that knowledge at the service of experiences that exceed expectations.",
-  description2: "We design cultural and historical tours, adventure and nature routes, nationwide circuits, and fully customized travel packages, all under an unwavering commitment to excellence and quality. The adventure is just beginning — and quality is not a promise: it is our five-decade tradition.",
-  description3: "Over five decades, we have built trusted relationships with our partners and suppliers, turning every itinerary into a carefully designed, authentic and memorable experience.",
+  description: "Since 1976, at Fiesta Tours Peru, we have shared our passion for Peru with the world. For five decades, we have transformed our destination knowledge, operational expertise, and passion for service into travel experiences designed to inspire and connect cultures.",
+
+  description2: "As a Destination Management Company (DMC), we work alongside wholesale travel agencies and international tourism professionals, offering tailor-made itineraries, cultural experiences, adventures, nature-based experiences, and luxury offerings across Peru's leading destinations.",
+
+  description3: "50 years of experience. In-depth destination knowledge. A commitment to continuing to create extraordinary experiences.",
   infoTitle: "More than knowing Peru.",
   infoTitle2: "We know how to make it extraordinary",
   infoDescription: "We design authentic experiences, know the destination and take care of every detail.",
