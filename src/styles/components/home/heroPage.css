@@ -104,6 +104,7 @@
 .hero__subtitle {
   font-family: var(--font-ppnue);
   font-size: 14px;
+  max-width: 700px;
   font-weight: 300;
   letter-spacing: clamp(0.15em, 2vw, -0.45px);
   text-transform: uppercase;
