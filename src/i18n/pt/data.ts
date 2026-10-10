@@ -2,12 +2,13 @@
 import type { HomeTranslations } from "@i18n/types";
 
 export const home: HomeTranslations = {
+  heroRegionLabel: "Banner principal",
   heroEyebrow: "CELEBRANDO 50 ANOS DESCOBRINDO O PERU",
   heroTitle: "VIAGENS EXCEPCIONAIS",
   heroTitle2: "Experiências",
-  heroTitle3: "Autêntico",
+  heroTitle3: "Autênticas",
   heroSubtitle:
-    "Desde 1975, criamos experiências inesquecíveis para aqueles que desejam  \n descobrir o Peru com a segurança de verdadeiros especialistas.",
+    "Desde 1976, criamos experiências inesquecíveis para quem deseja descobrir o Peru com a confiança de verdadeiros especialistas.",
   heroCta: "Planeje sua viagem",
 
   whyEyebrow: "Por que escolher a Fiesta Tours Perú?",
@@ -46,34 +47,42 @@ export const home: HomeTranslations = {
   tittle2: "Explore o Peru",
 
   parrafo1:
-    "A Fiesta Tours Perú é uma agência de turismo receptivo e empresa de gestão de destinos desde 1976, especializada no mercado de luxo. Oferecemos uma seleção única de produtos e aventuras privadas extraordinárias que superam as expectativas dos seus passageiros e geram novas recomendações. Estamos preparados para acompanhar seus clientes durante toda a viagem pelo Peru e América Latina, sejam viajantes exigentes, recém-casados, celebridades, famílias em férias ou participantes de programas de incentivo. Nossa reputação é baseada em confirmações rápidas e precisas, preços altamente competitivos e serviço excepcional. Nosso lema “Quando seus clientes exigem excelência” reflete a confiança em nossos serviços e no profissionalismo da nossa equipe.",
+    "A Fiesta Tours Perú é uma agência de viagens receptiva e gestora de destinos desde 1976, especializada no mercado de luxo. Oferecemos uma seleção única de produtos e extraordinárias viagens privadas que superam as expectativas dos passageiros e geram novas recomendações. Estamos preparados para ajudar seus clientes durante a viagem pelo Peru e pela América Latina — sejam viajantes exigentes, recém-casados, viajantes de alto padrão, celebridades, membros da realeza, famílias em férias ou participantes de programas de viagens de incentivo. Temos o conhecimento e a sofisticação necessários para criar experiências de viagem inesquecíveis. Nossa reputação se baseia em confirmações rápidas e precisas, preços altamente competitivos e serviço excepcional. Nosso lema, “Quando seus clientes exigem excelência”, reflete a confiança em nossos serviços e no profissionalismo da nossa equipe. Muitos de nossos clientes são membros da prestigiosa associação USTOA, que exige um depósito de US$ 1.000.000,00.",
 
   parrafo2:
-    "O grande prestígio desses operadores turísticos nos permitiu alcançar o alto nível de serviço que oferecemos hoje. Entre nossos produtos está o “Peru Boutique”, com hospedagens Relais & Châteaux, e o “Luxury Gastronomy”, com restaurantes premiados pelo San Pellegrino. Também oferecemos cruzeiros de luxo na Amazônia e aventuras na floresta na premiada Inkaterra Reserva Amazónica. Um dos nossos programas mais destacados é “Duas Maravilhas, Um País”, incluindo estadia no Vale Sagrado para melhor aclimatação antes de Machu Picchu e duas noites em Machu Picchu em vez de uma. Com décadas de experiência oferecendo viagens de luxo no Peru, esperamos ter a oportunidade de atendê-lo.",
+    "O grande atrativo desses operadores turísticos nos ajudou a alcançar o alto nível de serviço que oferecemos atualmente. Entre nossos produtos está o “Peru Boutique”, que destaca hospedagens em propriedades Relais & Châteaux, e “Gastronomia de Luxo”, com restaurantes premiados pelo San Pellegrino. Também não podemos esquecer os “Cruzeiros de Luxo pelo Amazonas” e as aventuras na floresta tropical da premiada Inkaterra Reserva Amazónica. Entre os produtos de destaque está o pacote “Duas Maravilhas, Um País”, que inclui uma estadia no Vale Sagrado para melhor aclimatação antes de Machu Picchu e duas noites em Machu Picchu, em vez da habitual noite única, além dos “Caminhos Incas Alternativos”, de hospedagem em hospedagem até Machu Picchu a pé ou a cavalo. Seja nos Andes, nos vales ou nas praias do norte, temos 50 anos de experiência oferecendo uma alternativa de luxo no Peru. Esperamos ter a oportunidade de atendê-lo. A gerência da Fiesta Tours Perú, operadora de turismo receptivo e DMC desde 1976.",
 
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-esp_jlhihh.png",
-  preTitle: "50 ANOS DE HISTÓRIA",
-  title: "Meio século transformando destinos em experiências extraordinárias.",
+  preTitle: "50 ANOS DE EXPERIÊNCIA",
+  title: "Conhecemos o Peru",
+  title2: "Criamos experiências que permanecem.",
   description: "A Fiesta Tours Peru nasceu da convicção de que o Peru é um dos destinos mais fascinantes do mundo — e, 50 anos depois, essa convicção continua nos impulsionando com a mesma energia do primeiro dia. Como DMC com meio século de trajetória, conhecemos cada canto, cada rota e cada história deste país extraordinário, colocando todo esse conhecimento a serviço de experiências que superam expectativas.",
   description2: "Desenhamos tours culturais e históricos, rotas de aventura e natureza, circuitos nacionais e pacotes totalmente personalizados, todos guiados por um compromisso inegociável com a excelência e a qualidade. A aventura está apenas começando — e qualidade não é uma promessa: é a nossa tradição de cinco décadas.",
-  infoTitle: "O valor de viajar com quem realmente conhece o destino",
+  description3: "Durante cinco décadas, construímos relações de confiança com nossos parceiros e fornecedores, transformando cada itinerário em uma experiência cuidadosamente planejada, autêntica e memorável.",
+  infoTitle: "Mais do que conhecer o Peru.",
+  infoTitle2: "Sabemos como torná-lo extraordinário",
+  infoDescription: "Criamos experiências autênticas, conhecemos o destino e cuidamos de cada detalhe.",
   content: [
     {
-      title: "Viagens desenhadas exclusivamente para você",
-      description: "Cada itinerário nasce de uma conversa com você. Escutamos seus interesses e criamos uma experiência única que leva você a lugares que os roteiros tradicionais jamais incluem.",
+      id: 1,
+      title: "Experiências planejadas sob medida",
+      description: "Cada itinerário nasce de uma conversa. Ouvimos as expectativas do viajante e criamos uma experiência que corresponde à sua maneira de viajar.",
     },
     {
-      title: "Conhecimento local em primeira mão",
-      description: "Nossa equipe de especialistas e guias nascidos no Peru abre as portas para histórias, tradições e lugares secretos que apenas os moradores locais conhecem. Mais do que informação, é uma conexão verdadeira com o destino.",
+      id: 2,
+      title: "Conhecimento local que faz a diferença",
+      description: "Conhecemos rotas, horários, fornecedores, comunidades e aqueles lugares que só se descobrem quando se conhece verdadeiramente o destino.",
     },
     {
-      title: "Conexão genuína com o Peru",
-      description: "Anos de relacionamento com comunidades locais nos permitem oferecer algo raro: uma experiência que vai além do turismo e aproxima você da alma do destino.",
+      id: 3,
+      title: "Uma operação em que você pode confiar",
+      description: "Nossa equipe acompanha cada etapa da viagem, cuidando da coordenação e de cada detalhe para que a experiência seja tranquila e memorável.",
     },
     {
-      title: "Conforto e distinção em cada etapa",
-      description: "Trabalhamos com uma seleção cuidadosa das melhores hospedagens do país, onde o bem-estar e a atenção aos detalhes transformam cada noite em uma parte memorável da viagem.",
+      id: 4,
+      title: "O Peru que poucos chegam a conhecer",
+      description: "Nossa experiência e nossas relações locais nos permitem criar experiências autênticas que vão além dos roteiros tradicionais.",
     }
   ],
 
@@ -150,6 +159,7 @@ export const about: AboutTranslations = {
   heroSubtitle: "Operadora de turismo receptivo de luxo — especializada no mercado mais exigente da América Latina.",
   heroBtnPrimary: "Descobrir mais",
   heroBtnSecondary: "Contatar especialistas",
+  alliesTitle: "Parceiros em nosso compromisso",
   
   // Quote
   quoteText: "Quando seus clientes exigem excelência — escolha Fiesta Tours Perú.",
@@ -157,9 +167,9 @@ export const about: AboutTranslations = {
   // Empresa section
   empresaEyebrow: "A Empresa",
   empresaTitle: "50 anos de experiência, confiança e excelência",
-  empresaText1: "Desde 1976, a Fiesta Tours Perú é uma parceira estratégica para agências de viagem, operadores de turismo e organizadores de eventos de todo o mundo que buscam oferecer experiências excepcionais no Peru. Com quase cinco décadas de trajetória, nos especializamos em turismo receptivo, viagens de incentivo, congressos, convenções e experiências sob medida, projetando programas que refletem a riqueza cultural, histórica e natural do nosso país.",
-  empresaText2: "Nossa experiência nos permite atender desde viajantes individuais e grupos familiares até programas corporativos, incentivos, eventos especiais e experiências de alto padrão, sempre com uma abordagem personalizada e execução impecável.",
-  empresaText3: "Ao longo dos anos, construímos uma sólida reputação baseada na confiança, eficiência operacional, rápida capacidade de resposta e compromisso contínuo com a qualidade. Esses valores nos permitiram estabelecer relacionamentos duradouros com clientes e parceiros comerciais dos principais mercados internacionais.",
+  empresaText1: "Desde 1976, a Fiesta Tours Perú é parceira estratégica de agências de viagens, operadoras de turismo e organizadores de eventos de todo o mundo que desejam oferecer experiências excepcionais no Peru. Há 50 anos, somos especializados em turismo receptivo, viagens de incentivo, congressos, convenções e programas sob medida.",
+  empresaText2: "Nossa trajetória reúne profundo conhecimento do destino, eficiência operacional, atendimento personalizado e grande capacidade de resposta, permitindo-nos atender viajantes individuais e grupos, além de programas corporativos e eventos especiais.",
+  empresaText3: "Hoje celebramos 50 anos de experiência e confiança, olhando para o futuro com a mesma paixão pelo Peru e o compromisso de criar experiências autênticas, memoráveis e cuidadosamente planejadas.",
   statYearsLabel: "Anos de operações bem-sucedidas",
   statUstoALabel: "Associação mais prestigiada do setor de turismo mundial",
   statRankLabel: "Referência em turismo receptivo de luxo na América Latina",
@@ -167,7 +177,7 @@ export const about: AboutTranslations = {
   // Why section
   whyEyebrow: "Por que Fiesta Tours Perú?",
   whyTitle: "Excelência sob medida<br/>para você",
-  whyBody: "Somos uma empresa altamente capacitada para receber seus clientes com padrões de excelência. Guias bilíngues, frota própria e uma equipe apaixonada por luxo.",
+  whyBody: "Cada experiência é planejada sob medida, combinando conhecimento do destino, atenção aos detalhes e atendimento personalizado para garantir uma operação eficiente e memorável.",
   
   // Razones section
   razonesEyebrow: "Por que nos escolher",
@@ -542,6 +552,7 @@ export const recorridos: RecorridosTranslations = {
   personalTravelDesc: "Cada detalhe, cada momento, cada lembrança — personalizado para você.",
   contactAdvisor: "Falar com um consultor",
   yearsExcellence: "anos de\nexcelência",
+  scrollLabel: "Role a página",
   backToTours: "Todos os tours",
   yearRound: "O ano todo",
   dayLabel: "Dia",

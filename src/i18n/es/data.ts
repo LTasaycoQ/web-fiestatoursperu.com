@@ -2,6 +2,7 @@
 import type { HomeTranslations } from "@i18n/types";
 
 export const home: HomeTranslations = {
+  heroRegionLabel: "Banner principal",
   heroEyebrow: "CELEBRAMOS 50 AÑOS DESCUBRIENDO EL PERÚ",
   heroTitle: "Viajes Excepcionales",
   heroTitle2: "Experiencias",
@@ -38,7 +39,7 @@ export const home: HomeTranslations = {
   tittle2: "Explora el Perú",
   parrafo1: "Fiesta Tours Perú es una agencia de viajes receptiva y gestora de destinos desde 1976, especializada en el mercado de lujo. Ofrecemos una selección única de productos y extraordinarias aventuras privadas que superarán las expectativas de sus pasajeros y generarán nuevas recomendaciones. Estamos capacitados para ayudar a sus clientes durante su viaje por Perú y Latinoamérica, ya sean viajeros exigentes, recién casados, viajeros de alto nivel, celebridades, miembros de la realeza, familias de vacaciones o participantes en programas de viajes de incentivos; contamos con el conocimiento y la sofisticación necesarios para crear experiencias de viaje inolvidables. Nuestra reputación se basa en confirmaciones rápidas y precisas, precios altamente competitivos y un servicio excepcional. Nuestro lema «Cuando sus clientes exigen excelencia» refleja la confianza que tenemos en nuestros servicios y en la profesionalidad de nuestros colaboradores. Muchos de nuestros clientes son miembros de la prestigiosa asociación USTOA, para la cual se requiere un depósito de $1,000,000.00. ",
   parrafo2:
-    "El gran atractivo de estos operadores turísticos nos ha ayudado a alcanzar el alto nivel de servicio que ofrecemos actualmente. Entre los productos que ofrecemos se encuentra “Peru Boutique”, que destaca el alojamiento en propiedades Relais & Châteaux, y “Gastronomía de Lujo”, con restaurantes galardonados con el premio San Pellegrino. Tampoco podemos olvidar los “Cruceros de Lujo por el Amazonas”, así como las aventuras en la selva tropical en el galardonado Inkaterra Reserva Amazónica. Entre los productos más destacados se encuentra el paquete “Dos Maravillas, Un País”, que incluye una estancia en el Valle Sagrado para una mejor aclimatación antes de ir a Machu Picchu y dos noches en Machu Picchu en lugar de la habitual de una noche, y “Caminos Incas Alternativos” de albergue en albergue hasta Machu Picchu a pie o a caballo. Ya sea en los Andes, en los valles o en las playas del norte, contamos con 39 años de experiencia ofreciendo una alternativa de lujo en Perú. Esperamos tener la oportunidad de servirle. La gerencia de Fiesta Tours Perú, operador turístico receptivo y DMC desde 1976.",
+    "El gran atractivo de estos operadores turísticos nos ha ayudado a alcanzar el alto nivel de servicio que ofrecemos actualmente. Entre los productos que ofrecemos se encuentra “Peru Boutique”, que destaca el alojamiento en propiedades Relais & Châteaux, y “Gastronomía de Lujo”, con restaurantes galardonados con el premio San Pellegrino. Tampoco podemos olvidar los “Cruceros de Lujo por el Amazonas”, así como las aventuras en la selva tropical en el galardonado Inkaterra Reserva Amazónica. Entre los productos más destacados se encuentra el paquete “Dos Maravillas, Un País”, que incluye una estancia en el Valle Sagrado para una mejor aclimatación antes de ir a Machu Picchu y dos noches en Machu Picchu en lugar de la habitual de una noche, y “Caminos Incas Alternativos” de albergue en albergue hasta Machu Picchu a pie o a caballo. Ya sea en los Andes, en los valles o en las playas del norte, contamos con 50 años de experiencia ofreciendo una alternativa de lujo en Perú. Esperamos tener la oportunidad de servirle. La gerencia de Fiesta Tours Perú, operador turístico receptivo y DMC desde 1976.",
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-esp_jlhihh.png",
   preTitle: "50 AÑOS DE EXPERIENCIA",
@@ -46,7 +47,7 @@ export const home: HomeTranslations = {
   title2: "Creamos experiencias que perduran.",
   description: "Fiesta Tours Perú nació de la convicción de que el Perú es uno de los destinos más fascinantes del mundo — y 50 años después, esa convicción nos sigue impulsando con la misma energía del primer día. Como DMC con medio siglo de trayectoria, conocemos cada rincón, cada ruta y cada historia de este país extraordinario, y ponemos todo ese conocimiento al servicio de experiencias que superan expectativas.",
   description2: "Diseñamos tours culturales e históricos, rutas de aventura y naturaleza, circuitos nacionales y paquetes completamente personalizados, todos bajo un compromiso irrenunciable con la excelencia y la calidad. La aventura apenas comienza — y la calidad no es una promesa: es nuestra tradición de cinco décadas.",
-  description3: "Durante cinco decádas hemos construido relaciones de confianza con nuestros socios y proveedores, convirtiendo cada itinerario en una experiencia cuidadosamente diseñada, autentica y memorable",
+  description3: "Durante cinco décadas hemos construido relaciones de confianza con nuestros socios y proveedores, convirtiendo cada itinerario en una experiencia cuidadosamente diseñada, auténtica y memorable.",
   infoTitle: "Más que conocer el Perú.",
   infoTitle2: "Sabemos cómo hacerlo extraordinario",
   infoDescription: "Diseñamos experiencias auténticas, conocemos el destino y cuidamos cada detalle",
@@ -160,6 +161,7 @@ export const about: AboutTranslations = {
   heroSubtitle: "DMC y operadora de turismo receptivo especializada en crear experiencias excepcionales y personalizadas en el Perú para nuestros socios internacionales.",
   heroBtnPrimary: "Descubrir más",
   heroBtnSecondary: "Contactar expertos",
+  alliesTitle: "Aliados en nuestro compromiso",
   
   // Quote
   quoteText: "Cuando sus clientes exijan excelencia — elija Fiesta Tours Perú.",
@@ -474,6 +476,7 @@ export const recorridos: RecorridosTranslations = {
   personalTravelDesc: "Cada detalle, cada momento, cada recuerdo — personalizado para ti.",
   contactAdvisor: "Contactar asesor",
   yearsExcellence: "años de\nexcelencia",
+  scrollLabel: "Desplazar",
   backToTours: "Todos los tours",
   yearRound: "Todo el año",
   dayLabel: "Día",

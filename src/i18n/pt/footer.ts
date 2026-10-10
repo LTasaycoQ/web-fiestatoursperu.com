@@ -41,6 +41,7 @@ const footer: FooterTranslations = {
   rightsReserved: 'Todos os direitos reservados.',
   securePayment: 'Pagamento seguro com:',
   brandTagline: 'Há 50 anos criando experiências de viagem inesquecíveis.',
+  certificationAlt: 'Certificação',
 };
 
 export default footer;

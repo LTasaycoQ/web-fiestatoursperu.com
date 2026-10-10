@@ -22,7 +22,7 @@ const experiences = incentivosExperiences.map(exp => ({
   tag: i.tagTranslations[exp.tagKey] || exp.tagKey,
   title: i.experienceTranslations[exp.titleKey] || "",
   desc: i.experienceTranslations[exp.descKey] || "",
-  cta: i.experienceTranslations[exp.ctaKey] || "Descubrir"
+  cta: i.experienceTranslations[exp.ctaKey]
 }));
 
 const stats = incentivosStats.map(stat => ({

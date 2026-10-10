@@ -2,6 +2,219 @@ export type ItineraryLocale = "es" | "en" | "pt";
 
 type TextTranslations = Record<string, string>;
 
+const additionalTranslations: Record<
+	string,
+	Partial<Record<Exclude<ItineraryLocale, "es">, string>>
+> = {
+	"7 días / 6 noches": {
+		en: "7 days / 6 nights",
+		pt: "7 dias / 6 noites",
+	},
+	"8 días / 7 noches": {
+		en: "8 days / 7 nights",
+		pt: "8 dias / 7 noites",
+	},
+	"4 días / 3 noches": {
+		en: "4 days / 3 nights",
+		pt: "4 dias / 3 noites",
+	},
+	"5 días / 4 noches": {
+		en: "5 days / 4 nights",
+		pt: "5 dias / 4 noites",
+	},
+	"6 días / 5 noches": {
+		en: "6 days / 5 nights",
+		pt: "6 dias / 5 noites",
+	},
+	"Abril - Octubre": {
+		en: "April–October",
+		pt: "Abril–outubro",
+	},
+	"Mayo - Septiembre": {
+		en: "May–September",
+		pt: "Maio–setembro",
+	},
+	"Todo el año": {
+		en: "Year-round",
+		pt: "O ano todo",
+	},
+	"El Tour de Lima Colonial incluye un deslumbrador paseo por la Plaza de Armas que, enmarcada por su bella Catedral y por los palacios Arzobispal, de Gobierno y Municipal, te transportará al pasado con sólo pisar uno de sus escalones.": {
+		en: "The Colonial Lima tour takes you on a dazzling walk around the Plaza de Armas. Framed by its beautiful Cathedral and the Archbishop's, Government and Municipal palaces, it will transport you to the past as soon as you step onto its cobblestones.",
+	},
+	"Desayuno. Traslado a la estación del tren para iniciar nuestro viaje a la ciudad perdida de los Incas, Machu Picchu. Esta impresionante y colosal ciudadela constituye uno de los más importantes atractivos turísticos de Cusco.": {
+		en: "Breakfast. Transfer to the train station to begin our journey to Machu Picchu, the lost city of the Incas. This impressive, monumental citadel is one of Cusco's most important tourist attractions.",
+		pt: "Café da manhã. Traslado à estação de trem para iniciar nossa viagem a Machu Picchu, a cidade perdida dos incas. Essa impressionante e colossal cidadela é uma das atrações turísticas mais importantes de Cusco.",
+	},
+	"Machu Picchu, centro de culto y observación astronómica a la vez el refugio privado del Inca Pachacútec, consta de dos grandes áreas, una agrícola y otra urbana, donde se destacan los templos, plazas y mausoleos reales construidos con exquisita perfección.": {
+		en: "Machu Picchu, both a center of worship and astronomical observation and the private retreat of the Inca Pachacutec, comprises two main areas: an agricultural sector and an urban sector featuring temples, plazas and royal mausoleums built with exquisite precision.",
+		pt: "Machu Picchu, ao mesmo tempo centro de culto e observação astronômica e refúgio particular do inca Pachacútec, é formada por duas grandes áreas: uma agrícola e outra urbana, onde se destacam templos, praças e mausoléus reais construídos com primorosa perfeição.",
+	},
+	"Desayuno. Traslado al aeropuerto para tomar el vuelo a Lima y de ahí tomar el vuelo de conexión de regreso a casa.": {
+		en: "Breakfast. Transfer to the airport for your flight to Lima and onward connecting flight home.",
+		pt: "Café da manhã. Traslado ao aeroporto para o voo a Lima e, de lá, conexão para voltar para casa.",
+	},
+	"Montaña de los Siete Colores (A)": {
+		en: "Rainbow Mountain (A)",
+		pt: "Montanha das Sete Cores (A)",
+	},
+	"Laguna Humantay – Cusco (A)": {
+		en: "Humantay Lagoon – Cusco (A)",
+		pt: "Lagoa Humantay – Cusco (A)",
+	},
+	"a la carta": {
+		en: "à la carte",
+		pt: "à la carte",
+	},
+	"estilo buffet": {
+		en: "buffet style",
+		pt: "em estilo de bufê",
+	},
+	"Menú turístico": {
+		en: "tourist menu",
+		pt: "menu turístico",
+	},
+	"buffet internacional": {
+		en: "international buffet",
+		pt: "bufê internacional",
+	},
+	"Por la mañana iniciaremos la excursión a la ciudadela de Machu Picchu. Esta impresionante y colosal ciudadela constituye uno de los más importantes atractivos turísticos de Cusco.": {
+		en: "In the morning, we will begin our excursion to the citadel of Machu Picchu. This impressive, monumental citadel is one of Cusco's most important tourist attractions.",
+		pt: "Pela manhã, iniciaremos a excursão à cidadela de Machu Picchu. Essa impressionante e colossal cidadela é uma das atrações turísticas mais importantes de Cusco.",
+	},
+	"Retorno por la tarde a Cusco.": {
+		en: "Return to Cusco in the afternoon.",
+		pt: "Retorno a Cusco à tarde.",
+	},
+	"Almuerzo incluido. Por la tarde retorno a Cusco.": {
+		en: "Lunch included. Return to Cusco in the afternoon.",
+		pt: "Almoço incluído. Retorno a Cusco à tarde.",
+	},
+	"La montaña de arco iris, conocida como la montaña de 7 colores, montaña colorada, montaña Vinicunca, es un lugar mágico donde sus caminos eran parte de la antigua cultura quechua, y se utilizaba para intercambiar productos (trueque), junto con las otras regiones Quechuas. Partiremos de cusco alrededor de las 5:00 am hacia el sur de la ciudad, pasaremos por Urcos, Cusipata (1:30 hrs. de viaje aprox.) en donde disfrutaremos de un nutritivo desayuno el cual durará unos 40 minutos aprox. Después de una breve charla continuaremos con nuestro viaje tomando nuestra movilidad con dirección al punto de inicio de la caminata la comunidad de fula wasi pata (1:00 hrs. Aprox). \n\n Empezaremos nuestra caminata al pie del nevado Ausangate, una subida de 1:30 hrs. Aproximadamente hasta llegar al punto más alto en donde podremos apreciar la montaña de colores ,durante este trayecto tendremos la oportunidad de ver las distintas variedades de camélidos sudamericanos así como flora propia del lugar ,llegando a la montaña de colores tendremos tiempo para tomar fotografías de este lugar enigmático aproximadamente unos 40 minutos después continuaremos con nuestra caminata de descenso de 1:00 hora aproximadamente llegando al punto en donde inicio nuestra caminata en donde nos espera nuestra movilidad para ir en dirección al restaurante en Cusipata donde nos espera nuestro delicioso almuerzo tendremos 1:00 hora aproximadamente para finalmente retornar con dirección a la ciudad de cusco en donde estaremos a las 4:00 pm aproximadamente.": {
+		en: "Rainbow Mountain, also known as the Seven-Colored Mountain, Red Mountain and Vinicunca, is a magical place whose paths were part of ancient Quechua culture and were used to exchange goods with neighboring Quechua regions. We leave Cusco at around 5:00 a.m. and head south, passing through Urcos to Cusipata (about 1 hour 30 minutes away), where we enjoy a nutritious breakfast lasting about 40 minutes. After a short briefing, we continue by vehicle to the trailhead in the community of Fula Wasi Pata (about 1 hour away).\n\nWe begin hiking at the foot of Ausangate, climbing for approximately 1 hour 30 minutes to the highest point, where we can admire Rainbow Mountain. Along the way, we may see different South American camelids and native plants. At the mountain, we have about 40 minutes to take photographs of this remarkable place. We then descend for approximately 1 hour to the trailhead, where our vehicle will take us to a restaurant in Cusipata for lunch. We have about an hour for lunch before returning to Cusco, arriving at approximately 4:00 p.m.",
+		pt: "A Montanha Arco-Íris, também conhecida como Montanha das Sete Cores, Montanha Colorada ou Vinicunca, é um lugar mágico. Seus caminhos faziam parte da antiga cultura quéchua e eram usados para trocar produtos com outras regiões quéchuas. Partiremos de Cusco por volta das 5h, rumo ao sul, passando por Urcos até Cusipata (cerca de 1h30 de viagem), onde faremos um nutritivo café da manhã de aproximadamente 40 minutos. Após uma breve orientação, seguiremos de veículo até o início da trilha, na comunidade de Fula Wasi Pata (cerca de 1 hora de viagem).\n\nComeçaremos a caminhada ao pé do nevado Ausangate, subindo por aproximadamente 1h30 até o ponto mais alto, de onde poderemos apreciar a Montanha das Cores. Durante o percurso, teremos a oportunidade de ver diferentes variedades de camelídeos sul-americanos e a flora local. Na montanha, teremos cerca de 40 minutos para tirar fotos desse lugar fascinante. Depois, desceremos por aproximadamente 1 hora até o início da trilha, onde nosso veículo nos aguardará para nos levar a um restaurante em Cusipata para o almoço. Teremos cerca de 1 hora para almoçar e, por fim, retornaremos a Cusco, onde chegaremos por volta das 16h.",
+	},
+	"Después del desayuno comenzaremos nuestra aventura hacia el Lago Humantay con un trayecto de 3.30 horas en transporte privado a Soraypampa (3900 m.s.n.m.). \n\n Soraypampa es nuestro campamento. En Soraypampa tendremos un delicioso mate y para los que deseen pueden solicitar un desayuno adicional para comenzar bien nuestro día antes de iniciar nuestra caminata. En Soraypampa comenzaremos nuestra caminata hasta el Lago Humantay con hermosas vistas y si el cielo es lo suficientemente claro, podemos ver el impresionante nevado Salkantay y Humantay. Es un paseo de ascenso hasta el lago, la caminata tendrá dificultad moderada, tendremos vista del paisaje natural más que mágica. Tendremos tiempo suficiente para tomar fotos, traer una ofrenda a los Apus, y para los valientes; nadar en el lago si el día es soleado. Comenzaremos nuestro descenso a Soraypampa. En Soraypampa nos esperará un delicioso almuerzo preparado por nuestro chef personal, después almorzar tomamos un breve descanso e iniciamos nuestro retorno a Cusco.": {
+		en: "After breakfast, we begin our adventure to Humantay Lake with a 3-hour-30-minute private transfer to Soraypampa (3,900 meters above sea level).\n\nSoraypampa is our campsite. There, we will enjoy a delicious herbal tea; those who wish may request an additional breakfast before setting out on the hike. From Soraypampa, we hike to Humantay Lake, enjoying beautiful views. If the sky is clear enough, we can see the impressive snow-capped Salkantay and Humantay mountains. The uphill walk to the lake is moderately difficult, with exceptionally beautiful natural scenery. There will be plenty of time to take photos and make an offering to the Apus; the brave may swim in the lake if the day is sunny. We then descend to Soraypampa, where our personal chef will have prepared a delicious lunch. After lunch and a short rest, we begin our return to Cusco.",
+		pt: "Depois do café da manhã, começaremos nossa aventura rumo ao Lago Humantay, com um trajeto de 3h30 em transporte particular até Soraypampa (3.900 m de altitude).\n\nSoraypampa é nosso acampamento. Lá, tomaremos um delicioso mate; quem desejar poderá solicitar um café da manhã adicional antes de iniciar a caminhada. De Soraypampa, caminharemos até o Lago Humantay, apreciando belas paisagens. Se o céu estiver suficientemente aberto, poderemos ver os impressionantes nevados Salkantay e Humantay. A subida até o lago tem dificuldade moderada e oferece uma paisagem natural extraordinária. Teremos tempo suficiente para tirar fotos e fazer uma oferenda aos Apus; os mais corajosos poderão nadar no lago se o dia estiver ensolarado. Depois, desceremos até Soraypampa, onde nosso chef particular nos aguardará com um delicioso almoço. Após a refeição e uma breve pausa, iniciaremos o retorno a Cusco.",
+	},
+	"Cusco City Tour - Sacsayhuaman - Tipón, una Obra Maestra de la Ingeniería Hidráulica Inca - Iglesia Histórica de Andahuaylillas - La Capilla Sixtina de las Américas (D, A) ": {
+		en: "Cusco City Tour – Sacsayhuaman – Tipón, a Masterpiece of Inca Hydraulic Engineering – Historic Church of Andahuaylillas, the Sistine Chapel of the Americas (D, A) ",
+		pt: "City tour por Cusco – Sacsayhuaman – Tipón, obra-prima da engenharia hidráulica inca – Igreja Histórica de Andahuaylillas, a Capela Sistina das Américas (D, A) ",
+	},
+	"En el recorrido por Cusco, los visitantes se sumergen en la emoción de recorrer la antigua capital del Imperio Inca, una encantadora combinación de arquitectura inca y colonial. ": {
+		en: "On this tour of Cusco, visitors can experience the excitement of exploring the ancient capital of the Inca Empire, a charming blend of Inca and colonial architecture. ",
+		pt: "Durante o passeio por Cusco, os visitantes vivenciam a emoção de percorrer a antiga capital do Império Inca, uma encantadora combinação de arquitetura inca e colonial. ",
+	},
+	"El recorrido visita importantes lugares como la Catedral de Cusco, la Plaza de Armas y el Koricancha - El Templo del Sol, - Templo Máximo de los Incas, el templo más sagrado del Imperio Inca, pasando por Intik'ijllu o Callejón del Sol. La Callejón del Sol - Calle de los Muros Incas - Calle de la Casa de las Vírgenes del Sol Intik'ijllu, así fue conocida durante el imperio incaico, representa uno de los ejes urbanos y religiosos mejor conservados del Tahuantinsuyo, en Cusco (el 'ombligo del mundo') estaba reservada estrictamente para el Inca, las familias reales y la élite, esta calle en particular era un sendero exclusivo con importanci histórica por su diseño arquitectónico y de seguridad. ": {
+		en: "The tour visits important landmarks such as Cusco Cathedral, the Plaza de Armas and Koricancha—the Temple of the Sun and the Incas' greatest temple, the most sacred in the Inca Empire—then continues along Intik'ijllu, or Sun Alley. Also known as the Alley of Inca Walls and the Street of the Virgins of the Sun, Intik'ijllu was one of the best-preserved urban and religious thoroughfares of the Tahuantinsuyo. In Cusco, the 'navel of the world,' it was reserved strictly for the Inca, the royal families and the elite. This exclusive pathway was historically important for its architecture and security. ",
+		pt: "O passeio visita lugares importantes, como a Catedral de Cusco, a Plaza de Armas e o Koricancha — o Templo do Sol e templo máximo dos incas, o mais sagrado do Império Inca —, passando por Intik'ijllu, ou Beco do Sol. Conhecida também como Rua dos Muros Incas e Rua das Virgens do Sol, Intik'ijllu era uma das vias urbanas e religiosas mais bem preservadas do Tahuantinsuyo. Em Cusco, o 'umbigo do mundo', era reservada exclusivamente ao Inca, às famílias reais e à elite. Essa via exclusiva tinha importância histórica por sua arquitetura e segurança. ",
+	},
+	"Korikancha - Templo del Sol - Recinto de Oro -Sitio Dorado - Templo Máximo de los Incas, no era el palacio de un rey, más bien fue él templo religioso y político sagrado en el Imperio Incaico es una de las mayores ironías físicas de la historia de la humanidad. ": {
+		en: "Korikancha—the Temple of the Sun, the Golden Enclosure, the Golden Site and the Incas' greatest temple—was not a king's palace but the sacred religious and political temple of the Inca Empire. It is one of history's greatest physical ironies. ",
+		pt: "Korikancha — Templo do Sol, Recinto de Ouro, Local Dourado e templo máximo dos incas — não era o palácio de um rei, mas o sagrado templo religioso e político do Império Inca. É uma das maiores ironias físicas da história da humanidade. ",
+	},
+	"Este recorrido por la ciudad habitada más antigua del hemisferio occidental también incluye el monumental sitio arqueológico inca de Sacsayhuamán. ": {
+		en: "This tour of the oldest continuously inhabited city in the Western Hemisphere also includes the monumental Inca archaeological site of Sacsayhuaman. ",
+		pt: "Este passeio pela cidade habitada continuamente mais antiga do hemisfério ocidental também inclui o monumental sítio arqueológico inca de Sacsayhuamán. ",
+	},
+	"La Fortaleza de Sacsayhuamán - Halcón Satisfecho - Lugar Donde se Sacia el Halcón - La Cabeza del Puma, un imponente ejemplo de arquitectura militar inca.": {
+		en: "The Sacsayhuaman Fortress—the Satisfied Falcon, the Place Where the Falcon Is Sated, the Puma's Head—is an imposing example of Inca military architecture.",
+		pt: "A Fortaleza de Sacsayhuamán — Falcão Satisfeito, Lugar Onde o Falcão se Sacia, Cabeça do Puma — é um exemplo imponente da arquitetura militar inca.",
+	},
+	"Las murallas de Sacsayhuamán son una leyenda mágica, hay que romper con un mito: los incas no usaban la fuerza bruta desorganizada, sino una física asombrosamente avanzada. Los bloques pesan 125 toneladas, encajados de forma tan perfecta que no entra un alfiler entre ellos, estás viendo la cúspide de la ingeniería lítica prehispánica. Así es como realmente lo lograron de forma original y sin tecnologías europeas. ": {
+		en: "The walls of Sacsayhuaman are the stuff of legend, but one myth deserves to be dispelled: the Incas did not rely on disorganized brute force, but on astonishingly advanced physics. The blocks weigh 125 tons and fit together so perfectly that not even a pin can pass between them. This is the pinnacle of pre-Hispanic stone engineering, achieved in an original way without European technology. ",
+		pt: "As muralhas de Sacsayhuamán são lendárias, mas é preciso desfazer um mito: os incas não usavam força bruta desorganizada, e sim uma física surpreendentemente avançada. Os blocos pesam 125 toneladas e se encaixam com tanta perfeição que nem um alfinete passa entre eles. Você está diante do ápice da engenharia lítica pré-hispânica, realizada de forma original e sem tecnologias europeias. ",
+	},
+	"En un combate cuerpo a cuerpo agónico en las terrazas zigzagueras, los españoles lograron arrinconar a los últimos defensores incas. Allí, en la cima del torreón cilíndrico de Muyucmarca, emergió una figura imponente: un capitán de la nobleza inca (un orejón) a quien la historia popular bautizó como Cahuide.": {
+		en: "In a desperate hand-to-hand battle on the zigzag terraces, the Spanish managed to corner the last Inca defenders. There, atop the cylindrical tower of Muyucmarca, an imposing figure emerged: an Inca noble captain (an orejón), whom popular history came to call Cahuide.",
+		pt: "Em um combate corpo a corpo desesperado nos terraços em zigue-zague, os espanhóis conseguiram encurralar os últimos defensores incas. No alto da torre cilíndrica de Muyucmarca surgiu uma figura imponente: um capitão da nobreza inca (um orejón), a quem a história popular deu o nome de Cahuide.",
+	},
+	"El corría de un lado a otro del torreón como un león enjaulado. Estaba completamente solo, rodeado y cubierto de sangre enemiga y propia.": {
+		en: "He ran from one side of the tower to the other like a caged lion. Completely alone, he was surrounded and covered in the blood of his enemies and his own.",
+		pt: "Ele corria de um lado para o outro da torre como um leão enjaulado. Estava completamente sozinho, cercado e coberto pelo sangue dos inimigos e pelo próprio sangue.",
+	},
+	"Se dio cuenta de que no le quedaban más piedras que lanzar, ni hombres que comandar. Se arrojó al vacío desde lo alto del torreón. Prefirió convertirse en pedazos contra las rocas milenarias de Sacsayhuamán. Prefirió convertirse en pedazos contra las rocas milenarias de Sacsayhuamán antes que ver sus manos atadas por cadenas extranjeras. Deleite un delicioso Almuerzo-Box Lunch, explorando la exquisita gastronomía local. Esta comida está incluida en el día de hoy. ": {
+		en: "He realized he had no stones left to throw and no men left to command. He leapt from the top of the tower, choosing to be shattered against the ancient rocks of Sacsayhuaman rather than see his hands bound in foreign chains. Enjoy a delicious box lunch and explore the exquisite local cuisine. Today's lunch is included. ",
+		pt: "Percebeu que não lhe restavam pedras para lançar nem homens para comandar. Atirou-se do alto da torre, preferindo despedaçar-se contra as rochas milenares de Sacsayhuamán a ver as mãos presas por correntes estrangeiras. Saboreie um delicioso almoço tipo box lunch e conheça a requintada gastronomia local. O almoço de hoje está incluído. ",
+	},
+	"Tipón - La Ruta del Agua - El Santuario de los Maestros del Agua. Por la tarde, rumbo al sur, al Valle Sagrado, hacia Tipón una Obra Maestra de la Ingeniería Hidráulica Inca, un impresionante complejo arqueológico inca famoso por su avanzado sistema de canales de agua, terrazas agrícolas y recintos ceremoniales.": {
+		en: "Tipón—the Water Route, Sanctuary of the Masters of Water. In the afternoon, we head south toward the Sacred Valley and Tipón, a masterpiece of Inca hydraulic engineering. This impressive Inca archaeological complex is renowned for its advanced network of water channels, agricultural terraces and ceremonial enclosures.",
+		pt: "Tipón — a Rota da Água, o Santuário dos Mestres da Água. À tarde, seguiremos para o sul, rumo ao Vale Sagrado e a Tipón, obra-prima da engenharia hidráulica inca. Esse impressionante complexo arqueológico inca é famoso por seu avançado sistema de canais de água, terraços agrícolas e recintos cerimoniais.",
+	},
+	"El Santuario de los Maestros del Agua, es más que un sitio arqueológico, Tipón es una obra maestra de ingeniería hidráulica celestial que desafía el tiempo. En este santuario, los incas lograron lo imposible: esculpieron la montaña para domar el agua, convirtiendo un recurso natural en un espectáculo de arte, misticismo y ciencia que sigue funcionando a la perfección después de más de 500 años. En Tipón el silencio no existe. El agua canta mientras desciende por la montaña, el sitio está vivo gracias al murmullo constante de manantiales sagrados que brotan de las rocas y fluyen con precisión milimétrica por canales de piedra pulida. Sin tecnología moderna, los ingenieros incas calcularon pendientes exactas para que el agua fluyera sin erosionar la piedra ni desbordarse. ": {
+		en: "More than an archaeological site, Tipón—the Sanctuary of the Masters of Water—is a celestial masterpiece of hydraulic engineering that defies time. Here, the Incas achieved the impossible: they sculpted the mountain to tame water, turning a natural resource into a spectacle of art, mysticism and science that still works perfectly after more than 500 years. There is no silence at Tipón. Water sings as it descends the mountain, and the site is alive with the constant murmur of sacred springs flowing from the rocks through precisely cut channels of polished stone. Without modern technology, Inca engineers calculated exact gradients so the water would flow without eroding the stone or overflowing. ",
+		pt: "Mais do que um sítio arqueológico, Tipón — o Santuário dos Mestres da Água — é uma obra-prima celestial de engenharia hidráulica que desafia o tempo. Nesse santuário, os incas realizaram o impossível: esculpiram a montanha para domar a água, transformando um recurso natural em um espetáculo de arte, misticismo e ciência que continua funcionando perfeitamente após mais de 500 anos. Em Tipón, o silêncio não existe. A água canta ao descer a montanha, e o local ganha vida com o murmúrio constante de nascentes sagradas que brotam das rochas e correm por canais de pedra polida com precisão milimétrica. Sem tecnologia moderna, os engenheiros incas calcularam inclinações exatas para a água fluir sem erodir a pedra nem transbordar. ",
+	},
+	"Hoy en día, los canales siguen vertiendo agua cristalina con la misma fuerza y precisión que en la época del Imperio. Las doceterrazas agrícolas de una simetría perfecta abrazan la quebrada. No eran solo para cultivar; eran laboratorios climáticos y altares de culto a la Pachamama (Madre Tierra) y al Unu (el Agua), donde los muros de contención absorben el calor del sol para crear microclimas.": {
+		en: "Today, the channels still pour out crystal-clear water with the same force and precision as in the days of the Empire. Twelve perfectly symmetrical agricultural terraces embrace the ravine. They were not just for cultivation: they served as climate laboratories and places of worship for Pachamama (Mother Earth) and Unu (Water), with retaining walls that absorb the sun's heat to create microclimates.",
+		pt: "Até hoje, os canais despejam água cristalina com a mesma força e precisão da época do Império. Doze terraços agrícolas perfeitamente simétricos acompanham o desfiladeiro. Eles não serviam apenas para o cultivo: eram laboratórios climáticos e altares de culto à Pachamama (Mãe Terra) e a Unu (Água), cujos muros de contenção absorvem o calor do sol para criar microclimas.",
+	},
+	"Continuaremos hasta el pueblo de Andahuaylillas - La Capilla Sixtina de Américas - El Templo de Oro de América, un encantador y pacífico pueblo tradicional del Valle Sur de Cusco, famoso a nivel mundial. Dónde visitaremos la monumental Iglesia de San Pedro Apóstol, bautizada legítimamente como la Capilla Sixtina de América, conocida por sus murales barrocos, altares dorados y pinturas coloniales. Su belleza reside tanto en su mística arquitectura religiosa colonial como en la profunda serenidad de sus paisajes andinos. El interior está cubierto de frescos multicolores. Destacan los cuadros de la reputada Escuela Cusqueña y el icónico mural que retrata el Camino al Cielo y al Infierno. El altar principal está revestido con pan de oro, espejos y plata repujada. ": {
+		en: "We continue to Andahuaylillas, the 'Sistine Chapel of the Americas' and 'Golden Temple of the Americas,' a charming, peaceful traditional town in Cusco's Southern Valley, renowned around the world. There we visit the monumental Church of Saint Peter the Apostle, rightly called the Sistine Chapel of the Americas for its Baroque murals, gilded altars and colonial paintings. Its beauty lies in its mystical colonial religious architecture and the deep serenity of the Andean landscape. The interior is covered in multicolored frescoes, including works by the renowned Cusco School and the iconic mural depicting the Path to Heaven and Hell. The main altar is covered in gold leaf, mirrors and embossed silver. ",
+		pt: "Seguiremos até Andahuaylillas, a 'Capela Sistina das Américas' e o 'Templo de Ouro da América', um encantador e tranquilo povoado tradicional do Vale Sul de Cusco, famoso no mundo todo. Visitaremos a monumental Igreja de São Pedro Apóstolo, legitimamente chamada de Capela Sistina da América por seus murais barrocos, altares dourados e pinturas coloniais. Sua beleza está tanto na mística arquitetura religiosa colonial quanto na profunda serenidade das paisagens andinas. O interior é coberto por afrescos multicoloridos, entre eles obras da renomada Escola Cusquenha e o icônico mural que retrata o Caminho para o Céu e o Inferno. O altar principal é revestido de folha de ouro, espelhos e prata repuxada. ",
+	},
+	"Velada por cuenta propia. ": {
+		en: "Evening at your own expense. ",
+		pt: "Noite por conta própria. ",
+	},
+	"Por la mañana, visita La Cuesta de San Blas - La Cuesta que Cansa al Zorro - El Barrio de los Artesanos. Descubre el portal mágico de Cusco, prepárate para una experiencia que transforme tu forma de ver el mundo. Deja atrás el bullicio del turismo convencional cerca de la calle Triunfo y prepárate para cruzar un auténtico portal emocional. ": {
+		en: "In the morning, visit La Cuesta de San Blas—the Slope that Tires the Fox—and the Artisans' Quarter. Discover Cusco's magical gateway and prepare for an experience that will transform the way you see the world. Leave behind the bustle of conventional tourism near Triunfo Street and get ready to cross a truly emotional threshold. ",
+		pt: "Pela manhã, visite a Cuesta de San Blas — a ladeira que cansa a raposa — e o Bairro dos Artesãos. Descubra o portal mágico de Cusco e prepare-se para uma experiência que transformará sua maneira de ver o mundo. Deixe para trás o agito do turismo convencional perto da Rua Triunfo e prepare-se para cruzar um verdadeiro portal emocional. ",
+	},
+	"Caminar por esta emblemática cuesta es presenciar un diálogo visual que no encontrarás en ningún otro rincón del planeta. Aquí, la rigidez perfecta e indestructible de los muros incas sirve de base para sostener la fragilidad del adobe blanco y los balcones de madera colonial tallada. Es el escenario perfecto para tus mejores fotografías y recuerdos: una hermosa cicatriz histórica donde dos mundos opuestos se abrazaron con fuerza para crear el barrio más bohemio, fotogénico y vibrante de todo el Cusco. ": {
+		en: "Walking along this iconic slope reveals a visual dialogue found nowhere else on Earth. The perfect, enduring rigidity of the Inca walls supports the delicacy of white adobe and carved colonial wooden balconies. It is the perfect setting for memorable photos: a beautiful historical seam where two opposing worlds met to create Cusco's most bohemian, photogenic and vibrant neighborhood. ",
+		pt: "Caminhar por essa ladeira emblemática é presenciar um diálogo visual que não existe em nenhum outro lugar do planeta. A rigidez perfeita e indestrutível das muralhas incas serve de base para a delicadeza do adobe branco e das sacadas coloniais de madeira entalhada. É o cenário perfeito para fotos e lembranças: uma bela cicatriz histórica onde dois mundos opostos se uniram para criar o bairro mais boêmio, fotogênico e vibrante de todo o Cusco. ",
+	},
+	"Más allá de sus encantadoras tiendas y cafeterías de especialidad, San Blas te envuelve en la energía de un taller artesanal vivo que ha funcionado por siglos. Al recorrer sus calles, sentirás que las paredes mismas respiran la creatividad de los legendarios maestros imagineros cuzqueños, flotando en una atmósfera impregnada de historia, maderas finas y pigmentos antiguos. ": {
+		en: "Beyond its charming shops and specialty coffeehouses, San Blas envelops you in the energy of a living artisan workshop that has been active for centuries. As you walk its streets, you will feel the walls themselves breathe with the creativity of legendary Cusco image-makers, in an atmosphere steeped in history, fine woods and ancient pigments. ",
+		pt: "Além das lojas encantadoras e cafeterias especiais, San Blas envolve você na energia de um ateliê artesanal vivo há séculos. Ao percorrer suas ruas, você sentirá as próprias paredes respirarem a criatividade dos lendários artistas imagéticos cusquenhos, em uma atmosfera impregnada de história, madeiras nobres e pigmentos antigos. ",
+	},
+	"La Cuesta de San Blas es como un Reloj de Piedra, deja de ser una calle para convertirse en un portal emocional. Es la Columna Vertebral del Arte Cuzqueño.": {
+		en: "La Cuesta de San Blas is like a 'Stone Clock': it ceases to be a street and becomes an emotional gateway, the backbone of Cusco art.",
+		pt: "A Cuesta de San Blas é como um 'Relógio de Pedra': deixa de ser uma rua para se tornar um portal emocional, a espinha dorsal da arte cusquenha.",
+	},
+	"Cuesta de San Blas no sube hacia un barrio, sino que sube hacia atrás en el tiempo. A medida que asciendes y el aire se vuelve más fino, la piedra parece Despertar. ": {
+		en: "La Cuesta de San Blas does not simply climb toward a neighborhood; it climbs back through time. As you ascend and the air grows thinner, the stone seems to awaken. ",
+		pt: "A Cuesta de San Blas não sobe apenas em direção a um bairro: ela sobe de volta no tempo. À medida que você avança e o ar fica mais rarefeito, a pedra parece despertar. ",
+	},
+	"También encontrarás galerías de renombre y las fachadas blancas con puertas azules que albergan los talleres de las grandes familias como los Mendívil casi al llegar a la plaza San Blas. Hay una presencia fuerte de Joyería Contemporánea y pequeñas muestras de pintura que aprovechan los muros incas que sirven de base en varios tramos de ese lado.": {
+		en: "You will also find renowned galleries and white facades with blue doors housing the workshops of prominent families such as the Mendívil, almost at San Blas Square. Contemporary jewelry is strongly represented, along with small art displays that make use of the Inca walls serving as foundations along this side of the slope.",
+		pt: "Você também encontrará galerias renomadas e fachadas brancas com portas azuis que abrigam ateliês de famílias importantes, como os Mendívil, quase chegando à praça San Blas. Há forte presença de joalheria contemporânea e pequenas exposições de pintura que aproveitam as muralhas incas usadas como base em vários trechos desse lado.",
+	},
+	"El Púlpito de San Blas - La Obra Cumbre en Madera:": {
+		en: "The San Blas Pulpit – A Masterpiece in Wood:",
+		pt: "O púlpito de San Blas – Obra-prima em madeira:",
+	},
+	"El púlpito de San Blas no es solo un mueble litúrgico; es un árbol de cedro que aprendió a hablar en quechua y en latín al mismo tiempo. Es el reflejo exacto de un choque de mundos que se reconcilió a través de las manos de un artesano. Las columnas salomónicas no solo giran sobre su eje, sino que sostienen la estructura con una tensión visual que desafía la gravedad. Es un juego de luces y sombras donde el vacío trabaja tanto como el relieve. Luego verás, algunos cafés con balcones que ofrecen vistas hacia la calle. ": {
+		en: "The San Blas pulpit is more than a liturgical furnishing; it is a cedar tree that learned to speak Quechua and Latin at the same time. It is the exact reflection of two worlds colliding and reconciling through an artisan's hands. The Solomonic columns do more than twist around their axes: they support the structure with visual tension that defies gravity. It is a play of light and shadow in which empty space works as much as the relief. You will then see cafés with balconies overlooking the street. ",
+		pt: "O púlpito de San Blas não é apenas um móvel litúrgico: é um cedro que aprendeu a falar quéchua e latim ao mesmo tempo. É o retrato exato do choque entre dois mundos, reconciliados pelas mãos de um artesão. As colunas salomônicas não apenas giram em torno do próprio eixo, mas sustentam a estrutura com uma tensão visual que desafia a gravidade. É um jogo de luz e sombra em que o vazio tem tanta importância quanto o relevo. Depois, você verá alguns cafés com sacadas voltadas para a rua. ",
+	},
+	"Traslado al aeropuerto para su vuelo a Lima y conexión con el vuelo internacional. Regrese a casa con recuerdos inolvidables de la rica tradición de la Lima colonial, las imponentes montañas andinas nevadas y los exuberantes valles con el zigzagueante camino hacia la imponente vista de Machu Picchu, el asombroso legado inca. ": {
+		en: "Transfer to the airport for your flight to Lima and connection to your international flight. Return home with unforgettable memories of Lima's rich colonial heritage, the towering snow-capped Andes, the lush valleys and the winding route to the spectacular view of Machu Picchu, the astounding Inca legacy. ",
+		pt: "Traslado ao aeroporto para o voo a Lima e conexão com o voo internacional. Volte para casa com lembranças inesquecíveis da rica tradição colonial de Lima, das imponentes montanhas nevadas dos Andes, dos vales exuberantes e do caminho sinuoso até a vista grandiosa de Machu Picchu, o extraordinário legado inca. ",
+	},
+	"Si la escala entre vuelos Cusco-Lima-Regreso a Casa, él tiempo lo permite, le sugerimos almorzar en el Café del Museo y luego visitar el Museo Larco. Almuerzo en el Café del Museo. Un espacio rodeado de jardines donde podrá disfrutar de una mezcla única de cultura, historia, modernidad y buena comida. ": {
+		en: "If time allows during your Cusco–Lima–home connection, we recommend lunch at Café del Museo followed by a visit to the Larco Museum. Lunch at Café del Museo, a garden-surrounded space where you can enjoy a unique blend of culture, history, modernity and good food. ",
+		pt: "Se houver tempo durante a conexão entre Cusco, Lima e o voo de volta para casa, sugerimos almoçar no Café del Museo e depois visitar o Museu Larco. O Café del Museo é um espaço rodeado por jardins, onde você poderá desfrutar de uma combinação única de cultura, história, modernidade e boa comida. ",
+	},
+	"Visita al Museo Larco - El Guardián del Arte Precolombino - El Depósito Abierto del Museo Larco": {
+		en: "Visit to the Larco Museum – Guardian of Pre-Columbian Art and Home of the Open Storage Gallery",
+		pt: "Visita ao Museu Larco – Guardião da arte pré-colombiana e lar da reserva técnica aberta",
+	},
+	"El depósito abierto es una de las características más famosas y únicas del museo. Los visitantes pueden caminar directamente entre los estantes donde se resguardan y clasifican más de 30,000 piezas arqueológicas de cerámica precolombina.": {
+		en: "The open storage gallery is one of the museum's best-known and most distinctive features. Visitors can walk among the shelves where more than 30,000 pre-Columbian ceramic archaeological pieces are stored and classified.",
+		pt: "A reserva técnica aberta é uma das atrações mais famosas e singulares do museu. Os visitantes podem caminhar entre as estantes onde são guardadas e classificadas mais de 30 mil peças arqueológicas de cerâmica pré-colombiana.",
+	},
+	"La Galería de Oro y Plata": {
+		en: "The Gold and Silver Gallery",
+		pt: "A Galeria de Ouro e Prata",
+	},
+	"Esta deslumbrante sala exhibe la colección más importante de indumentaria y joyería de metales preciosos utilizada por los gobernantes del antiguo Perú. Las coronas, orejeras, narigueras y pectorales muestran el altísimo nivel técnico de los orfebres de culturas como la Mochica, Chimú y Sicán para honrar a sus dioses. El Museo Larco, fundado en 1926, exhibe notables galerías cronológicas que ofrecen una excelente visión general de 3000 años de desarrollo de la historia precolombina peruana. Ubicado en una singular mansión virreinal del siglo XVIII, construida sobre una pirámide precolombina del siglo VII, está rodeado de hermosos jardines. El Museo Larco también alberga la más fina colección de oro y plata del antiguo Perú y la famosa colección arqueológica erótica, una de las atracciones turísticas peruanas más visitadas.": {
+		en: "This dazzling gallery displays the most important collection of precious-metal garments and jewelry worn by rulers of ancient Peru. Crowns, ear ornaments, nose ornaments and breastplates reveal the exceptional skill of goldsmiths from cultures such as the Moche, Chimú and Sicán in honoring their gods. Founded in 1926, the Larco Museum features remarkable chronological galleries offering an excellent overview of 3,000 years of Peruvian pre-Columbian history. Housed in a distinctive 18th-century viceregal mansion built over a 7th-century pre-Columbian pyramid, it is surrounded by beautiful gardens. The museum also holds one of the finest collections of gold and silver from ancient Peru and its famous erotic archaeological collection, one of the country's most visited tourist attractions.",
+		pt: "Esta deslumbrante galeria exibe a mais importante coleção de vestimentas e joias de metais preciosos usadas pelos governantes do antigo Peru. Coroas, brincos, adornos nasais e peitorais revelam o altíssimo nível técnico dos ourives de culturas como Mochica, Chimú e Sicán ao homenagear seus deuses. Fundado em 1926, o Museu Larco apresenta notáveis galerias cronológicas que oferecem uma excelente visão geral de 3.000 anos de história pré-colombiana peruana. Instalado em um singular casarão vice-real do século XVIII, construído sobre uma pirâmide pré-colombiana do século VII, é rodeado por belos jardins. O museu também abriga uma das melhores coleções de ouro e prata do antigo Peru e sua famosa coleção arqueológica erótica, uma das atrações turísticas mais visitadas do país.",
+	},
+};
+
 const translations: Record<Exclude<ItineraryLocale, "es">, TextTranslations> = {
 	en: {
 		"Perú Espectacular": "Spectacular Peru",
@@ -589,7 +802,9 @@ export function translateItineraryData<T>(value: T, locale: ItineraryLocale): T 
 	if (locale === "es") return value;
 
 	const translate = (entry: unknown): unknown => {
-		if (typeof entry === "string") return translations[locale][entry] ?? entry;
+		if (typeof entry === "string") {
+			return translations[locale][entry] ?? additionalTranslations[entry]?.[locale] ?? entry;
+		}
 		if (Array.isArray(entry)) return entry.map(translate);
 		if (entry && typeof entry === "object") {
 			return Object.fromEntries(

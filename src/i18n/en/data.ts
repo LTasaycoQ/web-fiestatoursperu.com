@@ -2,12 +2,13 @@
 import type { HomeTranslations } from "@i18n/types";
 
 export const home: HomeTranslations = {
+  heroRegionLabel: "Main banner",
   heroEyebrow: "CELEBRATING 50 YEARS DISCOVERING PERU",
   heroTitle: "EXCEPTIONAL TRIPS",
-  heroTitle2: "Experiences",
-  heroTitle3: "Authentic",
+  heroTitle2: "Authentic",
+  heroTitle3: "Experiences",
   heroSubtitle:
-    "Since 1975, we have designed unforgettable experiences for those \n  who wish to discover Peru with the confidence of true experts.",
+    "Since 1976, we have designed unforgettable experiences for those who wish to discover Peru with the confidence of true experts.",
   heroCta: "Plan your trip",
   whyEyebrow: "Why choose Fiesta Tours Perú?",
   whyTitle: "50 years making the impossible, possible",
@@ -38,30 +39,38 @@ export const home: HomeTranslations = {
   tittle2: "Explore Peru",
   parrafo1: "Fiesta Tours Perú is an inbound travel agency and destination management company since 1976, specialized in the luxury market. We offer a unique selection of products and extraordinary private adventures that will exceed your passengers' expectations and generate new referrals. We are equipped to assist your clients throughout their journey across Peru and Latin America, whether they are discerning travelers, newlyweds, high-end travelers, celebrities, royalty, families on vacation, or incentive travel program participants; we have the knowledge and sophistication needed to create unforgettable travel experiences. Our reputation is built on fast and accurate confirmations, highly competitive pricing, and exceptional service. Our motto “When your clients demand excellence” reflects the confidence we have in our services and in the professionalism of our team. Many of our clients are members of the prestigious USTOA association, which requires a deposit of $1,000,000.00.",
   parrafo2:
-    "The great appeal of these tour operators has helped us reach the high level of service we currently offer. Among the products we offer is “Peru Boutique”, which highlights accommodation in Relais & Châteaux properties, and “Luxury Gastronomy”, featuring San Pellegrino award-winning restaurants. We also offer “Luxury Amazon River Cruises”, as well as rainforest adventures at the award-winning Inkaterra Reserva Amazónica. Among our most outstanding products is the “Two Wonders, One Country” package, which includes a stay in the Sacred Valley for better acclimatization before visiting Machu Picchu and two nights in Machu Picchu instead of the usual one, and “Alternative Inca Trails” lodge to lodge to Machu Picchu on foot or horseback. Whether in the Andes, the valleys or the northern beaches, we have 39 years of experience offering a luxury alternative in Peru. We hope to have the opportunity to serve you. The management of Fiesta Tours Perú, inbound tour operator and DMC since 1976.",
+    "The great appeal of these tour operators has helped us reach the high level of service we currently offer. Among the products we offer is “Peru Boutique”, which highlights accommodation in Relais & Châteaux properties, and “Luxury Gastronomy”, featuring San Pellegrino award-winning restaurants. We also offer “Luxury Amazon River Cruises”, as well as rainforest adventures at the award-winning Inkaterra Reserva Amazónica. Among our most outstanding products is the “Two Wonders, One Country” package, which includes a stay in the Sacred Valley for better acclimatization before visiting Machu Picchu and two nights in Machu Picchu instead of the usual one, and “Alternative Inca Trails” lodge to lodge to Machu Picchu on foot or horseback. Whether in the Andes, the valleys or the northern beaches, we have 50 years of experience offering a luxury alternative in Peru. We hope to have the opportunity to serve you. The management of Fiesta Tours Perú, inbound tour operator and DMC since 1976.",
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-eng_i1cf4k.png",
-  preTitle: "50 YEARS OF HISTORY",
-  title: "Half a century transforming destinations into extraordinary experiences.",
+  preTitle: "50 YEARS OF EXPERIENCE",
+  title: "We know Peru",
+  title2: "We create experiences that last.",
   description: "Fiesta Tours Peru was born from the conviction that Peru is one of the most fascinating destinations in the world — and 50 years later, that conviction continues to drive us with the same energy as on the very first day. As a DMC with half a century of experience, we know every corner, every route, and every story of this extraordinary country, and we place all that knowledge at the service of experiences that exceed expectations.",
   description2: "We design cultural and historical tours, adventure and nature routes, nationwide circuits, and fully customized travel packages, all under an unwavering commitment to excellence and quality. The adventure is just beginning — and quality is not a promise: it is our five-decade tradition.",
-  infoTitle: "The value of traveling with those who truly know the destination",
+  description3: "Over five decades, we have built trusted relationships with our partners and suppliers, turning every itinerary into a carefully designed, authentic and memorable experience.",
+  infoTitle: "More than knowing Peru.",
+  infoTitle2: "We know how to make it extraordinary",
+  infoDescription: "We design authentic experiences, know the destination and take care of every detail.",
   content: [
     {
-      title: "Trips designed just for you",
-      description: "Every itinerary begins with a conversation with you. We listen to your interests and craft a unique experience that takes you to places traditional tours never include.",
+      id: 1,
+      title: "Tailor-made experiences",
+      description: "Every itinerary begins with a conversation. We listen to travelers' expectations and design an experience that reflects the way they want to travel.",
     },
     {
-      title: "First-hand local expertise",
-      description: "Our team of specialists and guides born in Peru open the doors to stories, traditions, and hidden gems known only to locals. More than information, it is a genuine connection with the destination.",
+      id: 2,
+      title: "Local knowledge that makes a difference",
+      description: "We know the routes, timings, suppliers, communities and places you discover only when you truly know the destination.",
     },
     {
-      title: "A genuine connection with Peru",
-      description: "Years of relationships with local communities allow us to offer something rare: an experience that goes beyond tourism and brings you closer to the soul of the destination.",
+      id: 3,
+      title: "Reliable operations you can trust",
+      description: "Our team accompanies every stage of the trip, taking care of coordination and every detail so the experience is seamless and memorable.",
     },
     {
-      title: "Comfort and distinction at every stage",
-      description: "We work with a carefully selected collection of the country’s finest accommodations, where comfort and attention to detail make every night a memorable part of your journey.",
+      id: 4,
+      title: "The Peru few get to know",
+      description: "Our experience and local relationships allow us to create authentic experiences that go beyond traditional routes.",
     }
   ],
 
@@ -128,9 +137,10 @@ export const about: AboutTranslations = {
   heroTitleLine1: "The company",
   heroTitleLine2: "Behind the",
   heroTitleLine3: "Perfect journey.",
-  heroSubtitle: "Luxury receptive tourism operator — specialized in the most demanding market in Latin America.",
+  heroSubtitle: "A DMC and inbound tour operator specializing in exceptional, tailor-made experiences in Peru for our international partners.",
   heroBtnPrimary: "Discover more",
   heroBtnSecondary: "Contact experts",
+  alliesTitle: "Partners in our commitment",
   
   // Quote
   quoteText: "When your clients demand excellence — choose Fiesta Tours Perú.",
@@ -138,9 +148,9 @@ export const about: AboutTranslations = {
   // Empresa section
   empresaEyebrow: "The Company",
   empresaTitle: "50 years of experience, trust and excellence",
-  empresaText1: "Since 1976, Fiesta Tours Perú has been a strategic partner for travel agencies, tour operators and event organizers from around the world seeking to offer exceptional experiences in Peru. With nearly five decades of experience, we specialize in receptive tourism, incentive travel, congresses, conventions and tailor-made experiences, designing programs that reflect the cultural, historical and natural richness of our country.",
-  empresaText2: "Our experience allows us to serve from individual travelers and family groups to corporate programs, incentives, special events and high-end experiences, always with a personalized approach and flawless execution.",
-  empresaText3: "Over the years we have built a solid reputation based on trust, operational efficiency, rapid response capacity and an ongoing commitment to quality. These values have allowed us to establish lasting relationships with clients and business partners from major international markets.",
+  empresaText1: "Since 1976, Fiesta Tours Perú has been a strategic partner for travel agencies, tour operators and event organizers around the world seeking to offer exceptional experiences in Peru. For 50 years, we have specialized in inbound tourism, incentive travel, congresses, conventions and tailor-made programs.",
+  empresaText2: "Our track record combines in-depth destination knowledge, operational efficiency, personalized service and a strong ability to respond, allowing us to serve individual travelers and groups as well as corporate programs and special events.",
+  empresaText3: "Today, we celebrate 50 years of experience and trust, looking to the future with the same passion for Peru and commitment to creating authentic, memorable and carefully designed experiences.",
   statYearsLabel: "Years of successful operations",
   statUstoALabel: "Most prestigious association in the global tourism sector",
   statRankLabel: "Leader in luxury receptive tourism in Latin America",
@@ -148,7 +158,7 @@ export const about: AboutTranslations = {
   // Why section
   whyEyebrow: "Why Fiesta Tours Perú?",
   whyTitle: "Excellence tailored<br/>to you",
-  whyBody: "We are a highly qualified company to welcome your clients with excellence standards. Bilingual guides, own fleet and a team passionate about luxury.",
+  whyBody: "Every experience is tailor-made, combining destination knowledge, attention to detail and personalized service to ensure seamless, memorable operations.",
   
   // Razones section
   razonesEyebrow: "Why choose us",
@@ -469,6 +479,7 @@ export const recorridos: RecorridosTranslations = {
   personalTravelDesc: "Every detail, every moment, every memory — personalized for you.",
   contactAdvisor: "Talk to an advisor",
   yearsExcellence: "years of\nexcellence",
+  scrollLabel: "Scroll",
   backToTours: "All tours",
   yearRound: "Year-round",
   dayLabel: "Day",

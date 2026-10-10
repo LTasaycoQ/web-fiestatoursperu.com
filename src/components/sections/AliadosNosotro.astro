@@ -8,7 +8,7 @@ import Puno from  '@assets/image/puno.jpg';
 import Corderito from  '@assets/image/Cordero.jpg'; 
 
 import Sernanp from '@assets/logos-Respaldo/SERNANP.png';
-const fondoUrl = "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2070&auto=format&fit=crop";
+const { title = "" } = Astro.props;
 ---
 
 <section class="aliados">
@@ -16,7 +16,7 @@ const fondoUrl = "https://images.unsplash.com/photo-1526392060635-9d6019884377?q
   <div class="aliados__container">
     
     <div class="aliados__title-wrap">
-      <h2 class="aliados__title">Aliados en nuestro <br class="salto_line"> compromiso</h2>
+      <h2 class="aliados__title">{title}</h2>
       <span class="aliados__line"></span>
     </div>
 

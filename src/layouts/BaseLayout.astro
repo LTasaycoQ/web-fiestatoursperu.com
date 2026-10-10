@@ -18,13 +18,14 @@ const { title, description, image, fullscreen = false } = Astro.props;
 
 const lang = getLang(Astro.url);
 const t = useTranslations(lang);
+const htmlLang = lang === "pt" ? "pt-BR" : lang;
 
 const pageTitle = title ?? t.meta.homeTitle;
 const pageDescription = description ?? t.meta.homeDescription;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <Meta title={pageTitle} description={pageDescription} {image} {lang} />
 

@@ -31,6 +31,7 @@ export interface NavTranslations {
 // HOME
 // ─────────────────────────
 export interface HomeTranslations {
+  heroRegionLabel?: string;
   heroEyebrow: string;
   heroTitle: string;
   heroTitle2?: string;
@@ -75,8 +76,8 @@ export interface HomeTranslations {
 
   infoTitle?: string;
   infoTitle2?: string;
-  content?: Content[];
   infoDescription?: string;
+  content?: Content[];
 
   toursTitle?: string;
   toursTitle2?: string;
@@ -164,6 +165,7 @@ export interface AboutTranslations {
   heroSubtitle: string;
   heroBtnPrimary: string;
   heroBtnSecondary: string;
+  alliesTitle?: string;
   
   // Quote
   quoteText: string;
@@ -306,6 +308,7 @@ export interface FooterTranslations {
   rightsReserved?: string;
   securePayment?: string;
   brandTagline?: string;
+  certificationAlt?: string;
 }
 
 // ─────────────────────────
@@ -382,6 +385,7 @@ export interface RecorridosTranslations {
   personalTravelDesc?: string;
   contactAdvisor?: string;
   yearsExcellence?: string;
+  scrollLabel?: string;
   backToTours?: string;
   yearRound?: string;
   dayLabel?: string;

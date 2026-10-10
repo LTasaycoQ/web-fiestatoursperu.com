@@ -29,6 +29,9 @@ interface Props {
   subtitle?: string;
   cta?: string;
   ctaHref?: string;
+  heroLabel?: string;
+  toursLabel?: string;
+  historyLabel?: string;
 }
 
 const {
@@ -39,13 +42,16 @@ const {
   subtitle = '',
   cta = '',
   ctaHref = '/',
+  heroLabel = '',
+  toursLabel = '',
+  historyLabel = '',
 } = Astro.props;
 
 const videos = [VideoOne, VideoTwo, VideoThree,VideoFor,VideoFive, VideoSex, VideoSeven, VideoEight, VideoNine, VideoTen, VideoEleven, VideoTwelv, VideoTwelv3];
 
 ---
 
-<section class="hero"  aria-label="Hero principal">
+<section class="hero" aria-label={heroLabel}>
 
   <div class="hero__carousel" aria-hidden="true">
     {videos.map((video, index) => (
@@ -88,8 +94,8 @@ const videos = [VideoOne, VideoTwo, VideoThree,VideoFor,VideoFive, VideoSex, Vid
     </p>
 
     <div class="btn_hero">
-      <a href={toursHref} class="hero_cta">Ver nuestros Tours</a>
-      <a href={localePath(lang, "/nosotros")} class="hero_cta">Nuestra Historia</a>
+      <a href={toursHref} class="hero_cta">{toursLabel}</a>
+      <a href={localePath(lang, "/nosotros")} class="hero_cta">{historyLabel}</a>
     </div>
   </div>
 
@@ -114,4 +120,3 @@ const videos = [VideoOne, VideoTwo, VideoThree,VideoFor,VideoFive, VideoSex, Vid
     });
   }
 </script>
-

@@ -31,6 +31,7 @@ const fullTitle = title.includes(siteName)
 // Imagen siempre absoluta
 const origin = Astro.url.origin;
 const absoluteImage = image.startsWith('https') ? image : `${origin}${image}`;
+const ogLocale = lang === 'en' ? 'en_US' : lang === 'pt' ? 'pt_BR' : 'es_PE';
 ---
 
 <!-- Primarios -->
@@ -50,7 +51,7 @@ const absoluteImage = image.startsWith('https') ? image : `${origin}${image}`;
 <meta property="og:image:width"  content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url"          content={canonical} />
-<meta property="og:locale"       content={lang === 'en' ? 'en_US' : 'es_PE'} />
+<meta property="og:locale"       content={ogLocale} />
 
 <!-- Twitter Card -->
 <meta name="twitter:card"        content="summary_large_image" />
