@@ -1053,7 +1053,7 @@
     align-items: center;
     padding: 0px;
   }
-  .about-text,
+  
   .about-title{
     text-align: center;
   }
@@ -1301,6 +1301,8 @@
   font-size: 19px;
   line-height: 1.85;
 }
+
+
 
 .about-stats {
   display: grid;
@@ -1642,4 +1644,22 @@
   .value-content {
     order: 1;
   }
+}
+
+
+
+
+@media (max-width: 768px){
+  .about-title{
+    font-size: 30px;
+  }
+  .about-text{
+    font-size: 15px;
+  }
+
+  .workflow-title{
+    font-size: 10px;
+  }
+
+  
 }
