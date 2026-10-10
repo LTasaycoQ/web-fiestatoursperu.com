@@ -309,7 +309,7 @@ const categories = [
           </div>
         </div>
         <div class="nl-actions">
-          <button type="submit" class="btn-primary" id="nl-submit">{ui.nlBtn}</button>
+          <button type="submit" class="btn-primary" style="font-size: 13px;" id="nl-submit">{ui.nlBtn}</button>
           <p class="nl-privacy">{ui.nlPrivacy}</p>
         </div>
       </form>
@@ -928,7 +928,7 @@ button { cursor: pointer; }
   flex-shrink: 0;
 }
 .section-label__text {
-  font-size: 9.5px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.38em;
   text-transform: uppercase;
@@ -1033,7 +1033,7 @@ button { cursor: pointer; }
 .tag-pill {
   background: rgba(45,90,39,0.08);
   color: var(--verde);
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1048,7 +1048,7 @@ button { cursor: pointer; }
   border-color: var(--verdec);
 }
 .meta-time, .meta-read {
-  font-size: 11px;
+  font-size: 15px;
   color: #bbb;
   font-weight: 400;
 }
@@ -1075,7 +1075,7 @@ button { cursor: pointer; }
 }
 
 .featured-card__excerpt {
-  font-size: 14px;
+  font-size: 19px;
   line-height: 1.9;
   color: var(--muted);
   font-weight: 300;
@@ -1110,7 +1110,7 @@ button { cursor: pointer; }
   justify-content: center;
 }
 .author-name {
-  font-size: 12px;
+  font-size: 19px;
   color: #888;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -1119,7 +1119,7 @@ button { cursor: pointer; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1399,8 +1399,8 @@ button { cursor: pointer; }
 }
 
 .newsletter-title {
-  font-family: var(--font-ppnue);
-  font-size: clamp(26px, 2.6vw, 40px);
+  font-family: var(--font-playfair);
+  font-size: clamp(26px, 2.6vw, 42px);
   font-weight: 300;
   color: var(--ink);
   line-height: 1.18;
@@ -1408,12 +1408,12 @@ button { cursor: pointer; }
   letter-spacing: -0.01em;
 }
 .newsletter-body {
-  font-size: 14px;
+  font-size: 19px;
   line-height: 1.9;
-  color: var(--muted);
+  color: #353535;
   margin-top: 16px;
   font-weight: 300;
-  max-width: 380px;
+  max-width: 580px;
 }
 @media (max-width: 1100px) {
   .newsletter-body { max-width: none; }
@@ -1439,7 +1439,7 @@ button { cursor: pointer; }
   gap: 8px;
 }
 .nl-field label {
-  font-size: 9.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1451,7 +1451,7 @@ button { cursor: pointer; }
   background: #fff;
   border-radius: 4px;
   font-family: var(--font-ppnue);
-  font-size: 13.5px;
+  font-size: 19px;
   color: var(--ink);
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -1473,8 +1473,8 @@ button { cursor: pointer; }
   .nl-actions { flex-direction: column; align-items: flex-start; }
 }
 .nl-privacy {
-  font-size: 11px;
-  color: #bbb;
+  font-size: 16px;
+  color: #444444;
   line-height: 1.6;
   font-weight: 300;
 }
