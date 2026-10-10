@@ -367,7 +367,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-ppnue);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -412,7 +412,7 @@
 /* Section lead */
 .section-lead {
   font-family: var(--font-ppnue);
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 300;
   line-height: 1.5;
   color: black;
@@ -484,7 +484,7 @@
 
 .prose-stack p {
   font-family: var(--font-ppnue);
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 300;
   color: black;
   line-height: 1.5;
@@ -768,6 +768,10 @@
   }
 
   .prose-stack p {
+    font-size: 15px;
+  }
+
+  .section-lead{
     font-size: 15px;
   }
 

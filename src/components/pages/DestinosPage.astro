@@ -87,7 +87,7 @@ const icons: Record<string, string> = {
         </h2>
       </div>
       
-      <p style="width: 42%; min-width: 280px; font-family: var(--font-ppnue);font-size: 17px; color: rgb(62, 62, 62);  line-height: 1.65; margin: 0;">
+      <p style="width: 42%; min-width: 280px; font-family: var(--font-ppnue);font-size: 18px; color: rgb(62, 62, 62);  line-height: 1.65; margin: 0;">
         {i.destinationsSectionDescription}
       </p>
     </div>
@@ -103,7 +103,7 @@ const icons: Record<string, string> = {
               <div class="exp-card__header">
                 <h4 class="exp-card__title" style="font-size: 18px;">{e.title}</h4>
               </div>
-              <p class="exp-card__desc"  style="font-size: 15px;">{e.desc}</p>
+              <p class="exp-card__desc"  style="font-size: 16px;">{e.desc}</p>
               {/* <a href={localePath(lang, '/contacto')} class="exp-card__cta">
                 {e.cta} <span>&rarr;</span>
               </a> */}
@@ -148,8 +148,8 @@ const icons: Record<string, string> = {
           </div>
           <div class="cat-card__body">
             <div class="cat-card__icon" set:html={icons[cat.icon] || icons.medal} />
-            <h4 class="cat-card__title" style="font-family: var(--font-ppnue); font-size: 17px;">{categoryTranslations[cat.titleKey] || ""}</h4>
-            <p class="cat-card__desc" style="font-family: var(--font-ppnue); font-size: 15px;">{categoryTranslations[cat.descKey] || ""}</p>
+            <h4 class="cat-card__title" style="font-family: var(--font-ppnue); font-size: 19px;">{categoryTranslations[cat.titleKey] || ""}</h4>
+            <p class="cat-card__desc" style="font-family: var(--font-ppnue); font-size: 17px;">{categoryTranslations[cat.descKey] || ""}</p>
             {/* <a href={localePath(lang, '/contacto')} class="cat-card__cta">
               {i.categoryCta || "Conocer más"} <span>&rarr;</span>
             </a> */}
@@ -171,10 +171,10 @@ const icons: Record<string, string> = {
   <div class="inc-cta__inner" style="display:flex; justify-content: space-between; align-items: center; max-width: 1700px;" data-aos="fade-up">
     <div style="display: flex; flex-direction: column; text-align: start;">
       <h2 class="inc-cta__title" style="font-family: var(--font-ppnue); font-weight: 500;">{i.destinationsCtaTitle}</h2>
-      <span style="font-size: 17px; font-family: var(--font-ppnue); ">{i.destinationsCtaDescription}</span>
+      <span style="font-size: 19px; font-family: var(--font-ppnue); ">{i.destinationsCtaDescription}</span>
     </div>
     <div class="cta-actions">
-      <a href={localePath(lang, '/contacto')} class="btn-primary">{i.destinationsContactButton}</a>
+      <a href={localePath(lang, '/contacto')} class="btn-primary" style="font-size: 14px;">{i.destinationsContactButton}</a>
     </div>
   </div>
 </section>
