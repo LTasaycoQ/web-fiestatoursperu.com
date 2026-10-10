@@ -55,7 +55,7 @@ export const home: HomeTranslations = {
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-esp_jlhihh.png",
   preTitle: "50 ANOS DE EXPERIÊNCIA",
-  title: "Conhecemos o Peru",
+  title: "50 ANOS CONECTANDO O MUNDO AO PERU",
   title2: "Criamos experiências que permanecem.",
   description: "Desde 1976, na Fiesta Tours Peru, compartilhamos nossa paixão pelo Peru com o mundo. Ao longo de cinco décadas, transformamos nosso conhecimento do destino, nossa experiência operacional e nossa paixão pelo atendimento em experiências de viagem criadas para inspirar e conectar culturas.",
   description2: "Como Destination Management Company (DMC), trabalhamos em parceria com agências de turismo atacadistas e profissionais do turismo internacional, oferecendo roteiros personalizados, experiências culturais, aventuras, experiências em meio à natureza e propostas de luxo nos principais destinos do Peru.",

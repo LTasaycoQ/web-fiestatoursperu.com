@@ -43,7 +43,7 @@ export const home: HomeTranslations = {
 
   logo : "https://res.cloudinary.com/dlgeap8h0/image/upload/v1780341323/50-eng_i1cf4k.png",
   preTitle: "50 YEARS OF EXPERIENCE",
-  title: "We know Peru",
+  title: "50 YEARS CONNECTING THE WORLD WITH PERU",
   title2: "We create experiences that last.",
   description: "Since 1976, at Fiesta Tours Peru, we have shared our passion for Peru with the world. For five decades, we have transformed our destination knowledge, operational expertise, and passion for service into travel experiences designed to inspire and connect cultures.",
 

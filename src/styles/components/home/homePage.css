@@ -45,7 +45,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  margin-top: 80px;
+  margin-top: 0px;
   margin-bottom: 10px;
   padding-left: 190px;
 }
@@ -53,6 +53,7 @@
 .about-header {
   display: flex;
   width: 100%;
+  max-width: 500px;
   flex-direction: column;
   align-items: start;
   margin-bottom: 52px;
@@ -60,9 +61,9 @@
 
 .about-logo {
   display: block;
-  width: 120px;
+  width: 130px;
+  margin:0px;
   height: auto;
-  margin: 0 auto 24px;
   object-fit: contain;
 }
 
@@ -1260,7 +1261,7 @@
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
   align-items: stretch;
   padding: 0;
-  min-height: 760px;
+  min-height: 730px;
 }
 
 .about-container {
@@ -1275,10 +1276,6 @@
   margin-bottom: 36px;
 }
 
-.about-logo {
-  width: 104px;
-  margin: 0 0 22px;
-}
 
 .about-rule {
   width: 64px;
