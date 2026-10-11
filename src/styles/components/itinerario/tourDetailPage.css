@@ -458,6 +458,10 @@
   cursor: pointer;
 }
 
+.location-pin__chevron {
+  display: none;
+}
+
 .location-pin__icon {
   color:  #262929;
   margin-top: 6px;
@@ -1613,11 +1617,130 @@
   }
   
   .itinerary-days {
-    display: none;
+    display: block;
   }
   
   .mobile-accordion {
+    display: none;
+  }
+
+  .location-pin {
+    appearance: none;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .location-pin__icon {
     display: flex;
+    align-items: center;
+    margin-top: 0;
+    color: #c9a34e;
+  }
+
+  .location-pin__chevron {
+    display: block;
+    margin-left: auto;
+    color: #777;
+    transition: transform 0.2s ease;
+  }
+
+  .location-pin[aria-expanded="true"] .location-pin__chevron {
+    transform: rotate(180deg);
+  }
+
+  .location-pin__text {
+    font-family: var(--font-playfair);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .location-group + .location-group {
+    margin-top: 32px;
+    padding-top: 28px;
+  }
+
+  .days-timeline {
+    gap: 20px;
+  }
+
+  .location-pin[aria-expanded="false"] + .days-timeline {
+    display: none;
+  }
+
+  .day-card {
+    padding: 18px 0 24px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #e2e2e2;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .day-card:hover {
+    transform: none;
+    border-color: #e2e2e2;
+    box-shadow: none;
+  }
+
+  .day-card__header {
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .day-card__number,
+  .day-card__title {
+    font-family: var(--font-aktiv);
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  .day-card__number {
+    padding: 0;
+    background: transparent;
+    color: var(--color-dark, #1a1510);
+    text-transform: none;
+  }
+
+  .day-card__title {
+    flex: 0 1 auto;
+  }
+
+  .day-card__media-layout {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+  }
+
+  .day-card__description {
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  .day-card__gallery img {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
+  }
+
+  .day-card__info {
+    padding-top: 0;
+    border-top: 0;
   }
 }
 

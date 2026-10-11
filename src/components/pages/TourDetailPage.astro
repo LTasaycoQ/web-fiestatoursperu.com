@@ -177,13 +177,19 @@ const mapWaypoints: Waypoint[] = itinerario.locations
       <div class="itinerary-grid">
         <div class="itinerary-days">
           {
-            itinerario.locations.map((loc) => {
+            itinerario.locations.map((loc, locIdx) => {
               const key = loc.name.toLowerCase().replace(/\s+/g, "-");
               const locationDays = groupedDays[key] ?? [];
+              const daysId = `location-days-${locIdx}`;
 
               return (
                 <div class="location-group">
-                  <div style="display: flex; align-items:center; " class="location-pin">
+                  <button
+                    class="location-pin js-location-toggle"
+                    type="button"
+                    aria-expanded={locIdx === 0 ? "true" : "false"}
+                    aria-controls={daysId}
+                  >
                     <div class="location-pin__icon">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -193,9 +199,12 @@ const mapWaypoints: Waypoint[] = itinerario.locations
                     <span class="location-pin__text">
                      {r.locations?.[key] ?? loc.name}
                     </span>
-                  </div>
+                    <svg class="location-pin__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
 
-                  <div class="days-timeline">
+                  <div class="days-timeline" id={daysId}>
                     {locationDays.map((day, idx) => (
                       <div class="day-card">
                         <div class="day-card__header">
@@ -528,6 +537,23 @@ const mapWaypoints: Waypoint[] = itinerario.locations
 
   function initTourPage(): void {
     cleanup();
+
+    const locationToggles = document.querySelectorAll<HTMLButtonElement>(".js-location-toggle");
+    locationToggles.forEach((toggle, index) => {
+      toggle.setAttribute("aria-expanded", String(index === 0));
+      const freshToggle = toggle.cloneNode(true) as HTMLButtonElement;
+      toggle.parentNode?.replaceChild(freshToggle, toggle);
+
+      const handleClick = () => {
+        const isExpanded = freshToggle.getAttribute("aria-expanded") === "true";
+        freshToggle.setAttribute("aria-expanded", String(!isExpanded));
+      };
+
+      freshToggle.addEventListener("click", handleClick);
+      accordionCleanups.push(() => {
+        freshToggle.removeEventListener("click", handleClick);
+      });
+    });
 
     const closeAll = (): void => {
       document.querySelectorAll<HTMLElement>(".mobile-location__trigger").forEach((btn: HTMLElement) => {
