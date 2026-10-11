@@ -408,7 +408,7 @@ export const incentivos: IncentivosTranslations = {
   miceSpecialEventsTitle: "EVENTOS ESPECIAIS",
   miceSpecialEventsDescription: "Eventos únicos que combinam produção, logística e cenários extraordinários em todo o Peru.",
   miceScenariosEyebrow: "Destinos Extraordinários, Experiências Únicas",
-  miceScenariosTitle: "<em style='color: #edbd5d; font-style: normal;'> Peru:</em> um cenário inspirador.",
+  miceScenariosTitle: "<em style='font-weight:600; color: #DCAB44; font-style: normal;'> Peru:</em> um cenário inspirador.",
   miceScenariosDescription: "De cidades históricas a paisagens extraordinárias, o Peru oferece cenários excepcionais para criar programas de incentivo e experiências corporativas que conectam as pessoas à essência do destino.",
   miceScenarioLabels: ["Locais históricos", "Espaços exclusivos", "Incentivos em meio à natureza", "Experiências únicas"],
   miceCtaEyebrow: "MAIS QUE UM EVENTO",

@@ -9,7 +9,7 @@
 
 .rec-hero {
   position: relative;
-  height: 70vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,7 +129,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #F1CF64;
+  background: #DCAB44;
   flex-shrink: 0;
   animation: heroDotPulse 2.4s ease-in-out infinite;
 }

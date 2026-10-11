@@ -50,8 +50,8 @@ const i = useTranslations(lang).incentivos;
   </section>
 
 
-
-    <section class="trust-bar" style="background-color: #F1F1F1;">
+<!-- 
+  <section class="trust-bar" style="background-color: #F1F1F1;">
     <div class="trust-bar__inner"  data-aos="fade-up">
       <div class="trust-bar__item" style="height: 270px; min-width: 250px; padding: 20px; border-radius: 8px; display:flex; flex-direction:column; align-items:center; justify-content:center; justify-content:start; align-items:center;  font-family: var(--font-aktiv);">
         <svg width="64px" height="64px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.288"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M16 19C18.7629 19 21 16.7629 21 14C21 11.2371 18.7629 9 16 9C13.2371 9 11 11.2371 11 14C11 16.7629 13.2371 19 16 19ZM16 21C19.8675 21 23 17.8675 23 14C23 10.1325 19.8675 7 16 7C12.1325 7 9 10.1325 9 14C9 17.8675 12.1325 21 16 21Z" fill="#b28e3e"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.76618 28.0846C5.14556 28.6486 5 29.0826 5 29.4V33H27V29.4C27 29.0826 26.8544 28.6486 26.2338 28.0846C25.6009 27.5095 24.6268 26.9511 23.3932 26.4645C20.924 25.4906 17.9234 25 16 25C14.0766 25 11.076 25.4906 8.60682 26.4645C7.37322 26.9511 6.39908 27.5095 5.76618 28.0846ZM16 23C11.6612 23 3 25.144 3 29.4V35H29V29.4C29 25.144 20.3387 23 16 23Z" fill="#b28e3e"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M35 21C36.6579 21 38 19.6579 38 18C38 16.3421 36.6579 15 35 15C33.3421 15 32 16.3421 32 18C32 19.6579 33.3421 21 35 21ZM35 23C37.7625 23 40 20.7625 40 18C40 15.2375 37.7625 13 35 13C32.2375 13 30 15.2375 30 18C30 20.7625 32.2375 23 35 23Z" fill="#b28e3e"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M28 33H43V30.3333C43 30.1329 42.9211 29.8399 42.5037 29.429C42.0689 29.0009 41.3774 28.5654 40.4657 28.1758C38.6335 27.3929 36.401 27 35 27C33.5989 27 31.3665 27.3929 29.5343 28.1758C28.8492 28.4686 28.2884 28.7873 27.8674 29.1093C27.672 28.4546 27.2808 27.8736 26.8304 27.389C29.0493 25.799 32.7681 25 35 25C38.3375 25 45 26.7867 45 30.3333V33V35H43H28V33Z" fill="#b28e3e"></path> </g></svg>
@@ -78,13 +78,13 @@ const i = useTranslations(lang).incentivos;
       </div>
     </div>
   </section>
-
+ -->
 
 
 
   <div style="background-color:white;width: 100%;">
   <div style="background-color:white; width: 100%;">
-  <section class="scenarios-section" style="background-color: #0D2519; width: 100%;">
+  <section class="scenarios-section" style="background-color: white; width: 100%;">
     <div class="scenarios-section__inner">
       <div class="scenarios-copy">
         <p class="scenarios-copy__eyebrow">{i.miceScenariosEyebrow}</p>
@@ -143,13 +143,15 @@ const i = useTranslations(lang).incentivos;
     justify-content: center;
     align-items: center;
     padding: 56px 48px;
-    background: #0E251B;
-    color: #fff;
+    background:white;
+
+    /* background: #0E251B; */
+    color: #303030;
   }
 
   .scenarios-copy__eyebrow {
     margin: 0 0 24px;
-    color: #d8bd77;
+    color: #DCAB44;
     font-family: var(--font-aktiv);
     font-size: 15px;
     font-weight: 600;
@@ -165,7 +167,7 @@ const i = useTranslations(lang).incentivos;
     width: 56px;
     height: 2px;
     margin-bottom: 24px;
-    background: #b08c3a;
+    background: #DCAB44;
   }
 
   .scenarios-copy h2 {
@@ -178,7 +180,7 @@ const i = useTranslations(lang).incentivos;
 
   .scenarios-copy > p:last-child {
     margin: 0;
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(18, 18, 18, 0.82);
     font-family: var(--font-ppnue);
     font-size: 17px;
     line-height: 1.75;
