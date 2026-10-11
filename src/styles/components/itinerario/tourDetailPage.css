@@ -1501,7 +1501,6 @@
   .location-group + .location-group {
     margin-top: 48px;
     padding-top: 40px;
-    border-top: 1px solid #dedede;
   }
 
   .location-pin {
@@ -1529,14 +1528,14 @@
   }
 
   .days-timeline {
-    gap: 0;
+    gap: 28px;
   }
 
   .day-card {
-    padding: 16px 0 24px;
+    padding: 22px 0 30px;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 2px solid #b8b8b8;
     border-radius: 0;
     box-shadow: none;
     transition: none;
@@ -1585,6 +1584,11 @@
 
   .day-card__description p + p {
     margin-top: 10px;
+  }
+
+  .day-card__info {
+    padding-top: 0;
+    border-top: 0;
   }
 
   .day-card__gallery img {
