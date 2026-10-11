@@ -179,6 +179,22 @@ button { cursor: pointer; }
   letter-spacing: 0.01em;
 }
 
+main :is(
+  p:not([class*="eyebrow"]):not([class*="kicker"]):not([class*="label"]),
+  [class*="desc"],
+  [class*="description"],
+  [class*="subtitle"],
+  [class*="__lead"],
+  [class$="-lead"],
+  .section-body,
+  .section-lead,
+  .rec-intro__text
+),
+.site-footer .footer-description {
+  font-family: var(--font-aktiv) !important;
+  font-size: 19px !important;
+}
+
 /* ── CARDS GRID ── */
 .cards-grid {
   display: grid;
@@ -294,6 +310,22 @@ button { cursor: pointer; }
   .footer__grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 768px) {
+  main :is(
+    p:not([class*="eyebrow"]):not([class*="kicker"]):not([class*="label"]),
+    [class*="desc"],
+    [class*="description"],
+    [class*="subtitle"],
+    [class*="__lead"],
+    [class$="-lead"],
+    .section-body,
+    .section-lead,
+    .rec-intro__text
+  ),
+  .site-footer .footer-description {
+    font-size: 17px !important;
+  }
+}
 
 
 .logo_extras{

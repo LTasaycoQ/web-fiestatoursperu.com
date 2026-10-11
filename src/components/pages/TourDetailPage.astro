@@ -183,7 +183,7 @@ const mapWaypoints: Waypoint[] = itinerario.locations
 
               return (
                 <div class="location-group">
-                  <div style="display: flex; align-items:center; " class="location-pin js-location-label">
+                  <div style="display: flex; align-items:center; " class="location-pin">
                     <div class="location-pin__icon">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -447,16 +447,11 @@ const mapWaypoints: Waypoint[] = itinerario.locations
 </BaseLayout>
 
 <script>
-  let labelObserver: IntersectionObserver | null = null;
   let scrollCleanup: (() => void) | null = null;
   let accordionCleanups: (() => void)[] = [];
   let readMoreCleanups: (() => void)[] = [];
 
   function cleanup() {
-    if (labelObserver) {
-      labelObserver.disconnect();
-      labelObserver = null;
-    }
     if (scrollCleanup) {
       scrollCleanup();
       scrollCleanup = null;
@@ -533,16 +528,6 @@ const mapWaypoints: Waypoint[] = itinerario.locations
 
   function initTourPage(): void {
     cleanup();
-
-    const locationLabels = document.querySelectorAll(".js-location-label");
-    if (locationLabels.length) {
-      labelObserver = new IntersectionObserver(
-        (entries: IntersectionObserverEntry[]) =>
-          entries.forEach((e) => e.target.classList.toggle("is-active", e.isIntersecting)),
-        { rootMargin: "-20% 0px -60% 0px", threshold: 0.5 }
-      );
-      locationLabels.forEach((el: Element) => labelObserver?.observe(el));
-    }
 
     const closeAll = (): void => {
       document.querySelectorAll<HTMLElement>(".mobile-location__trigger").forEach((btn: HTMLElement) => {
