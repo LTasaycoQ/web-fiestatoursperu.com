@@ -27,16 +27,18 @@ const i = useTranslations(lang).incentivos;
         alt="Amazon river cruise landscape"
         aria-hidden="true"
         fetchpriority="high"
+
+        ZXZX
       />
     </div>
     <div class="blog-hero__overlay"></div>
 
-    <div class="blog-hero__content" style="  font-family: var(--font-aktiv);
+    <div class="blog-hero__content" style="  font-family: var(--font-playfair);
 "  data-aos="fade-right">
       <p class="hero-eyebrow">{i.miceHeroEyebrow}</p>
       <div class="hero-rule"></div>
       <h1 class="blog-hero__title" style="font-family: var(--font-playfair); font-weight: 500; font-style: normal;">{i.miceHeroTitle}</h1>
-      <p style="font-family: var(--font-aktiv) font-weight: 400; font-style: normal; font-size: clamp(20px, 3vw, 29px);">{i.miceHeroSubtitle}</p>
+      <p style="font-family: var(--font-playfair) font-weight: 400; font-style: normal; font-size: clamp(20px, 3vw, 29px);"  set:html={i.miceHeroSubtitle}></p>
       <div class="hero-rule"></div>
       <p class="blog-hero__sub" style="font-family: var(--font-aktiv) font-weight: 400; font-style: normal;">{i.miceHeroDescription}</p>
     
