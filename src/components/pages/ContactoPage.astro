@@ -1270,7 +1270,7 @@ const c = t.contacto;
 /* ══ TOAST ══════════════════════════════════════════════════════ */
 .toast {
   position: fixed;
-  bottom: 32px;
+  bottom: max(32px, env(safe-area-inset-bottom));
   left: 50%;
   transform: translateX(-50%) translateY(100px);
   z-index: 9999;
@@ -1297,6 +1297,8 @@ const c = t.contacto;
 }
 
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.toast[data-state="success"] { background: #3e6b45; }
+.toast[data-state="error"] { background: #a83b35; }
 
 /* ══ RESPONSIVE AJUSTES FINOS ═══════════════════════════════════ */
 @media (max-width: 1200px) {
@@ -1330,11 +1332,12 @@ const c = t.contacto;
 </style>
 
 <script>
-  (function() {-
-    function showToast(message: string) {
+  (function() {
+    function showToast(message: string, state: 'success' | 'error') {
       const toast = document.getElementById('toast');
       if (!toast) return;
       toast.textContent = message;
+      toast.dataset.state = state;
       toast.classList.add('show');
       setTimeout(() => {
         toast.classList.remove('show');
@@ -1379,11 +1382,11 @@ const c = t.contacto;
             throw new Error(`Contact API returned ${response.status}`);
           }
 
-          showToast(form.dataset.toastSuccess ?? '');
+          showToast(form.dataset.toastSuccess ?? '', 'success');
           form.reset();
         } catch (error) {
           console.error('Could not submit the contact form:', error);
-          showToast(form.dataset.toastError ?? '');
+          showToast(form.dataset.toastError ?? '', 'error');
         } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
