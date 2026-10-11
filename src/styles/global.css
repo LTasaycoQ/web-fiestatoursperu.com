@@ -180,10 +180,10 @@ button { cursor: pointer; }
 }
 
 main :is(
-  p:not([class*="eyebrow"]):not([class*="kicker"]):not([class*="label"]),
+  p:not(.hero__subtitle):not([class*="eyebrow"]):not([class*="kicker"]):not([class*="label"]),
   [class*="desc"],
   [class*="description"],
-  [class*="subtitle"],
+  [class*="subtitle"]:not(.hero__subtitle),
   [class*="__lead"],
   [class$="-lead"],
   .section-body,
@@ -312,10 +312,10 @@ main :is(
 
 @media (max-width: 768px) {
   main :is(
-    p:not([class*="eyebrow"]):not([class*="kicker"]):not([class*="label"]),
+    p:not(.hero__subtitle):not([class*="eyebrow"]):not([class*="kicker"]):not([class*="label"]),
     [class*="desc"],
     [class*="description"],
-    [class*="subtitle"],
+    [class*="subtitle"]:not(.hero__subtitle),
     [class*="__lead"],
     [class$="-lead"],
     .section-body,
