@@ -189,7 +189,7 @@ const icons: Record<string, string> = {
     </div>
   </section>
 
-  <section class="rec-hero" style="height: 650px;">
+  <section class="rec-hero commitment-hero" style="height: 650px;">
     <div class="rec-hero__bg">
       <Image
         src={CoverIndex}
@@ -201,28 +201,28 @@ const icons: Record<string, string> = {
     <div class="rec-hero__overlay_section"></div>
 
     <div
-      class="rec-hero__container container-feature"
-      style=" display: flex; align-items:start; flex-direction: column; margin-top: -40px;"
+      class="rec-hero__container container-feature commitment-hero__container"
+      style="display: flex; flex-direction: column; margin-top: -40px;"
       data-aos="fade-right"
     >
       <div
-        class="rec-hero__eyebrow"
-        style="display: flex;flex-direction: column; justify-content: start; align-items: start;"
+        class="rec-hero__eyebrow commitment-hero__eyebrow"
+        style="display: flex; flex-direction: column;"
       >
         <span style="color: #F1CF64; letter-spacing: 0.4em;"
           >{n.commitmentEyebrow}</span
         >
         <span
-          class=""
+          class="commitment-hero__line"
           style="background-color: #F1CF64; width: 70px; height:1px;"
         ></span>
       </div>
 
-      <h1 class="rec-hero__title">
+      <h1 class="rec-hero__title commitment-hero__title">
         <span style="white-space: pre-line">{n.commitmentTitle}</span>
       </h1>
 
-      <p class="rec-hero__subtitle">
+      <p class="rec-hero__subtitle commitment-hero__subtitle">
         {n.commitmentDescription}
       </p>
     </div>
