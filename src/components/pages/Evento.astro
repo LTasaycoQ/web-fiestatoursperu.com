@@ -28,19 +28,17 @@ const i = useTranslations(lang).incentivos;
         aria-hidden="true"
         fetchpriority="high"
 
-        ZXZX
       />
     </div>
     <div class="blog-hero__overlay"></div>
 
-    <div class="blog-hero__content" style="  font-family: var(--font-playfair);
-"  data-aos="fade-right">
+    <div class="blog-hero__content" style="  font-family: var(--font-playfair);"  data-aos="fade-right">
       <p class="hero-eyebrow">{i.miceHeroEyebrow}</p>
       <div class="hero-rule"></div>
-      <h1 class="blog-hero__title" style="font-family: var(--font-playfair); font-weight: 500; font-style: normal;">{i.miceHeroTitle}</h1>
+      <h1 class="blog-hero__title" style="font-family: var(--font-playfair); font-weight: 500; font-style: normal;" >{i.miceHeroTitle}</h1>
       <p style="font-family: var(--font-playfair) font-weight: 400; font-style: normal; font-size: clamp(20px, 3vw, 29px);"  set:html={i.miceHeroSubtitle}></p>
       <div class="hero-rule"></div>
-      <p class="blog-hero__sub" style="font-family: var(--font-aktiv) font-weight: 400; font-style: normal;">{i.miceHeroDescription}</p>
+      <p class="blog-hero__sub" style="font-weight: 400; font-style: normal; " set:html={i.miceHeroDescription}></p>
     
         
     </div>
@@ -91,12 +89,9 @@ const i = useTranslations(lang).incentivos;
       <div class="scenarios-copy">
         <p class="scenarios-copy__eyebrow">{i.miceScenariosEyebrow}</p>
         <span class="scenarios-copy__rule" aria-hidden="true"></span>
-        <h2 style="font-family: var(--font-playfair);text-transform: uppercase; font-weight: 500; font-style: normal;">{i.miceScenariosTitle}</h2>
-        <p style="font-family: var(--font-aktiv); font-weight: 400; font-style: normal;">{i.miceScenariosDescription}</p>
-        <br>
-        <br>
-        <br>
-        <br>
+        <h2 style="text-align:center;font-family: var(--font-playfair);text-transform: uppercase; font-weight: 500; font-style: normal;" set:html={i.miceScenariosTitle}></h2>
+        <p style="font-family: var(--font-aktiv); max-width: 900px; font-weight: 400; font-style: normal; text-align: center;">{i.miceScenariosDescription}</p>
+        
       </div>
       <div class="scenarios-grid">
         {miceFeatures.map((mice) => (
@@ -137,8 +132,8 @@ const i = useTranslations(lang).incentivos;
   }
 
   .scenarios-section__inner {
-    display: grid;
-    grid-template-columns: minmax(320px, 0.75fr) minmax(0, 1.25fr);
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -146,6 +141,7 @@ const i = useTranslations(lang).incentivos;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 56px 48px;
     background: #0E251B;
     color: #fff;
@@ -182,7 +178,7 @@ const i = useTranslations(lang).incentivos;
     margin: 0;
     color: rgba(255, 255, 255, 0.82);
     font-family: var(--font-ppnue);
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.75;
   }
 
@@ -678,8 +674,6 @@ button { cursor: pointer; }
 /* ═══════════════════════════════════════════════════════════════ */
 .blog-hero {
   position: relative;
-  height:30vh;
-  min-height: 680px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -791,8 +785,9 @@ button { cursor: pointer; }
 .blog-hero__sub {
   font-size: clamp(16px, 2.5vw, 19px);
   line-height: 1.9;
+  font-family: var(--font-aktiv);
   color: rgba(255,255,255,0.62);
-  max-width: 460px;
+  max-width:520px;
   font-weight: 300;
   letter-spacing: 0.015em;
 }
