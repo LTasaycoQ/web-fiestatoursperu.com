@@ -175,7 +175,7 @@
   background: #F1CF64;
   color: #222222;
   font-family: var(--font-ppnue);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -202,7 +202,7 @@
   background: transparent;
   color: rgba(255,255,255,0.75);
   font-family: var(--font-ppnue);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -341,7 +341,7 @@
   font-size: clamp(18px, 2vw, 22px);
   font-weight: 300;
   line-height: 1.65;
-  color: var(--color-dark);
+  color: #4c4c4c;
   max-width: 700px;
   letter-spacing: 0.01em;
 }
@@ -400,8 +400,8 @@
 }
 
 .tours-title {
-  font-family: var(--font-ppnue);
-  font-size: 35px;
+  font-family: var(--font-playfair);
+  font-size: 40px;
   font-weight: 300;
   color: var(--color-dark);
   line-height: 1.28;
@@ -622,7 +622,7 @@
 /* Title */
 .tour-card__title {
   font-family: var(--font-ppnue);
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 400;
   color: var(--color-darker);
   margin: 0 0 10px;
@@ -693,6 +693,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
+  height: 170px;
   font-family: var(--font-ppnue);
   gap: 10px;
   padding: 0 48px;
@@ -700,20 +702,25 @@
   flex: 1;
   min-width: 180px;
 }
+
+
+@media (max-width: 1135px) {
+  .trust-bar__item {   height: 100%; }
+}
 .trust-bar__item svg {
   color: var(--color-verdec);
 }
 .trust-bar__item strong {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--color-dark);
   display: block;
 }
 .trust-bar__item span {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 300;
-  color: #888;
+  color: #292828;
 }
 
 .trust-bar__divider {
@@ -771,23 +778,23 @@
 }
 
 .rec-cta__title {
-  font-family: var(--font-ppnue);
-  font-size: clamp(30px, 4vw, 54px);
-  font-weight: 500;
+  font-family: var(--font-playfair);
+  font-size: clamp(40px, 4vw, 55px);
+  font-weight: 600;
   color: var(--color-dark);
   line-height: 1.18;
   letter-spacing: -0.75px;
   margin: 0 0 16px;
 }
 .rec-cta__title span {
-  font-weight: 400;
+  font-weight: 600;
   color: var(--color-verde);
 }
 
 .rec-cta__text {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 300;
-  color: #000000;
+  color: #474747;
   font-family: var(--font-ppnue);
   margin: 0 0 36px;
   line-height: 1.7;
@@ -809,7 +816,7 @@
   padding: 14px 36px;
   background: rgb(52, 72, 56);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
