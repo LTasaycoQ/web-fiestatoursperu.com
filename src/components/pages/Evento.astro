@@ -93,8 +93,8 @@ const i = useTranslations(lang).incentivos;
       <div class="scenarios-copy">
         <p class="scenarios-copy__eyebrow">{i.miceScenariosEyebrow}</p>
         <span class="scenarios-copy__rule" aria-hidden="true"></span>
-        <h2 style="text-align:center;font-family: var(--font-playfair);text-transform: uppercase; font-weight: 500; font-style: normal;" set:html={i.miceScenariosTitle}></h2>
-        <p style="font-family: var(--font-aktiv); max-width: 900px; font-weight: 400; font-style: normal; text-align: center;">{i.miceScenariosDescription}</p>
+        <h2 style="text-align:center;font-family: var(--font-playfair);text-transform: uppercase; font-weight: 600; font-style: normal;" set:html={i.miceScenariosTitle}></h2>
+        <p style="font-family: var(--font-aktiv); max-width: 900px;  font-style: normal; text-align: center;">{i.miceScenariosDescription}</p>
         
       </div>
   <br>
@@ -124,7 +124,7 @@ const i = useTranslations(lang).incentivos;
 
       <div style="display: flex; flex-direction:column; justify-content:center; font-family: var(--font-aktiv); align-items:center;">
           </div>
-        <h2 class="inc-cta__title" style="font-family: var(--font-playfair); font-weight: 700; font-size: 40px; line-height: 1.2; color: #0E251B; text-align:center;">{i.miceCtaTitle}</h2>
+        <h2 class="inc-cta__title" style="font-family: var(--font-playfair); font-weight: 600; font-size: 40px; line-height: 1.2; color: #0E251B; text-align:center;">{i.miceCtaTitle}</h2>
         <span style="text-align:center; margin-top: 20px; font-size: clamp(14px, 5vw, 19px); font-family: var(--font-aktiv); color: #272727;">{i.miceCtaDescription}</span>
 
         <a style="margin-top: 30px;background-color: #B28E3E;text-style: none; color:white; padding: 8px 50px; border-radius: 10px; align-items:center; width: max-content; font-family: var(--font-aktiv); text-align:center;" href={localePath(lang, "/contacto")}>{i.textContact}</a>
@@ -159,10 +159,10 @@ const i = useTranslations(lang).incentivos;
 
   .scenarios-copy__eyebrow {
     margin: 0 0 24px;
-    color: #DCAB44;
+    color: #4c4c4c;
     font-family: var(--font-aktiv);
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     width: 100%;
     text-align: center;
     line-height: 1.5;
@@ -188,9 +188,10 @@ const i = useTranslations(lang).incentivos;
 
   .scenarios-copy > p:last-child {
     margin: 0;
-    color: rgba(18, 18, 18, 0.82);
+    color: #4c4c4c;
     font-family: var(--font-ppnue);
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: 400;
     line-height: 1.75;
   }
 

@@ -346,7 +346,7 @@ miceHeroDescription: "We design and operate tailor-made incentive programs and c
   miceSpecialEventsTitle: "SPECIAL EVENTS",
   miceSpecialEventsDescription: "Unique events combining production, logistics and extraordinary settings throughout Peru.",
   miceScenariosEyebrow: "Extraordinary Destinations, Unique Experiences",
-  miceScenariosTitle: "<em style='font-weight:600; color: #DCAB44; font-style: normal;'> Peru:</em> an inspiring setting.",
+  miceScenariosTitle: "<em style='font-weight:600;  font-style: normal;'> Peru:</em> an inspiring setting.",
   miceScenariosDescription: "From historic cities to extraordinary landscapes, Peru offers exceptional settings for designing incentive programs and corporate experiences that connect people with the essence of the destination.",
   miceScenarioLabels: ["Historic locations", "Exclusive venues", "Nature-based incentives", "One-of-a-kind experiences"],
   miceCtaEyebrow: "MORE THAN AN EVENT",
