@@ -16,7 +16,7 @@ export const miceFeatures: MiceExperience[] = [
     },
      {
         tagKey: "tag_adventure",
-        img: "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80",
+        img: "https://res.cloudinary.com/dlgeap8h0/image/upload/f_auto,q_auto/v1791722412/WhatsApp_Image_2026-10-11_at_07.39.30_tprnkn.jpg",
     },
   
 ];
