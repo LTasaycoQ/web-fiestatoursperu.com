@@ -1498,12 +1498,35 @@
 }
 
 @media (min-width: 1101px) {
+  .itinerary-days {
+    position: relative;
+  }
+
+  .itinerary-days::before {
+    position: absolute;
+    top: 12px;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      #c7c7c7 0 10px,
+      transparent 10px 17px
+    );
+    content: "";
+  }
+
+  .location-group {
+    padding-left: 84px;
+  }
+
   .location-group + .location-group {
     margin-top: 48px;
     padding-top: 40px;
   }
 
   .location-pin {
+    position: relative;
     width: fit-content;
     margin: 0 0 14px;
     padding: 0;
@@ -1515,7 +1538,23 @@
     cursor: default;
   }
 
+  .location-pin::before {
+    position: absolute;
+    top: 12px;
+    right: calc(100% + 12px);
+    width: 72px;
+    height: 2px;
+    background: repeating-linear-gradient(
+      to right,
+      #c7c7c7 0 10px,
+      transparent 10px 17px
+    );
+    content: "";
+  }
+
   .location-pin__icon {
+    display: flex;
+    align-items: center;
     margin-top: 0;
     color: #c9a34e;
   }
@@ -1524,6 +1563,7 @@
     font-family: var(--font-playfair);
     font-size: 24px;
     font-weight: 600;
+    line-height: 1;
     letter-spacing: 0;
   }
 
@@ -1535,7 +1575,7 @@
     padding: 22px 0 30px;
     background: transparent;
     border: 0;
-    border-bottom: 2px solid #b8b8b8;
+    border-bottom: 1px solid #e2e2e2;
     border-radius: 0;
     box-shadow: none;
     transition: none;
