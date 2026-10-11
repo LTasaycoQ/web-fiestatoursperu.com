@@ -1498,28 +1498,6 @@
 }
 
 @media (min-width: 1101px) {
-  .itinerary-days {
-    position: relative;
-  }
-
-  .itinerary-days::before {
-    position: absolute;
-    top: 12px;
-    bottom: 0;
-    left: 0;
-    width: 2px;
-    background: repeating-linear-gradient(
-      to bottom,
-      #c7c7c7 0 10px,
-      transparent 10px 17px
-    );
-    content: "";
-  }
-
-  .location-group {
-    padding-left: 84px;
-  }
-
   .location-group + .location-group {
     margin-top: 48px;
     padding-top: 40px;
@@ -1536,20 +1514,6 @@
     border-radius: 0;
     box-shadow: none;
     cursor: default;
-  }
-
-  .location-pin::before {
-    position: absolute;
-    top: 12px;
-    right: calc(100% + 12px);
-    width: 72px;
-    height: 2px;
-    background: repeating-linear-gradient(
-      to right,
-      #c7c7c7 0 10px,
-      transparent 10px 17px
-    );
-    content: "";
   }
 
   .location-pin__icon {
