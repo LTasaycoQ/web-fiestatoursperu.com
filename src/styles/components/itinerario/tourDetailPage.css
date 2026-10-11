@@ -1574,7 +1574,7 @@
 
   .day-card__media-layout {
     grid-template-columns: minmax(0, 1fr) minmax(200px, 35%);
-    align-items: start;
+    align-items: center;
     gap: 40px;
   }
 
