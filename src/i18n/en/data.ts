@@ -382,35 +382,35 @@ miceHeroDescription: "We design and operate tailor-made incentive programs and c
 
 
   experienceTranslations: {
-    "experience_lima_title": "LIMA",
+    "experience_lima_title": "Lima",
     "experience_lima_desc": "The gateway to Peru.",
     "experience_lima_cta": "Discover Lima",
 
-    "experience_cusco_title": "CUSCO",
+    "experience_cusco_title": "Cusco",
     "experience_cusco_desc": "The heart of the Andes.",
     "experience_cusco_cta": "Discover Cusco",
 
-    "experience_valle_title": "SACRED VALLEY",
+    "experience_valle_title": "Sacred Valley",
     "experience_valle_desc": "Landscapes that tell stories.",
     "experience_valle_cta": "Discover the Sacred Valley",
 
-    "experience_machu_title": "MACHU PICCHU",
+    "experience_machu_title": "Machu Picchu",
     "experience_machu_desc": "A wonder that transcends the journey.",
     "experience_machu_cta": "Experience Machu Picchu",
 
-    "experience_puno_title": "PUNO",
+    "experience_puno_title": "Puno",
     "experience_puno_desc": "The lake of the Andes.",
     "experience_puno_cta": "Discover Puno",
 
-    "experience_arequipa_title": "AREQUIPA",
+    "experience_arequipa_title": "Arequipa",
     "experience_arequipa_desc": "Among volcanoes and traditions.",
     "experience_arequipa_cta": "Discover Arequipa",
 
-    "experience_ica_title": "ICA, PARACAS & NAZCA",
+    "experience_ica_title": "Ica, Paracas & Nazca",
     "experience_ica_desc": "Desert, ocean and mystery.",
     "experience_ica_cta": "Discover the Southern Coast",
 
-    "experience_amazonia_title": "AMAZON",
+    "experience_amazonia_title": "Amazon",
     "experience_amazonia_desc": "Nature at its most magnificent.",
     "experience_amazonia_cta": "Discover the Amazon",
   },

@@ -12,15 +12,6 @@ export interface FooterSection {
 
 export const footerSections: FooterSection[] = [
   {
-    titleKey: 'destTitle',
-    links: [
-      { key: 'dest1', path: '/itinerarios' },
-      { key: 'dest2', path: '/itinerarios' },
-      { key: 'dest3', path: '/el-pais' },
-      { key: 'dest4', path: '/el-pais' },
-    ],
-  },
-  {
     titleKey: 'servTitle',
     links: [
       { key: 'serv1', path: '/itinerarios' },

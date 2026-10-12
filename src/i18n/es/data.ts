@@ -378,35 +378,35 @@ export const incentivos: IncentivosTranslations = {
   },
 
   experienceTranslations: {
-    "experience_lima_title": "LIMA",
+    "experience_lima_title": "Lima",
     "experience_lima_desc": "La puerta de entrada al Perú.",
     "experience_lima_cta": "Descubrir Lima",
 
-    "experience_cusco_title": "CUSCO",
+    "experience_cusco_title": "Cusco",
     "experience_cusco_desc": "El corazón de los Andes.",
     "experience_cusco_cta": "Descubrir Cusco",
 
-    "experience_valle_title": "VALLE SAGRADO",
+    "experience_valle_title": "Valle Sagrado",
     "experience_valle_desc": "Paisajes que cuentan historias.",
     "experience_valle_cta": "Descubrir el Valle Sagrado",
 
-    "experience_machu_title": "MACHU PICCHU",
+    "experience_machu_title": "Machu Picchu",
     "experience_machu_desc": "Una maravilla que trasciende el viaje.",
     "experience_machu_cta": "Vivir Machu Picchu",
 
-    "experience_puno_title": "PUNO",
+    "experience_puno_title": "Puno",
     "experience_puno_desc": "El lago de los Andes.",
     "experience_puno_cta": "Descubrir Puno",
 
-    "experience_arequipa_title": "AREQUIPA",
+    "experience_arequipa_title": "Arequipa",
     "experience_arequipa_desc": "Entre volcanes y tradiciones.",
     "experience_arequipa_cta": "Descubrir Arequipa",
 
-    "experience_ica_title": "ICA, PARACAS & NAZCA",
+    "experience_ica_title": "Ica, Paracas & Nazca",
     "experience_ica_desc": "Desierto, océano y misterio.",
     "experience_ica_cta": "Descubrir la Costa Sur",
 
-    "experience_amazonia_title": "AMAZONÍA",
+    "experience_amazonia_title": "Amazonía",
     "experience_amazonia_desc": "La naturaleza en su máxima expresión.",
     "experience_amazonia_cta": "Descubrir la Amazonía",
   },

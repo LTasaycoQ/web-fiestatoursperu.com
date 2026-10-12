@@ -3,6 +3,10 @@
   --navbar-bg: #2a2b27;
   --navbar-blur: 20px;
   --navbar-transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --navbar-scrolled-text: #292d28;
+  --navbar-scrolled-accent: #af8a43;
+  --navbar-scrolled-hover-bg: rgba(175, 138, 67, 0.1);
+  --navbar-scrolled-toggle-color: #292d28;
   --font-family_campton: 'Campton', sans-serif;
 }
 
@@ -19,7 +23,7 @@
 }
 
 #site-header.scrolled {
-  background: #272b2b;
+  background: white;
   backdrop-filter: blur(var(--navbar-blur));
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
@@ -35,12 +39,6 @@
   width: 100%;
 }
 
-.nav-container .scrolled{
-  position: relative;
-  background: #272b2b;
-  transition: all 1s;
-  width: 100%;
-}
 
 .nav-inner {
   display: grid;
@@ -91,6 +89,10 @@
   object-fit: contain;
   filter: brightness(0) invert(1);
   transition: filter 0.3s ease;
+}
+
+#site-header.scrolled .logo-image {
+  filter: none;
 }
 
 /* Badge animado */
@@ -162,7 +164,7 @@
   font-weight: 500;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--color-text-muted, rgba(255,255,255,0.7));
+  color: var(--color-text-muted, rgba(27, 27, 27, 0.575));
   text-decoration: none;
   border-radius: 12px;
   transition: all 0.3s var(--navbar-transition);
@@ -195,9 +197,30 @@
 }
 
 .nav-link-text {
-  color:white;
+  color: white;
   position: relative;
+  transition: color 0.3s var(--navbar-transition);
 }
+
+#site-header.scrolled .nav-link-text {
+  color: var(--navbar-scrolled-text);
+}
+
+#site-header.scrolled .nav-link::before {
+  background: var(--navbar-scrolled-accent);
+}
+
+#site-header.scrolled .nav-link:hover,
+#site-header.scrolled .nav-link.active {
+  color: var(--navbar-scrolled-accent);
+  background: var(--navbar-scrolled-hover-bg);
+}
+
+#site-header.scrolled .nav-link:hover .nav-link-text,
+#site-header.scrolled .nav-link.active .nav-link-text {
+  color: var(--navbar-scrolled-accent);
+}
+
 
 .chevron {
   width: 16px;

@@ -21,9 +21,9 @@ function isActive(path: string): boolean {
   return currentPath === full || currentPath.startsWith(full + "/");
 }
 
-import LogoEs from "../../assets/log-png.png?url";
-import LogoEn from "../../assets/log-png.png?url";
-import LogoPt from "../../assets/log-png.png?url";
+import LogoEs from "../../assets/LOGO_FIESTATOURS_TRANSPARENT.png?url";
+import LogoEn from "../../assets/LOGO_FIESTATOURS_TRANSPARENT.png?url";
+import LogoPt from "../../assets/LOGO_FIESTATOURS_TRANSPARENT.png?url";
 
 const logos: Record<string, string> = {
   es: LogoEs,
@@ -138,9 +138,9 @@ function getNavTranslation(key: string): string {
           </svg>
         </a>
 
-        <a
+        <a  class="mail-menu-nav"
           href="mailto:info@fiestatoursperu.com"
-          style="color: white; text-decoration: none; display:flex; align-items: center; justify-content:center;"
+          style=" text-decoration: none; display:flex; align-items: center; justify-content:center;"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -159,10 +159,10 @@ function getNavTranslation(key: string): string {
           >
         </a>
 
-        <a href="https://intranet.fiestatoursperu.com" style="display: flex; align-items: center; justify-content: center;">
+        <a href="https://intranet.fiestatoursperu.com" class="iconouser" style="display: flex; align-items: center; justify-content: center;">
           <svg width="25" height="25" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-            <path fill="transparent" stroke="white"  d="M5 26.25V25C5 20.8579 8.35786 17.5 12.5 17.5H17.5C21.6421 17.5 25 20.8579 25 25V26.25" stroke-width="2" stroke-linecap="round"></path>
-            <path fill="transparent" stroke="white"  d="M15 13.75C12.2386 13.75 10 11.5114 10 8.75C10 5.98857 12.2386 3.75 15 3.75C17.7614 3.75 20 5.98857 20 8.75C20 11.5114 17.7614 13.75 15 13.75Z" stroke-width="2" stroke-linecap="round"></path>
+            <path fill="transparent" stroke="currentColor"  d="M5 26.25V25C5 20.8579 8.35786 17.5 12.5 17.5H17.5C21.6421 17.5 25 20.8579 25 25V26.25" stroke-width="2" stroke-linecap="round"></path>
+            <path fill="transparent" stroke="currentColor"  d="M15 13.75C12.2386 13.75 10 11.5114 10 8.75C10 5.98857 12.2386 3.75 15 3.75C17.7614 3.75 20 5.98857 20 8.75C20 11.5114 17.7614 13.75 15 13.75Z" stroke-width="2" stroke-linecap="round"></path>
           </svg>
         </a>
         
@@ -176,6 +176,34 @@ function getNavTranslation(key: string): string {
               font-family: var(--font-ppnue);
               text-decoration: none;
               animation: aparecerDesdeIzquierda 0.6s ease-out forwards;
+            }
+
+            .mail-menu-nav {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+              color: white;
+              font-family: var(--font-ppnue);
+              text-decoration: none;
+              animation: aparecerDesdeIzquierda 0.6s ease-out forwards;
+            }
+
+            #site-header.scrolled .mail-menu-nav {
+              color: rgba(11, 11, 11, 0.575);
+            }
+
+            .iconouser {
+              color: white;
+            }
+            
+
+            #site-header.scrolled .iconouser {
+              color: rgba(11, 11, 11, 0.575);
+            }
+
+
+            #site-header.scrolled .telefono-menu_nav {
+              color: rgba(11, 11, 11, 0.575);
             }
 
             .numero_telefono {
@@ -226,14 +254,16 @@ function getNavTranslation(key: string): string {
                       <span
                         class="top-bar-lang-link letritas active"
                         id="language_define"
-                        style="font-size: 15px; font-weight: normal; display:flex; gap: 10px; cursor:pointer;"
+                        style="font-size: 15px; font-weight: normal; display:flex; align-items:center; justify-content: center; gap: 10px; cursor:pointer;"
                       >
                         <img src={l.image} alt="logo_badera_idioma" class="logo_bandera">
 
                         {l.code}
                         <svg
-                          width="26"
-                          height="26"
+
+                          style="margin-top: -8px;"
+                          width="27"
+                          height="27"
                           viewBox="0 0 24 24"
                           fill="white"
                           xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +272,7 @@ function getNavTranslation(key: string): string {
                         >
                           <path
                             d="M15.6462 10.945C15.8415 11.1403 15.8415 11.4569 15.6462 11.6521L12.1107 15.1877C11.94 15.3584 11.6764 15.3805 11.4823 15.2526L11.4036 15.1877L7.86805 11.6521C7.67279 11.4569 7.67279 11.4036 7.86805 10.945C8.06333 10.75 8.37997 10.7499 8.57516 10.945L11.7571 14.127L14.9391 10.945C15.1343 10.7499 15.4509 10.75 15.6462 10.945Z"
-                            fill="white"
+                            fill="currentcolor"
                             stroke-width="1"
                           />
                         </svg>

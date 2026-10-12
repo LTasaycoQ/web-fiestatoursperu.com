@@ -455,35 +455,35 @@ miceHeroDescription: "Criamos e operamos programas de incentivo e experiências 
   },
 
   experienceTranslations: {
-    "experience_lima_title": "LIMA",
+    "experience_lima_title": "Lima",
     "experience_lima_desc": "A porta de entrada para o Peru.",
     "experience_lima_cta": "Conheça Lima",
 
-    "experience_cusco_title": "CUSCO",
+    "experience_cusco_title": "Cusco",
     "experience_cusco_desc": "O coração dos Andes.",
     "experience_cusco_cta": "Conheça Cusco",
 
-    "experience_valle_title": "VALE SAGRADO",
+    "experience_valle_title": "Vale Sagrado",
     "experience_valle_desc": "Paisagens que contam histórias.",
     "experience_valle_cta": "Conheça o Vale Sagrado",
 
-    "experience_machu_title": "MACHU PICCHU",
+    "experience_machu_title": "Machu Picchu",
     "experience_machu_desc": "Uma maravilha que transcende a viagem.",
     "experience_machu_cta": "Conheça Machu Picchu",
 
-    "experience_puno_title": "PUNO",
+    "experience_puno_title": "Puno",
     "experience_puno_desc": "O lago dos Andes.",
     "experience_puno_cta": "Conheça Puno",
 
-    "experience_arequipa_title": "AREQUIPA",
+    "experience_arequipa_title": "Arequipa",
     "experience_arequipa_desc": "Entre vulcões e tradições.",
     "experience_arequipa_cta": "Conheça Arequipa",
 
-    "experience_ica_title": "ICA, PARACAS & NAZCA",
+    "experience_ica_title": "Ica, Paracas & Nazca",
     "experience_ica_desc": "Deserto, oceano e mistério.",
     "experience_ica_cta": "Conheça a Costa Sul",
 
-    "experience_amazonia_title": "AMAZÔNIA",
+    "experience_amazonia_title": "Amazônia",
     "experience_amazonia_desc": "A natureza em sua máxima expressão.",
     "experience_amazonia_cta": "Conheça a Amazônia",
   },

@@ -6,6 +6,7 @@ import ApturLogo from "@assets/logos-Respaldo/Aptur.png";
 import SiteLogo from "@assets/logos-Respaldo/SITE.png";
 import TurismoCuscoLogo from "@assets/logos-Respaldo/tuRISMO-cUSCO.png";
 import UstoaLogo from "@assets/logos-Respaldo/ustoa_white.png";
+import { incentivosExperiences } from "src/data/incentivos";
 
 import logo_extra_certificacion from "@assets/certification/certificate.png";
 import prtect from "@assets/certification/PROTECT.png";
@@ -65,6 +66,18 @@ import LogoEs from "../../assets/log-png.png";
 
       <div class="footer-col-right">
         <div class="footer-links-newsletter">
+          <div class="footer-links">
+            <h4>{t.footer.destTitle}</h4>
+            <ul class="footer-destinations-list">
+              {incentivosExperiences.slice(0, 8).map((destination) => (
+                <li>
+                  <a href={localePath(lang, "/destinos")}>
+                    {t.incentivos.experienceTranslations[destination.titleKey]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
           {
             footerSections.map((section) => (
               <div class="footer-links">
@@ -235,8 +248,8 @@ import LogoEs from "../../assets/log-png.png";
 
   .footer-grid {
     display: grid;
-    grid-template-columns: minmax(280px, 0.65fr) 1fr;
-    gap: 48px;
+    grid-template-columns: minmax(260px, 0.45fr) minmax(0, 1fr);
+    gap: 32px;
     margin-bottom: 48px;
   }
 
@@ -276,7 +289,7 @@ import LogoEs from "../../assets/log-png.png";
     font-size: 13px;
     line-height: 1.6;
     color: #b0b0b0;
-    max-width: 320px;
+    max-width: 280px;
     margin: 0;
   }
 
@@ -357,6 +370,12 @@ import LogoEs from "../../assets/log-png.png";
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+
+  .footer-destinations-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 35px;
   }
 
   .footer-links li {
