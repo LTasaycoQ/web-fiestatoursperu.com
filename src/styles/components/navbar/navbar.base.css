@@ -23,7 +23,7 @@
 }
 
 #site-header.scrolled {
-  background: white;
+  background: #272b2b;
   backdrop-filter: blur(var(--navbar-blur));
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
@@ -91,9 +91,6 @@
   transition: filter 0.3s ease;
 }
 
-#site-header.scrolled .logo-image {
-  filter: none;
-}
 
 /* Badge animado */
 .logo-badge {
@@ -202,7 +199,7 @@
   transition: color 0.3s var(--navbar-transition);
 }
 
-#site-header.scrolled .nav-link-text {
+/* #site-header.scrolled .nav-link-text {
   color: var(--navbar-scrolled-text);
 }
 
@@ -219,7 +216,7 @@
 #site-header.scrolled .nav-link:hover .nav-link-text,
 #site-header.scrolled .nav-link.active .nav-link-text {
   color: var(--navbar-scrolled-accent);
-}
+} */
 
 
 .chevron {

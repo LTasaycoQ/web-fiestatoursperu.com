@@ -33,9 +33,6 @@
   border-radius: 2px;
 }
 
-#site-header.scrolled ~ .mobile-toggle span {
-  background: var(--navbar-scrolled-toggle-color, #292d28);
-}
 
 .mobile-toggle[aria-expanded="true"] span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
