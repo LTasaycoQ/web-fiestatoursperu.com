@@ -365,6 +365,7 @@ export const contacto: ContactoTranslations = {
   toastSending: 'Enviando...',
   toastSuccess: 'Mensagem enviada com sucesso! Em breve entraremos em contato.',
   toastRequestError: 'Não foi possível enviar sua mensagem. Tente novamente.',
+  toastCaptcha: 'Conclua a verificação de segurança antes de enviar sua solicitação.',
 };
 
 

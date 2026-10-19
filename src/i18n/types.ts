@@ -281,6 +281,7 @@ export interface ContactoTranslations {
   toastSending?: string;
   toastSuccess?: string;
   toastRequestError?: string;
+  toastCaptcha?: string;
 }
 
 // ─────────────────────────

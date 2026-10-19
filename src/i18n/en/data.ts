@@ -305,6 +305,7 @@ export const contacto: ContactoTranslations = {
   toastSending: 'Sending...',
   toastSuccess: 'Message sent successfully! We will contact you soon.',
   toastRequestError: 'Could not send your message. Please try again.',
+  toastCaptcha: 'Please complete the security check before sending your inquiry.',
 };
 
 // ─── INCENTIVES EN ───

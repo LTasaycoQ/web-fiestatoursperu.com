@@ -302,6 +302,7 @@ export const contacto: ContactoTranslations = {
   toastSending: 'Enviando...',
   toastSuccess: '¡Mensaje enviado con éxito! Te contactaremos pronto.',
   toastRequestError: 'No se pudo enviar el mensaje. Inténtalo de nuevo.',
+  toastCaptcha: 'Completa la verificación de seguridad para enviar tu consulta.',
 };
 
 // ─── INCENTIVOS ES ───
